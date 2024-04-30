@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net481</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <LibPath>lib</LibPath>
+    <R2ModManProfile>Staging</R2ModManProfile>
+  </PropertyGroup>
+
+  <!-- Valheim paths -->
+  <Choose>
+    <When Condition="($(OS) == 'Unix' OR $(OS) == 'OSX') AND $(GamePath) == ''">
+      <PropertyGroup>
+        <GamePath Condition="!Exists('$(GamePath)')">$(HOME)/.steam/steam/steamapps/common/Valheim</GamePath>
+        <GamePath Condition="!Exists('$(GamePath)')">$(HOME)/Library/Application Support/Steam/steamapps/common/Valheim/Contents/MacOS</GamePath>
+      </PropertyGroup>
+    </When>
+    <When Condition="($(OS) == 'Windows_NT') AND $(GamePath) == ''">
+      <PropertyGroup>
+        <GamePath Condition="!Exists('$(GamePath)')">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 892970', 'InstallLocation', null, RegistryView.Registry64, RegistryView.Registry32))</GamePath>
+        <_SteamLibraryPath>$([MSBuild]::GetRegistryValueFromView('HKEY_CURRENT_USER\SOFTWARE\Valve\Steam', 'SteamPath', null, RegistryView.Registry32))</_SteamLibraryPath>
+        <GamePath Condition="!Exists('$(GamePath)') AND '$(_SteamLibraryPath)' != ''">$(_SteamLibraryPath)\steamapps\common\Valheim</GamePath>
+        <GamePath Condition="!Exists('$(GamePath)')">C:\Program Files\Steam\steamapps\common\Valheim</GamePath>
+        <GamePath Condition="!Exists('$(GamePath)')">C:\Program Files (x86)\Steam\steamapps\common\Valheim</GamePath>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <PropertyGroup>
+    <ManagedPath Condition="!Exists('$(ManagedPath)') AND Exists('$(GamePath)')">$(GamePath)\valheim_Data\Managed</ManagedPath>
+    <PublicizedPath Condition="!Exists('$(PublicizedPath)') AND Exists('$(ManagedPath)')">$(ManagedPath)\publicized_assemblies</PublicizedPath>
+  </PropertyGroup>
+
+  <!-- BepInEx paths -->
+  <PropertyGroup>
+    <BepInExPath Condition="!Exists('$(BepInExPath)') AND ($(OS) == 'Windows_NT')">$(AppData)\r2modmanPlus-local\Valheim\profiles\$(R2ModManProfile)\BepInEx</BepInExPath>
+    <BepInExPath Condition="!Exists('$(BepInExPath)') AND Exists('$(GamePath)')">$(GamePath)\BepInEx</BepInExPath>
+    <PluginsPath>$(BepInExPath)\plugins</PluginsPath>
+  </PropertyGroup>
+
+  <!-- Jotunn paths -->
+  <PropertyGroup>
+    <VALHEIM_INSTALL>$(GamePath)</VALHEIM_INSTALL>
+    <BEPINEX_PATH>$(BepInExPath)</BEPINEX_PATH>
+    <ExecutePrebuild>true</ExecutePrebuild>
+  </PropertyGroup>
+
+  <!-- References -->
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExPath)\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="ItemManager">
+      <HintPath>$(LibPath)\ItemManager.dll</HintPath>
+    </Reference>
+    <Reference Include="LocalizationManager">
+      <HintPath>$(LibPath)\LocalizationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="PieceManager">
+      <HintPath>$(LibPath)\PieceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="SkillManager">
+      <HintPath>$(LibPath)\SkillManager.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedPath)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Packages -->
+  <ItemGroup>
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.26" />
+    <PackageReference Include="JotunnLib" Version="2.19.3" />
+  </ItemGroup>
+
+  <!-- Translations -->
+  <ItemGroup>
+    <EmbeddedResource Include="translations\*" />
+  </ItemGroup>
+
+  <!-- Copy to BepInEx plugins after IL repacking -->
+  <Target Name="CopyToPlugins" AfterTargets="ILRepack">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginsPath)" />
+    <Message Importance="High" Text="Copied $(TargetFileName) to $(PluginsPath)" />
+  </Target>
+</Project>
