@@ -10,7 +10,7 @@ public abstract class ReflectionPluginBase
   protected ReflectionPluginBase(string modGUID)
   {
     var pluginInfo = BepInEx.Bootstrap.Chainloader.PluginInfos[modGUID];
-    this.Assembly = Assembly.LoadFile(pluginInfo.Location);
+    this.Assembly = pluginInfo.Instance.GetType().Assembly;
   }
 
   public abstract void UnregisterToRemove(HashSet<string> toRemove);
