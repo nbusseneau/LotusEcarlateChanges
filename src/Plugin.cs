@@ -56,6 +56,7 @@ public class Plugin : BaseUnityPlugin
       new PotteryBarn(),
       new RtDBiomes(),
       new Vanilla(),
+      new VanillaArmors(),
     ];
 
     Harmony = new(ModGUID);
