@@ -11,7 +11,6 @@ public class VanillaArmors : ManualChangesBase
     var leatherHelm = ItemManager["HelmetLeather"];
     leatherHelm.Resources.Clear();
     leatherHelm.Resources.Add("LeatherScraps", 2, 1);
-    leatherHelm.Resources.Add("FoxPelt_TW", 2, 1);
     leatherHelm.Resources.Add("DeerHide", 2, 1);
     leatherHelm.Armor.ArmorBase = 1;
     leatherHelm.Armor.ArmorPerLevel = 1;
@@ -20,9 +19,8 @@ public class VanillaArmors : ManualChangesBase
 
     var leatherChest = ItemManager["ArmorLeatherChest"];
     leatherChest.Resources.Clear();
-    leatherChest.Resources.Add("DeerHide", 4, 2);
-    leatherChest.Resources.Add("LeatherScraps", 4, 2);
-    leatherChest.Resources.Add("FoxPelt_TW", 4, 2);
+    leatherChest.Resources.Add("DeerHide", 6, 3);
+    leatherChest.Resources.Add("LeatherScraps", 6, 3);
     leatherChest.Armor.ArmorBase = 3;
     leatherChest.Armor.ArmorPerLevel = 3;
     leatherChest.Armor.MovementModifier = 0f;
@@ -30,9 +28,8 @@ public class VanillaArmors : ManualChangesBase
 
     var leatherLegs = ItemManager["ArmorLeatherLegs"];
     leatherLegs.Resources.Clear();
-    leatherLegs.Resources.Add("DeerHide", 3, 2);
-    leatherLegs.Resources.Add("LeatherScraps", 3, 2);
-    leatherLegs.Resources.Add("FoxPelt_TW", 3, 2);
+    leatherLegs.Resources.Add("DeerHide", 4, 2);
+    leatherLegs.Resources.Add("LeatherScraps", 4, 2);
     leatherLegs.Armor.ArmorBase = 2;
     leatherLegs.Armor.ArmorPerLevel = 2;
     leatherLegs.Armor.MovementModifier = 0f;
@@ -42,7 +39,7 @@ public class VanillaArmors : ManualChangesBase
     leatherCape.Resources.Clear();
     leatherCape.Resources.Add("DeerHide", 3, 2);
     leatherCape.Resources.Add("LeatherScraps", 3, 2);
-    leatherCape.Resources.Add("FoxPelt_TW", 3, 2);
+    leatherCape.Resources.Add("FoxPelt_TW", 1, 0);
     leatherCape.Armor.DamageModifiers.Clear();
     leatherCape.Armor.DamageModifiers.Add(new()
     {
@@ -104,8 +101,7 @@ public class VanillaArmors : ManualChangesBase
     var bronzeHelm = ItemManager["HelmetBronze"];
     bronzeHelm.Resources.Clear();
     bronzeHelm.Resources.Add("Bronze", 2, 1);
-    bronzeHelm.Resources.Add("RazorbackLeather_TW", 4, 2);
-    bronzeHelm.Resources.Add("BlackBearPelt_TW", 2, 1);
+    bronzeHelm.Resources.Add("DeerHide", 2, 1);
     bronzeHelm.Armor.ArmorBase = 4;
     bronzeHelm.Armor.ArmorPerLevel = 2;
     bronzeHelm.Armor.MovementModifier = -0.01f;
@@ -113,9 +109,8 @@ public class VanillaArmors : ManualChangesBase
 
     var bronzeChest = ItemManager["ArmorBronzeChest"];
     bronzeChest.Resources.Clear();
-    bronzeChest.Resources.Add("Bronze", 8, 4);
-    bronzeChest.Resources.Add("RazorbackLeather_TW", 4, 2);
-    bronzeChest.Resources.Add("BlackBearPelt_TW", 2, 1);
+    bronzeChest.Resources.Add("Bronze", 6, 3);
+    bronzeChest.Resources.Add("DeerHide", 6, 3);
     bronzeChest.Armor.ArmorBase = 12;
     bronzeChest.Armor.ArmorPerLevel = 3;
     bronzeChest.Armor.MovementModifier = -0.06f;
@@ -124,8 +119,7 @@ public class VanillaArmors : ManualChangesBase
     var bronzeLegs = ItemManager["ArmorBronzeLegs"];
     bronzeLegs.Resources.Clear();
     bronzeLegs.Resources.Add("Bronze", 4, 2);
-    bronzeLegs.Resources.Add("RazorbackLeather_TW", 4, 2);
-    bronzeLegs.Resources.Add("BlackBearPelt_TW", 2, 1);
+    bronzeLegs.Resources.Add("DeerHide", 4, 2);
     bronzeLegs.Armor.ArmorBase = 8;
     bronzeLegs.Armor.ArmorPerLevel = 3;
     bronzeLegs.Armor.MovementModifier = -0.03f;
@@ -152,7 +146,7 @@ public class VanillaArmors : ManualChangesBase
     rootChest.Resources.Clear();
     rootChest.Resources.Add("Root", 8, 4);
     rootChest.Resources.Add("ElderBark", 16, 8);
-    rootChest.Resources.Add("RottenPelt_TW", 4, 2);
+    rootChest.Resources.Add("RottenPelt_TW", 4, 1);
     rootChest.Armor.ArmorBase = 11;
     rootChest.Armor.ArmorPerLevel = 3;
     rootChest.Armor.MovementModifier = -0.03f;
@@ -168,7 +162,7 @@ public class VanillaArmors : ManualChangesBase
     rootLegs.Resources.Clear();
     rootLegs.Resources.Add("Root", 6, 3);
     rootLegs.Resources.Add("ElderBark", 12, 6);
-    rootLegs.Resources.Add("RottenPelt_TW", 3, 2);
+    rootLegs.Resources.Add("RottenPelt_TW", 2, 1);
     rootLegs.Armor.ArmorBase = 7;
     rootLegs.Armor.ArmorPerLevel = 3;
     rootLegs.Armor.MovementModifier = -0.02f;
@@ -356,7 +350,7 @@ public class VanillaArmors : ManualChangesBase
     loxCape.Resources.Clear();
     loxCape.Resources.Add("LoxPelt", 6, 3);
     loxCape.Resources.Add("Silver", 6, 6);
-    loxCape.Resources.Add("LoxBone_TW", 6, 3);
+    loxCape.Resources.Add("LoxBone_TW", 2, 1);
     loxCape.Armor.DamageModifiers.Clear();
     loxCape.Armor.DamageModifiers.Add(new()
     {

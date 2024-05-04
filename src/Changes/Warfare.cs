@@ -82,7 +82,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     rottenCape.RequiredItems.Add("RottenPelt_TW", 6);
     rottenCape.RequiredItems.Add("Guck", 6);
     rottenCape.RequiredItems.Add("Ooze", 6);
-    rottenCape.RequiredItems.Add("TrophyCrawler_TW", 2);
+    rottenCape.RequiredItems.Add("TrophyCrawler_TW", 1);
     rottenCape.RequiredUpgradeItems.Clear();
     rottenCape.RequiredUpgradeItems.Add("RottenPelt_TW", 3);
     rottenCape.RequiredUpgradeItems.Add("Guck", 3);
