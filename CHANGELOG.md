@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Fix `Chieftain deer head` recipe to properly require deer trophies.
+
 ## [0.2.0] - 2024-05-01
 
 - Double the range of fireplace and torch-like prefabs to allow counterplay to the modpack's extremely dark nights.

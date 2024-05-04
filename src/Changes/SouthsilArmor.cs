@@ -43,7 +43,7 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     chieftainHelmDeer.RequiredItems.Add("DeerHide", 2);
     chieftainHelmDeer.RequiredItems.Add("LeatherScraps", 2);
     chieftainHelmDeer.RequiredItems.Add("FoxPelt_TW", 2);
-    chieftainHelmDeer.RequiredItems.Add("TrophyBoar", 2);
+    chieftainHelmDeer.RequiredItems.Add("TrophyDeer", 2);
     chieftainHelmDeer.RequiredUpgradeItems.Clear();
     chieftainHelmDeer.RequiredUpgradeItems.Add("DeerHide", 1);
     chieftainHelmDeer.RequiredUpgradeItems.Add("LeatherScraps", 1);
