@@ -18,6 +18,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("com.drakemods.Moregates", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("redseiko.valheim.potterybarn", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Soloredis.RtDBiomes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
@@ -45,6 +46,7 @@ public class Plugin : BaseUnityPlugin
       new ClayBuildPieces(),
       new CoreWoodPieces(),
       new FineWoodBuildPieces(),
+      new MonsterLabZ(),
       new Monstrum(),
       new SouthsilArmor(),
       new Warfare(),

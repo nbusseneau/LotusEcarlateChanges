@@ -64,8 +64,8 @@ public class Monstrum : ReflectionChangesBase<MonstrumPlugin>
     mixedGrill.Food.Stamina = 23;
 
     // Drops
-    plugin.CreatureManager["BossAsmodeus_TW"].RemoveDrop("KnifeViper_TW");
-    plugin.CreatureManager["BossSvalt_TW"].RemoveDrop("DualAxeDemonic_TW");
-    plugin.CreatureManager["BossVrykolathas_TW"].RemoveDrop("ScytheVampiric_TW");
+    plugin.CreatureManager["BossAsmodeus_TW"].Drops.Remove("KnifeViper_TW");
+    plugin.CreatureManager["BossSvalt_TW"].Drops.Remove("DualAxeDemonic_TW");
+    plugin.CreatureManager["BossVrykolathas_TW"].Drops.Remove("ScytheVampiric_TW");
   }
 }
