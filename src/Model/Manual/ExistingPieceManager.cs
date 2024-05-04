@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,8 +14,15 @@ public class ExistingPieceManager(ExistingItem item)
     {
       if (!_modified.ContainsKey(prefabName))
       {
-        var prefab = _item.Pieces.First(p => p.name == prefabName);
-        _modified[prefabName] = new(prefab);
+        try
+        {
+          var prefab = _item.Pieces.First(p => p.name == prefabName);
+          _modified[prefabName] = new(prefab);
+        }
+        catch (InvalidOperationException)
+        {
+          return null;
+        }
       }
       return _modified[prefabName];
     }
@@ -24,7 +32,7 @@ public class ExistingPieceManager(ExistingItem item)
   {
     foreach (var piece in _modified.Values)
     {
-      piece.Resources?.Save();
+      piece.Resources.Save();
     }
   }
 }

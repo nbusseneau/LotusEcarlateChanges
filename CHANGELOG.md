@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Adjust armor recipes to use less leather from Monstrum creatures considering spawn rates.
+- Adjust More Gates pieces to require additional materials (e.g. crystal for windows).
 
 ### Fixed
 
