@@ -31,7 +31,7 @@ public class Plugin : BaseUnityPlugin
 {
   private const string ModGUID = "nbusseneau.LotusEcarlateChanges";
   private const string ModName = "LotusEcarlateChanges";
-  private const string ModVersion = "0.3.0";
+  private const string ModVersion = "0.4.0";
 
   public static new ManualLogSource Logger;
   public static Harmony Harmony;
