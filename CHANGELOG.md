@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix MonsterLabZ spiders taking fall damage.
+- Fix MonsterLabZ brown spider still dropping Ooze.
 
 ## [0.3.0] - 2024-05-04
 

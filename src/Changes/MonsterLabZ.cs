@@ -8,6 +8,7 @@ public class MonsterLabZ : ReflectionChangesBase<MonsterLabZPlugin>
   protected override void ApplyChangesInternal()
   {
     // Drops
+    plugin.CreatureManager["BrownSpider"].Drops.Remove("Ooze");
     plugin.CreatureManager["TreeSpider"].Drops.Remove("Ooze");
     plugin.CreatureManager["GreenSpider"].Drops.Remove("Ooze");
     plugin.CreatureManager["Rainbow_Butterfly"].Drops.Remove("Ooze");
