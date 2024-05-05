@@ -9,6 +9,7 @@ public class Clutter : ManualChangesBase
   protected override void ApplyChangesInternal()
   {
     var clutterTool = ItemManager["$PlumgaClutterTool"];
+    var workbench = ZNetScene.instance?.GetPrefab("piece_workbench")?.GetComponent<CraftingStation>();
     var hammer = ItemManager["Hammer"];
 
     // Remove some pieces
@@ -22,12 +23,14 @@ public class Clutter : ManualChangesBase
       "$custompiece_statueevil_large",
     ];
 
-    // Relocate clutter pieces to Furniture and erase all comfort values
+    // Relocate clutter pieces to Furniture, erase all comfort values, and set
+    // workbench as requirement when none is defined
     foreach (var prefab in clutterTool.Pieces.Where(p => !toRemove.Contains(p.name)))
     {
       var piece = prefab.GetComponent<Piece>();
       piece.m_category = Piece.PieceCategory.Furniture;
       piece.m_comfort = 0;
+      piece.m_craftingStation ??= workbench;
       hammer.Pieces.Add(prefab);
     }
 
