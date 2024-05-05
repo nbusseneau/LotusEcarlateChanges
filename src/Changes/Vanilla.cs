@@ -87,5 +87,10 @@ public class Vanilla : ManualChangesBase
       if (!torchlikeRangesCache.ContainsKey(itemName)) torchlikeRangesCache[itemName] = light.range;
       light.range = torchlikeRangesCache[itemName] * LIGHT_RANGE_MULTIPLIER;
     }
+
+    // Torch durability
+    var torch = ItemManager["Torch"];
+    torch.ItemData.m_durability = 40f;
+    torch.SharedData.m_maxDurability = 40f;
   }
 }

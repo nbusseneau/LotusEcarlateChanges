@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add Workbench as requirement for Clutter pieces missing a workstation requirement.
+- Double Torch durability for even more counterplay to the modpack's extremely dark nights.
 
 ### Fixed
 
