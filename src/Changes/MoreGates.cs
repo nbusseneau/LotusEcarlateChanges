@@ -62,9 +62,6 @@ public class MoreGates : ManualChangesBase
       piece.m_category = categoryChanges[piece.name];
     }
 
-    Plugin.Logger.LogDebug(hammer);
-    foreach (var piece in hammer.Pieces) Plugin.Logger.LogDebug(piece.name);
-
     // Add iron to gate with metal
     pieceManager["Hayze_gate_01"]?.Resources.Add("Iron", 1);
 
