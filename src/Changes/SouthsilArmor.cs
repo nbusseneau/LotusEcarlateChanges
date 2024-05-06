@@ -2,6 +2,7 @@ using UnityEngine;
 using LotusEcarlateChanges.Model.Reflection;
 using LotusEcarlateChanges.Model.Reflection.Plugins;
 using LotusEcarlateChanges.Extensions;
+using ItemManager;
 
 namespace LotusEcarlateChanges.Changes;
 
@@ -18,6 +19,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var chieftainHelmBoar = plugin.ItemManager["chiefhelmboar"];
     chieftainHelmBoar.Name.Alias("$SouthsilArmor_ChieftainHelmBoar_Name");
     chieftainHelmBoar.Description.Alias("$SouthsilArmor_ChieftainHelmBoar_Description");
+    chieftainHelmBoar.Crafting.Clear();
+    chieftainHelmBoar.Crafting.Add((int)CraftingTable.Workbench, 2);
     chieftainHelmBoar.RequiredItems.Clear();
     chieftainHelmBoar.RequiredItems.Add("DeerHide", 2);
     chieftainHelmBoar.RequiredItems.Add("LeatherScraps", 2);
@@ -38,6 +41,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var chieftainHelmDeer = plugin.ItemManager["chiefhelmdeer"];
     chieftainHelmDeer.Name.Alias("$SouthsilArmor_ChieftainHelmDeer_Name");
     chieftainHelmDeer.Description.Alias("$SouthsilArmor_ChieftainHelmDeer_Description");
+    chieftainHelmDeer.Crafting.Clear();
+    chieftainHelmDeer.Crafting.Add((int)CraftingTable.Workbench, 2);
     chieftainHelmDeer.RequiredItems.Clear();
     chieftainHelmDeer.RequiredItems.Add("DeerHide", 2);
     chieftainHelmDeer.RequiredItems.Add("LeatherScraps", 2);
@@ -61,6 +66,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var chieftainChest = plugin.ItemManager["chiefchest"];
     chieftainChest.Name.Alias("$SouthsilArmor_ChieftainChest_Name");
     chieftainChest.Description.Alias("$SouthsilArmor_ChieftainChest_Description");
+    chieftainChest.Crafting.Clear();
+    chieftainChest.Crafting.Add((int)CraftingTable.Workbench, 2);
     chieftainChest.RequiredItems.Clear();
     chieftainChest.RequiredItems.Add("DeerHide", 6);
     chieftainChest.RequiredItems.Add("FoxPelt_TW", 3);
@@ -77,6 +84,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var chieftainLegs = plugin.ItemManager["chieflegs"];
     chieftainLegs.Name.Alias("$SouthsilArmor_ChieftainLegs_Name");
     chieftainLegs.Description.Alias("$SouthsilArmor_ChieftainLegs_Description");
+    chieftainLegs.Crafting.Clear();
+    chieftainLegs.Crafting.Add((int)CraftingTable.Workbench, 2);
     chieftainLegs.RequiredItems.Clear();
     chieftainLegs.RequiredItems.Add("DeerHide", 4);
     chieftainLegs.RequiredItems.Add("FoxPelt_TW", 2);
@@ -98,6 +107,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var battleswineHelm = plugin.ItemManager["heavybronzehelm"];
     battleswineHelm.Name.Alias("$SouthsilArmor_BattleswineHelm_Name");
     battleswineHelm.Description.Alias("$SouthsilArmor_BattleswineHelm_Description");
+    battleswineHelm.Crafting.Clear();
+    battleswineHelm.Crafting.Add((int)CraftingTable.Forge, 2);
     battleswineHelm.RequiredItems.Clear();
     battleswineHelm.RequiredItems.Add("Bronze", 2);
     battleswineHelm.RequiredItems.Add("RazorbackLeather_TW", 2);
@@ -115,6 +126,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var battleswineChest = plugin.ItemManager["heavybronzechest"];
     battleswineChest.Name.Alias("$SouthsilArmor_BattleswineChest_Name");
     battleswineChest.Description.Alias("$SouthsilArmor_BattleswineChest_Description");
+    battleswineChest.Crafting.Clear();
+    battleswineChest.Crafting.Add((int)CraftingTable.Forge, 2);
     battleswineChest.RequiredItems.Clear();
     battleswineChest.RequiredItems.Add("Bronze", 8);
     battleswineChest.RequiredItems.Add("RazorbackLeather_TW", 6);
@@ -131,6 +144,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var battleswineLegs = plugin.ItemManager["heavybronzelegs"];
     battleswineLegs.Name.Alias("$SouthsilArmor_BattleswineLegs_Name");
     battleswineLegs.Description.Alias("$SouthsilArmor_BattleswineLegs_Description");
+    battleswineLegs.Crafting.Clear();
+    battleswineLegs.Crafting.Add((int)CraftingTable.Forge, 2);
     battleswineLegs.RequiredItems.Clear();
     battleswineLegs.RequiredItems.Add("Bronze", 5);
     battleswineLegs.RequiredItems.Add("RazorbackLeather_TW", 3);
@@ -164,6 +179,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var draugrHelm = plugin.ItemManager["swamphelm"];
     draugrHelm.Name.Alias("$SouthsilArmor_DraugrHelm_Name");
     draugrHelm.Description.Alias("$SouthsilArmor_DraugrHelm_Description");
+    draugrHelm.Crafting.Clear();
+    draugrHelm.Crafting.Add((int)CraftingTable.Forge, 3);
     draugrHelm.RequiredItems.Clear();
     draugrHelm.RequiredItems.Add("Iron", 12);
     draugrHelm.RequiredItems.Add("RottenPelt_TW", 2);
@@ -182,6 +199,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var draugrChest = plugin.ItemManager["swampchest"];
     draugrChest.Name.Alias("$SouthsilArmor_DraugrChest_Name");
     draugrChest.Description.Alias("$SouthsilArmor_DraugrChest_Description");
+    draugrChest.Crafting.Clear();
+    draugrChest.Crafting.Add((int)CraftingTable.Forge, 3);
     draugrChest.RequiredItems.Clear();
     draugrChest.RequiredItems.Add("Iron", 36);
     draugrChest.RequiredItems.Add("RottenPelt_TW", 4);
@@ -198,6 +217,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var draugrLegs = plugin.ItemManager["swamplegs"];
     draugrLegs.Name.Alias("$SouthsilArmor_DraugrLegs_Name");
     draugrLegs.Description.Alias("$SouthsilArmor_DraugrLegs_Description");
+    draugrLegs.Crafting.Clear();
+    draugrLegs.Crafting.Add((int)CraftingTable.Forge, 3);
     draugrLegs.RequiredItems.Clear();
     draugrLegs.RequiredItems.Add("Iron", 24);
     draugrLegs.RequiredItems.Add("RottenPelt_TW", 2);
@@ -235,6 +256,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var grizzlyHelm = plugin.ItemManager["heavybearhelm"];
     grizzlyHelm.Name.Alias("$SouthsilArmor_GrizzlyHelm_Name");
     grizzlyHelm.Description.Alias("$SouthsilArmor_GrizzlyHelm_Description");
+    grizzlyHelm.Crafting.Clear();
+    grizzlyHelm.Crafting.Add((int)CraftingTable.Forge, 3);
     grizzlyHelm.RequiredItems.Clear();
     grizzlyHelm.RequiredItems.Add("Silver", 5);
     grizzlyHelm.RequiredItems.Add("GrizzlyBearPelt_TW", 1);
@@ -251,6 +274,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var grizzlyChest = plugin.ItemManager["heavybearchest"];
     grizzlyChest.Name.Alias("$SouthsilArmor_GrizzlyChest_Name");
     grizzlyChest.Description.Alias("$SouthsilArmor_GrizzlyChest_Description");
+    grizzlyChest.Crafting.Clear();
+    grizzlyChest.Crafting.Add((int)CraftingTable.Forge, 3);
     grizzlyChest.RequiredItems.Clear();
     grizzlyChest.RequiredItems.Add("Silver", 20);
     grizzlyChest.RequiredItems.Add("GrizzlyBearPelt_TW", 2);
@@ -267,6 +292,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var grizzlyLegs = plugin.ItemManager["heavybearlegs"];
     grizzlyLegs.Name.Alias("$SouthsilArmor_GrizzlyLegs_Name");
     grizzlyLegs.Description.Alias("$SouthsilArmor_GrizzlyLegs_Description");
+    grizzlyLegs.Crafting.Clear();
+    grizzlyLegs.Crafting.Add((int)CraftingTable.Forge, 3);
     grizzlyLegs.RequiredItems.Clear();
     grizzlyLegs.RequiredItems.Add("Silver", 10);
     grizzlyLegs.RequiredItems.Add("GrizzlyBearPelt_TW", 1);
@@ -308,6 +335,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var feralHelm = plugin.ItemManager["obswolfhelm"];
     feralHelm.Name.Alias("$SouthsilArmor_FeralHelm_Name");
     feralHelm.Description.Alias("$SouthsilArmor_FeralHelm_Description");
+    feralHelm.Crafting.Clear();
+    feralHelm.Crafting.Add((int)CraftingTable.Forge, 2);
     feralHelm.RequiredItems.Clear();
     feralHelm.RequiredItems.Add("BlackMetal", 4);
     feralHelm.RequiredItems.Add("WolfHairBundle", 10);
@@ -325,6 +354,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var feralChest = plugin.ItemManager["obswolfchest"];
     feralChest.Name.Alias("$SouthsilArmor_FeralChest_Name");
     feralChest.Description.Alias("$SouthsilArmor_FeralChest_Description");
+    feralChest.Crafting.Clear();
+    feralChest.Crafting.Add((int)CraftingTable.Forge, 2);
     feralChest.RequiredItems.Clear();
     feralChest.RequiredItems.Add("BlackMetal", 12);
     feralChest.RequiredItems.Add("LoxPelt", 4);
@@ -343,6 +374,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var feralLegs = plugin.ItemManager["obswolflegs"];
     feralLegs.Name.Alias("$SouthsilArmor_FeralLegs_Name");
     feralLegs.Description.Alias("$SouthsilArmor_FeralLegs_Description");
+    feralLegs.Crafting.Clear();
+    feralLegs.Crafting.Add((int)CraftingTable.Forge, 2);
     feralLegs.RequiredItems.Clear();
     feralLegs.RequiredItems.Add("BlackMetal", 8);
     feralLegs.RequiredItems.Add("LinenThread", 20);
@@ -381,6 +414,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var shieldmaidenHelm = plugin.ItemManager["norahhelm"];
     shieldmaidenHelm.Name.Alias("$SouthsilArmor_ShieldmaidenHelm_Name");
     shieldmaidenHelm.Description.Alias("$SouthsilArmor_ShieldmaidenHelm_Description");
+    shieldmaidenHelm.Crafting.Clear();
+    shieldmaidenHelm.Crafting.Add((int)CraftingTable.Forge, 2);
     shieldmaidenHelm.RequiredItems.Clear();
     shieldmaidenHelm.RequiredItems.Add("LinenThread", 10);
     shieldmaidenHelm.RequiredItems.Add("Coins", 500);
@@ -394,6 +429,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var shieldmaidenHelmAlt = plugin.ItemManager["norahhelmalt"];
     shieldmaidenHelmAlt.Name.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Name");
     shieldmaidenHelmAlt.Description.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Description");
+    shieldmaidenHelmAlt.Crafting.Clear();
+    shieldmaidenHelmAlt.Crafting.Add((int)CraftingTable.Forge, 2);
     shieldmaidenHelmAlt.RequiredItems.Clear();
     shieldmaidenHelmAlt.RequiredItems.Add("LinenThread", 10);
     shieldmaidenHelmAlt.RequiredItems.Add("LoxPelt", 1); ;
@@ -408,6 +445,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var shieldmaidenChest = plugin.ItemManager["norahchest"];
     shieldmaidenChest.Name.Alias("$SouthsilArmor_ShieldmaidenChest_Name");
     shieldmaidenChest.Description.Alias("$SouthsilArmor_ShieldmaidenChest_Description");
+    shieldmaidenChest.Crafting.Clear();
+    shieldmaidenChest.Crafting.Add((int)CraftingTable.Forge, 2);
     shieldmaidenChest.RequiredItems.Clear();
     shieldmaidenChest.RequiredItems.Add("Iron", 12);
     shieldmaidenChest.RequiredItems.Add("LinenThread", 30);
@@ -425,6 +464,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var shieldmaidenLegs = plugin.ItemManager["norahlegs"];
     shieldmaidenLegs.Name.Alias("$SouthsilArmor_ShieldmaidenLegs_Name");
     shieldmaidenLegs.Description.Alias("$SouthsilArmor_ShieldmaidenLegs_Description");
+    shieldmaidenLegs.Crafting.Clear();
+    shieldmaidenLegs.Crafting.Add((int)CraftingTable.Forge, 2);
     shieldmaidenLegs.RequiredItems.Clear();
     shieldmaidenLegs.RequiredItems.Add("Iron", 8);
     shieldmaidenLegs.RequiredItems.Add("LinenThread", 20);
@@ -460,6 +501,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var berserkerHelm = plugin.ItemManager["bearhelm2"];
     berserkerHelm.Name.Alias("$SouthsilArmor_BerserkerHelm_Name");
     berserkerHelm.Description.Alias("$SouthsilArmor_BerserkerHelm_Description");
+    berserkerHelm.Crafting.Clear();
+    berserkerHelm.Crafting.Add((int)CraftingTable.Forge, 3);
     berserkerHelm.RequiredItems.Clear();
     berserkerHelm.RequiredItems.Add("BlackMetal", 10);
     berserkerHelm.RequiredItems.Add("LinenThread", 10);
@@ -474,6 +517,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var berserkerChest = plugin.ItemManager["bearchest2"];
     berserkerChest.Name.Alias("$SouthsilArmor_BerserkerChest_Name");
     berserkerChest.Description.Alias("$SouthsilArmor_BerserkerChest_Description");
+    berserkerChest.Crafting.Clear();
+    berserkerChest.Crafting.Add((int)CraftingTable.Forge, 3);
     berserkerChest.RequiredItems.Clear();
     berserkerChest.RequiredItems.Add("BlackMetal", 30);
     berserkerChest.RequiredItems.Add("LinenThread", 30);
@@ -489,6 +534,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var berserkerLegs = plugin.ItemManager["bearlegs2"];
     berserkerLegs.Name.Alias("$SouthsilArmor_BerserkerLegs_Name");
     berserkerLegs.Description.Alias("$SouthsilArmor_BerserkerLegs_Description");
+    berserkerLegs.Crafting.Clear();
+    berserkerLegs.Crafting.Add((int)CraftingTable.Forge, 3);
     berserkerLegs.RequiredItems.Clear();
     berserkerLegs.RequiredItems.Add("BlackMetal", 20);
     berserkerLegs.RequiredItems.Add("LinenThread", 20);
@@ -524,6 +571,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var gjallhunterHelm = plugin.ItemManager["heavycarhelm"];
     gjallhunterHelm.Name.Alias("$SouthsilArmor_GjallhunterHelm_Name");
     gjallhunterHelm.Description.Alias("$SouthsilArmor_GjallhunterHelm_Description");
+    gjallhunterHelm.Crafting.Clear();
+    gjallhunterHelm.Crafting.Add((int)CraftingTable.BlackForge, 1);
     gjallhunterHelm.RequiredItems.Clear();
     gjallhunterHelm.RequiredItems.Add("Carapace", 8);
     gjallhunterHelm.RequiredItems.Add("Mandible", 2);
@@ -541,6 +590,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var gjallhunterChest = plugin.ItemManager["heavycarchest"];
     gjallhunterChest.Name.Alias("$SouthsilArmor_GjallhunterChest_Name");
     gjallhunterChest.Description.Alias("$SouthsilArmor_GjallhunterChest_Description");
+    gjallhunterChest.Crafting.Clear();
+    gjallhunterChest.Crafting.Add((int)CraftingTable.BlackForge, 1);
     gjallhunterChest.RequiredItems.Clear();
     gjallhunterChest.RequiredItems.Add("Carapace", 20);
     gjallhunterChest.RequiredItems.Add("Mandible", 6);
@@ -558,6 +609,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var gjallhunterLegs = plugin.ItemManager["heavycarlegs"];
     gjallhunterLegs.Name.Alias("$SouthsilArmor_GjallhunterLegs_Name");
     gjallhunterLegs.Description.Alias("$SouthsilArmor_GjallhunterLegs_Description");
+    gjallhunterLegs.Crafting.Clear();
+    gjallhunterLegs.Crafting.Add((int)CraftingTable.BlackForge, 1);
     gjallhunterLegs.RequiredItems.Clear();
     gjallhunterLegs.RequiredItems.Add("Carapace", 12);
     gjallhunterLegs.RequiredItems.Add("Mandible", 2);
@@ -594,6 +647,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var runeknightHelm = plugin.ItemManager["runeknighthelm"];
     runeknightHelm.Name.Alias("$SouthsilArmor_RuneknightHelm_Name");
     runeknightHelm.Description.Alias("$SouthsilArmor_RuneknightHelm_Description");
+    runeknightHelm.Crafting.Clear();
+    runeknightHelm.Crafting.Add((int)CraftingTable.BlackForge, 1);
     runeknightHelm.RequiredItems.Clear();
     runeknightHelm.RequiredItems.Add("BlackMetal", 10);
     runeknightHelm.RequiredItems.Add("Eitr", 15);
@@ -610,6 +665,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var runeknightChest = plugin.ItemManager["runeknightchest"];
     runeknightChest.Name.Alias("$SouthsilArmor_RuneknightChest_Name");
     runeknightChest.Description.Alias("$SouthsilArmor_RuneknightChest_Description");
+    runeknightChest.Crafting.Clear();
+    runeknightChest.Crafting.Add((int)CraftingTable.BlackForge, 1);
     runeknightChest.RequiredItems.Clear();
     runeknightChest.RequiredItems.Add("BlackMetal", 30);
     runeknightChest.RequiredItems.Add("Eitr", 20);
@@ -627,6 +684,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var runeknightLegs = plugin.ItemManager["runeknightlegs"];
     runeknightLegs.Name.Alias("$SouthsilArmor_RuneknightLegs_Name");
     runeknightLegs.Description.Alias("$SouthsilArmor_RuneknightLegs_Description");
+    runeknightLegs.Crafting.Clear();
+    runeknightLegs.Crafting.Add((int)CraftingTable.BlackForge, 1);
     runeknightLegs.RequiredItems.Clear();
     runeknightLegs.RequiredItems.Add("BlackMetal", 20);
     runeknightLegs.RequiredItems.Add("Eitr", 20);
@@ -660,6 +719,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var druidHelm = plugin.ItemManager["druidhelm"];
     druidHelm.Name.Alias("$SouthsilArmor_DruidHelm_Name");
     druidHelm.Description.Alias("$SouthsilArmor_DruidHelm_Description");
+    druidHelm.Crafting.Clear();
+    druidHelm.Crafting.Add((int)CraftingTable.MageTable, 1);
     druidHelm.RequiredItems.Clear();
     druidHelm.RequiredItems.Add("Silver", 30);
     druidHelm.RequiredItems.Add("Eitr", 15);
@@ -679,6 +740,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var druidChest = plugin.ItemManager["druidchest"];
     druidChest.Name.Alias("$SouthsilArmor_DruidChest_Name");
     druidChest.Description.Alias("$SouthsilArmor_DruidChest_Description");
+    druidChest.Crafting.Clear();
+    druidChest.Crafting.Add((int)CraftingTable.MageTable, 1);
     druidChest.RequiredItems.Clear();
     druidChest.RequiredItems.Add("BlackMetal", 40);
     druidChest.RequiredItems.Add("LinenThread", 30);
@@ -697,6 +760,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var druidLegs = plugin.ItemManager["druidlegs"];
     druidLegs.Name.Alias("$SouthsilArmor_DruidLegs_Name");
     druidLegs.Description.Alias("$SouthsilArmor_DruidLegs_Description");
+    druidLegs.Crafting.Clear();
+    druidLegs.Crafting.Add((int)CraftingTable.MageTable, 1);
     druidLegs.RequiredItems.Clear();
     druidLegs.RequiredItems.Add("BlackMetal", 30);
     druidLegs.RequiredItems.Add("LinenThread", 20);

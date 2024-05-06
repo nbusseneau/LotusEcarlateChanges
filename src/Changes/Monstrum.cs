@@ -6,6 +6,8 @@ namespace LotusEcarlateChanges.Changes;
 
 public class Monstrum : ReflectionChangesBase<MonstrumPlugin>
 {
+  const int Workbench = 2; // Warfare uses its own custom ItemManager with a different CraftingTable enum
+
   protected override void ApplyChangesInternal()
   {
     // Rugs
@@ -36,18 +38,24 @@ public class Monstrum : ReflectionChangesBase<MonstrumPlugin>
 
     // Saddles
     var saddleBoar = plugin.ItemManager["SaddleBoar_TW"];
+    saddleBoar.Crafting.Clear();
+    saddleBoar.Crafting.Add(Workbench, 2);
     saddleBoar.RequiredItems.Clear();
     saddleBoar.RequiredItems.Add("RazorbackLeather_TW", 10);
     saddleBoar.RequiredItems.Add("RazorbackTusk_TW", 12);
     saddleBoar.RequiredItems.Add("Bronze", 10);
 
     var saddleBear = plugin.ItemManager["SaddleBear_TW"];
+    saddleBear.Crafting.Clear();
+    saddleBear.Crafting.Add(Workbench, 3);
     saddleBear.RequiredItems.Clear();
     saddleBear.RequiredItems.Add("BlackBearPelt_TW", 10);
     saddleBear.RequiredItems.Add("GrizzlyBearPelt_TW", 10);
     saddleBear.RequiredItems.Add("Silver", 10);
 
     var saddleProwler = plugin.ItemManager["SaddleProwler_TW"];
+    saddleProwler.Crafting.Clear();
+    saddleProwler.Crafting.Add(Workbench, 4);
     saddleProwler.RequiredItems.Clear();
     saddleProwler.RequiredItems.Add("ProwlerFang_TW", 10);
     saddleProwler.RequiredItems.Add("LinenThread", 20);

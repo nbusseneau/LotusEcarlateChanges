@@ -67,7 +67,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("DualSwordScimitar_TW"); // DualSwords
     this.Keep("GreatbowBlackmetal_TW"); // Greatbow
     plugin.ItemManager["GreatbowBlackmetal_TW"].Crafting.Clear();
-    plugin.ItemManager["GreatbowBlackmetal_TW"].Crafting.Add((int)CraftingTable.Forge);
+    plugin.ItemManager["GreatbowBlackmetal_TW"].Crafting.Add((int)CraftingTable.Forge, 3);
 
     // Bucklers
     this.Keep("ShieldChitinBuckler_TW");
