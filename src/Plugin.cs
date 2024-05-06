@@ -20,6 +20,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("redseiko.valheim.potterybarn", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Soloredis.RtDBiomes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
@@ -43,6 +44,7 @@ public class Plugin : BaseUnityPlugin
 
     List<IChanges> patches = [
       // Reflection patches
+      new Backpacks(),
       new CapeAndTorchResistanceChanges(),
       new ClayBuildPieces(),
       new CoreWoodPieces(),
