@@ -8,7 +8,7 @@ namespace LotusEcarlateChanges.Changes;
 
 public class Vanilla : ManualChangesBase
 {
-  const float LIGHT_RANGE_MULTIPLIER = 2f;
+  const float LightRangeMultiplier = 2f;
   static readonly Dictionary<string, (float?, float?)> fireplaceRangesCache = [];
   static readonly Dictionary<string, float> torchlikeRangesCache = [];
 
@@ -63,14 +63,14 @@ public class Vanilla : ManualChangesBase
       var (high, low) = fireplaceRangesCache[prefab.name];
       if (fireplace.m_enabledObject is { } enabled && enabled.GetComponentInChildren<Light>() is { } light)
       {
-        light.range = high.Value * LIGHT_RANGE_MULTIPLIER;
+        light.range = high.Value * LightRangeMultiplier;
       }
       else if (fireplace.m_enabledObjectHigh is { } enabledHigh && enabledHigh.GetComponentInChildren<Light>() is { } lightHigh)
       {
-        lightHigh.range = high.Value * LIGHT_RANGE_MULTIPLIER;
+        lightHigh.range = high.Value * LightRangeMultiplier;
         if (fireplace.m_enabledObjectLow is { } enabledLow && enabledLow.GetComponentInChildren<Light>() is { } lightLow)
         {
-          lightLow.range = low.Value * LIGHT_RANGE_MULTIPLIER;
+          lightLow.range = low.Value * LightRangeMultiplier;
         }
       }
     }
@@ -85,7 +85,7 @@ public class Vanilla : ManualChangesBase
       var item = ItemManager[itemName];
       var light = item.Prefab.GetComponentInChildren<Light>(includeInactive: true);
       if (!torchlikeRangesCache.ContainsKey(itemName)) torchlikeRangesCache[itemName] = light.range;
-      light.range = torchlikeRangesCache[itemName] * LIGHT_RANGE_MULTIPLIER;
+      light.range = torchlikeRangesCache[itemName] * LightRangeMultiplier;
     }
 
     // Torch durability
