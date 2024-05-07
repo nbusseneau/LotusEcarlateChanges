@@ -17,6 +17,7 @@ public class BuildPiece : ReflectionObjectBase
   public string CustomCategory { get => this._category.GetCustom(); }
 
   public RequiredResourcesList RequiredItems { get; }
+  public BuildingPieceCraftingStationList Crafting { get; }
   public PieceTool Tool { get; }
 
   private readonly Comfort _comfort;
@@ -26,6 +27,7 @@ public class BuildPiece : ReflectionObjectBase
   {
     this._category = new(AccessTools.Field(buildPiece.GetType(), "Category").GetValue(buildPiece));
     this.RequiredItems = new(AccessTools.Field(buildPiece.GetType(), "RequiredItems").GetValue(buildPiece));
+    this.Crafting = new(AccessTools.Field(buildPiece.GetType(), "Crafting").GetValue(buildPiece));
     this.Tool = new(AccessTools.Field(buildPiece.GetType(), "Tool").GetValue(buildPiece));
 
     this.Prefab = (GameObject)AccessTools.Field(buildPiece.GetType(), "Prefab").GetValue(buildPiece);
