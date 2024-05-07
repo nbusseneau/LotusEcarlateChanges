@@ -12,7 +12,7 @@ public class PieceManager : ReflectionManagerBase<BuildPiece>
   private readonly IList _registeredPieces;
   private readonly List<GameObject> _prefabs;
 
-  public PieceManager(Assembly assembly, string assemblyNamespace = "PieceManager") : base(assembly)
+  public PieceManager(Assembly assembly, string assemblyNamespace = "PieceManager") : base(assembly, assemblyNamespace)
   {
     var buildPieceType = assembly.GetType($"{assemblyNamespace}.BuildPiece");
     var registeredPiecesField = AccessTools.DeclaredField(buildPieceType, "registeredPieces");

@@ -14,10 +14,10 @@ public class ItemManager : ReflectionManagerBase<Item>
   private readonly List<GameObject> _prefabs;
   private readonly List<GameObject> _zNetOnlyPrefabs;
 
-  public ItemManager(Assembly assembly) : base(assembly)
+  public ItemManager(Assembly assembly, string assemblyNamespace = "ItemManager") : base(assembly, assemblyNamespace)
   {
-    var itemType = assembly.GetType("ItemManager.Item");
-    var itemPrefabManagerType = assembly.GetType("ItemManager.PrefabManager");
+    var itemType = assembly.GetType($"{assemblyNamespace}.Item");
+    var itemPrefabManagerType = assembly.GetType($"{assemblyNamespace}.PrefabManager");
 
     var registeredItemsField = AccessTools.DeclaredField(itemType, "registeredItems");
     this._registeredItems = (IList)registeredItemsField.GetValue(null);

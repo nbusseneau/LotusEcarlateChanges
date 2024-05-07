@@ -14,9 +14,9 @@ public class SkillManager : ReflectionManagerBase<Skill>
   protected override object GetObjectFromStorage(string name) => this._skillByName[name];
   protected override ICollection GetAllObjectsFromStorage() => this._skills.Values;
 
-  public SkillManager(Assembly assembly) : base(assembly)
+  public SkillManager(Assembly assembly, string assemblyNamespace = "SkillManager") : base(assembly, assemblyNamespace)
   {
-    var skillType = assembly.GetType("SkillManager.Skill");
+    var skillType = assembly.GetType($"{assemblyNamespace}.Skill");
     var skillsField = AccessTools.DeclaredField(skillType, "skills");
     this._skills = (IDictionary)skillsField.GetValue(null);
 

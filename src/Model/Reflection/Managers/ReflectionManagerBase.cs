@@ -6,9 +6,10 @@ using LotusEcarlateChanges.Model.Reflection.Objects;
 
 namespace LotusEcarlateChanges.Model.Reflection.Managers;
 
-public abstract class ReflectionManagerBase<T>(Assembly assembly) where T : ReflectionObjectBase
+public abstract class ReflectionManagerBase<T>(Assembly assembly, string assemblyNamespace) where T : ReflectionObjectBase
 {
   protected readonly Assembly assembly = assembly;
+  protected readonly string assemblyNamespace = assemblyNamespace;
   protected readonly Dictionary<string, T> _cache = [];
 
   protected abstract object GetObjectFromStorage(string name);

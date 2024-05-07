@@ -13,13 +13,13 @@ public class CreatureManager : ReflectionManagerBase<Creature>
   private readonly IList _registeredCreatures;
   private readonly List<GameObject> _prefabs;
 
-  public CreatureManager(Assembly assembly) : base(assembly)
+  public CreatureManager(Assembly assembly, string assemblyNamespace = "CreatureManager") : base(assembly, assemblyNamespace)
   {
-    var creatureType = assembly.GetType("CreatureManager.Creature");
+    var creatureType = assembly.GetType($"{assemblyNamespace}.Creature");
     var registeredCreaturesField = AccessTools.DeclaredField(creatureType, "registeredCreatures");
     this._registeredCreatures = (IList)registeredCreaturesField.GetValue(null);
 
-    var creaturePrefabManagerType = assembly.GetType("CreatureManager.PrefabManager");
+    var creaturePrefabManagerType = assembly.GetType($"{assemblyNamespace}.PrefabManager");
     var prefabsField = AccessTools.DeclaredField(creaturePrefabManagerType, "prefabs");
     this._prefabs = (List<GameObject>)prefabsField.GetValue(null);
 
