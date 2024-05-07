@@ -74,6 +74,7 @@ public class Clutter : ManualChangesBase
       ["$custompiece_dragonstatuesmall"] = forge,
       ["$custompiece_lokistatue"] = forge,
       ["$custompiece_odinstatue"] = forge,
+      ["$custompiece_gravestone"] = stonecutter,
       ["$custompiece_statuecorgi"] = stonecutter,
       ["$custompiece_statuedeer"] = stonecutter,
       ["$custompiece_statueevil_small"] = stonecutter,
