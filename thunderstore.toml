@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Lotus_Ecarlate"
 name = "Lotus_Ecarlate_Changes"
-versionNumber = "0.5.0"
+versionNumber = "0.5.1"
 description = "Custom mod making targeted ad-hoc adjustments/tweaks to some other mods, intended to be used only by the Lotus Écarlate modpack."
 websiteUrl = "https://github.com/nbusseneau/LotusEcarlateChanges"
 containsNsfwContent = false

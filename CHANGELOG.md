@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2024-05-07
+
 ### Fixed
 
 - Fix crafting station requirements for Monstrum / Warfare / SouthsilArmor items.
@@ -66,7 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.5.0...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.5.1...HEAD
+[0.5.1]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.2.0...0.3.0
