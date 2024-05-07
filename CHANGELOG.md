@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix crafting station requirements for Monstrum / Warfare / SouthsilArmor items.
+- Fix station requirement for stone-based and metal-based pieces in Clutter and FineWoodBuildPieces.
 
 ## [0.5.0] - 2024-05-06
 
