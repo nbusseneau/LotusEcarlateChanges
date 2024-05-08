@@ -28,7 +28,7 @@ public class Vanilla : ManualChangesBase
     }
 
     // Skills
-    ItemManager["THSwordKrom"].SharedData.m_skillType = SkillManager.Skill.fromName(CustomSkills.TwoHandedSwords);
+    ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
     // Fireplace ranges
     // Do a first pass to build range cache

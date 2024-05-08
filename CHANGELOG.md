@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change SouthsilArmor armors to provide set effects with the new custom skills.
+
 ### Fixed
 
 - Fix station requirement for gravestone in Clutter.

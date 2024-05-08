@@ -3,6 +3,7 @@ using LotusEcarlateChanges.Model.Reflection;
 using LotusEcarlateChanges.Model.Reflection.Plugins;
 using LotusEcarlateChanges.Extensions;
 using ItemManager;
+using LotusEcarlateChanges.Model;
 
 namespace LotusEcarlateChanges.Changes;
 
@@ -164,6 +165,8 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     battleswineSetEffect.m_icon = battleswineHelm.ItemData.GetIcon();
     battleswineSetEffect.m_skillLevel = Skills.SkillType.Spears;
     battleswineSetEffect.m_skillLevelModifier = 15;
+    battleswineSetEffect.m_skillLevel2 = CustomSkills.Warpikes;
+    battleswineSetEffect.m_skillLevelModifier2 = 15;
 
     battleswineHelm.Set.Effect = battleswineSetEffect;
     battleswineHelm.Set.Name = "Battleswine";
@@ -312,7 +315,7 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     grizzlySetEffect.m_tooltip = "$SouthsilArmor_GrizzlySet_Effect_Tooltip";
     grizzlySetEffect.m_skillLevel = Skills.SkillType.Swords;
     grizzlySetEffect.m_skillLevelModifier = 15;
-    grizzlySetEffect.m_skillLevel2 = Skills.SkillType.Axes;
+    grizzlySetEffect.m_skillLevel2 = CustomSkills.TwoHandedSwords;
     grizzlySetEffect.m_skillLevelModifier2 = 15;
     grizzlySetEffect.m_mods.Clear();
     grizzlySetEffect.m_mods.Add(new()
@@ -551,9 +554,9 @@ public class SouthsilArmor : ReflectionChangesBase<SouthsilArmorPlugin>
     var berserkerSetEffect = berserkerHelm.Set.Effect;
     berserkerSetEffect.m_name = "$SouthsilArmor_BerserkerSet_Effect_Name";
     berserkerSetEffect.m_tooltip = "$SouthsilArmor_BerserkerSet_Effect_Tooltip";
-    berserkerSetEffect.m_skillLevel = Skills.SkillType.Polearms;
+    berserkerSetEffect.m_skillLevel = CustomSkills.TwoHandedAxes;
     berserkerSetEffect.m_skillLevelModifier = 15;
-    berserkerSetEffect.m_skillLevel2 = Skills.SkillType.Spears;
+    berserkerSetEffect.m_skillLevel2 = CustomSkills.TwoHandedHammers;
     berserkerSetEffect.m_skillLevelModifier2 = 15;
     berserkerSetEffect.m_healthRegenMultiplier = 1;
     berserkerSetEffect.m_staminaRegenMultiplier = 1;

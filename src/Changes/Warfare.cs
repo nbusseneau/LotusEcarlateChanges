@@ -121,7 +121,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "BattleaxeDvergr_TW",
     ];
     var twoHandedAxesSkillIcon = plugin.ItemManager["BattleaxeIron_TW"].ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.TwoHandedAxes, "$Warfare_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon, twoHandedAxes);
+    this.RegisterAttackSkill(CustomSkills.Names.TwoHandedAxes, "$Warfare_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon, twoHandedAxes);
 
     HashSet<string> twoHandedClubs = [
       "SledgeStagbreaker_TW",
@@ -132,7 +132,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "BattlehammerDvergr_TW",
     ];
     var twoHandedClubsSkillIcon = plugin.ItemManager["SledgeStagbreaker_TW"].ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.TwoHandedHammers, "$Warfare_TwoHandedClubsSkill_Description", twoHandedClubsSkillIcon, twoHandedClubs);
+    this.RegisterAttackSkill(CustomSkills.Names.TwoHandedHammers, "$Warfare_TwoHandedClubsSkill_Description", twoHandedClubsSkillIcon, twoHandedClubs);
 
     HashSet<string> twoHandedSwords = [
       "BastardBone_TW",
@@ -142,7 +142,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "BastardDvergr_TW",
     ];
     var twoHandedSwordsSkillIcon = plugin.ItemManager["BastardBone_TW"].ItemData.GetIcon();
-    var twoHanderSwordsSkill = this.RegisterAttackSkill(CustomSkills.TwoHandedSwords, "$Warfare_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon, twoHandedSwords);
+    var twoHanderSwordsSkill = this.RegisterAttackSkill(CustomSkills.Names.TwoHandedSwords, "$Warfare_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon, twoHandedSwords);
 
     HashSet<string> warpikes = [
       "WarpikeBone_TW",
@@ -152,7 +152,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "WarpikeDvergr_TW",
     ];
     var warpikesSkillIcon = plugin.ItemManager["WarpikeBone_TW"].ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.Warpikes, "$Warfare_WarpikesSkill_Description", warpikesSkillIcon, warpikes);
+    this.RegisterAttackSkill(CustomSkills.Names.Warpikes, "$Warfare_WarpikesSkill_Description", warpikesSkillIcon, warpikes);
 
     // Custom patches
     Plugin.Harmony.Patch(
