@@ -10,10 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Change SouthsilArmor armors to provide set effects with the new custom skills.
+- Change round shields movement speed modifier to -10%.
 
 ### Fixed
 
 - Fix station requirement for gravestone in Clutter.
+- Fix incorrect movement speed modifiers on Vanilla and Warfare items, notably two handed weapons and war pikes.
 
 ### Removed
 

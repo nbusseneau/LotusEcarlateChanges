@@ -16,22 +16,31 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("BattleaxeIron_TW");
     this.Keep("BattleaxeCrystal_TW");
     this.Keep("BattleaxeDvergr_TW");
+    plugin.ItemManager["BattleaxeIron_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["BattleaxeCrystal_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["SledgeStagbreaker_TW"].Weapon.MovementModifier = -0.10f;
 
     // Clubs
     this.Keep("MaceChitin_TW");
+    plugin.ItemManager["MaceChitin_TW"].Weapon.MovementModifier = -0.05f;
 
     // Sledgehammers
     this.Keep("SledgeStagbreaker_TW");
     this.Keep("SledgeIron_TW");
     this.Keep("SledgeBlackmetal_TW");
     this.Keep("SledgeDemolisher_TW");
-
     var sledgeStagBreaker = plugin.ItemManager["SledgeStagbreaker_TW"];
     sledgeStagBreaker.DropsFrom.Clear();
+    sledgeStagBreaker.Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["SledgeIron_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["SledgeBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["SledgeDemolisher_TW"].Weapon.MovementModifier = -0.10f;
 
     // Battlehammers
     this.Keep("BattlehammerTrollbone_TW");
     this.Keep("BattlehammerDvergr_TW");
+    plugin.ItemManager["BattlehammerTrollbone_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["BattlehammerDvergr_TW"].Weapon.MovementModifier = -0.10f;
 
     // Fists
     this.Keep("FistBronze_TW");
@@ -39,10 +48,17 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("FistIron_TW");
     this.Keep("FistSilver_TW");
     this.Keep("FistDvergr_TW");
+    plugin.ItemManager["FistBronze_TW"].Weapon.MovementModifier = 0f;
+    plugin.ItemManager["FistChitin_TW"].Weapon.MovementModifier = 0f;
+    plugin.ItemManager["FistIron_TW"].Weapon.MovementModifier = 0f;
+    plugin.ItemManager["FistSilver_TW"].Weapon.MovementModifier = 0f;
+    plugin.ItemManager["FistDvergr_TW"].Weapon.MovementModifier = 0f;
 
     // Lances
     this.Keep("LanceBlackmetal_TW");
     this.Keep("LanceDvergr_TW");
+    plugin.ItemManager["LanceBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["LanceDvergr_TW"].Weapon.MovementModifier = -0.10f;
 
     // Warpikes
     this.Keep("WarpikeBone_TW");
@@ -50,30 +66,46 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("WarpikeObsidian_TW");
     this.Keep("WarpikeBlackmetal_TW");
     this.Keep("WarpikeDvergr_TW");
+    plugin.ItemManager["WarpikeBone_TW"].Weapon.MovementModifier = -0.05f;
+    plugin.ItemManager["WarpikeChitin_TW"].Weapon.MovementModifier = -0.05f;
+    plugin.ItemManager["WarpikeObsidian_TW"].Weapon.MovementModifier = -0.05f;
+    plugin.ItemManager["WarpikeBlackmetal_TW"].Weapon.MovementModifier = -0.05f;
+    plugin.ItemManager["WarpikeDvergr_TW"].Weapon.MovementModifier = -0.05f;
 
     // Claymores
     this.Keep("ClaymoreIron_TW");
+    plugin.ItemManager["ClaymoreIron_TW"].Weapon.MovementModifier = -0.10f;
 
     // Bastard swords
     this.Keep("BastardBone_TW");
     this.Keep("BastardChitin_TW");
     this.Keep("BastardSilver_TW");
     this.Keep("BastardDvergr_TW");
-
+    plugin.ItemManager["BastardBone_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["BastardChitin_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["BastardSilver_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["BastardDvergr_TW"].Weapon.MovementModifier = -0.10f;
 
     // Specials / Uniques
     this.Keep("KnifeWrench_TW"); // Knife/Mace
     this.Keep("TridentBlackmetal_TW"); // Atgeir/Spear
     this.Keep("DualSwordScimitar_TW"); // DualSwords
     this.Keep("GreatbowBlackmetal_TW"); // Greatbow
-    plugin.ItemManager["GreatbowBlackmetal_TW"].Crafting.Clear();
-    plugin.ItemManager["GreatbowBlackmetal_TW"].Crafting.Add((int)CraftingTable.Forge, 3);
+    plugin.ItemManager["KnifeWrench_TW"].Weapon.MovementModifier = 0f;
+    plugin.ItemManager["TridentBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
+    plugin.ItemManager["DualSwordScimitar_TW"].Weapon.MovementModifier = -0.10f;
+    var blackmetalGreatbow = plugin.ItemManager["GreatbowBlackmetal_TW"];
+    blackmetalGreatbow.Crafting.Clear();
+    blackmetalGreatbow.Crafting.Add((int)CraftingTable.Forge, 3);
+    blackmetalGreatbow.Weapon.MovementModifier = -0.05f;
 
     // Bucklers
     this.Keep("ShieldChitinBuckler_TW");
+    plugin.ItemManager["ShieldChitinBuckler_TW"].Weapon.MovementModifier = -0.05f;
 
     // Shields
     this.Keep("ShieldChitin_TW");
+    plugin.ItemManager["ShieldChitin_TW"].Weapon.MovementModifier = -0.10f;
 
     // Capes
     this.Keep("CapeRotten_TW");

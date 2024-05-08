@@ -30,6 +30,19 @@ public class Vanilla : ManualChangesBase
     // Skills
     ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
+    // Atgeirs
+    ItemManager["AtgeirBronze"].Weapon.MovementModifier = -0.10f;
+    ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
+    ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
+    ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
+
+    // Shields
+    ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
+    ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
+    ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
+    ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
+    ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
+
     // Fireplace ranges
     // Do a first pass to build range cache
     var fireplacePrefabs = hammer.Pieces.Where(p => p.GetComponent<Fireplace>() is not null);
