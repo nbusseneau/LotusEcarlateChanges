@@ -22,7 +22,6 @@ namespace LotusEcarlateChanges;
 [BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("redseiko.valheim.potterybarn", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("Soloredis.RtDBiomes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
@@ -60,7 +59,6 @@ public class Plugin : BaseUnityPlugin
       new Clutter(),
       new MoreGates(),
       new PotteryBarn(),
-      new RtDBiomes(),
       new Vanilla(),
       new VanillaArmors(),
     ];

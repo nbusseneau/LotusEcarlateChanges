@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix station requirement for gravestone in Clutter.
 
+### Removed
+
+- Remove RtDBiomes traps removal as it's now handled by RtDBiomes itself.
+
 ## [0.5.1] - 2024-05-07
 
 ### Fixed
