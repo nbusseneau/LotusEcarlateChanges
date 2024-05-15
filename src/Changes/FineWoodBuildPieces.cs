@@ -1,14 +1,17 @@
-using PieceManager;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+extern alias FineWoodBuildPieces;
+
 using System.Collections.Generic;
+using FineWoodBuildPieces::PieceManager;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class FineWoodBuildPieces : ReflectionChangesBase<FineWoodBuildPiecesPlugin>
+public class FineWoodBuildPieces : ChangesBase
 {
   protected override void ApplyChangesInternal()
   {
+    var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
+
     // Remove most FineWoodFence pieces
     this.Remove("BFP_FenceGate");
     this.Remove("BFP_FencePillar1");
@@ -19,20 +22,20 @@ public class FineWoodBuildPieces : ReflectionChangesBase<FineWoodBuildPiecesPlug
     this.Remove("BFP_StepLadder1");
     this.Remove("BFP_StepLadder2");
 
-    foreach (var piece in plugin.PieceManager.GetAll())
+    foreach (var piece in pieceManager)
     {
       // Relocate Misc pieces to Furniture
-      if (piece.Category == (int)BuildPieceCategory.Misc) piece.Category = (int)BuildPieceCategory.Furniture;
+      if (piece.Category.Category == BuildPieceCategory.Misc) piece.Category.Set(BuildPieceCategory.Furniture);
       // Relocate custom FineWoodFence pieces to Misc
-      else if (piece.CustomCategory == "FineWoodFence") piece.Category = (int)BuildPieceCategory.Misc;
-      // Relocate custom FineWoodPieces pieces to Building
-      else if (piece.CustomCategory == "FineWoodPieces") piece.Category = (int)BuildPieceCategory.Building;
+      else if (piece.Category.custom == "FineWoodFence") piece.Category.Set(BuildPieceCategory.Misc);
+      // Relocate custom FineWoodPieces pieces to BuildingWorkbench
+      else if (piece.Category.custom == "FineWoodPieces") piece.Category.Set(BuildPieceCategory.BuildingWorkbench);
     }
 
     // Require Forge for heavy gate
-    plugin.PieceManager["BFP_HeavyGate"].Crafting.Set((int)CraftingTable.Forge);
+    pieceManager["BFP_HeavyGate"].Crafting.Set(CraftingTable.Forge);
 
-    // Require stonecutter for stone pieces
+    // Require stonecutter for stone pieces and move them to BuildingStonecutter
     List<string> toAdjust = [
       "BFP_StoneLightPost",
       "BFP_StoneRoof26",
@@ -46,7 +49,9 @@ public class FineWoodBuildPieces : ReflectionChangesBase<FineWoodBuildPiecesPlug
     ];
     foreach (var pieceName in toAdjust)
     {
-      plugin.PieceManager[pieceName].Crafting.Set((int)CraftingTable.StoneCutter);
+      var piece = pieceManager[pieceName];
+      piece.Crafting.Set(CraftingTable.StoneCutter);
+      piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
     }
   }
 }

@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support for 0.218.15 (Ashlands).
+
 ### Changed
 
+- Interface directly with plugins via publicized assemblies rather than via reflection.
 - Change SouthsilArmor armors to provide set effects with the new custom skills.
 - Change round shields movement speed modifier to -10%.
 

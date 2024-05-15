@@ -1,4 +1,4 @@
-namespace LotusEcarlateChanges.Model;
+namespace LotusEcarlateChanges.Model.Changes;
 
 public interface IChanges
 {

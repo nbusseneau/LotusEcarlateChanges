@@ -1,37 +1,49 @@
+extern alias ClayBuildPieces;
+
+using ClayBuildPieces::ClayBuildPieces.Functions;
+using ClayBuildPieces::PieceManager;
 using HarmonyLib;
-using PieceManager;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+using LotusEcarlateChanges.Extensions;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class ClayBuildPieces : ReflectionChangesBase<ClayBuildPiecesPlugin>
+public class ClayBuildPieces : ChangesBase
 {
   protected override void ApplyChangesInternal()
   {
+    var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
+
     // Remove armor stand and chest
     this.Remove("BFP_ClayArmorStand");
     this.Remove("BFP_ClayChest");
 
-    foreach (var piece in plugin.PieceManager.GetAll())
+    foreach (var piece in pieceManager)
     {
-      // Relocate custom ClayBuildPieces pieces to Building
-      if (piece.CustomCategory == "ClayBuildPieces") piece.Category = (int)BuildPieceCategory.Building;
+      // Relocate custom ClayBuildPieces pieces to BuildingWorkbench
+      if (piece.Category.custom == "ClayBuildPieces") piece.Category.Set(BuildPieceCategory.BuildingWorkbench);
       // Relocate Misc pieces to Furniture
-      if (piece.Category == (int)BuildPieceCategory.Misc) piece.Category = (int)BuildPieceCategory.Furniture;
+      if (piece.Category.Category == BuildPieceCategory.Misc) piece.Category.Set(BuildPieceCategory.Furniture);
     }
 
-    // Relocate clay collector to Crafting
-    plugin.PieceManager["BCP_ClayCollector"].Category = (int)BuildPieceCategory.Crafting;
+    // Relocate clay collector to Crafting and change recipe
+    var collector = pieceManager["BCP_ClayCollector"];
+    collector.Category.Set(BuildPieceCategory.Crafting);
+    collector.RequiredItems.Requirements.Clear();
+    collector.RequiredItems.Add("Stone", 20, true);
+    collector.RequiredItems.Add("Bronze", 10, true);
+    collector.RequiredItems.Add("FineWood", 20, true);
+    collector.RequiredItems.Add("SurtlingCore", 5, true);
+    collector.RequiredItems.Add("BFP_Clay", 30, true);
 
     // Adjust comfort
-    plugin.PieceManager["BFP_ClayCorgi"].Comfort.Value = 0;
-    plugin.PieceManager["BFP_ClayDeer"].Comfort.Value = 0;
-    plugin.PieceManager["BFP_ClayHare"].Comfort.Value = 0;
+    pieceManager["BFP_ClayCorgi"].Piece().Comfort.Value = 0;
+    pieceManager["BFP_ClayDeer"].Piece().Comfort.Value = 0;
+    pieceManager["BFP_ClayHare"].Piece().Comfort.Value = 0;
 
     // Custom patches
     Plugin.Harmony.Patch(
-      AccessTools.Method(plugin.Assembly.GetType("ClayBuildPieces.Functions.SetupPrefabs"), "SetupArmorStand"),
+      AccessTools.Method(typeof(SetupPrefabs), nameof(SetupPrefabs.SetupArmorStand)),
       prefix: new HarmonyMethod(this.GetType(), nameof(NoOpPrefix))
     );
   }

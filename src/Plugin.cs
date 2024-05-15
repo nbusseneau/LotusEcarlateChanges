@@ -6,7 +6,7 @@ using HarmonyLib;
 using Jotunn.Utils;
 using LocalizationManager;
 using LotusEcarlateChanges.Changes;
-using LotusEcarlateChanges.Model;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges;
 
@@ -42,7 +42,7 @@ public class Plugin : BaseUnityPlugin
     Logger = base.Logger;
 
     List<IChanges> patches = [
-      // Reflection patches
+      // Manager-based patches
       new Backpacks(),
       new CapeAndTorchResistanceChanges(),
       new ClayBuildPieces(),

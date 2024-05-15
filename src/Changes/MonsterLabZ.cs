@@ -1,19 +1,23 @@
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+extern alias MonsterLabZ;
+
+using LotusEcarlateChanges.Model.Changes;
+using MonsterLabZ::CreatureManager;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class MonsterLabZ : ReflectionChangesBase<MonsterLabZPlugin>
+public class MonsterLabZ : ChangesBase
 {
   protected override void ApplyChangesInternal()
   {
+    var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, PrefabManager.prefabs);
+
     // Drops
-    plugin.CreatureManager["BrownSpider"].Drops.Remove("Ooze");
-    plugin.CreatureManager["TreeSpider"].Drops.Remove("Ooze");
-    plugin.CreatureManager["GreenSpider"].Drops.Remove("Ooze");
-    plugin.CreatureManager["Rainbow_Butterfly"].Drops.Remove("Ooze");
-    plugin.CreatureManager["Rainbow_Butterfly"].Drops.Add("Amber");
-    plugin.CreatureManager["Green_Butterfly"].Drops.Remove("Ooze");
-    plugin.CreatureManager["Green_Butterfly"].Drops.Add("Amber");
+    creatureManager["BrownSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["TreeSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["GreenSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["Rainbow_Butterfly"].Drops.drops.Remove("Ooze");
+    creatureManager["Rainbow_Butterfly"].Drops.drops["Amber"] = new();
+    creatureManager["Green_Butterfly"].Drops.drops.Remove("Ooze");
+    creatureManager["Green_Butterfly"].Drops.drops["Amber"] = new();
   }
 }

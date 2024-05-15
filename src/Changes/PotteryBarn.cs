@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using LotusEcarlateChanges.Model.Manual;
-using LotusEcarlateChanges.Model.Wrappers;
 
 namespace LotusEcarlateChanges.Changes;
 
@@ -67,7 +66,7 @@ public class PotteryBarn : ManualChangesBase
     foreach (var prefab in hammer.Pieces.Where(p => toBuilding.Contains(p.name)))
     {
       var piece = prefab.GetComponent<Piece>();
-      piece.m_category = Piece.PieceCategory.Building;
+      piece.m_category = Piece.PieceCategory.BuildingWorkbench;
     }
 
     HashSet<string> toFurniture = [

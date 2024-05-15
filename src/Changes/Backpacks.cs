@@ -1,37 +1,40 @@
+extern alias Backpacks;
+
 using System;
-using System.Collections;
-using System.Reflection;
+using Backpacks::Backpacks;
+using Backpacks::ItemManager;
 using HarmonyLib;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Objects;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+using LotusEcarlateChanges.Extensions;
+using LotusEcarlateChanges.Model.Changes;
 using UnityEngine;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class Backpacks : ReflectionChangesBase<BackpacksPlugin>
+public class Backpacks : ChangesBase
 {
-  const float DefaultBackpackWeight = 4f;
-  const float WeightToMovespeedDecreaseRatio = 5f;
-  static MethodInfo getEquippedBackpackMethod;
-  static IDictionary loadedBackpacks;
-  static SE_Stats backpackEquipEffect;
+  private const float DefaultBackpackWeight = 4f;
+  private const float WeightToMovespeedDecreaseRatio = 5f;
+  private static SE_Backpack backpackEquipEffect;
 
   protected override void ApplyChangesInternal()
   {
-    getEquippedBackpackMethod = AccessTools.Method(plugin.Assembly.GetType("Backpacks.API"), "GetEquippedBackpack");
-    loadedBackpacks = (IDictionary)AccessTools.Field(plugin.Assembly.GetType("Backpacks.CustomBackpackConfig+Loader"), "loadedBackpacks").GetValue(null);
+    // Disable default backpack
+    var explorersBackpack = Backpacks::Backpacks.Backpacks.Backpack;
+    explorersBackpack.Crafting.Stations.Clear();
+    explorersBackpack.Crafting.Add(CraftingTable.Disabled, 1);
 
+    // Set up custom backpack equip effect
     backpackEquipEffect = ScriptableObject.CreateInstance<SE_Backpack>();
     backpackEquipEffect.name = "Backpack";
     backpackEquipEffect.m_name = "$Backpack_Effect_Name";
     backpackEquipEffect.m_tooltip = "$Backpack_Effect_Tooltip";
+    backpackEquipEffect.m_icon = explorersBackpack.Prefab.GetComponent<ItemDrop>().m_itemData.GetIcon();
 
+    // Register custom patches
     Plugin.Harmony.Patch(
-      AccessTools.Method(plugin.Assembly.GetType("Backpacks.CustomBackpackConfig+Loader"), "ApplyConfig"),
+      AccessTools.Method(typeof(CustomBackpackConfig.Loader), nameof(CustomBackpackConfig.Loader.ApplyConfig)),
       postfix: new HarmonyMethod(this.GetType(), nameof(EditLoadedBackpacks))
     );
-
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(ObjectDB), nameof(ObjectDB.Awake)),
       postfix: new HarmonyMethod(this.GetType(), nameof(RegisterSEBackpack))
@@ -44,33 +47,29 @@ public class Backpacks : ReflectionChangesBase<BackpacksPlugin>
 
   private static void EditLoadedBackpacks()
   {
-    foreach (var value in loadedBackpacks.Values)
+    foreach (var item in CustomBackpackConfig.Loader.loadedBackpacks.Values)
     {
-      Item item = new(value);
       item.Name.Alias("$Backpack_Name");
       item.Description.Alias("$Backpack_Description");
-      item.Armor.EquipEffect = backpackEquipEffect;
-      item.Armor.EquipEffect.m_icon = item.ItemData.GetIcon();
+      item.Item().Armor.EquipEffect = backpackEquipEffect;
     }
   }
 
   private static void RegisterSEBackpack(ObjectDB __instance)
   {
-    if (backpackEquipEffect is not null && !__instance.GetStatusEffect(backpackEquipEffect.name.GetStableHashCode()))
-    {
-      __instance.m_StatusEffects.Add(backpackEquipEffect);
-    }
+    var isAlreadyRegistered = __instance.GetStatusEffect(backpackEquipEffect.name.GetStableHashCode());
+    if (!isAlreadyRegistered) __instance.m_StatusEffects.Add(backpackEquipEffect);
   }
 
-  public class SE_Backpack : SE_Stats
+  private class SE_Backpack : SE_Stats
   {
-    public override void ModifySpeed(float baseSpeed, ref float speed)
+    public override void ModifySpeed(float baseSpeed, ref float speed, Character character, Vector3 dir)
     {
-      var equippedBackpack = (ItemDrop.ItemData)getEquippedBackpackMethod.Invoke(null, []);
+      var equippedBackpack = API.GetEquippedBackpack();
       var realBackpackWeight = equippedBackpack.GetWeight() - DefaultBackpackWeight;
       var movespeedDecrease = -realBackpackWeight / WeightToMovespeedDecreaseRatio / 100f;
       this.m_speedModifier = Math.Max(movespeedDecrease, -1f);
-      base.ModifySpeed(baseSpeed, ref speed);
+      base.ModifySpeed(baseSpeed, ref speed, character, dir);
     }
   }
 }

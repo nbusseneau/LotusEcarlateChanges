@@ -1,4 +1,4 @@
-namespace LotusEcarlateChanges.Model.Wrappers;
+namespace LotusEcarlateChanges.Model.Wrappers.Nested;
 
 public class Set(ItemDrop.ItemData.SharedData sharedData)
 {

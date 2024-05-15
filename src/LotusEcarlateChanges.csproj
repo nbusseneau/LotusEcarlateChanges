@@ -48,10 +48,28 @@
   <!-- References -->
   <ItemGroup>
     <Reference Include="$(LibPath)\*.dll" />
+    <Reference Include="$(PluginsPath)\ASharpPen-Fall_Damage_For_Creatures\Valheim.FallDamageForCreatures.dll" Aliases="FallDamageForCreatures" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Balrond-balrond_shipyard\BalrondShipyard.dll" Aliases="BalrondShipyard" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-ClayBuildPieces\ClayBuildPieces.dll" Aliases="ClayBuildPieces" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-CoreWoodPieces\CoreWoodPieces.dll" Aliases="CoreWoodPieces" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-FineWoodBuildPieces\FineWoodBuildPieces.dll" Aliases="FineWoodBuildPieces" Publicize="true" />
+    <Reference Include="$(PluginsPath)\ComfyMods-PotteryBarn\PotteryBarn.dll" Aliases="PotteryBarn" Publicize="true" />
+    <Reference Include="$(PluginsPath)\DrakeMods-More_Gates_PlusPlus\moregates++.dll" Aliases="MoreGates" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Goldenrevolver-Cape_And_Torch_Resistance_Rework_And_New_Water_And_Cold_Resistance\CapeAndTorchResistanceChanges.dll" Aliases="CapeAndTorchResistanceChanges" Publicize="true" />
+    <Reference Include="$(PluginsPath)\MonsterLabZ-MonsterLabZ\MonsterLabZ\MonsterLabZ.dll" Aliases="MonsterLabZ" Publicize="true" />
+    <Reference Include="$(PluginsPath)\plumga-Clutter\Clutter\Clutter.dll" Aliases="Clutter" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Smoothbrain-Backpacks\Backpacks.dll" Aliases="Backpacks" Publicize="true" />
+    <Reference Include="$(PluginsPath)\southsil-SouthsilArmor\SouthsilArmor.dll" Aliases="SouthsilArmor" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Therzie-Monstrum\Monstrum.dll" Aliases="Monstrum" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Therzie-Warfare\Warfare.dll" Aliases="Warfare" Publicize="true" />
   </ItemGroup>
 
   <!-- Packages -->
   <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.32">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

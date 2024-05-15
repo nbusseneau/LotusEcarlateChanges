@@ -1,11 +1,12 @@
+extern alias FallDamageForCreatures;
+
 using System.Collections.Generic;
-using HarmonyLib;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+using FallDamageForCreatures::Valheim.FallDamageForCreatures;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class FallDamageForCreatures : ReflectionChangesBase<FallDamageForCreaturesPlugin>
+public class FallDamageForCreatures : ChangesBase
 {
   protected override void ApplyChangesInternal()
   {
@@ -24,8 +25,6 @@ public class FallDamageForCreatures : ReflectionChangesBase<FallDamageForCreatur
       "Spider_Hatchling",
     ];
 
-    var fallDamagePatchType = plugin.Assembly.GetType("Valheim.FallDamageForCreatures.FallDamagePatch");
-    var blacklisted = (HashSet<int>)AccessTools.Property(fallDamagePatchType, "BlackListed").GetValue(null);
-    foreach (var monsterName in toBlacklist) blacklisted.Add(monsterName.GetStableHashCode());
+    foreach (var monsterName in toBlacklist) FallDamagePatch.BlackListed.Add(monsterName.GetStableHashCode());
   }
 }

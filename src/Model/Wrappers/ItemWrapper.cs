@@ -1,28 +1,14 @@
-using System.Collections.Generic;
-using UnityEngine;
+using HarmonyLib;
 using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Wrappers.Nested;
+using UnityEngine;
 
-namespace LotusEcarlateChanges.Model.Manual;
+namespace LotusEcarlateChanges.Model.Wrappers;
 
-public class ExistingItem
+public class ItemWrapper : WrapperBase
 {
-  public GameObject Prefab { get; }
   public ItemDrop.ItemData ItemData { get; }
   public ItemDrop.ItemData.SharedData SharedData { get; }
-
-  public Wrappers.Resources _resources;
-  public Wrappers.Resources Resources
-  {
-    get
-    {
-      if (_resources is not null) return _resources;
-      if (ObjectDB.instance.GetRecipe(this.ItemData) is { } recipe) return _resources = new(recipe);
-      return null;
-    }
-  }
-
-  public List<GameObject> Pieces { get => this.SharedData.m_buildPieces?.m_pieces; }
 
   private readonly Armor _armor;
   public Armor Armor { get => this._armor; set => this._armor.CopyProperties(value); }
@@ -33,9 +19,8 @@ public class ExistingItem
   private readonly Weapon _weapon;
   public Weapon Weapon { get => this._weapon; set => this._weapon.CopyProperties(value); }
 
-  public ExistingItem(GameObject prefab)
+  protected ItemWrapper(GameObject prefab) : base(prefab)
   {
-    this.Prefab = prefab;
     this.ItemData = this.Prefab.GetComponent<ItemDrop>().m_itemData;
     this.SharedData = this.ItemData.m_shared;
 
@@ -43,5 +28,11 @@ public class ExistingItem
     this._food = new(this.SharedData);
     this._set = new(this.SharedData);
     this._weapon = new(this.SharedData);
+  }
+
+  public static ItemWrapper Get(GameObject prefab)
+  {
+    var wrapper = _cache.GetValueSafe(prefab.name) ?? (_cache[prefab.name] = new ItemWrapper(prefab));
+    return (ItemWrapper)wrapper;
   }
 }

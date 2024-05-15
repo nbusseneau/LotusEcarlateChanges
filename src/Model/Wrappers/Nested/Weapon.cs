@@ -1,4 +1,4 @@
-namespace LotusEcarlateChanges.Model.Wrappers;
+namespace LotusEcarlateChanges.Model.Wrappers.Nested;
 
 public class Weapon(ItemDrop.ItemData.SharedData sharedData)
 {

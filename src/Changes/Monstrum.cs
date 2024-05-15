@@ -1,79 +1,86 @@
-using PieceManager;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+extern alias Monstrum;
+
+using LotusEcarlateChanges.Extensions;
+using LotusEcarlateChanges.Model.Changes;
+using Monstrum::CreatureManager;
+using Monstrum::ItemManager;
+using Monstrum::PieceManager;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class Monstrum : ReflectionChangesBase<MonstrumPlugin>
+public class Monstrum : ChangesBase
 {
-  const int Workbench = 2; // Warfare uses its own custom ItemManager with a different CraftingTable enum
-
   protected override void ApplyChangesInternal()
   {
+    var itemManager = this.RegisterItemManager(Item.registeredItems, Monstrum::ItemManager.PrefabManager.prefabs, Monstrum::ItemManager.PrefabManager.ZnetOnlyPrefabs);
+    var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
+    var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Monstrum::CreatureManager.PrefabManager.prefabs);
+
     // Rugs
-    var foxRug = plugin.PieceManager["rug_Fox_TW"];
-    foxRug.RequiredItems.Clear();
-    foxRug.RequiredItems.Add("FoxPelt_TW", 4);
-    foxRug.Category = (int)BuildPieceCategory.Furniture;
-    foxRug.Comfort.Value = 1;
-    foxRug.Comfort.Group = Piece.ComfortGroup.Carpet;
+    var foxRug = pieceManager["rug_Fox_TW"];
+    foxRug.RequiredItems.Requirements.Clear();
+    foxRug.RequiredItems.Add("FoxPelt_TW", 4, true);
+    foxRug.Category.Set(BuildPieceCategory.Furniture);
+    var foxRugPiece = foxRug.Piece();
+    foxRugPiece.Comfort.Value = 1;
+    foxRugPiece.Comfort.Group = Piece.ComfortGroup.Carpet;
 
-    var rottenRug = plugin.PieceManager["rug_Rotten_TW"];
-    rottenRug.RequiredItems.Clear();
-    rottenRug.RequiredItems.Add("RottenPelt_TW", 4);
-    rottenRug.Category = foxRug.Category;
-    rottenRug.Comfort = foxRug.Comfort;
+    var rottenRug = pieceManager["rug_Rotten_TW"];
+    rottenRug.RequiredItems.Requirements.Clear();
+    rottenRug.RequiredItems.Add("RottenPelt_TW", 4, true);
+    rottenRug.Category.Set(BuildPieceCategory.Furniture);
+    rottenRug.Piece().Comfort = foxRugPiece.Comfort;
 
-    var bearRug = plugin.PieceManager["rug_BlackBear_TW"];
-    bearRug.RequiredItems.Clear();
-    bearRug.RequiredItems.Add("BlackBearPelt_TW", 4);
-    bearRug.Category = foxRug.Category;
-    bearRug.Comfort = foxRug.Comfort;
+    var bearRug = pieceManager["rug_BlackBear_TW"];
+    bearRug.RequiredItems.Requirements.Clear();
+    bearRug.RequiredItems.Add("BlackBearPelt_TW", 4, true);
+    bearRug.Category.Set(BuildPieceCategory.Furniture);
+    bearRug.Piece().Comfort = foxRugPiece.Comfort;
 
-    var grizzlyRug = plugin.PieceManager["rug_GrizzlyBear_TW"];
-    grizzlyRug.RequiredItems.Clear();
-    grizzlyRug.RequiredItems.Add("GrizzlyBearPelt_TW", 4);
-    grizzlyRug.Category = foxRug.Category;
-    grizzlyRug.Comfort = foxRug.Comfort;
+    var grizzlyRug = pieceManager["rug_GrizzlyBear_TW"];
+    grizzlyRug.RequiredItems.Requirements.Clear();
+    grizzlyRug.RequiredItems.Add("GrizzlyBearPelt_TW", 4, true);
+    grizzlyRug.Category.Set(BuildPieceCategory.Furniture);
+    grizzlyRug.Piece().Comfort = foxRugPiece.Comfort;
 
     // Saddles
-    var saddleBoar = plugin.ItemManager["SaddleBoar_TW"];
-    saddleBoar.Crafting.Clear();
-    saddleBoar.Crafting.Add(Workbench, 2);
-    saddleBoar.RequiredItems.Clear();
+    var saddleBoar = itemManager["SaddleBoar_TW"];
+    saddleBoar.Crafting.Stations.Clear();
+    saddleBoar.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 2);
+    saddleBoar.RequiredItems.Requirements.Clear();
     saddleBoar.RequiredItems.Add("RazorbackLeather_TW", 10);
     saddleBoar.RequiredItems.Add("RazorbackTusk_TW", 12);
     saddleBoar.RequiredItems.Add("Bronze", 10);
 
-    var saddleBear = plugin.ItemManager["SaddleBear_TW"];
-    saddleBear.Crafting.Clear();
-    saddleBear.Crafting.Add(Workbench, 3);
-    saddleBear.RequiredItems.Clear();
+    var saddleBear = itemManager["SaddleBear_TW"];
+    saddleBear.Crafting.Stations.Clear();
+    saddleBear.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 3);
+    saddleBear.RequiredItems.Requirements.Clear();
     saddleBear.RequiredItems.Add("BlackBearPelt_TW", 10);
     saddleBear.RequiredItems.Add("GrizzlyBearPelt_TW", 10);
     saddleBear.RequiredItems.Add("Silver", 10);
 
-    var saddleProwler = plugin.ItemManager["SaddleProwler_TW"];
-    saddleProwler.Crafting.Clear();
-    saddleProwler.Crafting.Add(Workbench, 4);
-    saddleProwler.RequiredItems.Clear();
+    var saddleProwler = itemManager["SaddleProwler_TW"];
+    saddleProwler.Crafting.Stations.Clear();
+    saddleProwler.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 4);
+    saddleProwler.RequiredItems.Requirements.Clear();
     saddleProwler.RequiredItems.Add("ProwlerFang_TW", 10);
     saddleProwler.RequiredItems.Add("LinenThread", 20);
     saddleProwler.RequiredItems.Add("LoxPelt", 4);
     saddleProwler.RequiredItems.Add("BlackMetal", 10);
 
     // Food
-    var cookedBearSteak = plugin.ItemManager["CookedBearSteak_TW"];
-    cookedBearSteak.Food.Stamina = 13;
-    cookedBearSteak.Food.Duration = 1200;
+    var cookedBearSteak = itemManager["CookedBearSteak_TW"];
+    cookedBearSteak.Item().Food.Stamina = 13;
+    cookedBearSteak.Item().Food.Duration = 1200;
 
-    var mixedGrill = plugin.ItemManager["MixedGrill_TW"];
-    mixedGrill.Food.Health = 70;
-    mixedGrill.Food.Stamina = 23;
+    var mixedGrill = itemManager["MixedGrill_TW"];
+    mixedGrill.Item().Food.Health = 70;
+    mixedGrill.Item().Food.Stamina = 23;
 
     // Drops
-    plugin.CreatureManager["BossAsmodeus_TW"].Drops.Remove("KnifeViper_TW");
-    plugin.CreatureManager["BossSvalt_TW"].Drops.Remove("DualAxeDemonic_TW");
-    plugin.CreatureManager["BossVrykolathas_TW"].Drops.Remove("ScytheVampiric_TW");
+    creatureManager["BossAsmodeus_TW"].Drops.drops.Remove("KnifeViper_TW");
+    creatureManager["BossSvalt_TW"].Drops.drops.Remove("DualAxeDemonic_TW");
+    creatureManager["BossVrykolathas_TW"].Drops.drops.Remove("ScytheVampiric_TW");
   }
 }

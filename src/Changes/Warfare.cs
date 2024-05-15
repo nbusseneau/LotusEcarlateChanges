@@ -1,46 +1,58 @@
+extern alias Warfare;
+
 using System.Collections.Generic;
 using HarmonyLib;
-using ItemManager;
-using UnityEngine;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model;
+using LotusEcarlateChanges.Model.Changes;
+using LotusEcarlateChanges.Model.Managers;
+using UnityEngine;
+using Warfare::ItemManager;
+using Warfare::PieceManager;
+using Warfare::Warfare;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class Warfare : ReflectionChangesBase<WarfarePlugin>
+public class Warfare : ChangesBase
 {
+  private static ItemManager<Item> itemManager;
+
   protected override void ApplyChangesInternal()
   {
+    itemManager = this.RegisterItemManager(Item.registeredItems, PrefabManager.prefabs, PrefabManager.ZnetOnlyPrefabs);
+
+    // Remove fletcher table pieces
+    var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
+
     // Battleaxes
     this.Keep("BattleaxeIron_TW");
     this.Keep("BattleaxeCrystal_TW");
     this.Keep("BattleaxeDvergr_TW");
-    plugin.ItemManager["BattleaxeIron_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["BattleaxeCrystal_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["SledgeStagbreaker_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["BattleaxeIron_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["BattleaxeCrystal_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["SledgeStagbreaker_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Clubs
     this.Keep("MaceChitin_TW");
-    plugin.ItemManager["MaceChitin_TW"].Weapon.MovementModifier = -0.05f;
+    itemManager["MaceChitin_TW"].Item().Weapon.MovementModifier = -0.05f;
 
     // Sledgehammers
     this.Keep("SledgeStagbreaker_TW");
     this.Keep("SledgeIron_TW");
     this.Keep("SledgeBlackmetal_TW");
     this.Keep("SledgeDemolisher_TW");
-    var sledgeStagBreaker = plugin.ItemManager["SledgeStagbreaker_TW"];
-    sledgeStagBreaker.DropsFrom.Clear();
-    sledgeStagBreaker.Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["SledgeIron_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["SledgeBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["SledgeDemolisher_TW"].Weapon.MovementModifier = -0.10f;
+    var sledgeStagBreaker = itemManager["SledgeStagbreaker_TW"];
+    sledgeStagBreaker.DropsFrom.Drops.Clear();
+    sledgeStagBreaker.Item().Weapon.MovementModifier = -0.10f;
+    itemManager["SledgeIron_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["SledgeBlackmetal_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["SledgeDemolisher_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Battlehammers
     this.Keep("BattlehammerTrollbone_TW");
     this.Keep("BattlehammerDvergr_TW");
-    plugin.ItemManager["BattlehammerTrollbone_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["BattlehammerDvergr_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["BattlehammerTrollbone_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["BattlehammerDvergr_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Fists
     this.Keep("FistBronze_TW");
@@ -48,17 +60,17 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("FistIron_TW");
     this.Keep("FistSilver_TW");
     this.Keep("FistDvergr_TW");
-    plugin.ItemManager["FistBronze_TW"].Weapon.MovementModifier = 0f;
-    plugin.ItemManager["FistChitin_TW"].Weapon.MovementModifier = 0f;
-    plugin.ItemManager["FistIron_TW"].Weapon.MovementModifier = 0f;
-    plugin.ItemManager["FistSilver_TW"].Weapon.MovementModifier = 0f;
-    plugin.ItemManager["FistDvergr_TW"].Weapon.MovementModifier = 0f;
+    itemManager["FistBronze_TW"].Item().Weapon.MovementModifier = 0f;
+    itemManager["FistChitin_TW"].Item().Weapon.MovementModifier = 0f;
+    itemManager["FistIron_TW"].Item().Weapon.MovementModifier = 0f;
+    itemManager["FistSilver_TW"].Item().Weapon.MovementModifier = 0f;
+    itemManager["FistDvergr_TW"].Item().Weapon.MovementModifier = 0f;
 
     // Lances
     this.Keep("LanceBlackmetal_TW");
     this.Keep("LanceDvergr_TW");
-    plugin.ItemManager["LanceBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["LanceDvergr_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["LanceBlackmetal_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["LanceDvergr_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Warpikes
     this.Keep("WarpikeBone_TW");
@@ -66,61 +78,61 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     this.Keep("WarpikeObsidian_TW");
     this.Keep("WarpikeBlackmetal_TW");
     this.Keep("WarpikeDvergr_TW");
-    plugin.ItemManager["WarpikeBone_TW"].Weapon.MovementModifier = -0.05f;
-    plugin.ItemManager["WarpikeChitin_TW"].Weapon.MovementModifier = -0.05f;
-    plugin.ItemManager["WarpikeObsidian_TW"].Weapon.MovementModifier = -0.05f;
-    plugin.ItemManager["WarpikeBlackmetal_TW"].Weapon.MovementModifier = -0.05f;
-    plugin.ItemManager["WarpikeDvergr_TW"].Weapon.MovementModifier = -0.05f;
+    itemManager["WarpikeBone_TW"].Item().Weapon.MovementModifier = -0.05f;
+    itemManager["WarpikeChitin_TW"].Item().Weapon.MovementModifier = -0.05f;
+    itemManager["WarpikeObsidian_TW"].Item().Weapon.MovementModifier = -0.05f;
+    itemManager["WarpikeBlackmetal_TW"].Item().Weapon.MovementModifier = -0.05f;
+    itemManager["WarpikeDvergr_TW"].Item().Weapon.MovementModifier = -0.05f;
 
     // Claymores
     this.Keep("ClaymoreIron_TW");
-    plugin.ItemManager["ClaymoreIron_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["ClaymoreIron_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Bastard swords
     this.Keep("BastardBone_TW");
     this.Keep("BastardChitin_TW");
     this.Keep("BastardSilver_TW");
     this.Keep("BastardDvergr_TW");
-    plugin.ItemManager["BastardBone_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["BastardChitin_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["BastardSilver_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["BastardDvergr_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["BastardBone_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["BastardChitin_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["BastardSilver_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["BastardDvergr_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Specials / Uniques
     this.Keep("KnifeWrench_TW"); // Knife/Mace
     this.Keep("TridentBlackmetal_TW"); // Atgeir/Spear
     this.Keep("DualSwordScimitar_TW"); // DualSwords
     this.Keep("GreatbowBlackmetal_TW"); // Greatbow
-    plugin.ItemManager["KnifeWrench_TW"].Weapon.MovementModifier = 0f;
-    plugin.ItemManager["TridentBlackmetal_TW"].Weapon.MovementModifier = -0.10f;
-    plugin.ItemManager["DualSwordScimitar_TW"].Weapon.MovementModifier = -0.10f;
-    var blackmetalGreatbow = plugin.ItemManager["GreatbowBlackmetal_TW"];
-    blackmetalGreatbow.Crafting.Clear();
-    blackmetalGreatbow.Crafting.Add((int)CraftingTable.Forge, 3);
-    blackmetalGreatbow.Weapon.MovementModifier = -0.05f;
+    itemManager["KnifeWrench_TW"].Item().Weapon.MovementModifier = 0f;
+    itemManager["TridentBlackmetal_TW"].Item().Weapon.MovementModifier = -0.10f;
+    itemManager["DualSwordScimitar_TW"].Item().Weapon.MovementModifier = -0.10f;
+    var blackmetalGreatbow = itemManager["GreatbowBlackmetal_TW"];
+    blackmetalGreatbow.Crafting.Stations.Clear();
+    blackmetalGreatbow.Crafting.Add(Warfare::ItemManager.CraftingTable.Forge, 3);
+    blackmetalGreatbow.Item().Weapon.MovementModifier = -0.05f;
 
     // Bucklers
     this.Keep("ShieldChitinBuckler_TW");
-    plugin.ItemManager["ShieldChitinBuckler_TW"].Weapon.MovementModifier = -0.05f;
+    itemManager["ShieldChitinBuckler_TW"].Item().Weapon.MovementModifier = -0.05f;
 
     // Shields
     this.Keep("ShieldChitin_TW");
-    plugin.ItemManager["ShieldChitin_TW"].Weapon.MovementModifier = -0.10f;
+    itemManager["ShieldChitin_TW"].Item().Weapon.MovementModifier = -0.10f;
 
     // Capes
     this.Keep("CapeRotten_TW");
-    var rottenCape = plugin.ItemManager["CapeRotten_TW"];
-    rottenCape.RequiredItems.Clear();
+    var rottenCape = itemManager["CapeRotten_TW"];
+    rottenCape.RequiredItems.Requirements.Clear();
     rottenCape.RequiredItems.Add("RottenPelt_TW", 6);
     rottenCape.RequiredItems.Add("Guck", 6);
     rottenCape.RequiredItems.Add("Ooze", 6);
     rottenCape.RequiredItems.Add("TrophyCrawler_TW", 1);
-    rottenCape.RequiredUpgradeItems.Clear();
+    rottenCape.RequiredUpgradeItems.Requirements.Clear();
     rottenCape.RequiredUpgradeItems.Add("RottenPelt_TW", 3);
     rottenCape.RequiredUpgradeItems.Add("Guck", 3);
     rottenCape.RequiredUpgradeItems.Add("Ooze", 3);
-    rottenCape.Armor.EquipEffect = null;
-    rottenCape.Armor.DamageModifiers.Add(new()
+    rottenCape.Item().Armor.EquipEffect = null;
+    rottenCape.Item().Armor.DamageModifiers.Add(new()
     {
       m_type = HitData.DamageType.Poison,
       m_modifier = HitData.DamageModifier.Resistant,
@@ -152,7 +164,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "BattleaxeCrystal_TW",
       "BattleaxeDvergr_TW",
     ];
-    var twoHandedAxesSkillIcon = plugin.ItemManager["BattleaxeIron_TW"].ItemData.GetIcon();
+    var twoHandedAxesSkillIcon = itemManager["BattleaxeIron_TW"].Item().ItemData.GetIcon();
     this.RegisterAttackSkill(CustomSkills.Names.TwoHandedAxes, "$Warfare_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon, twoHandedAxes);
 
     HashSet<string> twoHandedClubs = [
@@ -163,7 +175,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "SledgeDemolisher_TW",
       "BattlehammerDvergr_TW",
     ];
-    var twoHandedClubsSkillIcon = plugin.ItemManager["SledgeStagbreaker_TW"].ItemData.GetIcon();
+    var twoHandedClubsSkillIcon = itemManager["SledgeStagbreaker_TW"].Item().ItemData.GetIcon();
     this.RegisterAttackSkill(CustomSkills.Names.TwoHandedHammers, "$Warfare_TwoHandedClubsSkill_Description", twoHandedClubsSkillIcon, twoHandedClubs);
 
     HashSet<string> twoHandedSwords = [
@@ -173,7 +185,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "BastardSilver_TW",
       "BastardDvergr_TW",
     ];
-    var twoHandedSwordsSkillIcon = plugin.ItemManager["BastardBone_TW"].ItemData.GetIcon();
+    var twoHandedSwordsSkillIcon = itemManager["BastardBone_TW"].Item().ItemData.GetIcon();
     var twoHanderSwordsSkill = this.RegisterAttackSkill(CustomSkills.Names.TwoHandedSwords, "$Warfare_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon, twoHandedSwords);
 
     HashSet<string> warpikes = [
@@ -183,27 +195,23 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
       "WarpikeBlackmetal_TW",
       "WarpikeDvergr_TW",
     ];
-    var warpikesSkillIcon = plugin.ItemManager["WarpikeBone_TW"].ItemData.GetIcon();
+    var warpikesSkillIcon = itemManager["WarpikeBone_TW"].Item().ItemData.GetIcon();
     this.RegisterAttackSkill(CustomSkills.Names.Warpikes, "$Warfare_WarpikesSkill_Description", warpikesSkillIcon, warpikes);
+
+    // Clear projectile prefabs since we didn't keep any
+    WarfarePlugin.projectilePrefabsX.Clear();
+    WarfarePlugin.projectilePrefabsY.Clear();
+    WarfarePlugin.projectilePrefabsZ.Clear();
 
     // Custom patches
     Plugin.Harmony.Patch(
-      AccessTools.Method(plugin.Assembly.GetType("Warfare.BowsPatch"), "Postfix"),
+      AccessTools.Method(typeof(BowsPatch), nameof(BowsPatch.Postfix)),
       prefix: new HarmonyMethod(this.GetType(), nameof(NoOpPrefix))
     );
-
     Plugin.Harmony.Patch(
-      AccessTools.Method(plugin.Assembly.GetType("Warfare.VanillaDropTweaks+VanillaDropTweaks_MonstrumPatch"), "Postfix"),
+      AccessTools.Method(typeof(VanillaDropTweaks.VanillaDropTweaks_MonstrumPatch), nameof(VanillaDropTweaks.VanillaDropTweaks_MonstrumPatch.Postfix)),
       prefix: new HarmonyMethod(this.GetType(), nameof(NoOpPrefix))
     );
-
-    var pluginType = plugin.Assembly.GetType("Warfare.WarfarePlugin");
-    var _projectilePrefabsX = (List<GameObject>)AccessTools.Field(pluginType, "projectilePrefabsX").GetValue(null);
-    var _projectilePrefabsY = (List<GameObject>)AccessTools.Field(pluginType, "projectilePrefabsY").GetValue(null);
-    var _projectilePrefabsZ = (List<GameObject>)AccessTools.Field(pluginType, "projectilePrefabsZ").GetValue(null);
-    _projectilePrefabsX.Clear();
-    _projectilePrefabsY.Clear();
-    _projectilePrefabsZ.Clear();
   }
 
   private static void NoOpPrefix(ref bool __runOriginal) => __runOriginal = false;
@@ -214,7 +222,7 @@ public class Warfare : ReflectionChangesBase<WarfarePlugin>
     skill.Description.Alias(descriptionAlias);
     foreach (var prefabName in prefabNames)
     {
-      plugin.ItemManager[prefabName].SharedData.m_skillType = SkillManager.Skill.fromName(englishName);
+      itemManager[prefabName].Item().SharedData.m_skillType = SkillManager.Skill.fromName(englishName);
     }
     return skill;
   }

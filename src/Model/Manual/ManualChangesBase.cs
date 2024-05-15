@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using HarmonyLib;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Model.Manual;
 

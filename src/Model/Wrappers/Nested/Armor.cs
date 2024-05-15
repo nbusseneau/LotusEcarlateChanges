@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace LotusEcarlateChanges.Model.Wrappers;
+namespace LotusEcarlateChanges.Model.Wrappers.Nested;
 
 public class Armor(ItemDrop.ItemData.SharedData sharedData)
 {

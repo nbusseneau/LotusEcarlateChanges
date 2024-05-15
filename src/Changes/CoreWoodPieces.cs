@@ -1,14 +1,17 @@
+extern alias CoreWoodPieces;
+
 using System.Collections.Generic;
-using PieceManager;
-using LotusEcarlateChanges.Model.Reflection;
-using LotusEcarlateChanges.Model.Reflection.Plugins;
+using CoreWoodPieces::PieceManager;
+using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes;
 
-public class CoreWoodPieces : ReflectionChangesBase<CoreWoodPiecesPlugin>
+public class CoreWoodPieces : ChangesBase
 {
   protected override void ApplyChangesInternal()
   {
+    var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
+
     // Remove most CoreWoodFence pieces
     this.Remove("BCW_CoreWood_Fence1");
     this.Remove("BCW_CoreWood_Fence2");
@@ -21,14 +24,14 @@ public class CoreWoodPieces : ReflectionChangesBase<CoreWoodPiecesPlugin>
       "BCW_CoreWood_DrawBridgeWide",
       "BCW_CoreWood_DrawBridgeWideTall",
     ];
-    foreach (var piece in plugin.PieceManager.GetAll())
+    foreach (var piece in pieceManager)
     {
-      // Relocate draw bridges to Building to be consistent with MoreGates
-      if (drawBridges.Contains(piece.UniqueName)) piece.Category = (int)BuildPieceCategory.Building;
+      // Relocate draw bridges to BuildingWorkbench to be consistent with MoreGates
+      if (drawBridges.Contains(piece.Prefab.name)) piece.Category.Set(BuildPieceCategory.BuildingWorkbench);
       // Relocate custom CoreWoodFence pieces to Misc
-      else if (piece.CustomCategory == "CoreWoodFence") piece.Category = (int)BuildPieceCategory.Misc;
-      // Relocate custom CoreWoodPieces pieces to Building
-      else if (piece.CustomCategory == "CoreWoodPieces") piece.Category = (int)BuildPieceCategory.Building;
+      else if (piece.Category.custom == "CoreWoodFence") piece.Category.Set(BuildPieceCategory.Misc);
+      // Relocate custom CoreWoodPieces pieces to BuildingWorkbench
+      else if (piece.Category.custom == "CoreWoodPieces") piece.Category.Set(BuildPieceCategory.BuildingWorkbench);
     }
   }
 }
