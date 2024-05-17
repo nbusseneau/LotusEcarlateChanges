@@ -22,7 +22,6 @@ namespace LotusEcarlateChanges;
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("redseiko.valheim.potterybarn", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
@@ -61,7 +60,6 @@ public class Plugin : BaseUnityPlugin
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
       new FallDamageForCreatures(),
-      new PotteryBarn(),
       new VanillaMisc(),
       new VanillaArmors(),
     ];

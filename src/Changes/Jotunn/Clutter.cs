@@ -25,8 +25,6 @@ public class Clutter : JotunnChangesBase
     this.Remove("custompiece_fancychest_public");
     this.Remove("custompiece_stonechest");
     this.Remove("custompiece_stonechest_public");
-    // Big evil statue (duplicate with PotteryBarn)
-    this.Remove("custompiece_statueevil_large");
 
     // Relocate clutter pieces to Furniture and erase all comfort values
     foreach (var piece in pieces)

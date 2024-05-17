@@ -53,7 +53,6 @@
     <Reference Include="$(PluginsPath)\blacks7ar-ClayBuildPieces\ClayBuildPieces.dll" Aliases="ClayBuildPieces" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-CoreWoodPieces\CoreWoodPieces.dll" Aliases="CoreWoodPieces" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-FineWoodBuildPieces\FineWoodBuildPieces.dll" Aliases="FineWoodBuildPieces" Publicize="true" />
-    <Reference Include="$(PluginsPath)\ComfyMods-PotteryBarn\PotteryBarn.dll" Aliases="PotteryBarn" Publicize="true" />
     <Reference Include="$(PluginsPath)\DrakeMods-More_Gates_PlusPlus\moregates++.dll" Aliases="MoreGates" Publicize="true" />
     <Reference Include="$(PluginsPath)\Goldenrevolver-Cape_And_Torch_Resistance_Rework_And_New_Water_And_Cold_Resistance\CapeAndTorchResistanceChanges.dll" Aliases="CapeAndTorchResistanceChanges" Publicize="true" />
     <Reference Include="$(PluginsPath)\MonsterLabZ-MonsterLabZ\MonsterLabZ\MonsterLabZ.dll" Aliases="MonsterLabZ" Publicize="true" />
