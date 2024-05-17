@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using Jotunn.Utils;
 using LocalizationManager;
-using LotusEcarlateChanges.Changes;
+using LotusEcarlateChanges.Changes.Jotunn;
+using LotusEcarlateChanges.Changes.Manager;
+using LotusEcarlateChanges.Changes.Manual;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges;
@@ -34,40 +35,37 @@ public class Plugin : BaseUnityPlugin
   private const string ModVersion = "0.5.1";
 
   public static new ManualLogSource Logger;
-  public static Harmony Harmony;
+  public static Harmony Harmony = new(ModGUID);
 
   public void Awake()
   {
     Localizer.Load();
     Logger = base.Logger;
 
-    List<IChanges> patches = [
-      // Manager-based patches
+    List<IChanges> changesList = [
+      // Jotunn plugins
+      new Clutter(),
+      new MoreGates(),
+
+      // Manager plugins
       new Backpacks(),
-      new CapeAndTorchResistanceChanges(),
       new ClayBuildPieces(),
       new CoreWoodPieces(),
-      new FallDamageForCreatures(),
       new FineWoodBuildPieces(),
       new MonsterLabZ(),
       new Monstrum(),
       new SouthsilArmor(),
       new Warfare(),
 
-      // Manual patches
+      // Manual plugins
       new BalrondShipyard(),
-      new Clutter(),
-      new MoreGates(),
+      new CapeAndTorchResistanceChanges(),
+      new FallDamageForCreatures(),
       new PotteryBarn(),
-      new Vanilla(),
+      new VanillaMisc(),
       new VanillaArmors(),
     ];
 
-    Harmony = new(ModGUID);
-    patches.ForEach(patch => patch.Apply());
-    var assembly = Assembly.GetExecutingAssembly();
-    Harmony.PatchAll(assembly);
+    changesList.ForEach(changes => changes.Apply());
   }
-
-  public void OnDestroy() => Config.Save();
 }

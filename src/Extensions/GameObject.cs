@@ -12,6 +12,6 @@ public static class GameObjectExtensions
   /// </summary>
   public static void FixItemLayer(this GameObject gameObject) => gameObject.GetComponentInChildren<Collider>().gameObject.layer = itemLayer;
 
-  public static PieceWrapper Piece(this GameObject gameObject) => PieceWrapper.Get(gameObject);
   public static ItemWrapper Item(this GameObject gameObject) => ItemWrapper.Get(gameObject);
+  public static PieceWrapper Piece(this GameObject gameObject) => PieceWrapper.Get(gameObject);
 }
