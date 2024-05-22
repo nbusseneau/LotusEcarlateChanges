@@ -12,6 +12,7 @@ using LotusEcarlateChanges.Model.Changes;
 namespace LotusEcarlateChanges;
 
 [BepInPlugin(ModGUID, ModName, ModVersion)]
+[BepInDependency("Azumatt.BowsBeforeHoes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondShipyard", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.ClayBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.CoreWoodPieces", BepInDependency.DependencyFlags.HardDependency)]
@@ -48,6 +49,7 @@ public class Plugin : BaseUnityPlugin
 
       // Manager plugins
       new Backpacks(),
+      new BowsBeforeHoes(),
       new ClayBuildPieces(),
       new CoreWoodPieces(),
       new FineWoodBuildPieces(),

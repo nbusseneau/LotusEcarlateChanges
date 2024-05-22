@@ -65,6 +65,9 @@ public class Lightsources : ManualChangesBase
       // Vanilla items
       "Torch",
       "HelmetDverger",
+      // BowsBeforeHoes arrows
+      "TorchArrow",
+      "MistTorchArrow",
     ];
     foreach (var item in ItemManager.GetAll(torchlike))
     {
