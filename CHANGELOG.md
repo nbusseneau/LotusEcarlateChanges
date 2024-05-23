@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Support for 0.218.15 (Ashlands).
 - Add BowsBeforeHoes.
+- Add RefinedStonePieces.
 
 ### Changed
 

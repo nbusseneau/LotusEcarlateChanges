@@ -26,6 +26,9 @@ public abstract class ManagerBase<T>(List<T> registeredContainers, List<GameObje
     }
   }
 
+  public IEnumerable<T> GetAll(IEnumerable<string> prefabNames) => prefabNames.Select(prefabName => this[prefabName]);
+  public IEnumerable<(T, Y)> GetAll<Y>(IEnumerable<KeyValuePair<string, Y>> prefabNamesDict) => prefabNamesDict.Select(kvp => (this[kvp.Key], kvp.Value));
+
   public virtual void RemoveAll(HashSet<string> toRemove)
   {
     this._registeredContainers.RemoveAll(container => toRemove.Contains(container.Prefab().name));

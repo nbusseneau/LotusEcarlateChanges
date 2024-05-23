@@ -47,9 +47,8 @@ public class FineWoodBuildPieces : ManagerChangesBase
       "BFP_StoneRoofTop26",
       "BFP_StoneRoofTop45",
     ];
-    foreach (var pieceName in toAdjust)
+    foreach (var piece in pieceManager.GetAll(toAdjust))
     {
-      var piece = pieceManager[pieceName];
       piece.Crafting.Set(CraftingTable.StoneCutter);
       piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
     }

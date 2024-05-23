@@ -17,6 +17,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("blacks7ar.ClayBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.CoreWoodPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.FineWoodBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("blacks7ar.RefinedStonePieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.drakemods.Moregates", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
@@ -55,6 +56,7 @@ public class Plugin : BaseUnityPlugin
       new FineWoodBuildPieces(),
       new MonsterLabZ(),
       new Monstrum(),
+      new RefinedStonePieces(),
       new SouthsilArmor(),
       new Warfare(),
 
