@@ -11,8 +11,12 @@ public class MoreGates : JotunnChangesBase
 {
   protected override void ApplyInternal()
   {
-    // Remove lift
+    // Remove lift and logs
     this.Remove("h_4x4_lift");
+    this.Remove("h_loglong26");
+    this.Remove("h_loglong45");
+    this.Remove("h_logshort26");
+    this.Remove("h_logshort45");
 
     // Relocate custom MoreGates pieces to appropriate categories
     Dictionary<string, Piece.PieceCategory> toAdjust = new()
@@ -41,10 +45,6 @@ public class MoreGates : JotunnChangesBase
       ["h_trapdoorbig2"] = Piece.PieceCategory.BuildingWorkbench,
       ["Hayze_halfgate_01"] = Piece.PieceCategory.BuildingWorkbench,
       ["Hayze_halfgate_02"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_loglong26"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_loglong45"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_logshort26"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_logshort45"] = Piece.PieceCategory.BuildingWorkbench,
       ["h_window_01"] = Piece.PieceCategory.BuildingWorkbench,
       ["h_window_02"] = Piece.PieceCategory.BuildingWorkbench,
       ["h_window_03"] = Piece.PieceCategory.BuildingWorkbench,

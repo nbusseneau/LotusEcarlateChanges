@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove RtDBiomes traps removal as it's now handled by RtDBiomes itself.
 - Remove PotteryBarn.
+- Remove logs in More Gates as they were already covered by vanilla.
 
 ## [0.5.1] - 2024-05-07
 
