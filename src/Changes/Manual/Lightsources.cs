@@ -72,10 +72,10 @@ public class Lightsources : ManualChangesBase
     foreach (var item in ItemManager.GetAll(torchlike))
     {
       var light = item.Prefab.GetComponentInChildren<Light>(includeInactive: true);
-      if (!torchlikeRangesCache.TryGetValue(item.Name, out var cached))
+      if (!torchlikeRangesCache.TryGetValue(item.PrefabName, out var cached))
       {
         cached = light.range;
-        torchlikeRangesCache[item.Name] = cached;
+        torchlikeRangesCache[item.PrefabName] = cached;
       }
       light.range = cached * LightRangeMultiplier;
     }
