@@ -6,7 +6,6 @@ using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model;
 using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Model.Manager;
-using UnityEngine;
 using Warfare::ItemManager;
 using Warfare::PieceManager;
 using Warfare::Warfare;
@@ -165,9 +164,10 @@ public class Warfare : ManagerChangesBase
       "BattleaxeDvergr_TW",
     ];
     var twoHandedAxesSkillIcon = itemManager["BattleaxeIron_TW"].Item().ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.Names.TwoHandedAxes, "$Warfare_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon, twoHandedAxes);
+    CustomSkills.TwoHandedAxes = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedAxes, "$CustomSkills_TwoHandedAxesSkill_Name", "$CustomSkills_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon);
+    foreach (var prefabName in twoHandedAxes) itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedAxes;
 
-    HashSet<string> twoHandedClubs = [
+    HashSet<string> twoHandedHammers = [
       "SledgeStagbreaker_TW",
       "BattlehammerTrollbone_TW",
       "SledgeIron_TW",
@@ -175,8 +175,9 @@ public class Warfare : ManagerChangesBase
       "SledgeDemolisher_TW",
       "BattlehammerDvergr_TW",
     ];
-    var twoHandedClubsSkillIcon = itemManager["SledgeStagbreaker_TW"].Item().ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.Names.TwoHandedHammers, "$Warfare_TwoHandedClubsSkill_Description", twoHandedClubsSkillIcon, twoHandedClubs);
+    var twoHandedHammersSkillIcon = itemManager["SledgeStagbreaker_TW"].Item().ItemData.GetIcon();
+    CustomSkills.TwoHandedHammers = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedHammers, "$CustomSkills_TwoHandedHammersSkill_Name", "$CustomSkills_TwoHandedHammersSkill_Description", twoHandedHammersSkillIcon);
+    foreach (var prefabName in twoHandedHammers) itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedHammers;
 
     HashSet<string> twoHandedSwords = [
       "BastardBone_TW",
@@ -186,7 +187,8 @@ public class Warfare : ManagerChangesBase
       "BastardDvergr_TW",
     ];
     var twoHandedSwordsSkillIcon = itemManager["BastardBone_TW"].Item().ItemData.GetIcon();
-    var twoHanderSwordsSkill = this.RegisterAttackSkill(CustomSkills.Names.TwoHandedSwords, "$Warfare_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon, twoHandedSwords);
+    CustomSkills.TwoHandedSwords = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedSwords, "$CustomSkills_TwoHandedSwordsSkill_Name", "$CustomSkills_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon);
+    foreach (var prefabName in twoHandedSwords) itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
     HashSet<string> warpikes = [
       "WarpikeBone_TW",
@@ -196,7 +198,8 @@ public class Warfare : ManagerChangesBase
       "WarpikeDvergr_TW",
     ];
     var warpikesSkillIcon = itemManager["WarpikeBone_TW"].Item().ItemData.GetIcon();
-    this.RegisterAttackSkill(CustomSkills.Names.Warpikes, "$Warfare_WarpikesSkill_Description", warpikesSkillIcon, warpikes);
+    CustomSkills.Warpikes = CustomSkills.RegisterSkill(CustomSkills.Identifiers.Warpikes, "$CustomSkills_WarpikesSkill_Name", "$CustomSkills_WarpikesSkill_Description", warpikesSkillIcon);
+    foreach (var prefabName in warpikes) itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.Warpikes;
 
     // Clear projectile prefabs since we didn't keep any
     WarfarePlugin.projectilePrefabsX.Clear();
@@ -215,15 +218,4 @@ public class Warfare : ManagerChangesBase
   }
 
   private static void NoOpPrefix(ref bool __runOriginal) => __runOriginal = false;
-
-  private SkillManager.Skill RegisterAttackSkill(string englishName, string descriptionAlias, Sprite icon, HashSet<string> prefabNames)
-  {
-    var skill = new SkillManager.Skill(englishName, icon) { Configurable = false };
-    skill.Description.Alias(descriptionAlias);
-    foreach (var prefabName in prefabNames)
-    {
-      itemManager[prefabName].Item().SharedData.m_skillType = SkillManager.Skill.fromName(englishName);
-    }
-    return skill;
-  }
 }

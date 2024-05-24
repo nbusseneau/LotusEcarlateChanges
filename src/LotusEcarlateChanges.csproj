@@ -47,7 +47,6 @@
 
   <!-- References -->
   <ItemGroup>
-    <Reference Include="$(LibPath)\*.dll" />
     <Reference Include="$(PluginsPath)\ASharpPen-Fall_Damage_For_Creatures\Valheim.FallDamageForCreatures.dll" Aliases="FallDamageForCreatures" Publicize="true" />
     <Reference Include="$(PluginsPath)\Azumatt-BowsBeforeHoes\BowsBeforeHoes.dll" Aliases="BowsBeforeHoes" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_shipyard\BalrondShipyard.dll" Aliases="BalrondShipyard" Publicize="true" />
@@ -71,21 +70,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.32">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="JotunnLib" Version="2.20.0" Publicize="true" />
   </ItemGroup>
 
   <!-- Translations -->
   <ItemGroup>
-    <EmbeddedResource Include="translations\*" />
+    <Translations Include="Translations\**" />
   </ItemGroup>
 
-  <!-- Copy to BepInEx plugins after IL repacking -->
-  <Target Name="CopyToPlugins" AfterTargets="ILRepack">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginsPath)" />
-    <Message Importance="High" Text="Copied $(TargetFileName) to $(PluginsPath)" />
+  <!-- Copy to BepInEx plugins after build -->
+  <Target Name="CopyToPlugins" AfterTargets="Build">
+    <RemoveDir Directories="$(PluginsPath)\$(MSBuildProjectName)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginsPath)\$(MSBuildProjectName)" />
+    <Copy SourceFiles="@(Translations)" DestinationFolder="$(PluginsPath)\$(MSBuildProjectName)\Translations\%(RecursiveDir)" />
+    <Message Importance="High" Text="Copied $(TargetFileName) to $(PluginsPath)\$(MSBuildProjectName)" />
   </Target>
 </Project>

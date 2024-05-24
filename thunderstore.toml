@@ -40,7 +40,11 @@ target = "./CHANGELOG.md"
 
 [[build.copy]]
 source = "./src/bin/Release/LotusEcarlateChanges.dll"
-target = "./LotusEcarlateChanges.dll"
+target = "./plugins/LotusEcarlateChanges.dll"
+
+[[build.copy]]
+source = "./src/Translations"
+target = "./plugins/Translations"
 
 
 [publish]

@@ -1,0 +1,13 @@
+{
+  "CustomSkills_TwoHandedAxesSkill_Name": "Haches à deux mains",
+  "CustomSkills_TwoHandedAxesSkill_Description": "Dégâts avec les haches à deux mains.",
+
+  "CustomSkills_TwoHandedHammersSkill_Name": "Marteaux à deux mains",
+  "CustomSkills_TwoHandedHammersSkill_Description": "Dégâts avec les marteaux à deux mains.",
+
+  "CustomSkills_TwoHandedSwordsSkill_Name": "Épées à deux mains",
+  "CustomSkills_TwoHandedSwordsSkill_Description": "Dégâts avec les épées à deux mains.",
+
+  "CustomSkills_WarpikesSkill_Name": "Lances de combat",
+  "CustomSkills_WarpikesSkill_Description": "Dégâts avec les lances de combat."
+}

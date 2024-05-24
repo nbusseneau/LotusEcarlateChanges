@@ -1,5 +1,7 @@
 extern alias SouthsilArmor;
 
+using System;
+using System.Collections.Generic;
 using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model;
 using LotusEcarlateChanges.Model.Changes;
@@ -10,9 +12,19 @@ namespace LotusEcarlateChanges.Changes.Manager;
 
 public class SouthsilArmor : ManagerChangesBase
 {
+  private static readonly List<Action> onLocalizationAddedCallbacks = [];
+
   protected override void ApplyInternal()
   {
     var itemManager = this.RegisterItemManager(Item.registeredItems, PrefabManager.prefabs, PrefabManager.ZnetOnlyPrefabs);
+
+    // Kludge to wait for Jotunn to have loaded localization before changing names/descriptions
+    static void onLocalizationAddedCallback()
+    {
+      onLocalizationAddedCallbacks.ForEach(callback => callback.Invoke());
+      global::Jotunn.Managers.LocalizationManager.OnLocalizationAdded -= onLocalizationAddedCallback;
+    }
+    global::Jotunn.Managers.LocalizationManager.OnLocalizationAdded += onLocalizationAddedCallback;
 
     // Chieftain
     this.Keep("chiefhelmboar");
@@ -21,8 +33,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("chieflegs");
 
     var chieftainHelmBoar = itemManager["chiefhelmboar"];
-    chieftainHelmBoar.Name.Alias("$SouthsilArmor_ChieftainHelmBoar_Name");
-    chieftainHelmBoar.Description.Alias("$SouthsilArmor_ChieftainHelmBoar_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      chieftainHelmBoar.Name.Alias("$SouthsilArmor_ChieftainHelmBoar_Name");
+      chieftainHelmBoar.Description.Alias("$SouthsilArmor_ChieftainHelmBoar_Description");
+    });
     chieftainHelmBoar.Crafting.Stations.Clear();
     chieftainHelmBoar.Crafting.Add(CraftingTable.Workbench, 2);
     chieftainHelmBoar.RequiredItems.Requirements.Clear();
@@ -43,8 +58,11 @@ public class SouthsilArmor : ManagerChangesBase
     chieftainHelmBoar.Prefab.FixItemLayer();
 
     var chieftainHelmDeer = itemManager["chiefhelmdeer"];
-    chieftainHelmDeer.Name.Alias("$SouthsilArmor_ChieftainHelmDeer_Name");
-    chieftainHelmDeer.Description.Alias("$SouthsilArmor_ChieftainHelmDeer_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      chieftainHelmDeer.Name.Alias("$SouthsilArmor_ChieftainHelmDeer_Name");
+      chieftainHelmDeer.Description.Alias("$SouthsilArmor_ChieftainHelmDeer_Description");
+    });
     chieftainHelmDeer.Crafting.Stations.Clear();
     chieftainHelmDeer.Crafting.Add(CraftingTable.Workbench, 2);
     chieftainHelmDeer.RequiredItems.Requirements.Clear();
@@ -68,8 +86,11 @@ public class SouthsilArmor : ManagerChangesBase
     chieftainHelmDeer.Prefab.FixItemLayer();
 
     var chieftainChest = itemManager["chiefchest"];
-    chieftainChest.Name.Alias("$SouthsilArmor_ChieftainChest_Name");
-    chieftainChest.Description.Alias("$SouthsilArmor_ChieftainChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      chieftainChest.Name.Alias("$SouthsilArmor_ChieftainChest_Name");
+      chieftainChest.Description.Alias("$SouthsilArmor_ChieftainChest_Description");
+    });
     chieftainChest.Crafting.Stations.Clear();
     chieftainChest.Crafting.Add(CraftingTable.Workbench, 2);
     chieftainChest.RequiredItems.Requirements.Clear();
@@ -86,8 +107,11 @@ public class SouthsilArmor : ManagerChangesBase
     chieftainChest.Item().Armor.Weight = 12;
 
     var chieftainLegs = itemManager["chieflegs"];
-    chieftainLegs.Name.Alias("$SouthsilArmor_ChieftainLegs_Name");
-    chieftainLegs.Description.Alias("$SouthsilArmor_ChieftainLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      chieftainLegs.Name.Alias("$SouthsilArmor_ChieftainLegs_Name");
+      chieftainLegs.Description.Alias("$SouthsilArmor_ChieftainLegs_Description");
+    });
     chieftainLegs.Crafting.Stations.Clear();
     chieftainLegs.Crafting.Add(CraftingTable.Workbench, 2);
     chieftainLegs.RequiredItems.Requirements.Clear();
@@ -109,8 +133,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("heavybronzelegs");
 
     var battleswineHelm = itemManager["heavybronzehelm"];
-    battleswineHelm.Name.Alias("$SouthsilArmor_BattleswineHelm_Name");
-    battleswineHelm.Description.Alias("$SouthsilArmor_BattleswineHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      battleswineHelm.Name.Alias("$SouthsilArmor_BattleswineHelm_Name");
+      battleswineHelm.Description.Alias("$SouthsilArmor_BattleswineHelm_Description");
+    });
     battleswineHelm.Crafting.Stations.Clear();
     battleswineHelm.Crafting.Add(CraftingTable.Forge, 2);
     battleswineHelm.RequiredItems.Requirements.Clear();
@@ -128,8 +155,11 @@ public class SouthsilArmor : ManagerChangesBase
     battleswineHelm.Prefab.FixItemLayer();
 
     var battleswineChest = itemManager["heavybronzechest"];
-    battleswineChest.Name.Alias("$SouthsilArmor_BattleswineChest_Name");
-    battleswineChest.Description.Alias("$SouthsilArmor_BattleswineChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      battleswineChest.Name.Alias("$SouthsilArmor_BattleswineChest_Name");
+      battleswineChest.Description.Alias("$SouthsilArmor_BattleswineChest_Description");
+    });
     battleswineChest.Crafting.Stations.Clear();
     battleswineChest.Crafting.Add(CraftingTable.Forge, 2);
     battleswineChest.RequiredItems.Requirements.Clear();
@@ -146,8 +176,11 @@ public class SouthsilArmor : ManagerChangesBase
     battleswineChest.Item().Armor.Weight = 18;
 
     var battleswineLegs = itemManager["heavybronzelegs"];
-    battleswineLegs.Name.Alias("$SouthsilArmor_BattleswineLegs_Name");
-    battleswineLegs.Description.Alias("$SouthsilArmor_BattleswineLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      battleswineLegs.Name.Alias("$SouthsilArmor_BattleswineLegs_Name");
+      battleswineLegs.Description.Alias("$SouthsilArmor_BattleswineLegs_Description");
+    });
     battleswineLegs.Crafting.Stations.Clear();
     battleswineLegs.Crafting.Add(CraftingTable.Forge, 2);
     battleswineLegs.RequiredItems.Requirements.Clear();
@@ -183,8 +216,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("swamplegs");
 
     var draugrHelm = itemManager["swamphelm"];
-    draugrHelm.Name.Alias("$SouthsilArmor_DraugrHelm_Name");
-    draugrHelm.Description.Alias("$SouthsilArmor_DraugrHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      draugrHelm.Name.Alias("$SouthsilArmor_DraugrHelm_Name");
+      draugrHelm.Description.Alias("$SouthsilArmor_DraugrHelm_Description");
+    });
     draugrHelm.Crafting.Stations.Clear();
     draugrHelm.Crafting.Add(CraftingTable.Forge, 3);
     draugrHelm.RequiredItems.Requirements.Clear();
@@ -203,8 +239,11 @@ public class SouthsilArmor : ManagerChangesBase
     draugrHelm.Prefab.FixItemLayer();
 
     var draugrChest = itemManager["swampchest"];
-    draugrChest.Name.Alias("$SouthsilArmor_DraugrChest_Name");
-    draugrChest.Description.Alias("$SouthsilArmor_DraugrChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      draugrChest.Name.Alias("$SouthsilArmor_DraugrChest_Name");
+      draugrChest.Description.Alias("$SouthsilArmor_DraugrChest_Description");
+    });
     draugrChest.Crafting.Stations.Clear();
     draugrChest.Crafting.Add(CraftingTable.Forge, 3);
     draugrChest.RequiredItems.Requirements.Clear();
@@ -221,8 +260,11 @@ public class SouthsilArmor : ManagerChangesBase
     draugrChest.Item().Armor.Weight = 18;
 
     var draugrLegs = itemManager["swamplegs"];
-    draugrLegs.Name.Alias("$SouthsilArmor_DraugrLegs_Name");
-    draugrLegs.Description.Alias("$SouthsilArmor_DraugrLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      draugrLegs.Name.Alias("$SouthsilArmor_DraugrLegs_Name");
+      draugrLegs.Description.Alias("$SouthsilArmor_DraugrLegs_Description");
+    });
     draugrLegs.Crafting.Stations.Clear();
     draugrLegs.Crafting.Add(CraftingTable.Forge, 3);
     draugrLegs.RequiredItems.Requirements.Clear();
@@ -260,8 +302,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("heavybearlegs");
 
     var grizzlyHelm = itemManager["heavybearhelm"];
-    grizzlyHelm.Name.Alias("$SouthsilArmor_GrizzlyHelm_Name");
-    grizzlyHelm.Description.Alias("$SouthsilArmor_GrizzlyHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      grizzlyHelm.Name.Alias("$SouthsilArmor_GrizzlyHelm_Name");
+      grizzlyHelm.Description.Alias("$SouthsilArmor_GrizzlyHelm_Description");
+    });
     grizzlyHelm.Crafting.Stations.Clear();
     grizzlyHelm.Crafting.Add(CraftingTable.Forge, 3);
     grizzlyHelm.RequiredItems.Requirements.Clear();
@@ -278,8 +323,11 @@ public class SouthsilArmor : ManagerChangesBase
     grizzlyHelm.Prefab.FixItemLayer();
 
     var grizzlyChest = itemManager["heavybearchest"];
-    grizzlyChest.Name.Alias("$SouthsilArmor_GrizzlyChest_Name");
-    grizzlyChest.Description.Alias("$SouthsilArmor_GrizzlyChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      grizzlyChest.Name.Alias("$SouthsilArmor_GrizzlyChest_Name");
+      grizzlyChest.Description.Alias("$SouthsilArmor_GrizzlyChest_Description");
+    });
     grizzlyChest.Crafting.Stations.Clear();
     grizzlyChest.Crafting.Add(CraftingTable.Forge, 3);
     grizzlyChest.RequiredItems.Requirements.Clear();
@@ -296,8 +344,11 @@ public class SouthsilArmor : ManagerChangesBase
     grizzlyChest.Item().Armor.Weight = 18;
 
     var grizzlyLegs = itemManager["heavybearlegs"];
-    grizzlyLegs.Name.Alias("$SouthsilArmor_GrizzlyLegs_Name");
-    grizzlyLegs.Description.Alias("$SouthsilArmor_GrizzlyLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      grizzlyLegs.Name.Alias("$SouthsilArmor_GrizzlyLegs_Name");
+      grizzlyLegs.Description.Alias("$SouthsilArmor_GrizzlyLegs_Description");
+    });
     grizzlyLegs.Crafting.Stations.Clear();
     grizzlyLegs.Crafting.Add(CraftingTable.Forge, 3);
     grizzlyLegs.RequiredItems.Requirements.Clear();
@@ -339,8 +390,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("obswolflegs");
 
     var feralHelm = itemManager["obswolfhelm"];
-    feralHelm.Name.Alias("$SouthsilArmor_FeralHelm_Name");
-    feralHelm.Description.Alias("$SouthsilArmor_FeralHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      feralHelm.Name.Alias("$SouthsilArmor_FeralHelm_Name");
+      feralHelm.Description.Alias("$SouthsilArmor_FeralHelm_Description");
+    });
     feralHelm.Crafting.Stations.Clear();
     feralHelm.Crafting.Add(CraftingTable.Forge, 2);
     feralHelm.RequiredItems.Requirements.Clear();
@@ -358,8 +412,11 @@ public class SouthsilArmor : ManagerChangesBase
     feralHelm.Prefab.FixItemLayer();
 
     var feralChest = itemManager["obswolfchest"];
-    feralChest.Name.Alias("$SouthsilArmor_FeralChest_Name");
-    feralChest.Description.Alias("$SouthsilArmor_FeralChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      feralChest.Name.Alias("$SouthsilArmor_FeralChest_Name");
+      feralChest.Description.Alias("$SouthsilArmor_FeralChest_Description");
+    });
     feralChest.Crafting.Stations.Clear();
     feralChest.Crafting.Add(CraftingTable.Forge, 2);
     feralChest.RequiredItems.Requirements.Clear();
@@ -378,8 +435,11 @@ public class SouthsilArmor : ManagerChangesBase
     feralChest.Item().Armor.DamageModifiers.Clear();
 
     var feralLegs = itemManager["obswolflegs"];
-    feralLegs.Name.Alias("$SouthsilArmor_FeralLegs_Name");
-    feralLegs.Description.Alias("$SouthsilArmor_FeralLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      feralLegs.Name.Alias("$SouthsilArmor_FeralLegs_Name");
+      feralLegs.Description.Alias("$SouthsilArmor_FeralLegs_Description");
+    });
     feralLegs.Crafting.Stations.Clear();
     feralLegs.Crafting.Add(CraftingTable.Forge, 2);
     feralLegs.RequiredItems.Requirements.Clear();
@@ -418,8 +478,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("norahlegs");
 
     var shieldmaidenHelm = itemManager["norahhelm"];
-    shieldmaidenHelm.Name.Alias("$SouthsilArmor_ShieldmaidenHelm_Name");
-    shieldmaidenHelm.Description.Alias("$SouthsilArmor_ShieldmaidenHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      shieldmaidenHelm.Name.Alias("$SouthsilArmor_ShieldmaidenHelm_Name");
+      shieldmaidenHelm.Description.Alias("$SouthsilArmor_ShieldmaidenHelm_Description");
+    });
     shieldmaidenHelm.Crafting.Stations.Clear();
     shieldmaidenHelm.Crafting.Add(CraftingTable.Forge, 2);
     shieldmaidenHelm.RequiredItems.Requirements.Clear();
@@ -433,8 +496,11 @@ public class SouthsilArmor : ManagerChangesBase
     shieldmaidenHelm.Item().Armor.Weight = 3;
 
     var shieldmaidenHelmAlt = itemManager["norahhelmalt"];
-    shieldmaidenHelmAlt.Name.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Name");
-    shieldmaidenHelmAlt.Description.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      shieldmaidenHelmAlt.Name.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Name");
+      shieldmaidenHelmAlt.Description.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Description");
+    });
     shieldmaidenHelmAlt.Crafting.Stations.Clear();
     shieldmaidenHelmAlt.Crafting.Add(CraftingTable.Forge, 2);
     shieldmaidenHelmAlt.RequiredItems.Requirements.Clear();
@@ -449,8 +515,11 @@ public class SouthsilArmor : ManagerChangesBase
     shieldmaidenHelmAlt.Prefab.FixItemLayer();
 
     var shieldmaidenChest = itemManager["norahchest"];
-    shieldmaidenChest.Name.Alias("$SouthsilArmor_ShieldmaidenChest_Name");
-    shieldmaidenChest.Description.Alias("$SouthsilArmor_ShieldmaidenChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      shieldmaidenChest.Name.Alias("$SouthsilArmor_ShieldmaidenChest_Name");
+      shieldmaidenChest.Description.Alias("$SouthsilArmor_ShieldmaidenChest_Description");
+    });
     shieldmaidenChest.Crafting.Stations.Clear();
     shieldmaidenChest.Crafting.Add(CraftingTable.Forge, 2);
     shieldmaidenChest.RequiredItems.Requirements.Clear();
@@ -468,8 +537,11 @@ public class SouthsilArmor : ManagerChangesBase
     shieldmaidenChest.Item().Armor.Weight = 10;
 
     var shieldmaidenLegs = itemManager["norahlegs"];
-    shieldmaidenLegs.Name.Alias("$SouthsilArmor_ShieldmaidenLegs_Name");
-    shieldmaidenLegs.Description.Alias("$SouthsilArmor_ShieldmaidenLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      shieldmaidenLegs.Name.Alias("$SouthsilArmor_ShieldmaidenLegs_Name");
+      shieldmaidenLegs.Description.Alias("$SouthsilArmor_ShieldmaidenLegs_Description");
+    });
     shieldmaidenLegs.Crafting.Stations.Clear();
     shieldmaidenLegs.Crafting.Add(CraftingTable.Forge, 2);
     shieldmaidenLegs.RequiredItems.Requirements.Clear();
@@ -505,8 +577,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("bearlegs2");
 
     var berserkerHelm = itemManager["bearhelm2"];
-    berserkerHelm.Name.Alias("$SouthsilArmor_BerserkerHelm_Name");
-    berserkerHelm.Description.Alias("$SouthsilArmor_BerserkerHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      berserkerHelm.Name.Alias("$SouthsilArmor_BerserkerHelm_Name");
+      berserkerHelm.Description.Alias("$SouthsilArmor_BerserkerHelm_Description");
+    });
     berserkerHelm.Crafting.Stations.Clear();
     berserkerHelm.Crafting.Add(CraftingTable.Forge, 3);
     berserkerHelm.RequiredItems.Requirements.Clear();
@@ -521,8 +596,11 @@ public class SouthsilArmor : ManagerChangesBase
     berserkerHelm.Item().Armor.Weight = 6;
 
     var berserkerChest = itemManager["bearchest2"];
-    berserkerChest.Name.Alias("$SouthsilArmor_BerserkerChest_Name");
-    berserkerChest.Description.Alias("$SouthsilArmor_BerserkerChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      berserkerChest.Name.Alias("$SouthsilArmor_BerserkerChest_Name");
+      berserkerChest.Description.Alias("$SouthsilArmor_BerserkerChest_Description");
+    });
     berserkerChest.Crafting.Stations.Clear();
     berserkerChest.Crafting.Add(CraftingTable.Forge, 3);
     berserkerChest.RequiredItems.Requirements.Clear();
@@ -538,8 +616,11 @@ public class SouthsilArmor : ManagerChangesBase
     berserkerChest.Item().Armor.Weight = 18;
 
     var berserkerLegs = itemManager["bearlegs2"];
-    berserkerLegs.Name.Alias("$SouthsilArmor_BerserkerLegs_Name");
-    berserkerLegs.Description.Alias("$SouthsilArmor_BerserkerLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      berserkerLegs.Name.Alias("$SouthsilArmor_BerserkerLegs_Name");
+      berserkerLegs.Description.Alias("$SouthsilArmor_BerserkerLegs_Description");
+    });
     berserkerLegs.Crafting.Stations.Clear();
     berserkerLegs.Crafting.Add(CraftingTable.Forge, 3);
     berserkerLegs.RequiredItems.Requirements.Clear();
@@ -575,8 +656,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("heavycarlegs");
 
     var gjallhunterHelm = itemManager["heavycarhelm"];
-    gjallhunterHelm.Name.Alias("$SouthsilArmor_GjallhunterHelm_Name");
-    gjallhunterHelm.Description.Alias("$SouthsilArmor_GjallhunterHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      gjallhunterHelm.Name.Alias("$SouthsilArmor_GjallhunterHelm_Name");
+      gjallhunterHelm.Description.Alias("$SouthsilArmor_GjallhunterHelm_Description");
+    });
     gjallhunterHelm.Crafting.Stations.Clear();
     gjallhunterHelm.Crafting.Add(CraftingTable.BlackForge, 1);
     gjallhunterHelm.RequiredItems.Requirements.Clear();
@@ -594,8 +678,11 @@ public class SouthsilArmor : ManagerChangesBase
     gjallhunterHelm.Prefab.FixItemLayer();
 
     var gjallhunterChest = itemManager["heavycarchest"];
-    gjallhunterChest.Name.Alias("$SouthsilArmor_GjallhunterChest_Name");
-    gjallhunterChest.Description.Alias("$SouthsilArmor_GjallhunterChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      gjallhunterChest.Name.Alias("$SouthsilArmor_GjallhunterChest_Name");
+      gjallhunterChest.Description.Alias("$SouthsilArmor_GjallhunterChest_Description");
+    });
     gjallhunterChest.Crafting.Stations.Clear();
     gjallhunterChest.Crafting.Add(CraftingTable.BlackForge, 1);
     gjallhunterChest.RequiredItems.Requirements.Clear();
@@ -613,8 +700,11 @@ public class SouthsilArmor : ManagerChangesBase
     gjallhunterChest.Item().Armor.Weight = 10;
 
     var gjallhunterLegs = itemManager["heavycarlegs"];
-    gjallhunterLegs.Name.Alias("$SouthsilArmor_GjallhunterLegs_Name");
-    gjallhunterLegs.Description.Alias("$SouthsilArmor_GjallhunterLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      gjallhunterLegs.Name.Alias("$SouthsilArmor_GjallhunterLegs_Name");
+      gjallhunterLegs.Description.Alias("$SouthsilArmor_GjallhunterLegs_Description");
+    });
     gjallhunterLegs.Crafting.Stations.Clear();
     gjallhunterLegs.Crafting.Add(CraftingTable.BlackForge, 1);
     gjallhunterLegs.RequiredItems.Requirements.Clear();
@@ -651,8 +741,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("runeknightlegs");
 
     var runeknightHelm = itemManager["runeknighthelm"];
-    runeknightHelm.Name.Alias("$SouthsilArmor_RuneknightHelm_Name");
-    runeknightHelm.Description.Alias("$SouthsilArmor_RuneknightHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      runeknightHelm.Name.Alias("$SouthsilArmor_RuneknightHelm_Name");
+      runeknightHelm.Description.Alias("$SouthsilArmor_RuneknightHelm_Description");
+    });
     runeknightHelm.Crafting.Stations.Clear();
     runeknightHelm.Crafting.Add(CraftingTable.BlackForge, 1);
     runeknightHelm.RequiredItems.Requirements.Clear();
@@ -669,8 +762,11 @@ public class SouthsilArmor : ManagerChangesBase
     runeknightHelm.Prefab.FixItemLayer();
 
     var runeknightChest = itemManager["runeknightchest"];
-    runeknightChest.Name.Alias("$SouthsilArmor_RuneknightChest_Name");
-    runeknightChest.Description.Alias("$SouthsilArmor_RuneknightChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      runeknightChest.Name.Alias("$SouthsilArmor_RuneknightChest_Name");
+      runeknightChest.Description.Alias("$SouthsilArmor_RuneknightChest_Description");
+    });
     runeknightChest.Crafting.Stations.Clear();
     runeknightChest.Crafting.Add(CraftingTable.BlackForge, 1);
     runeknightChest.RequiredItems.Requirements.Clear();
@@ -688,8 +784,11 @@ public class SouthsilArmor : ManagerChangesBase
     runeknightChest.Item().Armor.Weight = 15;
 
     var runeknightLegs = itemManager["runeknightlegs"];
-    runeknightLegs.Name.Alias("$SouthsilArmor_RuneknightLegs_Name");
-    runeknightLegs.Description.Alias("$SouthsilArmor_RuneknightLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      runeknightLegs.Name.Alias("$SouthsilArmor_RuneknightLegs_Name");
+      runeknightLegs.Description.Alias("$SouthsilArmor_RuneknightLegs_Description");
+    });
     runeknightLegs.Crafting.Stations.Clear();
     runeknightLegs.Crafting.Add(CraftingTable.BlackForge, 1);
     runeknightLegs.RequiredItems.Requirements.Clear();
@@ -723,8 +822,11 @@ public class SouthsilArmor : ManagerChangesBase
     this.Keep("druidlegs");
 
     var druidHelm = itemManager["druidhelm"];
-    druidHelm.Name.Alias("$SouthsilArmor_DruidHelm_Name");
-    druidHelm.Description.Alias("$SouthsilArmor_DruidHelm_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      druidHelm.Name.Alias("$SouthsilArmor_DruidHelm_Name");
+      druidHelm.Description.Alias("$SouthsilArmor_DruidHelm_Description");
+    });
     druidHelm.Crafting.Stations.Clear();
     druidHelm.Crafting.Add(CraftingTable.BlackForge, 1);
     druidHelm.RequiredItems.Requirements.Clear();
@@ -744,8 +846,11 @@ public class SouthsilArmor : ManagerChangesBase
     druidHelm.Prefab.FixItemLayer();
 
     var druidChest = itemManager["druidchest"];
-    druidChest.Name.Alias("$SouthsilArmor_DruidChest_Name");
-    druidChest.Description.Alias("$SouthsilArmor_DruidChest_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      druidChest.Name.Alias("$SouthsilArmor_DruidChest_Name");
+      druidChest.Description.Alias("$SouthsilArmor_DruidChest_Description");
+    });
     druidChest.Crafting.Stations.Clear();
     druidChest.Crafting.Add(CraftingTable.BlackForge, 1);
     druidChest.RequiredItems.Requirements.Clear();
@@ -764,8 +869,11 @@ public class SouthsilArmor : ManagerChangesBase
     druidChest.Item().Armor.Weight = 18;
 
     var druidLegs = itemManager["druidlegs"];
-    druidLegs.Name.Alias("$SouthsilArmor_DruidLegs_Name");
-    druidLegs.Description.Alias("$SouthsilArmor_DruidLegs_Description");
+    onLocalizationAddedCallbacks.Add(() =>
+    {
+      druidLegs.Name.Alias("$SouthsilArmor_DruidLegs_Name");
+      druidLegs.Description.Alias("$SouthsilArmor_DruidLegs_Description");
+    });
     druidLegs.Crafting.Stations.Clear();
     druidLegs.Crafting.Add(CraftingTable.BlackForge, 1);
     druidLegs.RequiredItems.Requirements.Clear();

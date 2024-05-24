@@ -3,7 +3,6 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using Jotunn.Utils;
-using LocalizationManager;
 using LotusEcarlateChanges.Changes.Jotunn;
 using LotusEcarlateChanges.Changes.Manager;
 using LotusEcarlateChanges.Changes.Manual;
@@ -40,7 +39,6 @@ public class Plugin : BaseUnityPlugin
 
   public void Awake()
   {
-    Localizer.Load();
     Logger = base.Logger;
 
     List<IChanges> changesList = [
