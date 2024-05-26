@@ -11,7 +11,7 @@ public static class JotunnManagersExtensions
   public static IEnumerable<(ItemWrapper, T)> GetAll<T>(this Jotunn.Managers.ItemManager itemManager, Dictionary<string, T> prefabNamesDict) => prefabNamesDict.Select(kvp => (itemManager.GetItem(kvp.Key).Item(), kvp.Value));
   public static void RemoveAll(this Jotunn.Managers.ItemManager itemManager, Predicate<string> match)
   {
-    var toRemove = itemManager.Items.Where(item => match(item.ItemPrefab.name)).ToList();
+    var toRemove = itemManager.Items.Keys.Where(itemName => match(itemName)).ToList();
     foreach (var item in toRemove) itemManager.RemoveItem(item);
   }
 
@@ -19,7 +19,7 @@ public static class JotunnManagersExtensions
   public static IEnumerable<(PieceWrapper, T)> GetAll<T>(this Jotunn.Managers.PieceManager pieceManager, Dictionary<string, T> prefabNamesDict) => prefabNamesDict.Select(kvp => (pieceManager.GetPiece(kvp.Key).Piece(), kvp.Value));
   public static void RemoveAll(this Jotunn.Managers.PieceManager pieceManager, Predicate<string> match)
   {
-    var toRemove = pieceManager.Pieces.Values.Where(piece => match(piece.PiecePrefab.name)).ToList();
+    var toRemove = pieceManager.Pieces.Keys.Where(pieceName => match(pieceName)).ToList();
     foreach (var piece in toRemove) pieceManager.RemovePiece(piece);
   }
 
