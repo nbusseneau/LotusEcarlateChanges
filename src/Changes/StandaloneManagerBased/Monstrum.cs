@@ -6,9 +6,9 @@ using Monstrum::CreatureManager;
 using Monstrum::ItemManager;
 using Monstrum::PieceManager;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class Monstrum : ManagerChangesBase
+public class Monstrum : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

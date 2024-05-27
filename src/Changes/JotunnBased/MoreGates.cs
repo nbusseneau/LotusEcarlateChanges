@@ -5,9 +5,9 @@ using Jotunn.Configs;
 using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 
-namespace LotusEcarlateChanges.Changes.Jotunn;
+namespace LotusEcarlateChanges.Changes.JotunnBased;
 
-public class MoreGates : JotunnChangesBase
+public class MoreGates : JotunnBasedChangesBase
 {
   protected override void ApplyInternal()
   {

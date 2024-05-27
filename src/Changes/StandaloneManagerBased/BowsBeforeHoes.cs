@@ -4,9 +4,9 @@ using BowsBeforeHoes::BowsBeforeHoes;
 using BowsBeforeHoes::ItemManager;
 using LotusEcarlateChanges.Model.Changes;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class BowsBeforeHoes : ManagerChangesBase
+public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using LotusEcarlateChanges.Model.Wrappers;
 
-namespace LotusEcarlateChanges.Model.Manual;
+namespace LotusEcarlateChanges.Model.ManualManagers;
 
 public class ManualItemManager : ManualManagerBase<ItemWrapper>
 {
-  private static ManualItemManager _instance;
-  public static ManualItemManager Instance { get; } = _instance ??= new ManualItemManager();
+  private static ManualItemManager s_instance;
+  public static ManualItemManager Instance { get; } = s_instance ??= new ManualItemManager();
   private ManualItemManager() { }
 
   protected override ItemWrapper Get(string prefabName) => ItemWrapper.Get(ObjectDB.instance?.GetItemPrefab(prefabName));
 
   public void RegisterStatusEffects()
   {
-    foreach (var item in _cache.Values)
+    foreach (var item in Cache.Values)
     {
       RegisterStatusEffect(item.SharedData.m_attackStatusEffect);
       RegisterStatusEffect(item.SharedData.m_consumeStatusEffect);

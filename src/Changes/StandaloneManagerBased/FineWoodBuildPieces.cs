@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using FineWoodBuildPieces::PieceManager;
 using LotusEcarlateChanges.Model.Changes;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class FineWoodBuildPieces : ManagerChangesBase
+public class FineWoodBuildPieces : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

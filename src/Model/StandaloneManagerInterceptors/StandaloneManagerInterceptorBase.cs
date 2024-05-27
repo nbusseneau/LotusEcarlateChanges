@@ -4,23 +4,23 @@ using LotusEcarlateChanges.Extensions;
 using System.Collections;
 using System.Linq;
 
-namespace LotusEcarlateChanges.Model.Manager;
+namespace LotusEcarlateChanges.Model.StandaloneManagerInterceptors;
 
-public abstract class ManagerBase<T>(List<T> registeredContainers, List<GameObject> prefabs) : IManager, IEnumerable<T>
+public abstract class StandaloneManagerInterceptorBase<T>(List<T> registeredContainers, List<GameObject> prefabs) : IStandaloneManagerInterceptor, IEnumerable<T>
 {
   private readonly List<T> _registeredContainers = registeredContainers;
   private readonly List<GameObject> _prefabs = prefabs;
 
-  protected readonly Dictionary<string, T> _cache = [];
+  protected readonly Dictionary<string, T> Cache = [];
   public T this[string prefabName]
   {
     get
     {
-      var isCached = _cache.TryGetValue(prefabName, out var container);
+      var isCached = this.Cache.TryGetValue(prefabName, out var container);
       if (!isCached)
       {
         container = this._registeredContainers.Single(c => c.Prefab().name == prefabName);
-        _cache[prefabName] = container;
+        this.Cache[prefabName] = container;
       }
       return container;
     }

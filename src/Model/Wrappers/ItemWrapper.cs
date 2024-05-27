@@ -57,11 +57,11 @@ public class ItemWrapper : WrapperBase
   public static ItemWrapper Get(GameObject prefab)
   {
     if (prefab is null) return null;
-    var isCached = _cache.TryGetValue(prefab.name, out var wrapper);
+    var isCached = Cache.TryGetValue(prefab.name, out var wrapper);
     if (!isCached)
     {
       wrapper = new ItemWrapper(prefab);
-      _cache[prefab.name] = wrapper;
+      Cache[prefab.name] = wrapper;
     }
     return (ItemWrapper)wrapper;
   }

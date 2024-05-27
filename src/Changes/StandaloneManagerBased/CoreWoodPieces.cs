@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using CoreWoodPieces::PieceManager;
 using LotusEcarlateChanges.Model.Changes;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class CoreWoodPieces : ManagerChangesBase
+public class CoreWoodPieces : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

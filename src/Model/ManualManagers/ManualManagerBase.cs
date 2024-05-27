@@ -2,21 +2,21 @@ using System.Collections.Generic;
 using System.Linq;
 using LotusEcarlateChanges.Model.Wrappers;
 
-namespace LotusEcarlateChanges.Model.Manual;
+namespace LotusEcarlateChanges.Model.ManualManagers;
 
 public abstract class ManualManagerBase<T> where T : IWrapper
 {
   protected abstract T Get(string prefabName);
-  protected readonly Dictionary<string, T> _cache = [];
+  protected readonly Dictionary<string, T> Cache = [];
   public T this[string prefabName]
   {
     get
     {
-      var isCached = _cache.TryGetValue(prefabName, out var wrapper);
+      var isCached = this.Cache.TryGetValue(prefabName, out var wrapper);
       if (!isCached)
       {
         wrapper = this.Get(prefabName);
-        if (wrapper is not null) _cache[prefabName] = wrapper;
+        if (wrapper is not null) this.Cache[prefabName] = wrapper;
       }
       return wrapper;
     }

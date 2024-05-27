@@ -3,9 +3,9 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using Jotunn.Utils;
-using LotusEcarlateChanges.Changes.Jotunn;
-using LotusEcarlateChanges.Changes.Manager;
+using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Changes.Manual;
+using LotusEcarlateChanges.Changes.StandaloneManagerBased;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges;
@@ -42,11 +42,11 @@ public class Plugin : BaseUnityPlugin
     Logger = base.Logger;
 
     List<IChanges> changesList = [
-      // Jotunn plugins
+      // Changes to Jotunn-based plugins
       new Clutter(),
       new MoreGates(),
 
-      // Manager plugins
+      // Changes to standalone manager-based plugins
       new Backpacks(),
       new BowsBeforeHoes(),
       new ClayBuildPieces(),
@@ -58,7 +58,7 @@ public class Plugin : BaseUnityPlugin
       new SouthsilArmor(),
       new Warfare(),
 
-      // Manual plugins
+      // Manual changes
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
       new FallDamageForCreatures(),

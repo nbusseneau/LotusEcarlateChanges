@@ -9,15 +9,15 @@ namespace LotusEcarlateChanges.Extensions;
 
 public static class GenericTypeExtensions
 {
-  private static readonly Dictionary<object, GameObject> _cache = [];
+  private static readonly Dictionary<object, GameObject> s_cache = [];
   public static GameObject Prefab<T>(this T container)
   {
-    var isCached = _cache.TryGetValue(container, out var prefab);
+    var isCached = s_cache.TryGetValue(container, out var prefab);
     if (!isCached)
     {
-      if (container is CustomItem customItem) prefab ??= _cache[container] = customItem.ItemPrefab;
-      else if (container is CustomPiece customPiece) prefab ??= _cache[container] = customPiece.PiecePrefab;
-      else prefab ??= _cache[container] = (GameObject)AccessTools.Field(container.GetType(), "Prefab")?.GetValue(container);
+      if (container is CustomItem customItem) prefab ??= s_cache[container] = customItem.ItemPrefab;
+      else if (container is CustomPiece customPiece) prefab ??= s_cache[container] = customPiece.PiecePrefab;
+      else prefab ??= s_cache[container] = (GameObject)AccessTools.Field(container.GetType(), "Prefab")?.GetValue(container);
     }
     return prefab;
   }

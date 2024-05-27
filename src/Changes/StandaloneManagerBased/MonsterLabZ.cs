@@ -3,9 +3,9 @@ extern alias MonsterLabZ;
 using LotusEcarlateChanges.Model.Changes;
 using MonsterLabZ::CreatureManager;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class MonsterLabZ : ManagerChangesBase
+public class MonsterLabZ : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

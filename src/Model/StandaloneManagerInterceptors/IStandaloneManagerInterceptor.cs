@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace LotusEcarlateChanges.Model.Manager;
+namespace LotusEcarlateChanges.Model.StandaloneManagerInterceptors;
 
-public interface IManager : IEnumerable
+public interface IStandaloneManagerInterceptor : IEnumerable
 {
   public void RemoveAll(HashSet<string> toRemove);
   public void KeepOnly(HashSet<string> toKeep);

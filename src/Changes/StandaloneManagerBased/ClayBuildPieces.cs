@@ -6,9 +6,9 @@ using HarmonyLib;
 using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class ClayBuildPieces : ManagerChangesBase
+public class ClayBuildPieces : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

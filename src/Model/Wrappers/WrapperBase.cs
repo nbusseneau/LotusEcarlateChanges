@@ -3,12 +3,10 @@ using UnityEngine;
 
 namespace LotusEcarlateChanges.Model.Wrappers;
 
-public abstract class WrapperBase : IWrapper
+public abstract class WrapperBase(GameObject prefab) : IWrapper
 {
-  protected static readonly Dictionary<string, WrapperBase> _cache = [];
+  protected static readonly Dictionary<string, WrapperBase> Cache = [];
 
-  public GameObject Prefab { get; }
+  public GameObject Prefab { get; } = prefab;
   public string PrefabName => this.Prefab.name;
-
-  protected WrapperBase(GameObject prefab) => this.Prefab = prefab;
 }

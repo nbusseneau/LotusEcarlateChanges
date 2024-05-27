@@ -5,9 +5,9 @@ using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Extensions;
 using System.Collections.Generic;
 
-namespace LotusEcarlateChanges.Changes.Manager;
+namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
-public class RefinedStonePieces : ManagerChangesBase
+public class RefinedStonePieces : StandaloneManagerBasedChangesBase
 {
   protected override void ApplyInternal()
   {

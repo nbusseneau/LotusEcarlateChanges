@@ -8,15 +8,15 @@ using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Model.Wrappers;
 
-namespace LotusEcarlateChanges.Changes.Jotunn;
+namespace LotusEcarlateChanges.Changes.JotunnBased;
 
-public class Clutter : JotunnChangesBase
+public class Clutter : JotunnBasedChangesBase
 {
-  private static IEnumerable<PieceWrapper> pieces;
+  private static IEnumerable<PieceWrapper> s_pieces;
 
   protected override void ApplyInternal()
   {
-    pieces = ModRegistry.GetPieces("com.plumga.Clutter").Select(p => p.Piece());
+    s_pieces = ModRegistry.GetPieces("com.plumga.Clutter").Select(p => p.Piece());
 
     // Remove clutter tool and some pieces
     this.Remove("$PlumgaClutterTool");
@@ -27,7 +27,7 @@ public class Clutter : JotunnChangesBase
     this.Remove("custompiece_stonechest_public");
 
     // Relocate clutter pieces to Furniture and erase all comfort values
-    foreach (var piece in pieces)
+    foreach (var piece in s_pieces)
     {
       piece.Category = Piece.PieceCategory.Furniture;
       piece.Comfort.Value = 0;
@@ -64,7 +64,7 @@ public class Clutter : JotunnChangesBase
     var stonecutter = ZNetScene.instance.GetPrefab(CraftingStations.Stonecutter).GetComponent<CraftingStation>();
 
     // Relocate to Hammer and set workbench as default crafting table
-    foreach (var piece in pieces)
+    foreach (var piece in s_pieces)
     {
       piece.CraftingStation = workbench;
       this.PieceManager.RegisterPieceInPieceTable(piece.Prefab, "Hammer");

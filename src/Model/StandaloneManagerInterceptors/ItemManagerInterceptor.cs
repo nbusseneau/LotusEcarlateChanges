@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LotusEcarlateChanges.Model.Manager;
+namespace LotusEcarlateChanges.Model.StandaloneManagerInterceptors;
 
-public class ItemManager<T>(List<T> registeredItems, List<GameObject> prefabs, List<GameObject> zNetOnlyPrefabs) : ManagerBase<T>(registeredItems, prefabs)
+public class ItemManagerInterceptor<T>(List<T> registeredItems, List<GameObject> prefabs, List<GameObject> zNetOnlyPrefabs) : StandaloneManagerInterceptorBase<T>(registeredItems, prefabs)
 {
   private readonly List<GameObject> _zNetOnlyPrefabs = zNetOnlyPrefabs;
 

@@ -24,11 +24,11 @@ public class PieceWrapper : WrapperBase
   public static PieceWrapper Get(GameObject prefab)
   {
     if (prefab is null) return null;
-    var isCached = _cache.TryGetValue(prefab.name, out var wrapper);
+    var isCached = Cache.TryGetValue(prefab.name, out var wrapper);
     if (!isCached)
     {
       wrapper = new PieceWrapper(prefab);
-      _cache[prefab.name] = wrapper;
+      Cache[prefab.name] = wrapper;
     }
     return (PieceWrapper)wrapper;
   }
