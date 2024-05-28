@@ -571,84 +571,84 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldmaidenChest.Item().Set = shieldmaidenHelm.Item().Set;
     shieldmaidenLegs.Item().Set = shieldmaidenHelm.Item().Set;
 
-    // Berserker
+    // Berserkir
     this.Keep("bearhelm2");
     this.Keep("bearchest2");
     this.Keep("bearlegs2");
 
-    var berserkerHelm = itemManager["bearhelm2"];
+    var berserkirHelm = itemManager["bearhelm2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      berserkerHelm.Name.Alias("$SouthsilArmor_BerserkerHelm_Name");
-      berserkerHelm.Description.Alias("$SouthsilArmor_BerserkerHelm_Description");
+      berserkirHelm.Name.Alias("$SouthsilArmor_BerserkirHelm_Name");
+      berserkirHelm.Description.Alias("$SouthsilArmor_BerserkirHelm_Description");
     });
-    berserkerHelm.Crafting.Stations.Clear();
-    berserkerHelm.Crafting.Add(CraftingTable.Forge, 3);
-    berserkerHelm.RequiredItems.Requirements.Clear();
-    berserkerHelm.RequiredItems.Add("BlackMetal", 10);
-    berserkerHelm.RequiredItems.Add("LinenThread", 10);
-    berserkerHelm.RequiredUpgradeItems.Requirements.Clear();
-    berserkerHelm.RequiredUpgradeItems.Add("BlackMetal", 5);
-    berserkerHelm.RequiredUpgradeItems.Add("LinenThread", 5);
-    berserkerHelm.Item().Armor.ArmorBase = 16;
-    berserkerHelm.Item().Armor.ArmorPerLevel = 4;
-    berserkerHelm.Item().Armor.MovementModifier = -0.02f;
-    berserkerHelm.Item().Armor.Weight = 6;
+    berserkirHelm.Crafting.Stations.Clear();
+    berserkirHelm.Crafting.Add(CraftingTable.Forge, 3);
+    berserkirHelm.RequiredItems.Requirements.Clear();
+    berserkirHelm.RequiredItems.Add("BlackMetal", 10);
+    berserkirHelm.RequiredItems.Add("LinenThread", 10);
+    berserkirHelm.RequiredUpgradeItems.Requirements.Clear();
+    berserkirHelm.RequiredUpgradeItems.Add("BlackMetal", 5);
+    berserkirHelm.RequiredUpgradeItems.Add("LinenThread", 5);
+    berserkirHelm.Item().Armor.ArmorBase = 16;
+    berserkirHelm.Item().Armor.ArmorPerLevel = 4;
+    berserkirHelm.Item().Armor.MovementModifier = -0.02f;
+    berserkirHelm.Item().Armor.Weight = 6;
 
-    var berserkerChest = itemManager["bearchest2"];
+    var berserkirChest = itemManager["bearchest2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      berserkerChest.Name.Alias("$SouthsilArmor_BerserkerChest_Name");
-      berserkerChest.Description.Alias("$SouthsilArmor_BerserkerChest_Description");
+      berserkirChest.Name.Alias("$SouthsilArmor_BerserkirChest_Name");
+      berserkirChest.Description.Alias("$SouthsilArmor_BerserkirChest_Description");
     });
-    berserkerChest.Crafting.Stations.Clear();
-    berserkerChest.Crafting.Add(CraftingTable.Forge, 3);
-    berserkerChest.RequiredItems.Requirements.Clear();
-    berserkerChest.RequiredItems.Add("BlackMetal", 30);
-    berserkerChest.RequiredItems.Add("LinenThread", 30);
-    berserkerChest.RequiredItems.Add("Chain", 10);
-    berserkerChest.RequiredUpgradeItems.Requirements.Clear();
-    berserkerChest.RequiredUpgradeItems.Add("BlackMetal", 15);
-    berserkerChest.RequiredUpgradeItems.Add("LinenThread", 15);
-    berserkerChest.Item().Armor.ArmorBase = 48;
-    berserkerChest.Item().Armor.ArmorPerLevel = 5;
-    berserkerChest.Item().Armor.MovementModifier = -0.10f;
-    berserkerChest.Item().Armor.Weight = 18;
+    berserkirChest.Crafting.Stations.Clear();
+    berserkirChest.Crafting.Add(CraftingTable.Forge, 3);
+    berserkirChest.RequiredItems.Requirements.Clear();
+    berserkirChest.RequiredItems.Add("BlackMetal", 30);
+    berserkirChest.RequiredItems.Add("LinenThread", 30);
+    berserkirChest.RequiredItems.Add("Chain", 10);
+    berserkirChest.RequiredUpgradeItems.Requirements.Clear();
+    berserkirChest.RequiredUpgradeItems.Add("BlackMetal", 15);
+    berserkirChest.RequiredUpgradeItems.Add("LinenThread", 15);
+    berserkirChest.Item().Armor.ArmorBase = 48;
+    berserkirChest.Item().Armor.ArmorPerLevel = 5;
+    berserkirChest.Item().Armor.MovementModifier = -0.10f;
+    berserkirChest.Item().Armor.Weight = 18;
 
-    var berserkerLegs = itemManager["bearlegs2"];
+    var berserkirLegs = itemManager["bearlegs2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      berserkerLegs.Name.Alias("$SouthsilArmor_BerserkerLegs_Name");
-      berserkerLegs.Description.Alias("$SouthsilArmor_BerserkerLegs_Description");
+      berserkirLegs.Name.Alias("$SouthsilArmor_BerserkirLegs_Name");
+      berserkirLegs.Description.Alias("$SouthsilArmor_BerserkirLegs_Description");
     });
-    berserkerLegs.Crafting.Stations.Clear();
-    berserkerLegs.Crafting.Add(CraftingTable.Forge, 3);
-    berserkerLegs.RequiredItems.Requirements.Clear();
-    berserkerLegs.RequiredItems.Add("BlackMetal", 20);
-    berserkerLegs.RequiredItems.Add("LinenThread", 20);
-    berserkerLegs.RequiredUpgradeItems.Requirements.Clear();
-    berserkerLegs.RequiredUpgradeItems.Add("BlackMetal", 10);
-    berserkerLegs.RequiredUpgradeItems.Add("LinenThread", 10);
-    berserkerLegs.Item().Armor.ArmorBase = 32;
-    berserkerLegs.Item().Armor.ArmorPerLevel = 5;
-    berserkerLegs.Item().Armor.MovementModifier = -0.06f;
-    berserkerLegs.Item().Armor.Weight = 12;
-    berserkerLegs.Item().Armor.DamageModifiers.Clear();
+    berserkirLegs.Crafting.Stations.Clear();
+    berserkirLegs.Crafting.Add(CraftingTable.Forge, 3);
+    berserkirLegs.RequiredItems.Requirements.Clear();
+    berserkirLegs.RequiredItems.Add("BlackMetal", 20);
+    berserkirLegs.RequiredItems.Add("LinenThread", 20);
+    berserkirLegs.RequiredUpgradeItems.Requirements.Clear();
+    berserkirLegs.RequiredUpgradeItems.Add("BlackMetal", 10);
+    berserkirLegs.RequiredUpgradeItems.Add("LinenThread", 10);
+    berserkirLegs.Item().Armor.ArmorBase = 32;
+    berserkirLegs.Item().Armor.ArmorPerLevel = 5;
+    berserkirLegs.Item().Armor.MovementModifier = -0.06f;
+    berserkirLegs.Item().Armor.Weight = 12;
+    berserkirLegs.Item().Armor.DamageModifiers.Clear();
 
-    var berserkerSetEffect = berserkerHelm.Item().Set.Effect;
-    berserkerSetEffect.m_name = "$SouthsilArmor_BerserkerSet_Effect_Name";
-    berserkerSetEffect.m_tooltip = "$SouthsilArmor_BerserkerSet_Effect_Tooltip";
-    berserkerSetEffect.m_skillLevel = CustomSkills.TwoHandedAxes;
-    berserkerSetEffect.m_skillLevelModifier = 15;
-    berserkerSetEffect.m_skillLevel2 = CustomSkills.TwoHandedHammers;
-    berserkerSetEffect.m_skillLevelModifier2 = 15;
-    berserkerSetEffect.m_healthRegenMultiplier = 1;
-    berserkerSetEffect.m_staminaRegenMultiplier = 1;
+    var berserkirSetEffect = berserkirHelm.Item().Set.Effect;
+    berserkirSetEffect.m_name = "$SouthsilArmor_BerserkirSet_Effect_Name";
+    berserkirSetEffect.m_tooltip = "$SouthsilArmor_BerserkirSet_Effect_Tooltip";
+    berserkirSetEffect.m_skillLevel = CustomSkills.TwoHandedAxes;
+    berserkirSetEffect.m_skillLevelModifier = 15;
+    berserkirSetEffect.m_skillLevel2 = CustomSkills.TwoHandedHammers;
+    berserkirSetEffect.m_skillLevelModifier2 = 15;
+    berserkirSetEffect.m_healthRegenMultiplier = 1;
+    berserkirSetEffect.m_staminaRegenMultiplier = 1;
 
-    berserkerHelm.Item().Set.Name = "Berserker";
-    berserkerHelm.Item().Set.Size = 3;
-    berserkerChest.Item().Set = berserkerHelm.Item().Set;
-    berserkerLegs.Item().Set = berserkerHelm.Item().Set;
+    berserkirHelm.Item().Set.Name = "Berserkir";
+    berserkirHelm.Item().Set.Size = 3;
+    berserkirChest.Item().Set = berserkirHelm.Item().Set;
+    berserkirLegs.Item().Set = berserkirHelm.Item().Set;
 
     // Gjall-hunter
     this.Keep("heavycarhelm");
