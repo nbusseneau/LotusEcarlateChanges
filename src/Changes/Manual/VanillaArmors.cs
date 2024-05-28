@@ -167,6 +167,12 @@ public class VanillaArmors : ManualChangesBase
     rootLegs.Armor.ArmorPerLevel = 3;
     rootLegs.Armor.MovementModifier = -0.02f;
     rootLegs.Armor.Weight = 5;
+    rootLegs.Armor.DamageModifiers.Clear();
+    rootLegs.Armor.DamageModifiers.Add(new()
+    {
+      m_type = HitData.DamageType.Fire,
+      m_modifier = HitData.DamageModifier.Weak,
+    });
 
     var rootSetEffect = rootHelm.Set.Effect;
     rootSetEffect.m_name = "$Vanilla_RootSet_Effect_Name";
