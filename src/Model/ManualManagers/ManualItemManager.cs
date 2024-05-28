@@ -13,7 +13,7 @@ public class ManualItemManager : ManualManagerBase<ItemWrapper>
 
   public void RegisterStatusEffects()
   {
-    foreach (var item in Cache.Values)
+    foreach (var item in WrappersCache.Values)
     {
       RegisterStatusEffect(item.SharedData.m_attackStatusEffect);
       RegisterStatusEffect(item.SharedData.m_consumeStatusEffect);

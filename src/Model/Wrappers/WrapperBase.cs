@@ -5,7 +5,7 @@ namespace LotusEcarlateChanges.Model.Wrappers;
 
 public abstract class WrapperBase(GameObject prefab) : IWrapper
 {
-  protected static readonly Dictionary<string, WrapperBase> Cache = [];
+  protected static readonly Dictionary<string, WrapperBase> WrappersCache = [];
 
   public GameObject Prefab { get; } = prefab;
   public string PrefabName => this.Prefab.name;

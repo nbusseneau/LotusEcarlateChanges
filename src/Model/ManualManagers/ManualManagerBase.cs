@@ -7,16 +7,16 @@ namespace LotusEcarlateChanges.Model.ManualManagers;
 public abstract class ManualManagerBase<T> where T : IWrapper
 {
   protected abstract T Get(string prefabName);
-  protected readonly Dictionary<string, T> Cache = [];
+  protected readonly Dictionary<string, T> WrappersCache = [];
   public T this[string prefabName]
   {
     get
     {
-      var isCached = this.Cache.TryGetValue(prefabName, out var wrapper);
+      var isCached = this.WrappersCache.TryGetValue(prefabName, out var wrapper);
       if (!isCached)
       {
         wrapper = this.Get(prefabName);
-        if (wrapper is not null) this.Cache[prefabName] = wrapper;
+        if (wrapper is not null) this.WrappersCache[prefabName] = wrapper;
       }
       return wrapper;
     }

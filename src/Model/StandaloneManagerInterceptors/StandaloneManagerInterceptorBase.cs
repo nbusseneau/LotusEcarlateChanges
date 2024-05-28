@@ -8,20 +8,16 @@ namespace LotusEcarlateChanges.Model.StandaloneManagerInterceptors;
 
 public abstract class StandaloneManagerInterceptorBase<T>(List<T> registeredContainers, List<GameObject> prefabs) : IStandaloneManagerInterceptor, IEnumerable<T>
 {
-  private readonly List<T> _registeredContainers = registeredContainers;
-  private readonly List<GameObject> _prefabs = prefabs;
+  protected readonly List<T> _registeredContainers = registeredContainers;
+  protected readonly List<GameObject> _prefabs = prefabs;
 
-  protected readonly Dictionary<string, T> Cache = [];
+  protected readonly Dictionary<string, T> ContainersCache = [];
   public T this[string prefabName]
   {
     get
     {
-      var isCached = this.Cache.TryGetValue(prefabName, out var container);
-      if (!isCached)
-      {
-        container = this._registeredContainers.Single(c => c.Prefab().name == prefabName);
-        this.Cache[prefabName] = container;
-      }
+      var isCached = this.ContainersCache.TryGetValue(prefabName, out var container);
+      if (!isCached) container = this.ContainersCache[prefabName] = this._registeredContainers.Single(c => c.Prefab().name == prefabName);
       return container;
     }
   }
