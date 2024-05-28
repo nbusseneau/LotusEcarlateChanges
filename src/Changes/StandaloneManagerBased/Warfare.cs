@@ -2,8 +2,8 @@ extern alias Warfare;
 
 using System.Collections.Generic;
 using HarmonyLib;
+using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Extensions;
-using LotusEcarlateChanges.Model;
 using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Model.StandaloneManagerInterceptors;
 using Warfare::ItemManager;
@@ -164,7 +164,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "BattleaxeDvergr_TW",
     ];
     var twoHandedAxesSkillIcon = s_itemManager["BattleaxeIron_TW"].Item().ItemData.GetIcon();
-    CustomSkills.TwoHandedAxes = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedAxes, "$CustomSkills_TwoHandedAxesSkill_Name", "$CustomSkills_TwoHandedAxesSkill_Description", twoHandedAxesSkillIcon);
+    CustomSkills.SetIcon(CustomSkills.TwoHandedAxes, twoHandedAxesSkillIcon);
     foreach (var prefabName in twoHandedAxes) s_itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedAxes;
 
     HashSet<string> twoHandedHammers = [
@@ -176,7 +176,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "BattlehammerDvergr_TW",
     ];
     var twoHandedHammersSkillIcon = s_itemManager["SledgeStagbreaker_TW"].Item().ItemData.GetIcon();
-    CustomSkills.TwoHandedHammers = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedHammers, "$CustomSkills_TwoHandedHammersSkill_Name", "$CustomSkills_TwoHandedHammersSkill_Description", twoHandedHammersSkillIcon);
+    CustomSkills.SetIcon(CustomSkills.TwoHandedHammers, twoHandedHammersSkillIcon);
     foreach (var prefabName in twoHandedHammers) s_itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedHammers;
 
     HashSet<string> twoHandedSwords = [
@@ -187,7 +187,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "BastardDvergr_TW",
     ];
     var twoHandedSwordsSkillIcon = s_itemManager["BastardBone_TW"].Item().ItemData.GetIcon();
-    CustomSkills.TwoHandedSwords = CustomSkills.RegisterSkill(CustomSkills.Identifiers.TwoHandedSwords, "$CustomSkills_TwoHandedSwordsSkill_Name", "$CustomSkills_TwoHandedSwordsSkill_Description", twoHandedSwordsSkillIcon);
+    CustomSkills.SetIcon(CustomSkills.TwoHandedSwords, twoHandedSwordsSkillIcon);
     foreach (var prefabName in twoHandedSwords) s_itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
     HashSet<string> warpikes = [
@@ -198,7 +198,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "WarpikeDvergr_TW",
     ];
     var warpikesSkillIcon = s_itemManager["WarpikeBone_TW"].Item().ItemData.GetIcon();
-    CustomSkills.Warpikes = CustomSkills.RegisterSkill(CustomSkills.Identifiers.Warpikes, "$CustomSkills_WarpikesSkill_Name", "$CustomSkills_WarpikesSkill_Description", warpikesSkillIcon);
+    CustomSkills.SetIcon(CustomSkills.Warpikes, warpikesSkillIcon);
     foreach (var prefabName in warpikes) s_itemManager[prefabName].Item().Weapon.SkillType = CustomSkills.Warpikes;
 
     // Clear projectile prefabs since we didn't keep any

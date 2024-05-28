@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using LotusEcarlateChanges.Model;
+using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.Manual;

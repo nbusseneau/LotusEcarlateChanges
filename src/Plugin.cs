@@ -44,6 +44,7 @@ public class Plugin : BaseUnityPlugin
     List<IChanges> changesList = [
       // Changes to Jotunn-based plugins
       new Clutter(),
+      new CustomSkills(),
       new MoreGates(),
 
       // Changes to standalone manager-based plugins

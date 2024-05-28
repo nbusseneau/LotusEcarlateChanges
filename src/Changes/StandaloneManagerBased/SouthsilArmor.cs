@@ -2,8 +2,8 @@ extern alias SouthsilArmor;
 
 using System;
 using System.Collections.Generic;
+using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Extensions;
-using LotusEcarlateChanges.Model;
 using LotusEcarlateChanges.Model.Changes;
 using SouthsilArmor::ItemManager;
 using UnityEngine;

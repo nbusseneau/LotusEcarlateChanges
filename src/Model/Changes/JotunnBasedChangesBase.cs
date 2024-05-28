@@ -37,5 +37,5 @@ public abstract class JotunnBasedChangesBase : IChanges
     Jotunn.Managers.PieceManager.OnPiecesRegistered += ApplyInternalDeferred;
   }
   protected abstract void ApplyInternal();
-  protected abstract void ApplyInternalDeferred();
+  protected virtual void ApplyInternalDeferred() { }
 }
