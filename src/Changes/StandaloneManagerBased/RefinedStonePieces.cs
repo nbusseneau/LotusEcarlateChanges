@@ -14,24 +14,25 @@ public class RefinedStonePieces : StandaloneManagerBasedChangesBase
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
 
     // Relocate RefinedStonePieces pieces to BuildingStonecutter
-    foreach (var piece in pieceManager)
-    {
-      piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
-    }
+    foreach (var piece in pieceManager) piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
 
     // Relocate statues to Furniture and adjust comfort
-    HashSet<string> toAdjust = [
+    HashSet<string> toFurniture = [
       "BRP_StoneCorgi",
       "BRP_StoneDeer",
       "BRP_StoneHare",
     ];
-    foreach (var piece in pieceManager.GetAll(toAdjust))
+    foreach (var piece in pieceManager.GetAll(toFurniture))
     {
       piece.Category.Set(BuildPieceCategory.Furniture);
       piece.Piece().Comfort.Value = 0;
     }
 
-    // Relocate stack to Misc
-    pieceManager["BRP_RefinedStone_Stack"].Category.Set(BuildPieceCategory.Misc);
+    // Relocate stack and hearth to Misc
+    HashSet<string> toMisc = [
+      "BRP_RefinedStone_Stack",
+      "BRP_RefinedStone_Hearth",
+    ];
+    foreach (var piece in pieceManager.GetAll(toMisc)) piece.Category.Set(BuildPieceCategory.Misc);
   }
 }
