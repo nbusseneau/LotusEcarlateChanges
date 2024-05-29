@@ -73,5 +73,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     mistTorchArrow.RequiredItems.Add("Resin", 8);
     mistTorchArrow.RequiredItems.Add("Feathers", 2);
     mistTorchArrow.RequiredItems.Add("Eitr", 1);
+    mistTorchArrow.Crafting.Stations.Clear();
+    mistTorchArrow.Crafting.Add(CraftingTable.BlackForge, 1);
   }
 }

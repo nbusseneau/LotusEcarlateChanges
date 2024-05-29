@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix seeker quiver recipe.
+- Fix seeker quiver recipe and mist torch arrow crafting station requirements.
 
 ## [0.6.0] - 2024-05-29
 
