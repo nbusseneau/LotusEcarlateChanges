@@ -45,7 +45,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     loxQuiver.RequiredUpgradeItems.Add("LoxPelt", 3);
     BowsBeforeHoesPlugin.QuiverList.Add(loxQuiver.Prefab);
 
-    var seekerQuiver = itemManager["BBH_PlainsLox_Quiver"];
+    var seekerQuiver = itemManager["BBH_Seeker_Quiver"];
     seekerQuiver.RequiredItems.Requirements.Clear();
     seekerQuiver.RequiredItems.Add("YggdrasilWood", 10);
     seekerQuiver.RequiredItems.Add("Carapace", 20);
