@@ -51,10 +51,7 @@ public class Clutter : JotunnBasedChangesBase
       ["$custompiece_roundtable"] = (1, Piece.ComfortGroup.Table),
       ["$custompiece_roundtablewithcloth"] = (1, Piece.ComfortGroup.Table),
     };
-    foreach (var (piece, comfort) in this.PieceManager.GetAll(toAdjust))
-    {
-      (piece.Comfort.Value, piece.Comfort.Group) = comfort;
-    }
+    foreach (var (piece, comfort) in this.PieceManager.GetAll(toAdjust)) (piece.Comfort.Value, piece.Comfort.Group) = comfort;
   }
 
   protected override void ApplyInternalDeferred()
@@ -71,7 +68,7 @@ public class Clutter : JotunnBasedChangesBase
     }
 
     // Adjust required crafting table
-    Dictionary<string, CraftingStation> toAdjust = new()
+    Dictionary<string, CraftingStation> toStation = new()
     {
       ["$custompiece_blackdragonstatuelarge"] = forge,
       ["$custompiece_blackdragonstatuesmall"] = forge,
@@ -100,9 +97,6 @@ public class Clutter : JotunnBasedChangesBase
       ["$custompiece_celticidol11"] = stonecutter,
       ["$custompiece_celticidol12"] = stonecutter,
     };
-    foreach (var (piece, station) in this.PieceManager.GetAll(toAdjust))
-    {
-      piece.CraftingStation = station;
-    }
+    foreach (var (piece, station) in this.PieceManager.GetAll(toStation)) piece.CraftingStation = station;
   }
 }

@@ -82,10 +82,7 @@ public class BalrondShipyard : ManualChangesBase
       ["piece_ropewall_big"] = Piece.PieceCategory.Furniture,
       ["piece_wisplampceiling"] = Piece.PieceCategory.Furniture,
     };
-    foreach (var (piece, category) in PieceManager.GetAll(toAdjustCategory))
-    {
-      piece.Category = category;
-    }
+    foreach (var (piece, category) in PieceManager.GetAll(toAdjustCategory)) piece.Category = category;
 
     // Adjust comfort
     Dictionary<string, (int, Piece.ComfortGroup)> toAdjustComfort = new()
@@ -96,9 +93,6 @@ public class BalrondShipyard : ManualChangesBase
       ["piece_ropewall"] = (0, Piece.ComfortGroup.Banner),
       ["piece_ropewall_big"] = (0, Piece.ComfortGroup.Banner),
     };
-    foreach (var (piece, comfort) in PieceManager.GetAll(toAdjustComfort))
-    {
-      (piece.Comfort.Value, piece.Comfort.Group) = comfort;
-    }
+    foreach (var (piece, comfort) in PieceManager.GetAll(toAdjustComfort)) (piece.Comfort.Value, piece.Comfort.Group) = comfort;
   }
 }

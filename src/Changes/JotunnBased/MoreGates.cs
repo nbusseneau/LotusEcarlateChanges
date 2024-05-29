@@ -19,7 +19,7 @@ public class MoreGates : JotunnBasedChangesBase
     this.Remove("h_logshort45");
 
     // Relocate custom MoreGates pieces to appropriate categories
-    Dictionary<string, Piece.PieceCategory> toAdjust = new()
+    Dictionary<string, Piece.PieceCategory> toRelocate = new()
     {
       ["h_chain"] = Piece.PieceCategory.Furniture,
       ["hayzestake_01"] = Piece.PieceCategory.Misc,
@@ -60,29 +60,25 @@ public class MoreGates : JotunnBasedChangesBase
       ["h_window_13"] = Piece.PieceCategory.BuildingWorkbench,
       ["h_window_14"] = Piece.PieceCategory.BuildingWorkbench,
     };
-    foreach (var (piece, category) in this.PieceManager.GetAll(toAdjust))
-    {
-      piece.Category = category;
-    }
+    foreach (var (piece, category) in this.PieceManager.GetAll(toRelocate)) piece.Category = category;
   }
 
   protected override void ApplyInternalDeferred()
   {
     var forge = ZNetScene.instance.GetPrefab(CraftingStations.Forge).GetComponent<CraftingStation>();
 
-    Dictionary<string, CraftingStation> toAdjustStation = new()
+    // Change required crafting station
+    Dictionary<string, CraftingStation> toStation = new()
     {
       ["h_drawbridge01"] = forge,
       ["h_drawbridge02"] = forge,
       ["lift_gate"] = forge,
       ["lift_gate2"] = forge,
     };
-    foreach (var (piece, station) in this.PieceManager.GetAll(toAdjustStation))
-    {
-      piece.CraftingStation = station;
-    }
+    foreach (var (piece, station) in this.PieceManager.GetAll(toStation)) piece.CraftingStation = station;
 
-    Dictionary<string, (string, int)> toAdjustResources = new()
+    // Add ingredients to recipes
+    Dictionary<string, (string, int)> toAdjust = new()
     {
       // Add iron to gate with metal
       ["Hayze_gate_01"] = ("Iron", 1),
@@ -103,9 +99,6 @@ public class MoreGates : JotunnBasedChangesBase
       ["h_window_13"] = ("Crystal", 2),
       ["h_window_14"] = ("Crystal", 2),
     };
-    foreach (var (piece, (itemName, amount)) in this.PieceManager.GetAll(toAdjustResources))
-    {
-      piece.Resources.Add(itemName, amount);
-    }
+    foreach (var (piece, (itemName, amount)) in this.PieceManager.GetAll(toAdjust)) piece.Resources.Add(itemName, amount);
   }
 }

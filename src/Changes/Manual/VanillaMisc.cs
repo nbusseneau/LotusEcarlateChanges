@@ -9,15 +9,12 @@ public class VanillaMisc : ManualChangesBase
   protected override void ApplyInternalDeferred()
   {
     // Relocate some Misc pieces to Furniture for consistency
-    HashSet<string> toRelocate = [
+    HashSet<string> toFurniture = [
       "darkwood_raven",
       "darkwood_wolf",
       "wood_dragon1",
     ];
-    foreach (var piece in PieceManager.GetAll(toRelocate))
-    {
-      piece.Category = Piece.PieceCategory.Furniture;
-    }
+    foreach (var piece in PieceManager.GetAll(toFurniture)) piece.Category = Piece.PieceCategory.Furniture;
 
     // Skills
     ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
