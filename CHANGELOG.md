@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adjust Monstrum's Razorback and Black Bear spawns.
+
 ## [0.6.3] - 2024-06-03
 
 ### Fixed

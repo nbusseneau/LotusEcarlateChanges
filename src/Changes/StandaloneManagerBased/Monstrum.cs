@@ -1,5 +1,6 @@
 extern alias Monstrum;
 
+using System.Linq;
 using LotusEcarlateChanges.Model.Changes;
 using Monstrum::CreatureManager;
 using Monstrum::ItemManager;
@@ -13,7 +14,7 @@ public class Monstrum : StandaloneManagerBasedChangesBase
   {
     var itemManager = this.RegisterItemManager(Item.registeredItems, Monstrum::ItemManager.PrefabManager.prefabs, Monstrum::ItemManager.PrefabManager.ZnetOnlyPrefabs);
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
-    var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Monstrum::CreatureManager.PrefabManager.prefabs);
+    var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Creature.registeredSpawners, Monstrum::CreatureManager.PrefabManager.prefabs);
 
     // Rugs
     var (foxRug, foxRugWrapper) = pieceManager["rug_Fox_TW"];
@@ -77,8 +78,16 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     mixedGrill.Food.Stamina = 23;
 
     // Drops
-    creatureManager["BossAsmodeus_TW"].Drops.drops.Remove("KnifeViper_TW");
-    creatureManager["BossSvalt_TW"].Drops.drops.Remove("DualAxeDemonic_TW");
-    creatureManager["BossVrykolathas_TW"].Drops.drops.Remove("ScytheVampiric_TW");
+    creatureManager["BossAsmodeus_TW"].Creature.Drops.drops.Remove("KnifeViper_TW");
+    creatureManager["BossSvalt_TW"].Creature.Drops.drops.Remove("DualAxeDemonic_TW");
+    creatureManager["BossVrykolathas_TW"].Creature.Drops.drops.Remove("ScytheVampiric_TW");
+
+    // Spawns
+    var razorbackSpawner = creatureManager["Razorback_TW"].Spawners.Single();
+    razorbackSpawner.CheckSpawnInterval = 150;
+    razorbackSpawner.SpawnChance = 40f;
+    razorbackSpawner.Maximum = 3;
+
+    foreach (var spawner in creatureManager["BlackBear_TW"].Spawners) spawner.SpawnChance = 7f;
   }
 }

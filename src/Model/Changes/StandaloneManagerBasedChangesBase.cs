@@ -26,6 +26,12 @@ public abstract class StandaloneManagerBasedChangesBase : IChanges
     this._managers.Add(manager);
     return manager;
   }
+  protected TherzieCreatureManager<T, Y> RegisterCreatureManager<T, Y>(List<T> registeredPieces, List<Y> registeredSpawners, List<GameObject> prefabs)
+  {
+    TherzieCreatureManager<T, Y> manager = new(registeredPieces, registeredSpawners, prefabs);
+    this._managers.Add(manager);
+    return manager;
+  }
   protected LocationManager<T> RegisterLocationManager<T>(List<T> registeredLocations)
   {
     LocationManager<T> manager = new(registeredLocations);
