@@ -66,6 +66,8 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     torchArrow.RequiredItems.Add("Resin", 8);
     torchArrow.RequiredItems.Add("Feathers", 2);
     torchArrow.RequiredItems.Add("Tar", 1);
+    torchArrow.Crafting.Stations.Clear();
+    torchArrow.Crafting.Add(CraftingTable.Workbench, 3);
 
     var mistTorchArrow = itemManager["MistTorchArrow"];
     mistTorchArrow.RequiredItems.Requirements.Clear();
