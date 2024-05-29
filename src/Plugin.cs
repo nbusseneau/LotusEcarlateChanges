@@ -63,6 +63,7 @@ public class Plugin : BaseUnityPlugin
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
       new FallDamageForCreatures(),
+      new Lightsources(),
       new VanillaMisc(),
       new VanillaArmors(),
     ];
