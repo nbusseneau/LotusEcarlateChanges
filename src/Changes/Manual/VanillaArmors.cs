@@ -8,7 +8,7 @@ public class VanillaArmors : ManualChangesBase
   protected override void ApplyInternalDeferred()
   {
     // Leather
-    var leatherHelm = ItemManager["HelmetLeather"];
+    var leatherHelm = this.ItemManager["HelmetLeather"];
     leatherHelm.Resources.Clear();
     leatherHelm.Resources.Add("LeatherScraps", 2, 1);
     leatherHelm.Resources.Add("DeerHide", 2, 1);
@@ -17,7 +17,7 @@ public class VanillaArmors : ManualChangesBase
     leatherHelm.Armor.MovementModifier = 0f;
     leatherHelm.Armor.Weight = 1;
 
-    var leatherChest = ItemManager["ArmorLeatherChest"];
+    var leatherChest = this.ItemManager["ArmorLeatherChest"];
     leatherChest.Resources.Clear();
     leatherChest.Resources.Add("DeerHide", 6, 3);
     leatherChest.Resources.Add("LeatherScraps", 6, 3);
@@ -26,7 +26,7 @@ public class VanillaArmors : ManualChangesBase
     leatherChest.Armor.MovementModifier = 0f;
     leatherChest.Armor.Weight = 6;
 
-    var leatherLegs = ItemManager["ArmorLeatherLegs"];
+    var leatherLegs = this.ItemManager["ArmorLeatherLegs"];
     leatherLegs.Resources.Clear();
     leatherLegs.Resources.Add("DeerHide", 4, 2);
     leatherLegs.Resources.Add("LeatherScraps", 4, 2);
@@ -35,7 +35,7 @@ public class VanillaArmors : ManualChangesBase
     leatherLegs.Armor.MovementModifier = 0f;
     leatherLegs.Armor.Weight = 3;
 
-    var leatherCape = ItemManager["CapeDeerHide"];
+    var leatherCape = this.ItemManager["CapeDeerHide"];
     leatherCape.Resources.Clear();
     leatherCape.Resources.Add("DeerHide", 3, 2);
     leatherCape.Resources.Add("LeatherScraps", 3, 2);
@@ -48,7 +48,7 @@ public class VanillaArmors : ManualChangesBase
     });
 
     // Troll
-    var trollHelm = ItemManager["HelmetTrollLeather"];
+    var trollHelm = this.ItemManager["HelmetTrollLeather"];
     trollHelm.Resources.Clear();
     trollHelm.Resources.Add("TrollHide", 4, 2);
     trollHelm.Resources.Add("BoneFragments", 4, 2);
@@ -58,7 +58,7 @@ public class VanillaArmors : ManualChangesBase
     trollHelm.Armor.MovementModifier = 0f;
     trollHelm.Armor.Weight = 1;
 
-    var trollChest = ItemManager["ArmorTrollLeatherChest"];
+    var trollChest = this.ItemManager["ArmorTrollLeatherChest"];
     trollChest.Resources.Clear();
     trollChest.Resources.Add("TrollHide", 8, 4);
     trollChest.Resources.Add("BoneFragments", 8, 4);
@@ -68,7 +68,7 @@ public class VanillaArmors : ManualChangesBase
     trollChest.Armor.MovementModifier = 0f;
     trollChest.Armor.Weight = 6;
 
-    var trollLegs = ItemManager["ArmorTrollLeatherLegs"];
+    var trollLegs = this.ItemManager["ArmorTrollLeatherLegs"];
     trollLegs.Resources.Clear();
     trollLegs.Resources.Add("TrollHide", 6, 3);
     trollLegs.Resources.Add("BoneFragments", 6, 3);
@@ -82,7 +82,7 @@ public class VanillaArmors : ManualChangesBase
     trollChest.Set = trollHelm.Set;
     trollLegs.Set = trollHelm.Set;
 
-    var trollCape = ItemManager["CapeTrollHide"];
+    var trollCape = this.ItemManager["CapeTrollHide"];
     trollCape.Resources.Clear();
     trollCape.Resources.Add("TrollHide", 8, 3);
     trollCape.Resources.Add("BoneFragments", 8, 3);
@@ -98,7 +98,7 @@ public class VanillaArmors : ManualChangesBase
     });
 
     // Bronze
-    var bronzeHelm = ItemManager["HelmetBronze"];
+    var bronzeHelm = this.ItemManager["HelmetBronze"];
     bronzeHelm.Resources.Clear();
     bronzeHelm.Resources.Add("Bronze", 2, 1);
     bronzeHelm.Resources.Add("DeerHide", 2, 1);
@@ -107,7 +107,7 @@ public class VanillaArmors : ManualChangesBase
     bronzeHelm.Armor.MovementModifier = -0.01f;
     bronzeHelm.Armor.Weight = 4;
 
-    var bronzeChest = ItemManager["ArmorBronzeChest"];
+    var bronzeChest = this.ItemManager["ArmorBronzeChest"];
     bronzeChest.Resources.Clear();
     bronzeChest.Resources.Add("Bronze", 6, 3);
     bronzeChest.Resources.Add("DeerHide", 6, 3);
@@ -116,7 +116,7 @@ public class VanillaArmors : ManualChangesBase
     bronzeChest.Armor.MovementModifier = -0.06f;
     bronzeChest.Armor.Weight = 12;
 
-    var bronzeLegs = ItemManager["ArmorBronzeLegs"];
+    var bronzeLegs = this.ItemManager["ArmorBronzeLegs"];
     bronzeLegs.Resources.Clear();
     bronzeLegs.Resources.Add("Bronze", 4, 2);
     bronzeLegs.Resources.Add("DeerHide", 4, 2);
@@ -126,7 +126,7 @@ public class VanillaArmors : ManualChangesBase
     bronzeLegs.Armor.Weight = 8;
 
     // Root
-    var rootHelm = ItemManager["HelmetRoot"];
+    var rootHelm = this.ItemManager["HelmetRoot"];
     rootHelm.Resources.Clear();
     rootHelm.Resources.Add("Root", 4, 2);
     rootHelm.Resources.Add("ElderBark", 6, 3);
@@ -142,7 +142,7 @@ public class VanillaArmors : ManualChangesBase
       m_modifier = HitData.DamageModifier.Weak,
     });
 
-    var rootChest = ItemManager["ArmorRootChest"];
+    var rootChest = this.ItemManager["ArmorRootChest"];
     rootChest.Resources.Clear();
     rootChest.Resources.Add("Root", 8, 4);
     rootChest.Resources.Add("ElderBark", 16, 8);
@@ -158,7 +158,7 @@ public class VanillaArmors : ManualChangesBase
       m_modifier = HitData.DamageModifier.Weak,
     });
 
-    var rootLegs = ItemManager["ArmorRootLegs"];
+    var rootLegs = this.ItemManager["ArmorRootLegs"];
     rootLegs.Resources.Clear();
     rootLegs.Resources.Add("Root", 6, 3);
     rootLegs.Resources.Add("ElderBark", 12, 6);
@@ -188,7 +188,7 @@ public class VanillaArmors : ManualChangesBase
     rootLegs.Set = rootHelm.Set;
 
     // Iron
-    var ironHelm = ItemManager["HelmetIron"];
+    var ironHelm = this.ItemManager["HelmetIron"];
     ironHelm.Resources.Clear();
     ironHelm.Resources.Add("Iron", 10, 2);
     ironHelm.Resources.Add("LeatherScraps", 2, 1);
@@ -197,7 +197,7 @@ public class VanillaArmors : ManualChangesBase
     ironHelm.Armor.MovementModifier = -0.01f;
     ironHelm.Armor.Weight = 4;
 
-    var ironChest = ItemManager["ArmorIronChest"];
+    var ironChest = this.ItemManager["ArmorIronChest"];
     ironChest.Resources.Clear();
     ironChest.Resources.Add("Iron", 30, 8);
     ironChest.Resources.Add("LeatherScraps", 4, 2);
@@ -207,7 +207,7 @@ public class VanillaArmors : ManualChangesBase
     ironChest.Armor.MovementModifier = -0.06f;
     ironChest.Armor.Weight = 12;
 
-    var ironLegs = ItemManager["ArmorIronLegs"];
+    var ironLegs = this.ItemManager["ArmorIronLegs"];
     ironLegs.Resources.Clear();
     ironLegs.Resources.Add("Iron", 20, 5);
     ironLegs.Resources.Add("LeatherScraps", 2, 1);
@@ -217,7 +217,7 @@ public class VanillaArmors : ManualChangesBase
     ironLegs.Armor.Weight = 8;
 
     // Fenris
-    var fenrisHelm = ItemManager["HelmetFenring"];
+    var fenrisHelm = this.ItemManager["HelmetFenring"];
     fenrisHelm.Resources.Clear();
     fenrisHelm.Resources.Add("WolfHairBundle", 10, 2);
     fenrisHelm.Resources.Add("WolfPelt", 2, 1);
@@ -228,7 +228,7 @@ public class VanillaArmors : ManualChangesBase
     fenrisHelm.Armor.MovementModifier = 0f;
     fenrisHelm.Armor.Weight = 1;
 
-    var fenrisChest = ItemManager["ArmorFenringChest"];
+    var fenrisChest = this.ItemManager["ArmorFenringChest"];
     fenrisChest.Resources.Clear();
     fenrisChest.Resources.Add("WolfHairBundle", 30, 8);
     fenrisChest.Resources.Add("WolfPelt", 6, 3);
@@ -239,7 +239,7 @@ public class VanillaArmors : ManualChangesBase
     fenrisChest.Armor.Weight = 6;
     fenrisChest.Armor.DamageModifiers.Clear();
 
-    var fenrisLegs = ItemManager["ArmorFenringLegs"];
+    var fenrisLegs = this.ItemManager["ArmorFenringLegs"];
     fenrisLegs.Resources.Clear();
     fenrisLegs.Resources.Add("WolfHairBundle", 20, 5);
     fenrisLegs.Resources.Add("WolfPelt", 4, 2);
@@ -262,7 +262,7 @@ public class VanillaArmors : ManualChangesBase
     fenrisLegs.Set = fenrisHelm.Set;
 
     // Wolf
-    var wolfHelm = ItemManager["HelmetDrake"];
+    var wolfHelm = this.ItemManager["HelmetDrake"];
     wolfHelm.Resources.Clear();
     wolfHelm.Resources.Add("Silver", 10, 2);
     wolfHelm.Resources.Add("WolfPelt", 2, 1);
@@ -273,7 +273,7 @@ public class VanillaArmors : ManualChangesBase
     wolfHelm.Armor.MovementModifier = -0.01f;
     wolfHelm.Armor.Weight = 4;
 
-    var wolfChest = ItemManager["ArmorWolfChest"];
+    var wolfChest = this.ItemManager["ArmorWolfChest"];
     wolfChest.Resources.Clear();
     wolfChest.Resources.Add("Silver", 30, 8);
     wolfChest.Resources.Add("WolfPelt", 6, 3);
@@ -285,7 +285,7 @@ public class VanillaArmors : ManualChangesBase
     wolfChest.Armor.Weight = 12;
     wolfChest.Armor.DamageModifiers.Clear();
 
-    var wolfLegs = ItemManager["ArmorWolfLegs"];
+    var wolfLegs = this.ItemManager["ArmorWolfLegs"];
     wolfLegs.Resources.Clear();
     wolfLegs.Resources.Add("Silver", 20, 5);
     wolfLegs.Resources.Add("WolfPelt", 4, 2);
@@ -298,7 +298,7 @@ public class VanillaArmors : ManualChangesBase
     var wolfSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
     wolfSetEffect.m_name = "$Vanilla_WolfSet_Effect_Name";
     wolfSetEffect.m_tooltip = "$Vanilla_WolfSet_Effect_Tooltip";
-    wolfSetEffect.m_icon = wolfChest.ItemData.GetIcon();
+    wolfSetEffect.m_icon = wolfChest.Icon;
     wolfSetEffect.m_mods.Add(new()
     {
       m_type = HitData.DamageType.Frost,
@@ -311,7 +311,7 @@ public class VanillaArmors : ManualChangesBase
     wolfChest.Set = wolfHelm.Set;
     wolfLegs.Set = wolfHelm.Set;
 
-    var wolfCape = ItemManager["CapeWolf"];
+    var wolfCape = this.ItemManager["CapeWolf"];
     wolfCape.Resources.Clear();
     wolfCape.Resources.Add("WolfPelt", 8, 4);
     wolfCape.Resources.Add("Silver", 4, 4);
@@ -324,7 +324,7 @@ public class VanillaArmors : ManualChangesBase
     });
 
     // Padded
-    var paddedHelm = ItemManager["HelmetPadded"];
+    var paddedHelm = this.ItemManager["HelmetPadded"];
     paddedHelm.Resources.Clear();
     paddedHelm.Resources.Add("Iron", 10, 3);
     paddedHelm.Resources.Add("LinenThread", 10, 5);
@@ -333,7 +333,7 @@ public class VanillaArmors : ManualChangesBase
     paddedHelm.Armor.MovementModifier = -0.01f;
     paddedHelm.Armor.Weight = 4;
 
-    var paddedChest = ItemManager["ArmorPaddedCuirass"];
+    var paddedChest = this.ItemManager["ArmorPaddedCuirass"];
     paddedChest.Resources.Clear();
     paddedChest.Resources.Add("Iron", 15, 4);
     paddedChest.Resources.Add("LinenThread", 30, 15);
@@ -342,7 +342,7 @@ public class VanillaArmors : ManualChangesBase
     paddedChest.Armor.MovementModifier = -0.06f;
     paddedChest.Armor.Weight = 12;
 
-    var paddedLegs = ItemManager["ArmorPaddedGreaves"];
+    var paddedLegs = this.ItemManager["ArmorPaddedGreaves"];
     paddedLegs.Resources.Clear();
     paddedLegs.Resources.Add("Iron", 10, 3);
     paddedLegs.Resources.Add("LinenThread", 20, 10);
@@ -352,7 +352,7 @@ public class VanillaArmors : ManualChangesBase
     paddedLegs.Armor.Weight = 8;
 
     // Plains capes
-    var loxCape = ItemManager["CapeLox"];
+    var loxCape = this.ItemManager["CapeLox"];
     loxCape.Resources.Clear();
     loxCape.Resources.Add("LoxPelt", 6, 3);
     loxCape.Resources.Add("Silver", 6, 6);
@@ -364,7 +364,7 @@ public class VanillaArmors : ManualChangesBase
       m_modifier = HitData.DamageModifier.Immune,
     });
 
-    var linenCape = ItemManager["CapeLinen"];
+    var linenCape = this.ItemManager["CapeLinen"];
     linenCape.Armor.DamageModifiers.Clear();
     linenCape.Armor.DamageModifiers.Add(new()
     {
@@ -378,7 +378,7 @@ public class VanillaArmors : ManualChangesBase
     });
 
     // Eitr-weave
-    var mageHelm = ItemManager["HelmetMage"];
+    var mageHelm = this.ItemManager["HelmetMage"];
     mageHelm.Resources.Clear();
     mageHelm.Resources.Add("LinenThread", 10, 5);
     mageHelm.Resources.Add("Eitr", 15, 5);
@@ -389,7 +389,7 @@ public class VanillaArmors : ManualChangesBase
     mageHelm.Armor.Weight = 1;
     mageHelm.Armor.EitrRegenModifier = 0.2f;
 
-    var mageChest = ItemManager["ArmorMageChest"];
+    var mageChest = this.ItemManager["ArmorMageChest"];
     mageChest.Resources.Clear();
     mageChest.Resources.Add("LinenThread", 30, 15);
     mageChest.Resources.Add("Eitr", 20, 5);
@@ -401,7 +401,7 @@ public class VanillaArmors : ManualChangesBase
     mageChest.Armor.Weight = 6;
     mageChest.Armor.EitrRegenModifier = 0.5f;
 
-    var mageLegs = ItemManager["ArmorMageLegs"];
+    var mageLegs = this.ItemManager["ArmorMageLegs"];
     mageLegs.Resources.Clear();
     mageLegs.Resources.Add("LinenThread", 20, 10);
     mageLegs.Resources.Add("Eitr", 20, 5);
@@ -413,7 +413,7 @@ public class VanillaArmors : ManualChangesBase
     mageLegs.Armor.Weight = 3;
     mageLegs.Armor.EitrRegenModifier = 0.3f;
 
-    var featherCape = ItemManager["CapeFeather"];
+    var featherCape = this.ItemManager["CapeFeather"];
     featherCape.Armor.DamageModifiers.Clear();
     featherCape.Armor.DamageModifiers.Add(new()
     {
@@ -422,7 +422,7 @@ public class VanillaArmors : ManualChangesBase
     });
 
     // Carapace
-    var carapaceHelm = ItemManager["HelmetCarapace"];
+    var carapaceHelm = this.ItemManager["HelmetCarapace"];
     carapaceHelm.Resources.Clear();
     carapaceHelm.Resources.Add("Carapace", 10, 5);
     carapaceHelm.Resources.Add("ScaleHide", 2, 1);
@@ -433,7 +433,7 @@ public class VanillaArmors : ManualChangesBase
     carapaceHelm.Armor.MovementModifier = -0.01f;
     carapaceHelm.Armor.Weight = 4;
 
-    var carapaceChest = ItemManager["ArmorCarapaceChest"];
+    var carapaceChest = this.ItemManager["ArmorCarapaceChest"];
     carapaceChest.Resources.Clear();
     carapaceChest.Resources.Add("Carapace", 30, 15);
     carapaceChest.Resources.Add("ScaleHide", 4, 2);
@@ -444,7 +444,7 @@ public class VanillaArmors : ManualChangesBase
     carapaceChest.Armor.MovementModifier = -0.06f;
     carapaceChest.Armor.Weight = 12;
 
-    var carapaceLegs = ItemManager["ArmorCarapaceLegs"];
+    var carapaceLegs = this.ItemManager["ArmorCarapaceLegs"];
     carapaceLegs.Resources.Clear();
     carapaceLegs.Resources.Add("Carapace", 20, 10);
     carapaceLegs.Resources.Add("ScaleHide", 3, 1);

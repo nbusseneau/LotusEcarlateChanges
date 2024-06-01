@@ -2,8 +2,6 @@ extern alias RefinedStonePieces;
 
 using RefinedStonePieces::PieceManager;
 using LotusEcarlateChanges.Model.Changes;
-using LotusEcarlateChanges.Extensions;
-using System.Collections.Generic;
 
 namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
@@ -14,25 +12,25 @@ public class RefinedStonePieces : StandaloneManagerBasedChangesBase
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
 
     // Relocate RefinedStonePieces pieces to BuildingStonecutter
-    foreach (var piece in pieceManager) piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
+    foreach (var (piece, _) in pieceManager) piece.Category.Set(BuildPieceCategory.BuildingStonecutter);
 
-    // Relocate statues to Furniture and adjust comfort
-    HashSet<string> toFurniture = [
+    // Relocate statues to Furniture and remove comfort
+    string[] statues = [
       "BRP_StoneCorgi",
       "BRP_StoneDeer",
       "BRP_StoneHare",
     ];
-    foreach (var piece in pieceManager.GetAll(toFurniture))
+    foreach (var (piece, wrapper) in pieceManager[statues])
     {
       piece.Category.Set(BuildPieceCategory.Furniture);
-      piece.Piece().Comfort.Value = 0;
+      wrapper.Comfort.Value = 0;
     }
 
     // Relocate stack and hearth to Misc
-    HashSet<string> toMisc = [
+    string[] relocateToMisc = [
       "BRP_RefinedStone_Stack",
       "BRP_RefinedStone_Hearth",
     ];
-    foreach (var piece in pieceManager.GetAll(toMisc)) piece.Category.Set(BuildPieceCategory.Misc);
+    foreach (var (piece, _) in pieceManager[relocateToMisc]) piece.Category.Set(BuildPieceCategory.Misc);
   }
 }

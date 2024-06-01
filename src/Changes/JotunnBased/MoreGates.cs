@@ -1,104 +1,74 @@
 extern alias MoreGates;
 
-using System.Collections.Generic;
 using Jotunn.Configs;
-using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
+
 
 namespace LotusEcarlateChanges.Changes.JotunnBased;
 
-public class MoreGates : JotunnBasedChangesBase
+public class MoreGates() : JotunnBasedChangesBase("com.drakemods.Moregates")
 {
   protected override void ApplyInternal()
   {
     // Remove lift and logs
-    this.Remove("h_4x4_lift");
-    this.Remove("h_loglong26");
-    this.Remove("h_loglong45");
-    this.Remove("h_logshort26");
-    this.Remove("h_logshort45");
+    this.PieceManager.Remove([
+      "h_4x4_lift",
+      "h_loglong26",
+      "h_loglong45",
+      "h_logshort26",
+      "h_logshort45",
+    ]);
 
-    // Relocate custom MoreGates pieces to appropriate categories
-    Dictionary<string, Piece.PieceCategory> toRelocate = new()
-    {
-      ["h_chain"] = Piece.PieceCategory.Furniture,
-      ["hayzestake_01"] = Piece.PieceCategory.Misc,
+    // Relocate all pieces to BuildingWorkbench by default
+    foreach (var piece in this.PieceManager) piece.Category = Piece.PieceCategory.BuildingWorkbench;
 
-      ["h_drawbridge01"] = Piece.PieceCategory.BuildingStonecutter,
-      ["h_drawbridge02"] = Piece.PieceCategory.BuildingStonecutter,
-      ["lift_gate"] = Piece.PieceCategory.BuildingStonecutter,
-      ["lift_gate2"] = Piece.PieceCategory.BuildingStonecutter,
+    // Relocate some pieces to specific categories for consistency
+    this.PieceManager["h_chain"].Category = Piece.PieceCategory.Furniture;
+    this.PieceManager["hayzestake_01"].Category = Piece.PieceCategory.Misc;
 
-      ["Hayze_gate_01"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_gate_02"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_gate_03"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_gate_04"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_gate_05"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_gate_06"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_door_01"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_door_02"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_door_03"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_shutter_01"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_trapdoor"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_trapdoorbig"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_trapdoor2"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_trapdoorbig2"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_halfgate_01"] = Piece.PieceCategory.BuildingWorkbench,
-      ["Hayze_halfgate_02"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_01"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_02"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_03"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_04"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_05"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_06"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_07"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_08"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_09"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_10"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_11"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_12"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_13"] = Piece.PieceCategory.BuildingWorkbench,
-      ["h_window_14"] = Piece.PieceCategory.BuildingWorkbench,
-    };
-    foreach (var (piece, category) in this.PieceManager.GetAll(toRelocate)) piece.Category = category;
+    // Relocate heavy draw bridges and gates to BuildingStonecutter
+    string[] heavyPieces = [
+      "h_drawbridge01",
+      "h_drawbridge02",
+      "lift_gate",
+      "lift_gate2",
+    ];
+    foreach (var piece in this.PieceManager[heavyPieces]) piece.Category = Piece.PieceCategory.BuildingStonecutter;
   }
 
   protected override void ApplyInternalDeferred()
   {
     var forge = ZNetScene.instance.GetPrefab(CraftingStations.Forge).GetComponent<CraftingStation>();
 
-    // Change required crafting station
-    Dictionary<string, CraftingStation> toStation = new()
-    {
-      ["h_drawbridge01"] = forge,
-      ["h_drawbridge02"] = forge,
-      ["lift_gate"] = forge,
-      ["lift_gate2"] = forge,
-    };
-    foreach (var (piece, station) in this.PieceManager.GetAll(toStation)) piece.CraftingStation = station;
+    // Set forge as required crafting station on heavy draw bridges and gates
+    string[] heavyPieces = [
+      "h_drawbridge01",
+      "h_drawbridge02",
+      "lift_gate",
+      "lift_gate2",
+    ];
+    foreach (var piece in this.PieceManager[heavyPieces]) piece.CraftingStation = forge;
 
-    // Add ingredients to recipes
-    Dictionary<string, (string, int)> toAdjust = new()
-    {
-      // Add iron to gate with metal
-      ["Hayze_gate_01"] = ("Iron", 1),
+    // Add iron to gate with metal
+    this.PieceManager["Hayze_gate_01"].Resources.Add("Iron", 1);
 
-      // Add crystal to windows
-      ["h_window_01"] = ("Crystal", 2),
-      ["h_window_02"] = ("Crystal", 2),
-      ["h_window_03"] = ("Crystal", 2),
-      ["h_window_04"] = ("Crystal", 2),
-      ["h_window_05"] = ("Crystal", 2),
-      ["h_window_06"] = ("Crystal", 2),
-      ["h_window_07"] = ("Crystal", 2),
-      ["h_window_08"] = ("Crystal", 2),
-      ["h_window_09"] = ("Crystal", 2),
-      ["h_window_10"] = ("Crystal", 2),
-      ["h_window_11"] = ("Crystal", 2),
-      ["h_window_12"] = ("Crystal", 2),
-      ["h_window_13"] = ("Crystal", 2),
-      ["h_window_14"] = ("Crystal", 2),
-    };
-    foreach (var (piece, (itemName, amount)) in this.PieceManager.GetAll(toAdjust)) piece.Resources.Add(itemName, amount);
+    // Add crystal to windows
+    string[] windows = [
+      "h_window_01",
+      "h_window_02",
+      "h_window_03",
+      "h_window_04",
+      "h_window_05",
+      "h_window_06",
+      "h_window_07",
+      "h_window_08",
+      "h_window_09",
+      "h_window_10",
+      "h_window_11",
+      "h_window_12",
+      "h_window_13",
+      "h_window_14",
+    ];
+    foreach (var piece in this.PieceManager[windows]) piece.Resources.Add("Crystal", 2);
   }
 }

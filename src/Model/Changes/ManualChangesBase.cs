@@ -1,17 +1,14 @@
 using System.Collections.Generic;
 using HarmonyLib;
-using LotusEcarlateChanges.Model.ManualManagers;
+using LotusEcarlateChanges.Model.Managers.Manual;
 
 namespace LotusEcarlateChanges.Model.Changes;
 
 public abstract class ManualChangesBase : IChanges
 {
   private static readonly HashSet<ManualChangesBase> s_instances = [];
-  protected static ManualItemManager ItemManager { get; } = ManualItemManager.Instance;
-  protected static ManualPieceManager PieceManager { get; } = ManualPieceManager.Instance;
-
-  protected readonly HashSet<string> ToRemove = [];
-  protected void Remove(string prefabName) => this.ToRemove.Add(prefabName);
+  protected ItemManager ItemManager => ItemManager.Instance;
+  protected PieceManager PieceManager => PieceManager.Instance;
 
   public void Apply()
   {
@@ -23,13 +20,9 @@ public abstract class ManualChangesBase : IChanges
   protected static void ApplyDeferred()
   {
     if (ObjectDB.instance.GetItemPrefab("Wood") is null) return; // safeguard until ObjectDB is actually ready
-    foreach (var instance in s_instances)
-    {
-      instance.ApplyInternalDeferred();
-      ItemManager.RemoveAll(instance.ToRemove);
-      PieceManager.RemoveAll(instance.ToRemove);
-    }
-    ItemManager.RegisterStatusEffects();
+    foreach (var instance in s_instances) instance.ApplyInternalDeferred();
+    ItemManager.Instance.Apply();
+    PieceManager.Instance.Apply();
   }
   protected virtual void ApplyInternalDeferred() { }
 

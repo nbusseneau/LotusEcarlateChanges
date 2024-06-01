@@ -1,57 +1,56 @@
 extern alias Clutter;
 
-using System.Collections.Generic;
-using System.Linq;
 using Jotunn.Configs;
-using Jotunn.Utils;
-using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
-using LotusEcarlateChanges.Model.Wrappers;
 
 namespace LotusEcarlateChanges.Changes.JotunnBased;
 
-public class Clutter : JotunnBasedChangesBase
+public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
 {
-  private static IEnumerable<PieceWrapper> s_pieces;
-
   protected override void ApplyInternal()
   {
-    s_pieces = ModRegistry.GetPieces("com.plumga.Clutter").Select(p => p.Piece());
-
     // Remove clutter tool and some pieces
-    this.Remove("$PlumgaClutterTool");
-    // Chests
-    this.Remove("custompiece_fancychest");
-    this.Remove("custompiece_fancychest_public");
-    this.Remove("custompiece_stonechest");
-    this.Remove("custompiece_stonechest_public");
+    this.PieceManager.Remove([
+      "$PlumgaClutterTool",
+      "$custompiece_fancychest",
+      "$custompiece_fancychest_public",
+      "$custompiece_stonechest",
+      "$custompiece_stonechest_public",
+    ]);
 
-    // Relocate clutter pieces to Furniture and erase all comfort values
-    foreach (var piece in s_pieces)
+    // Relocate all pieces to Furniture and erase comfort values
+    foreach (var piece in this.PieceManager)
     {
       piece.Category = Piece.PieceCategory.Furniture;
       piece.Comfort.Value = 0;
     }
 
-    // Adjust comfort
-    Dictionary<string, (int, Piece.ComfortGroup)> toAdjust = new()
-    {
-      ["$custompiece_coolchair"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couch1"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couch2"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couch3"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couch4"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couchbed1"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_couchbed2"] = (1, Piece.ComfortGroup.Chair),
-      ["$custompiece_rug_deer_tablecloth"] = (1, Piece.ComfortGroup.Carpet),
-      ["$custompiece_rug_fur_tablecloth"] = (1, Piece.ComfortGroup.Carpet),
-      ["$custompiece_rug_wolf_tablecloth"] = (1, Piece.ComfortGroup.Carpet),
-      ["$custompiece_bloodytable"] = (1, Piece.ComfortGroup.Table),
-      ["$custompiece_rectangulartable"] = (1, Piece.ComfortGroup.Table),
-      ["$custompiece_roundtable"] = (1, Piece.ComfortGroup.Table),
-      ["$custompiece_roundtablewithcloth"] = (1, Piece.ComfortGroup.Table),
-    };
-    foreach (var (piece, comfort) in this.PieceManager.GetAll(toAdjust)) (piece.Comfort.Value, piece.Comfort.Group) = comfort;
+    // Set comfort for chairs / carpets / tables
+    string[] chairs = [
+      "$custompiece_coolchair",
+      "$custompiece_couch1",
+      "$custompiece_couch2",
+      "$custompiece_couch3",
+      "$custompiece_couch4",
+      "$custompiece_couchbed1",
+      "$custompiece_couchbed2",
+    ];
+    foreach (var piece in this.PieceManager[chairs]) (piece.Comfort.Value, piece.Comfort.Group) = (1, Piece.ComfortGroup.Chair);
+
+    string[] carpets = [
+      "$custompiece_rug_deer_tablecloth",
+      "$custompiece_rug_fur_tablecloth",
+      "$custompiece_rug_wolf_tablecloth",
+    ];
+    foreach (var piece in this.PieceManager[carpets]) (piece.Comfort.Value, piece.Comfort.Group) = (1, Piece.ComfortGroup.Carpet);
+
+    string[] tables = [
+      "$custompiece_bloodytable",
+      "$custompiece_rectangulartable",
+      "$custompiece_roundtable",
+      "$custompiece_roundtablewithcloth",
+    ];
+    foreach (var piece in this.PieceManager[tables]) (piece.Comfort.Value, piece.Comfort.Group) = (1, Piece.ComfortGroup.Table);
   }
 
   protected override void ApplyInternalDeferred()
@@ -60,43 +59,46 @@ public class Clutter : JotunnBasedChangesBase
     var forge = ZNetScene.instance.GetPrefab(CraftingStations.Forge).GetComponent<CraftingStation>();
     var stonecutter = ZNetScene.instance.GetPrefab(CraftingStations.Stonecutter).GetComponent<CraftingStation>();
 
-    // Relocate to Hammer and set workbench as default crafting table
-    foreach (var piece in s_pieces)
+    // Relocate all pieces to Hammer and set workbench as default required crafting station
+    foreach (var piece in this.PieceManager)
     {
       piece.CraftingStation = workbench;
-      this.PieceManager.RegisterPieceInPieceTable(piece.Prefab, "Hammer");
+      Jotunn.Managers.PieceManager.Instance.RegisterPieceInPieceTable(piece.Prefab, "Hammer");
     }
 
-    // Adjust required crafting table
-    Dictionary<string, CraftingStation> toStation = new()
-    {
-      ["$custompiece_blackdragonstatuelarge"] = forge,
-      ["$custompiece_blackdragonstatuesmall"] = forge,
-      ["$custompiece_dragonstatuelarge"] = forge,
-      ["$custompiece_dragonstatuesmall"] = forge,
-      ["$custompiece_lokistatue"] = forge,
-      ["$custompiece_odinstatue"] = forge,
+    // Set forge as required crafting station on metal statues
+    string[] metalStatues = [
+      "$custompiece_blackdragonstatuelarge",
+      "$custompiece_blackdragonstatuesmall",
+      "$custompiece_dragonstatuelarge",
+      "$custompiece_dragonstatuesmall",
+      "$custompiece_lokistatue",
+      "$custompiece_odinstatue",
+    ];
+    foreach (var piece in this.PieceManager[metalStatues]) piece.CraftingStation = forge;
 
-      ["$custompiece_gravestone"] = stonecutter,
-      ["$custompiece_statuecorgi"] = stonecutter,
-      ["$custompiece_statuedeer"] = stonecutter,
-      ["$custompiece_statueevil_small"] = stonecutter,
-      ["$custompiece_statuehare"] = stonecutter,
-      ["$custompiece_statueseed"] = stonecutter,
-      ["$custompiece_celticidol1"] = stonecutter,
-      ["$custompiece_celticidol1small"] = stonecutter,
-      ["$custompiece_celticidol2"] = stonecutter,
-      ["$custompiece_celticidol3"] = stonecutter,
-      ["$custompiece_celticidol4"] = stonecutter,
-      ["$custompiece_celticidol5"] = stonecutter,
-      ["$custompiece_celticidol6"] = stonecutter,
-      ["$custompiece_celticidol7"] = stonecutter,
-      ["$custompiece_celticidol8"] = stonecutter,
-      ["$custompiece_celticidol9"] = stonecutter,
-      ["$custompiece_celticidol10"] = stonecutter,
-      ["$custompiece_celticidol11"] = stonecutter,
-      ["$custompiece_celticidol12"] = stonecutter,
-    };
-    foreach (var (piece, station) in this.PieceManager.GetAll(toStation)) piece.CraftingStation = station;
+    // Set stonecutter as required crafting station on stone statues
+    string[] stoneStatues = [
+      "$custompiece_gravestone",
+      "$custompiece_statuecorgi",
+      "$custompiece_statuedeer",
+      "$custompiece_statueevil_small",
+      "$custompiece_statuehare",
+      "$custompiece_statueseed",
+      "$custompiece_celticidol1",
+      "$custompiece_celticidol1small",
+      "$custompiece_celticidol2",
+      "$custompiece_celticidol3",
+      "$custompiece_celticidol4",
+      "$custompiece_celticidol5",
+      "$custompiece_celticidol6",
+      "$custompiece_celticidol7",
+      "$custompiece_celticidol8",
+      "$custompiece_celticidol9",
+      "$custompiece_celticidol10",
+      "$custompiece_celticidol11",
+      "$custompiece_celticidol12",
+    ];
+    foreach (var piece in this.PieceManager[stoneStatues]) piece.CraftingStation = stonecutter;
   }
 }

@@ -1,6 +1,5 @@
 extern alias FineWoodBuildPieces;
 
-using System.Collections.Generic;
 using FineWoodBuildPieces::PieceManager;
 using LotusEcarlateChanges.Model.Changes;
 
@@ -12,17 +11,18 @@ public class FineWoodBuildPieces : StandaloneManagerBasedChangesBase
   {
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
 
-    // Remove most FineWoodFence pieces
-    this.Remove("BFP_FenceGate");
-    this.Remove("BFP_FencePillar1");
-    this.Remove("BFP_FencePillar2");
-    this.Remove("BFP_FencePillar3");
-    this.Remove("BFP_FencePillar4");
-    // Remove StepLadder
-    this.Remove("BFP_StepLadder1");
-    this.Remove("BFP_StepLadder2");
+    // Remove most FineWoodFence pieces and StepLadders
+    pieceManager.Remove([
+      "BFP_FenceGate",
+      "BFP_FencePillar1",
+      "BFP_FencePillar2",
+      "BFP_FencePillar3",
+      "BFP_FencePillar4",
+      "BFP_StepLadder1",
+      "BFP_StepLadder2",
+    ]);
 
-    foreach (var piece in pieceManager)
+    foreach (var (piece, _) in pieceManager)
     {
       // Relocate Misc pieces to Furniture
       if (piece.Category.Category == BuildPieceCategory.Misc) piece.Category.Set(BuildPieceCategory.Furniture);
@@ -33,10 +33,10 @@ public class FineWoodBuildPieces : StandaloneManagerBasedChangesBase
     }
 
     // Require Forge for heavy gate
-    pieceManager["BFP_HeavyGate"].Crafting.Set(CraftingTable.Forge);
+    pieceManager["BFP_HeavyGate"].BuildPiece.Crafting.Set(CraftingTable.Forge);
 
     // Require stonecutter for stone pieces and move them to BuildingStonecutter
-    HashSet<string> toAdjust = [
+    string[] stonePieces = [
       "BFP_StoneLightPost",
       "BFP_StoneRoof26",
       "BFP_StoneRoof45",
@@ -47,7 +47,7 @@ public class FineWoodBuildPieces : StandaloneManagerBasedChangesBase
       "BFP_StoneRoofTop26",
       "BFP_StoneRoofTop45",
     ];
-    foreach (var piece in pieceManager.GetAll(toAdjust))
+    foreach (var (piece, _) in pieceManager[stonePieces])
     {
       piece.Crafting.Set(CraftingTable.StoneCutter);
       piece.Category.Set(BuildPieceCategory.BuildingStonecutter);

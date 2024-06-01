@@ -27,12 +27,14 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     Jotunn.Managers.LocalizationManager.OnLocalizationAdded += onLocalizationAddedCallback;
 
     // Chieftain
-    this.Keep("chiefhelmboar");
-    this.Keep("chiefhelmdeer");
-    this.Keep("chiefchest");
-    this.Keep("chieflegs");
+    itemManager.Keep([
+      "chiefhelmboar",
+      "chiefhelmdeer",
+      "chiefchest",
+      "chieflegs",
+    ]);
 
-    var chieftainHelmBoar = itemManager["chiefhelmboar"];
+    var (chieftainHelmBoar, chieftainHelmBoarWrapper) = itemManager["chiefhelmboar"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       chieftainHelmBoar.Name.Alias("$SouthsilArmor_ChieftainHelmBoar_Name");
@@ -48,16 +50,16 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainHelmBoar.RequiredUpgradeItems.Requirements.Clear();
     chieftainHelmBoar.RequiredUpgradeItems.Add("DeerHide", 1);
     chieftainHelmBoar.RequiredUpgradeItems.Add("LeatherScraps", 1);
-    chieftainHelmBoar.Item().Armor.ArmorBase = 2;
-    chieftainHelmBoar.Item().Armor.ArmorPerLevel = 2;
-    chieftainHelmBoar.Item().Armor.MovementModifier = -0.01f;
-    chieftainHelmBoar.Item().Armor.Weight = 4;
-    var chieftainBoarEquipEffect = chieftainHelmBoar.Item().Armor.EquipEffect;
+    chieftainHelmBoarWrapper.Armor.ArmorBase = 2;
+    chieftainHelmBoarWrapper.Armor.ArmorPerLevel = 2;
+    chieftainHelmBoarWrapper.Armor.MovementModifier = -0.01f;
+    chieftainHelmBoarWrapper.Armor.Weight = 4;
+    var chieftainBoarEquipEffect = chieftainHelmBoarWrapper.Armor.EquipEffect;
     chieftainBoarEquipEffect.m_name = "$SouthsilArmor_ChieftainHelmBoar_Effect_Name";
     chieftainBoarEquipEffect.m_tooltip = "$SouthsilArmor_ChieftainHelmBoar_Effect_Tooltip";
     chieftainHelmBoar.Prefab.FixItemLayer();
 
-    var chieftainHelmDeer = itemManager["chiefhelmdeer"];
+    var (chieftainHelmDeer, chieftainHelmDeerWrapper) = itemManager["chiefhelmdeer"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       chieftainHelmDeer.Name.Alias("$SouthsilArmor_ChieftainHelmDeer_Name");
@@ -73,11 +75,11 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainHelmDeer.RequiredUpgradeItems.Requirements.Clear();
     chieftainHelmDeer.RequiredUpgradeItems.Add("DeerHide", 1);
     chieftainHelmDeer.RequiredUpgradeItems.Add("LeatherScraps", 1);
-    chieftainHelmDeer.Item().Armor.ArmorBase = 2;
-    chieftainHelmDeer.Item().Armor.ArmorPerLevel = 2;
-    chieftainHelmDeer.Item().Armor.MovementModifier = -0.01f;
-    chieftainHelmDeer.Item().Armor.Weight = 4;
-    var chieftainDeerEquipEffect = chieftainHelmDeer.Item().Armor.EquipEffect;
+    chieftainHelmDeerWrapper.Armor.ArmorBase = 2;
+    chieftainHelmDeerWrapper.Armor.ArmorPerLevel = 2;
+    chieftainHelmDeerWrapper.Armor.MovementModifier = -0.01f;
+    chieftainHelmDeerWrapper.Armor.Weight = 4;
+    var chieftainDeerEquipEffect = chieftainHelmDeerWrapper.Armor.EquipEffect;
     chieftainDeerEquipEffect.m_name = "$SouthsilArmor_ChieftainHelmDeer_Effect_Name";
     chieftainDeerEquipEffect.m_tooltip = "$SouthsilArmor_ChieftainHelmDeer_Effect_Tooltip";
     chieftainDeerEquipEffect.m_speedModifier = 0;
@@ -85,7 +87,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainDeerEquipEffect.m_staminaRegenMultiplier = 1.4f;
     chieftainHelmDeer.Prefab.FixItemLayer();
 
-    var chieftainChest = itemManager["chiefchest"];
+    var (chieftainChest, chieftainChestWrapper) = itemManager["chiefchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       chieftainChest.Name.Alias("$SouthsilArmor_ChieftainChest_Name");
@@ -101,12 +103,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainChest.RequiredUpgradeItems.Requirements.Clear();
     chieftainChest.RequiredUpgradeItems.Add("DeerHide", 3);
     chieftainChest.RequiredUpgradeItems.Add("LeatherScraps", 3);
-    chieftainChest.Item().Armor.ArmorBase = 6;
-    chieftainChest.Item().Armor.ArmorPerLevel = 3;
-    chieftainChest.Item().Armor.MovementModifier = -0.06f;
-    chieftainChest.Item().Armor.Weight = 12;
+    chieftainChestWrapper.Armor.ArmorBase = 6;
+    chieftainChestWrapper.Armor.ArmorPerLevel = 3;
+    chieftainChestWrapper.Armor.MovementModifier = -0.06f;
+    chieftainChestWrapper.Armor.Weight = 12;
 
-    var chieftainLegs = itemManager["chieflegs"];
+    var (chieftainLegs, chieftainLegsWrapper) = itemManager["chieflegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       chieftainLegs.Name.Alias("$SouthsilArmor_ChieftainLegs_Name");
@@ -122,17 +124,19 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainLegs.RequiredUpgradeItems.Requirements.Clear();
     chieftainLegs.RequiredUpgradeItems.Add("DeerHide", 2);
     chieftainLegs.RequiredUpgradeItems.Add("LeatherScraps", 2);
-    chieftainLegs.Item().Armor.ArmorBase = 4;
-    chieftainLegs.Item().Armor.ArmorPerLevel = 3;
-    chieftainLegs.Item().Armor.MovementModifier = -0.03f;
-    chieftainLegs.Item().Armor.Weight = 8;
+    chieftainLegsWrapper.Armor.ArmorBase = 4;
+    chieftainLegsWrapper.Armor.ArmorPerLevel = 3;
+    chieftainLegsWrapper.Armor.MovementModifier = -0.03f;
+    chieftainLegsWrapper.Armor.Weight = 8;
 
     // Battleswine
-    this.Keep("heavybronzehelm");
-    this.Keep("heavybronzechest");
-    this.Keep("heavybronzelegs");
+    itemManager.Keep([
+      "heavybronzehelm",
+      "heavybronzechest",
+      "heavybronzelegs",
+    ]);
 
-    var battleswineHelm = itemManager["heavybronzehelm"];
+    var (battleswineHelm, battleswineHelmWrapper) = itemManager["heavybronzehelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       battleswineHelm.Name.Alias("$SouthsilArmor_BattleswineHelm_Name");
@@ -148,13 +152,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     battleswineHelm.RequiredUpgradeItems.Requirements.Clear();
     battleswineHelm.RequiredUpgradeItems.Add("Bronze", 1);
     battleswineHelm.RequiredUpgradeItems.Add("DeerHide", 1);
-    battleswineHelm.Item().Armor.ArmorBase = 6;
-    battleswineHelm.Item().Armor.ArmorPerLevel = 3;
-    battleswineHelm.Item().Armor.MovementModifier = -0.02f;
-    battleswineHelm.Item().Armor.Weight = 6;
+    battleswineHelmWrapper.Armor.ArmorBase = 6;
+    battleswineHelmWrapper.Armor.ArmorPerLevel = 3;
+    battleswineHelmWrapper.Armor.MovementModifier = -0.02f;
+    battleswineHelmWrapper.Armor.Weight = 6;
     battleswineHelm.Prefab.FixItemLayer();
 
-    var battleswineChest = itemManager["heavybronzechest"];
+    var (battleswineChest, battleswineChestWrapper) = itemManager["heavybronzechest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       battleswineChest.Name.Alias("$SouthsilArmor_BattleswineChest_Name");
@@ -170,12 +174,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     battleswineChest.RequiredUpgradeItems.Requirements.Clear();
     battleswineChest.RequiredUpgradeItems.Add("Bronze", 4);
     battleswineChest.RequiredUpgradeItems.Add("DeerHide", 2);
-    battleswineChest.Item().Armor.ArmorBase = 18;
-    battleswineChest.Item().Armor.ArmorPerLevel = 4;
-    battleswineChest.Item().Armor.MovementModifier = -0.10f;
-    battleswineChest.Item().Armor.Weight = 18;
+    battleswineChestWrapper.Armor.ArmorBase = 18;
+    battleswineChestWrapper.Armor.ArmorPerLevel = 4;
+    battleswineChestWrapper.Armor.MovementModifier = -0.10f;
+    battleswineChestWrapper.Armor.Weight = 18;
 
-    var battleswineLegs = itemManager["heavybronzelegs"];
+    var (battleswineLegs, battleswineLegsWrapper) = itemManager["heavybronzelegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       battleswineLegs.Name.Alias("$SouthsilArmor_BattleswineLegs_Name");
@@ -190,32 +194,34 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     battleswineLegs.RequiredUpgradeItems.Requirements.Clear();
     battleswineLegs.RequiredUpgradeItems.Add("Bronze", 3);
     battleswineLegs.RequiredUpgradeItems.Add("DeerHide", 1);
-    battleswineLegs.Item().Armor.ArmorBase = 12;
-    battleswineLegs.Item().Armor.ArmorPerLevel = 3;
-    battleswineLegs.Item().Armor.MovementModifier = -0.06f;
-    battleswineLegs.Item().Armor.Weight = 12;
+    battleswineLegsWrapper.Armor.ArmorBase = 12;
+    battleswineLegsWrapper.Armor.ArmorPerLevel = 3;
+    battleswineLegsWrapper.Armor.MovementModifier = -0.06f;
+    battleswineLegsWrapper.Armor.Weight = 12;
 
     var battleswineSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
     battleswineSetEffect.m_name = "$SouthsilArmor_BattleswineSet_Effect_Name";
     battleswineSetEffect.m_tooltip = "$SouthsilArmor_BattleswineSet_Effect_Tooltip";
-    battleswineSetEffect.m_icon = battleswineHelm.Item().ItemData.GetIcon();
+    battleswineSetEffect.m_icon = battleswineHelmWrapper.Icon;
     battleswineSetEffect.m_skillLevel = Skills.SkillType.Spears;
     battleswineSetEffect.m_skillLevelModifier = 15;
     battleswineSetEffect.m_skillLevel2 = CustomSkills.Warpikes;
     battleswineSetEffect.m_skillLevelModifier2 = 15;
 
-    battleswineHelm.Item().Set.Effect = battleswineSetEffect;
-    battleswineHelm.Item().Set.Name = "Battleswine";
-    battleswineHelm.Item().Set.Size = 3;
-    battleswineChest.Item().Set = battleswineHelm.Item().Set;
-    battleswineLegs.Item().Set = battleswineHelm.Item().Set;
+    battleswineHelmWrapper.Set.Effect = battleswineSetEffect;
+    battleswineHelmWrapper.Set.Name = "Battleswine";
+    battleswineHelmWrapper.Set.Size = 3;
+    battleswineChestWrapper.Set = battleswineHelmWrapper.Set;
+    battleswineLegsWrapper.Set = battleswineHelmWrapper.Set;
 
     // Draugr
-    this.Keep("swamphelm");
-    this.Keep("swampchest");
-    this.Keep("swamplegs");
+    itemManager.Keep([
+      "swamphelm",
+      "swampchest",
+      "swamplegs",
+    ]);
 
-    var draugrHelm = itemManager["swamphelm"];
+    var (draugrHelm, draugrHelmWrapper) = itemManager["swamphelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       draugrHelm.Name.Alias("$SouthsilArmor_DraugrHelm_Name");
@@ -232,13 +238,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     draugrHelm.RequiredUpgradeItems.Add("Iron", 3);
     draugrHelm.RequiredUpgradeItems.Add("RottenPelt_TW", 1);
     draugrHelm.RequiredUpgradeItems.Add("WitheredBone", 1);
-    draugrHelm.Item().Armor.ArmorBase = 9;
-    draugrHelm.Item().Armor.ArmorPerLevel = 3;
-    draugrHelm.Item().Armor.MovementModifier = -0.02f;
-    draugrHelm.Item().Armor.Weight = 6;
+    draugrHelmWrapper.Armor.ArmorBase = 9;
+    draugrHelmWrapper.Armor.ArmorPerLevel = 3;
+    draugrHelmWrapper.Armor.MovementModifier = -0.02f;
+    draugrHelmWrapper.Armor.Weight = 6;
     draugrHelm.Prefab.FixItemLayer();
 
-    var draugrChest = itemManager["swampchest"];
+    var (draugrChest, draugrChestWrapper) = itemManager["swampchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       draugrChest.Name.Alias("$SouthsilArmor_DraugrChest_Name");
@@ -254,12 +260,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     draugrChest.RequiredUpgradeItems.Add("Iron", 9);
     draugrChest.RequiredUpgradeItems.Add("RottenPelt_TW", 1);
     draugrChest.RequiredUpgradeItems.Add("WitheredBone", 3);
-    draugrChest.Item().Armor.ArmorBase = 27;
-    draugrChest.Item().Armor.ArmorPerLevel = 4;
-    draugrChest.Item().Armor.MovementModifier = -0.10f;
-    draugrChest.Item().Armor.Weight = 18;
+    draugrChestWrapper.Armor.ArmorBase = 27;
+    draugrChestWrapper.Armor.ArmorPerLevel = 4;
+    draugrChestWrapper.Armor.MovementModifier = -0.10f;
+    draugrChestWrapper.Armor.Weight = 18;
 
-    var draugrLegs = itemManager["swamplegs"];
+    var (draugrLegs, draugrLegsWrapper) = itemManager["swamplegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       draugrLegs.Name.Alias("$SouthsilArmor_DraugrLegs_Name");
@@ -276,12 +282,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     draugrLegs.RequiredUpgradeItems.Add("Iron", 6);
     draugrLegs.RequiredUpgradeItems.Add("RottenPelt_TW", 1);
     draugrLegs.RequiredUpgradeItems.Add("WitheredBone", 2);
-    draugrLegs.Item().Armor.ArmorBase = 18;
-    draugrLegs.Item().Armor.ArmorPerLevel = 3;
-    draugrLegs.Item().Armor.MovementModifier = -0.06f;
-    draugrLegs.Item().Armor.Weight = 12;
+    draugrLegsWrapper.Armor.ArmorBase = 18;
+    draugrLegsWrapper.Armor.ArmorPerLevel = 3;
+    draugrLegsWrapper.Armor.MovementModifier = -0.06f;
+    draugrLegsWrapper.Armor.Weight = 12;
 
-    var draugrSetEffect = draugrHelm.Item().Set.Effect;
+    var draugrSetEffect = draugrHelmWrapper.Set.Effect;
     draugrSetEffect.m_name = "$SouthsilArmor_DraugrSet_Effect_Name";
     draugrSetEffect.m_tooltip = "$SouthsilArmor_DraugrSet_Effect_Tooltip";
     draugrSetEffect.m_mods.Clear();
@@ -291,17 +297,19 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
       m_modifier = HitData.DamageModifier.Resistant,
     });
 
-    draugrHelm.Item().Set.Name = "Draugr";
-    draugrHelm.Item().Set.Size = 3;
-    draugrChest.Item().Set = draugrHelm.Item().Set;
-    draugrLegs.Item().Set = draugrHelm.Item().Set;
+    draugrHelmWrapper.Set.Name = "Draugr";
+    draugrHelmWrapper.Set.Size = 3;
+    draugrChestWrapper.Set = draugrHelmWrapper.Set;
+    draugrLegsWrapper.Set = draugrHelmWrapper.Set;
 
     // Grizzly
-    this.Keep("heavybearhelm");
-    this.Keep("heavybearchest");
-    this.Keep("heavybearlegs");
+    itemManager.Keep([
+      "heavybearhelm",
+      "heavybearchest",
+      "heavybearlegs",
+    ]);
 
-    var grizzlyHelm = itemManager["heavybearhelm"];
+    var (grizzlyHelm, grizzlyHelmWrapper) = itemManager["heavybearhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       grizzlyHelm.Name.Alias("$SouthsilArmor_GrizzlyHelm_Name");
@@ -316,13 +324,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyHelm.RequiredUpgradeItems.Requirements.Clear();
     grizzlyHelm.RequiredUpgradeItems.Add("Silver", 2);
     grizzlyHelm.RequiredUpgradeItems.Add("WolfPelt", 1);
-    grizzlyHelm.Item().Armor.ArmorBase = 14;
-    grizzlyHelm.Item().Armor.ArmorPerLevel = 4;
-    grizzlyHelm.Item().Armor.MovementModifier = -0.02f;
-    grizzlyHelm.Item().Armor.Weight = 6;
+    grizzlyHelmWrapper.Armor.ArmorBase = 14;
+    grizzlyHelmWrapper.Armor.ArmorPerLevel = 4;
+    grizzlyHelmWrapper.Armor.MovementModifier = -0.02f;
+    grizzlyHelmWrapper.Armor.Weight = 6;
     grizzlyHelm.Prefab.FixItemLayer();
 
-    var grizzlyChest = itemManager["heavybearchest"];
+    var (grizzlyChest, grizzlyChestWrapper) = itemManager["heavybearchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       grizzlyChest.Name.Alias("$SouthsilArmor_GrizzlyChest_Name");
@@ -338,12 +346,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyChest.RequiredUpgradeItems.Requirements.Clear();
     grizzlyChest.RequiredUpgradeItems.Add("Silver", 8);
     grizzlyChest.RequiredUpgradeItems.Add("WolfPelt", 3);
-    grizzlyChest.Item().Armor.ArmorBase = 27;
-    grizzlyChest.Item().Armor.ArmorPerLevel = 4;
-    grizzlyChest.Item().Armor.MovementModifier = -0.10f;
-    grizzlyChest.Item().Armor.Weight = 18;
+    grizzlyChestWrapper.Armor.ArmorBase = 27;
+    grizzlyChestWrapper.Armor.ArmorPerLevel = 4;
+    grizzlyChestWrapper.Armor.MovementModifier = -0.10f;
+    grizzlyChestWrapper.Armor.Weight = 18;
 
-    var grizzlyLegs = itemManager["heavybearlegs"];
+    var (grizzlyLegs, grizzlyLegsWrapper) = itemManager["heavybearlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       grizzlyLegs.Name.Alias("$SouthsilArmor_GrizzlyLegs_Name");
@@ -359,12 +367,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyLegs.RequiredUpgradeItems.Requirements.Clear();
     grizzlyLegs.RequiredUpgradeItems.Add("Silver", 5);
     grizzlyLegs.RequiredUpgradeItems.Add("WolfPelt", 2);
-    grizzlyLegs.Item().Armor.ArmorBase = 18;
-    grizzlyLegs.Item().Armor.ArmorPerLevel = 3;
-    grizzlyLegs.Item().Armor.MovementModifier = -0.06f;
-    grizzlyLegs.Item().Armor.Weight = 12;
+    grizzlyLegsWrapper.Armor.ArmorBase = 18;
+    grizzlyLegsWrapper.Armor.ArmorPerLevel = 3;
+    grizzlyLegsWrapper.Armor.MovementModifier = -0.06f;
+    grizzlyLegsWrapper.Armor.Weight = 12;
 
-    var grizzlySetEffect = grizzlyHelm.Item().Set.Effect;
+    var grizzlySetEffect = grizzlyHelmWrapper.Set.Effect;
     grizzlySetEffect.m_name = "$SouthsilArmor_GrizzlySet_Effect_Name";
     grizzlySetEffect.m_tooltip = "$SouthsilArmor_GrizzlySet_Effect_Tooltip";
     grizzlySetEffect.m_skillLevel = Skills.SkillType.Swords;
@@ -379,17 +387,19 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     });
     grizzlySetEffect.m_staminaRegenMultiplier = 1;
 
-    grizzlyHelm.Item().Set.Name = "Grizzly";
-    grizzlyHelm.Item().Set.Size = 3;
-    grizzlyChest.Item().Set = grizzlyHelm.Item().Set;
-    grizzlyLegs.Item().Set = grizzlyHelm.Item().Set;
+    grizzlyHelmWrapper.Set.Name = "Grizzly";
+    grizzlyHelmWrapper.Set.Size = 3;
+    grizzlyChestWrapper.Set = grizzlyHelmWrapper.Set;
+    grizzlyLegsWrapper.Set = grizzlyHelmWrapper.Set;
 
     // Feral
-    this.Keep("obswolfhelm");
-    this.Keep("obswolfchest");
-    this.Keep("obswolflegs");
+    itemManager.Keep([
+      "obswolfhelm",
+      "obswolfchest",
+      "obswolflegs",
+    ]);
 
-    var feralHelm = itemManager["obswolfhelm"];
+    var (feralHelm, feralHelmWrapper) = itemManager["obswolfhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       feralHelm.Name.Alias("$SouthsilArmor_FeralHelm_Name");
@@ -405,13 +415,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralHelm.RequiredUpgradeItems.Requirements.Clear();
     feralHelm.RequiredUpgradeItems.Add("BlackMetal", 2);
     feralHelm.RequiredUpgradeItems.Add("WolfHairBundle", 5);
-    feralHelm.Item().Armor.ArmorBase = 7;
-    feralHelm.Item().Armor.ArmorPerLevel = 2;
-    feralHelm.Item().Armor.MovementModifier = 0;
-    feralHelm.Item().Armor.Weight = 1;
+    feralHelmWrapper.Armor.ArmorBase = 7;
+    feralHelmWrapper.Armor.ArmorPerLevel = 2;
+    feralHelmWrapper.Armor.MovementModifier = 0;
+    feralHelmWrapper.Armor.Weight = 1;
     feralHelm.Prefab.FixItemLayer();
 
-    var feralChest = itemManager["obswolfchest"];
+    var (feralChest, feralChestWrapper) = itemManager["obswolfchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       feralChest.Name.Alias("$SouthsilArmor_FeralChest_Name");
@@ -428,13 +438,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralChest.RequiredUpgradeItems.Add("BlackMetal", 6);
     feralChest.RequiredUpgradeItems.Add("LoxPelt", 1);
     feralChest.RequiredUpgradeItems.Add("ProwlerFang_TW", 3);
-    feralChest.Item().Armor.ArmorBase = 21;
-    feralChest.Item().Armor.ArmorPerLevel = 3;
-    feralChest.Item().Armor.MovementModifier = -0.01f;
-    feralChest.Item().Armor.Weight = 6;
-    feralChest.Item().Armor.DamageModifiers.Clear();
+    feralChestWrapper.Armor.ArmorBase = 21;
+    feralChestWrapper.Armor.ArmorPerLevel = 3;
+    feralChestWrapper.Armor.MovementModifier = -0.01f;
+    feralChestWrapper.Armor.Weight = 6;
+    feralChestWrapper.Armor.DamageModifiers.Clear();
 
-    var feralLegs = itemManager["obswolflegs"];
+    var (feralLegs, feralLegsWrapper) = itemManager["obswolflegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       feralLegs.Name.Alias("$SouthsilArmor_FeralLegs_Name");
@@ -449,12 +459,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralLegs.RequiredUpgradeItems.Requirements.Clear();
     feralLegs.RequiredUpgradeItems.Add("BlackMetal", 4);
     feralLegs.RequiredUpgradeItems.Add("LinenThread", 10);
-    feralLegs.Item().Armor.ArmorBase = 14;
-    feralLegs.Item().Armor.ArmorPerLevel = 3;
-    feralLegs.Item().Armor.MovementModifier = -0.01f;
-    feralLegs.Item().Armor.Weight = 3;
+    feralLegsWrapper.Armor.ArmorBase = 14;
+    feralLegsWrapper.Armor.ArmorPerLevel = 3;
+    feralLegsWrapper.Armor.MovementModifier = -0.01f;
+    feralLegsWrapper.Armor.Weight = 3;
 
-    var feralSetEffect = feralHelm.Item().Set.Effect;
+    var feralSetEffect = feralHelmWrapper.Set.Effect;
     feralSetEffect.m_name = "$SouthsilArmor_FeralSet_Effect_Name";
     feralSetEffect.m_tooltip = "$SouthsilArmor_FeralSet_Effect_Tooltip";
     feralSetEffect.m_skillLevel = Skills.SkillType.Sneak;
@@ -466,18 +476,20 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralSetEffect.m_speedModifier = 0;
     feralSetEffect.m_stealthModifier = 0;
 
-    feralHelm.Item().Set.Name = "Feral";
-    feralHelm.Item().Set.Size = 3;
-    feralChest.Item().Set = feralHelm.Item().Set;
-    feralLegs.Item().Set = feralHelm.Item().Set;
+    feralHelmWrapper.Set.Name = "Feral";
+    feralHelmWrapper.Set.Size = 3;
+    feralChestWrapper.Set = feralHelmWrapper.Set;
+    feralLegsWrapper.Set = feralHelmWrapper.Set;
 
     // Shieldmaiden
-    this.Keep("norahhelm");
-    this.Keep("norahhelmalt");
-    this.Keep("norahchest");
-    this.Keep("norahlegs");
+    itemManager.Keep([
+      "norahhelm",
+      "norahhelmalt",
+      "norahchest",
+      "norahlegs",
+    ]);
 
-    var shieldmaidenHelm = itemManager["norahhelm"];
+    var (shieldmaidenHelm, shieldmaidenHelmWrapper) = itemManager["norahhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       shieldmaidenHelm.Name.Alias("$SouthsilArmor_ShieldmaidenHelm_Name");
@@ -490,12 +502,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldmaidenHelm.RequiredItems.Add("Coins", 500);
     shieldmaidenHelm.RequiredUpgradeItems.Requirements.Clear();
     shieldmaidenHelm.RequiredUpgradeItems.Add("LinenThread", 10);
-    shieldmaidenHelm.Item().Armor.ArmorBase = 10;
-    shieldmaidenHelm.Item().Armor.ArmorPerLevel = 2;
-    shieldmaidenHelm.Item().Armor.MovementModifier = 0;
-    shieldmaidenHelm.Item().Armor.Weight = 3;
+    shieldmaidenHelmWrapper.Armor.ArmorBase = 10;
+    shieldmaidenHelmWrapper.Armor.ArmorPerLevel = 2;
+    shieldmaidenHelmWrapper.Armor.MovementModifier = 0;
+    shieldmaidenHelmWrapper.Armor.Weight = 3;
 
-    var shieldmaidenHelmAlt = itemManager["norahhelmalt"];
+    var (shieldmaidenHelmAlt, shieldmaidenHelmAltWrapper) = itemManager["norahhelmalt"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       shieldmaidenHelmAlt.Name.Alias("$SouthsilArmor_ShieldmaidenHelmAlt_Name");
@@ -508,13 +520,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldmaidenHelmAlt.RequiredItems.Add("LoxPelt", 1); ;
     shieldmaidenHelmAlt.RequiredUpgradeItems.Requirements.Clear();
     shieldmaidenHelmAlt.RequiredUpgradeItems.Add("LinenThread", 10);
-    shieldmaidenHelmAlt.Item().Armor.ArmorBase = 10;
-    shieldmaidenHelmAlt.Item().Armor.ArmorPerLevel = 2;
-    shieldmaidenHelmAlt.Item().Armor.MovementModifier = 0;
-    shieldmaidenHelmAlt.Item().Armor.Weight = 3;
+    shieldmaidenHelmAltWrapper.Armor.ArmorBase = 10;
+    shieldmaidenHelmAltWrapper.Armor.ArmorPerLevel = 2;
+    shieldmaidenHelmAltWrapper.Armor.MovementModifier = 0;
+    shieldmaidenHelmAltWrapper.Armor.Weight = 3;
     shieldmaidenHelmAlt.Prefab.FixItemLayer();
 
-    var shieldmaidenChest = itemManager["norahchest"];
+    var (shieldmaidenChest, shieldmaidenChestWrapper) = itemManager["norahchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       shieldmaidenChest.Name.Alias("$SouthsilArmor_ShieldmaidenChest_Name");
@@ -531,12 +543,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldmaidenChest.RequiredUpgradeItems.Add("Iron", 3);
     shieldmaidenChest.RequiredUpgradeItems.Add("LinenThread", 15);
     shieldmaidenChest.RequiredUpgradeItems.Add("LoxPelt", 1);
-    shieldmaidenChest.Item().Armor.ArmorBase = 30;
-    shieldmaidenChest.Item().Armor.ArmorPerLevel = 3;
-    shieldmaidenChest.Item().Armor.MovementModifier = -0.04f;
-    shieldmaidenChest.Item().Armor.Weight = 10;
+    shieldmaidenChestWrapper.Armor.ArmorBase = 30;
+    shieldmaidenChestWrapper.Armor.ArmorPerLevel = 3;
+    shieldmaidenChestWrapper.Armor.MovementModifier = -0.04f;
+    shieldmaidenChestWrapper.Armor.Weight = 10;
 
-    var shieldmaidenLegs = itemManager["norahlegs"];
+    var (shieldmaidenLegs, shieldmaidenLegsWrapper) = itemManager["norahlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       shieldmaidenLegs.Name.Alias("$SouthsilArmor_ShieldmaidenLegs_Name");
@@ -552,12 +564,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldmaidenLegs.RequiredUpgradeItems.Add("Iron", 2);
     shieldmaidenLegs.RequiredUpgradeItems.Add("LinenThread", 10);
     shieldmaidenLegs.RequiredUpgradeItems.Add("LoxPelt", 2);
-    shieldmaidenLegs.Item().Armor.ArmorBase = 20;
-    shieldmaidenLegs.Item().Armor.ArmorPerLevel = 2;
-    shieldmaidenLegs.Item().Armor.MovementModifier = -0.02f;
-    shieldmaidenLegs.Item().Armor.Weight = 5;
+    shieldmaidenLegsWrapper.Armor.ArmorBase = 20;
+    shieldmaidenLegsWrapper.Armor.ArmorPerLevel = 2;
+    shieldmaidenLegsWrapper.Armor.MovementModifier = -0.02f;
+    shieldmaidenLegsWrapper.Armor.Weight = 5;
 
-    var shieldMaidenSetEffect = shieldmaidenHelm.Item().Set.Effect;
+    var shieldMaidenSetEffect = shieldmaidenHelmWrapper.Set.Effect;
     shieldMaidenSetEffect.m_name = "$SouthsilArmor_ShieldmaidenSet_Effect_Name";
     shieldMaidenSetEffect.m_tooltip = "$SouthsilArmor_ShieldmaidenSet_Effect_Tooltip";
     shieldMaidenSetEffect.m_skillLevel = Skills.SkillType.Clubs;
@@ -565,18 +577,20 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldMaidenSetEffect.m_skillLevel2 = Skills.SkillType.Blocking;
     shieldMaidenSetEffect.m_skillLevelModifier2 = 15;
 
-    shieldmaidenHelm.Item().Set.Name = "Shieldmaiden";
-    shieldmaidenHelm.Item().Set.Size = 3;
-    shieldmaidenHelmAlt.Item().Set = shieldmaidenHelm.Item().Set;
-    shieldmaidenChest.Item().Set = shieldmaidenHelm.Item().Set;
-    shieldmaidenLegs.Item().Set = shieldmaidenHelm.Item().Set;
+    shieldmaidenHelmWrapper.Set.Name = "Shieldmaiden";
+    shieldmaidenHelmWrapper.Set.Size = 3;
+    shieldmaidenHelmAltWrapper.Set = shieldmaidenHelmWrapper.Set;
+    shieldmaidenChestWrapper.Set = shieldmaidenHelmWrapper.Set;
+    shieldmaidenLegsWrapper.Set = shieldmaidenHelmWrapper.Set;
 
     // Berserkir
-    this.Keep("bearhelm2");
-    this.Keep("bearchest2");
-    this.Keep("bearlegs2");
+    itemManager.Keep([
+      "bearhelm2",
+      "bearchest2",
+      "bearlegs2",
+    ]);
 
-    var berserkirHelm = itemManager["bearhelm2"];
+    var (berserkirHelm, berserkirHelmWrapper) = itemManager["bearhelm2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       berserkirHelm.Name.Alias("$SouthsilArmor_BerserkirHelm_Name");
@@ -590,12 +604,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     berserkirHelm.RequiredUpgradeItems.Requirements.Clear();
     berserkirHelm.RequiredUpgradeItems.Add("BlackMetal", 5);
     berserkirHelm.RequiredUpgradeItems.Add("LinenThread", 5);
-    berserkirHelm.Item().Armor.ArmorBase = 16;
-    berserkirHelm.Item().Armor.ArmorPerLevel = 4;
-    berserkirHelm.Item().Armor.MovementModifier = -0.02f;
-    berserkirHelm.Item().Armor.Weight = 6;
+    berserkirHelmWrapper.Armor.ArmorBase = 16;
+    berserkirHelmWrapper.Armor.ArmorPerLevel = 4;
+    berserkirHelmWrapper.Armor.MovementModifier = -0.02f;
+    berserkirHelmWrapper.Armor.Weight = 6;
 
-    var berserkirChest = itemManager["bearchest2"];
+    var (berserkirChest, berserkirChestWrapper) = itemManager["bearchest2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       berserkirChest.Name.Alias("$SouthsilArmor_BerserkirChest_Name");
@@ -610,12 +624,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     berserkirChest.RequiredUpgradeItems.Requirements.Clear();
     berserkirChest.RequiredUpgradeItems.Add("BlackMetal", 15);
     berserkirChest.RequiredUpgradeItems.Add("LinenThread", 15);
-    berserkirChest.Item().Armor.ArmorBase = 48;
-    berserkirChest.Item().Armor.ArmorPerLevel = 5;
-    berserkirChest.Item().Armor.MovementModifier = -0.10f;
-    berserkirChest.Item().Armor.Weight = 18;
+    berserkirChestWrapper.Armor.ArmorBase = 48;
+    berserkirChestWrapper.Armor.ArmorPerLevel = 5;
+    berserkirChestWrapper.Armor.MovementModifier = -0.10f;
+    berserkirChestWrapper.Armor.Weight = 18;
 
-    var berserkirLegs = itemManager["bearlegs2"];
+    var (berserkirLegs, berserkirLegsWrapper) = itemManager["bearlegs2"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       berserkirLegs.Name.Alias("$SouthsilArmor_BerserkirLegs_Name");
@@ -629,13 +643,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     berserkirLegs.RequiredUpgradeItems.Requirements.Clear();
     berserkirLegs.RequiredUpgradeItems.Add("BlackMetal", 10);
     berserkirLegs.RequiredUpgradeItems.Add("LinenThread", 10);
-    berserkirLegs.Item().Armor.ArmorBase = 32;
-    berserkirLegs.Item().Armor.ArmorPerLevel = 5;
-    berserkirLegs.Item().Armor.MovementModifier = -0.06f;
-    berserkirLegs.Item().Armor.Weight = 12;
-    berserkirLegs.Item().Armor.DamageModifiers.Clear();
+    berserkirLegsWrapper.Armor.ArmorBase = 32;
+    berserkirLegsWrapper.Armor.ArmorPerLevel = 5;
+    berserkirLegsWrapper.Armor.MovementModifier = -0.06f;
+    berserkirLegsWrapper.Armor.Weight = 12;
+    berserkirLegsWrapper.Armor.DamageModifiers.Clear();
 
-    var berserkirSetEffect = berserkirHelm.Item().Set.Effect;
+    var berserkirSetEffect = berserkirHelmWrapper.Set.Effect;
     berserkirSetEffect.m_name = "$SouthsilArmor_BerserkirSet_Effect_Name";
     berserkirSetEffect.m_tooltip = "$SouthsilArmor_BerserkirSet_Effect_Tooltip";
     berserkirSetEffect.m_skillLevel = CustomSkills.TwoHandedAxes;
@@ -645,17 +659,19 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     berserkirSetEffect.m_healthRegenMultiplier = 1;
     berserkirSetEffect.m_staminaRegenMultiplier = 1;
 
-    berserkirHelm.Item().Set.Name = "Berserkir";
-    berserkirHelm.Item().Set.Size = 3;
-    berserkirChest.Item().Set = berserkirHelm.Item().Set;
-    berserkirLegs.Item().Set = berserkirHelm.Item().Set;
+    berserkirHelmWrapper.Set.Name = "Berserkir";
+    berserkirHelmWrapper.Set.Size = 3;
+    berserkirChestWrapper.Set = berserkirHelmWrapper.Set;
+    berserkirLegsWrapper.Set = berserkirHelmWrapper.Set;
 
     // Gjall-hunter
-    this.Keep("heavycarhelm");
-    this.Keep("heavycarchest");
-    this.Keep("heavycarlegs");
+    itemManager.Keep([
+      "heavycarhelm",
+      "heavycarchest",
+      "heavycarlegs",
+    ]);
 
-    var gjallhunterHelm = itemManager["heavycarhelm"];
+    var (gjallhunterHelm, gjallhunterHelmWrapper) = itemManager["heavycarhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       gjallhunterHelm.Name.Alias("$SouthsilArmor_GjallhunterHelm_Name");
@@ -670,14 +686,14 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     gjallhunterHelm.RequiredUpgradeItems.Requirements.Clear();
     gjallhunterHelm.RequiredUpgradeItems.Add("Carapace", 4);
     gjallhunterHelm.RequiredUpgradeItems.Add("Mandible", 1);
-    gjallhunterHelm.Item().Armor.ArmorBase = 12;
-    gjallhunterHelm.Item().Armor.ArmorPerLevel = 3;
-    gjallhunterHelm.Item().Armor.MovementModifier = 0;
-    gjallhunterHelm.Item().Armor.Weight = 3;
-    gjallhunterHelm.Item().Armor.EquipEffect = null;
+    gjallhunterHelmWrapper.Armor.ArmorBase = 12;
+    gjallhunterHelmWrapper.Armor.ArmorPerLevel = 3;
+    gjallhunterHelmWrapper.Armor.MovementModifier = 0;
+    gjallhunterHelmWrapper.Armor.Weight = 3;
+    gjallhunterHelmWrapper.Armor.EquipEffect = null;
     gjallhunterHelm.Prefab.FixItemLayer();
 
-    var gjallhunterChest = itemManager["heavycarchest"];
+    var (gjallhunterChest, gjallhunterChestWrapper) = itemManager["heavycarchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       gjallhunterChest.Name.Alias("$SouthsilArmor_GjallhunterChest_Name");
@@ -694,12 +710,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     gjallhunterChest.RequiredUpgradeItems.Add("Carapace", 10);
     gjallhunterChest.RequiredUpgradeItems.Add("Mandible", 3);
     gjallhunterChest.RequiredUpgradeItems.Add("ScaleHide", 5);
-    gjallhunterChest.Item().Armor.ArmorBase = 36;
-    gjallhunterChest.Item().Armor.ArmorPerLevel = 4;
-    gjallhunterChest.Item().Armor.MovementModifier = -0.04f;
-    gjallhunterChest.Item().Armor.Weight = 10;
+    gjallhunterChestWrapper.Armor.ArmorBase = 36;
+    gjallhunterChestWrapper.Armor.ArmorPerLevel = 4;
+    gjallhunterChestWrapper.Armor.MovementModifier = -0.04f;
+    gjallhunterChestWrapper.Armor.Weight = 10;
 
-    var gjallhunterLegs = itemManager["heavycarlegs"];
+    var (gjallhunterLegs, gjallhunterLegsWrapper) = itemManager["heavycarlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       gjallhunterLegs.Name.Alias("$SouthsilArmor_GjallhunterLegs_Name");
@@ -716,12 +732,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     gjallhunterLegs.RequiredUpgradeItems.Add("Carapace", 6);
     gjallhunterLegs.RequiredUpgradeItems.Add("Mandible", 1);
     gjallhunterLegs.RequiredUpgradeItems.Add("ScaleHide", 2);
-    gjallhunterLegs.Item().Armor.ArmorBase = 24;
-    gjallhunterLegs.Item().Armor.ArmorPerLevel = 3;
-    gjallhunterLegs.Item().Armor.MovementModifier = -0.02f;
-    gjallhunterLegs.Item().Armor.Weight = 5;
+    gjallhunterLegsWrapper.Armor.ArmorBase = 24;
+    gjallhunterLegsWrapper.Armor.ArmorPerLevel = 3;
+    gjallhunterLegsWrapper.Armor.MovementModifier = -0.02f;
+    gjallhunterLegsWrapper.Armor.Weight = 5;
 
-    var gjallhunterSetEffect = gjallhunterHelm.Item().Set.Effect;
+    var gjallhunterSetEffect = gjallhunterHelmWrapper.Set.Effect;
     gjallhunterSetEffect.m_name = "$SouthsilArmor_GjallhunterSet_Effect_Name";
     gjallhunterSetEffect.m_tooltip = "$SouthsilArmor_GjallhunterSet_Effect_Tooltip";
     gjallhunterSetEffect.m_skillLevel = Skills.SkillType.Bows;
@@ -730,17 +746,19 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     gjallhunterSetEffect.m_skillLevelModifier2 = 15;
     gjallhunterSetEffect.m_staminaRegenMultiplier = 1;
 
-    gjallhunterHelm.Item().Set.Name = "Gjallhunter";
-    gjallhunterHelm.Item().Set.Size = 3;
-    gjallhunterChest.Item().Set = gjallhunterHelm.Item().Set;
-    gjallhunterLegs.Item().Set = gjallhunterHelm.Item().Set;
+    gjallhunterHelmWrapper.Set.Name = "Gjallhunter";
+    gjallhunterHelmWrapper.Set.Size = 3;
+    gjallhunterChestWrapper.Set = gjallhunterHelmWrapper.Set;
+    gjallhunterLegsWrapper.Set = gjallhunterHelmWrapper.Set;
 
     // Rune-knight
-    this.Keep("runeknighthelm");
-    this.Keep("runeknightchest");
-    this.Keep("runeknightlegs");
+    itemManager.Keep([
+      "runeknighthelm",
+      "runeknightchest",
+      "runeknightlegs",
+    ]);
 
-    var runeknightHelm = itemManager["runeknighthelm"];
+    var (runeknightHelm, runeknightHelmWrapper) = itemManager["runeknighthelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       runeknightHelm.Name.Alias("$SouthsilArmor_RuneknightHelm_Name");
@@ -755,13 +773,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     runeknightHelm.RequiredUpgradeItems.Requirements.Clear();
     runeknightHelm.RequiredUpgradeItems.Add("BlackMetal", 5);
     runeknightHelm.RequiredUpgradeItems.Add("Eitr", 5);
-    runeknightHelm.Item().Armor.ArmorBase = 18;
-    runeknightHelm.Item().Armor.ArmorPerLevel = 4;
-    runeknightHelm.Item().Armor.MovementModifier = -0.02f;
-    runeknightHelm.Item().Armor.Weight = 5;
+    runeknightHelmWrapper.Armor.ArmorBase = 18;
+    runeknightHelmWrapper.Armor.ArmorPerLevel = 4;
+    runeknightHelmWrapper.Armor.MovementModifier = -0.02f;
+    runeknightHelmWrapper.Armor.Weight = 5;
     runeknightHelm.Prefab.FixItemLayer();
 
-    var runeknightChest = itemManager["runeknightchest"];
+    var (runeknightChest, runeknightChestWrapper) = itemManager["runeknightchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       runeknightChest.Name.Alias("$SouthsilArmor_RuneknightChest_Name");
@@ -778,12 +796,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     runeknightChest.RequiredUpgradeItems.Add("BlackMetal", 15);
     runeknightChest.RequiredUpgradeItems.Add("Eitr", 5);
     runeknightChest.RequiredUpgradeItems.Add("LinenThread", 10);
-    runeknightChest.Item().Armor.ArmorBase = 54;
-    runeknightChest.Item().Armor.ArmorPerLevel = 4;
-    runeknightChest.Item().Armor.MovementModifier = -0.08f;
-    runeknightChest.Item().Armor.Weight = 15;
+    runeknightChestWrapper.Armor.ArmorBase = 54;
+    runeknightChestWrapper.Armor.ArmorPerLevel = 4;
+    runeknightChestWrapper.Armor.MovementModifier = -0.08f;
+    runeknightChestWrapper.Armor.Weight = 15;
 
-    var runeknightLegs = itemManager["runeknightlegs"];
+    var (runeknightLegs, runeknightLegsWrapper) = itemManager["runeknightlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       runeknightLegs.Name.Alias("$SouthsilArmor_RuneknightLegs_Name");
@@ -800,28 +818,30 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     runeknightLegs.RequiredUpgradeItems.Add("BlackMetal", 10);
     runeknightLegs.RequiredUpgradeItems.Add("Eitr", 5);
     runeknightLegs.RequiredUpgradeItems.Add("LinenThread", 5);
-    runeknightLegs.Item().Armor.ArmorBase = 36;
-    runeknightLegs.Item().Armor.ArmorPerLevel = 4;
-    runeknightLegs.Item().Armor.MovementModifier = -0.04f;
-    runeknightLegs.Item().Armor.Weight = 10;
+    runeknightLegsWrapper.Armor.ArmorBase = 36;
+    runeknightLegsWrapper.Armor.ArmorPerLevel = 4;
+    runeknightLegsWrapper.Armor.MovementModifier = -0.04f;
+    runeknightLegsWrapper.Armor.Weight = 10;
 
-    var runeknightSetEffect = runeknightHelm.Item().Set.Effect;
+    var runeknightSetEffect = runeknightHelmWrapper.Set.Effect;
     runeknightSetEffect.m_name = "$SouthsilArmor_RuneknightSet_Effect_Name";
     runeknightSetEffect.m_tooltip = "$SouthsilArmor_RuneknightSet_Effect_Tooltip";
     runeknightSetEffect.m_skillLevel = Skills.SkillType.BloodMagic;
     runeknightSetEffect.m_skillLevelModifier = 15;
 
-    runeknightHelm.Item().Set.Name = "Runeknight";
-    runeknightHelm.Item().Set.Size = 3;
-    runeknightChest.Item().Set = runeknightHelm.Item().Set;
-    runeknightLegs.Item().Set = runeknightHelm.Item().Set;
+    runeknightHelmWrapper.Set.Name = "Runeknight";
+    runeknightHelmWrapper.Set.Size = 3;
+    runeknightChestWrapper.Set = runeknightHelmWrapper.Set;
+    runeknightLegsWrapper.Set = runeknightHelmWrapper.Set;
 
     // Druid
-    this.Keep("druidhelm");
-    this.Keep("druidchest");
-    this.Keep("druidlegs");
+    itemManager.Keep([
+      "druidhelm",
+      "druidchest",
+      "druidlegs",
+    ]);
 
-    var druidHelm = itemManager["druidhelm"];
+    var (druidHelm, druidHelmWrapper) = itemManager["druidhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       druidHelm.Name.Alias("$SouthsilArmor_DruidHelm_Name");
@@ -839,13 +859,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidHelm.RequiredUpgradeItems.Add("Eitr", 5);
     druidHelm.RequiredUpgradeItems.Add("Sap", 10);
     druidHelm.RequiredUpgradeItems.Add("YggdrasilWood", 15);
-    druidHelm.Item().Armor.ArmorBase = 20;
-    druidHelm.Item().Armor.ArmorPerLevel = 4;
-    druidHelm.Item().Armor.MovementModifier = -0.02f;
-    druidHelm.Item().Armor.Weight = 6;
+    druidHelmWrapper.Armor.ArmorBase = 20;
+    druidHelmWrapper.Armor.ArmorPerLevel = 4;
+    druidHelmWrapper.Armor.MovementModifier = -0.02f;
+    druidHelmWrapper.Armor.Weight = 6;
     druidHelm.Prefab.FixItemLayer();
 
-    var druidChest = itemManager["druidchest"];
+    var (druidChest, druidChestWrapper) = itemManager["druidchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       druidChest.Name.Alias("$SouthsilArmor_DruidChest_Name");
@@ -863,12 +883,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidChest.RequiredUpgradeItems.Add("LinenThread", 15);
     druidChest.RequiredUpgradeItems.Add("ScaleHide", 5);
     druidChest.RequiredUpgradeItems.Add("LoxPelt", 1);
-    druidChest.Item().Armor.ArmorBase = 60;
-    druidChest.Item().Armor.ArmorPerLevel = 5;
-    druidChest.Item().Armor.MovementModifier = -0.10f;
-    druidChest.Item().Armor.Weight = 18;
+    druidChestWrapper.Armor.ArmorBase = 60;
+    druidChestWrapper.Armor.ArmorPerLevel = 5;
+    druidChestWrapper.Armor.MovementModifier = -0.10f;
+    druidChestWrapper.Armor.Weight = 18;
 
-    var druidLegs = itemManager["druidlegs"];
+    var (druidLegs, druidLegsWrapper) = itemManager["druidlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
       druidLegs.Name.Alias("$SouthsilArmor_DruidLegs_Name");
@@ -886,12 +906,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidLegs.RequiredUpgradeItems.Add("LinenThread", 10);
     druidLegs.RequiredUpgradeItems.Add("ScaleHide", 2);
     druidLegs.RequiredUpgradeItems.Add("LoxPelt", 1);
-    druidLegs.Item().Armor.ArmorBase = 40;
-    druidLegs.Item().Armor.ArmorPerLevel = 5;
-    druidLegs.Item().Armor.MovementModifier = -0.06f;
-    druidLegs.Item().Armor.Weight = 12;
+    druidLegsWrapper.Armor.ArmorBase = 40;
+    druidLegsWrapper.Armor.ArmorPerLevel = 5;
+    druidLegsWrapper.Armor.MovementModifier = -0.06f;
+    druidLegsWrapper.Armor.Weight = 12;
 
-    var druidSetEffect = druidHelm.Item().Set.Effect;
+    var druidSetEffect = druidHelmWrapper.Set.Effect;
     druidSetEffect.m_name = "$SouthsilArmor_DruidSet_Effect_Name";
     druidSetEffect.m_tooltip = "$SouthsilArmor_DruidSet_Effect_Tooltip";
     druidSetEffect.m_skillLevel = Skills.SkillType.ElementalMagic;
@@ -905,9 +925,9 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidSetEffect.m_staminaRegenMultiplier = 1;
     druidSetEffect.m_addMaxCarryWeight = 0;
 
-    druidHelm.Item().Set.Name = "Druid";
-    druidHelm.Item().Set.Size = 3;
-    druidChest.Item().Set = druidHelm.Item().Set;
-    druidLegs.Item().Set = druidHelm.Item().Set;
+    druidHelmWrapper.Set.Name = "Druid";
+    druidHelmWrapper.Set.Size = 3;
+    druidChestWrapper.Set = druidHelmWrapper.Set;
+    druidLegsWrapper.Set = druidHelmWrapper.Set;
   }
 }

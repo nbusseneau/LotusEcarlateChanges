@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LotusEcarlateChanges.Model.Wrappers;
 
-public class PieceWrapper : WrapperBase
+public class PieceWrapper : PrefabWrapperBase
 {
   public Piece Piece { get; }
 
@@ -24,8 +24,8 @@ public class PieceWrapper : WrapperBase
   public static PieceWrapper Get(GameObject prefab)
   {
     if (prefab is null) return null;
-    var isCached = WrappersCache.TryGetValue(prefab.name, out var wrapper);
-    if (!isCached) wrapper = WrappersCache[prefab.name] = new PieceWrapper(prefab);
+    var isCached = s_wrappersCache.TryGetValue(prefab.name, out var wrapper);
+    if (!isCached) wrapper = s_wrappersCache[prefab.name] = new PieceWrapper(prefab);
     return (PieceWrapper)wrapper;
   }
 }

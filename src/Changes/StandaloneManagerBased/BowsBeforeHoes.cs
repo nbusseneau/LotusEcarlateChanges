@@ -17,11 +17,13 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     BowsBeforeHoesPlugin.BowList.Clear();
 
     // Quivers
-    this.Keep("BBH_BlackForest_Quiver");
-    this.Keep("BBH_PlainsLox_Quiver");
-    this.Keep("BBH_Seeker_Quiver");
+    itemManager.Keep([
+      "BBH_BlackForest_Quiver",
+      "BBH_PlainsLox_Quiver",
+      "BBH_Seeker_Quiver",
+    ]);
 
-    var blackForestQuiver = itemManager["BBH_BlackForest_Quiver"];
+    var blackForestQuiver = itemManager["BBH_BlackForest_Quiver"].Item;
     blackForestQuiver.RequiredItems.Requirements.Clear();
     blackForestQuiver.RequiredItems.Add("FineWood", 10);
     blackForestQuiver.RequiredItems.Add("RoundLog", 10);
@@ -34,7 +36,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     blackForestQuiver.RequiredUpgradeItems.Add("HardAntler", 1);
     BowsBeforeHoesPlugin.QuiverList.Add(blackForestQuiver.Prefab);
 
-    var loxQuiver = itemManager["BBH_PlainsLox_Quiver"];
+    var loxQuiver = itemManager["BBH_PlainsLox_Quiver"].Item;
     loxQuiver.RequiredItems.Requirements.Clear();
     loxQuiver.RequiredItems.Add("FineWood", 10);
     loxQuiver.RequiredItems.Add("LinenThread", 20);
@@ -45,7 +47,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     loxQuiver.RequiredUpgradeItems.Add("LoxPelt", 3);
     BowsBeforeHoesPlugin.QuiverList.Add(loxQuiver.Prefab);
 
-    var seekerQuiver = itemManager["BBH_Seeker_Quiver"];
+    var seekerQuiver = itemManager["BBH_Seeker_Quiver"].Item;
     seekerQuiver.RequiredItems.Requirements.Clear();
     seekerQuiver.RequiredItems.Add("YggdrasilWood", 10);
     seekerQuiver.RequiredItems.Add("Carapace", 20);
@@ -57,10 +59,12 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     BowsBeforeHoesPlugin.QuiverList.Add(seekerQuiver.Prefab);
 
     // Arrows
-    this.Keep("TorchArrow");
-    this.Keep("MistTorchArrow");
+    itemManager.Keep([
+      "TorchArrow",
+      "MistTorchArrow",
+    ]);
 
-    var torchArrow = itemManager["TorchArrow"];
+    var torchArrow = itemManager["TorchArrow"].Item;
     torchArrow.RequiredItems.Requirements.Clear();
     torchArrow.RequiredItems.Add("Wood", 8);
     torchArrow.RequiredItems.Add("Resin", 8);
@@ -69,7 +73,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     torchArrow.Crafting.Stations.Clear();
     torchArrow.Crafting.Add(CraftingTable.Workbench, 3);
 
-    var mistTorchArrow = itemManager["MistTorchArrow"];
+    var mistTorchArrow = itemManager["MistTorchArrow"].Item;
     mistTorchArrow.RequiredItems.Requirements.Clear();
     mistTorchArrow.RequiredItems.Add("Wood", 8);
     mistTorchArrow.RequiredItems.Add("Resin", 8);

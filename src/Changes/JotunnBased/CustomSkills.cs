@@ -7,10 +7,10 @@ namespace LotusEcarlateChanges.Changes.JotunnBased;
 
 public class CustomSkills : JotunnBasedChangesBase
 {
-  public static Skills.SkillType TwoHandedAxes;
-  public static Skills.SkillType TwoHandedHammers;
-  public static Skills.SkillType TwoHandedSwords;
-  public static Skills.SkillType Warpikes;
+  public static Skills.SkillType TwoHandedAxes { get; private set; }
+  public static Skills.SkillType TwoHandedHammers { get; private set; }
+  public static Skills.SkillType TwoHandedSwords { get; private set; }
+  public static Skills.SkillType Warpikes { get; private set; }
 
   protected override void ApplyInternal()
   {

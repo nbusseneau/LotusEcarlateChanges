@@ -34,20 +34,20 @@ public class Plugin : BaseUnityPlugin
   private const string ModName = "LotusEcarlateChanges";
   private const string ModVersion = "0.6.1";
 
-  public static new ManualLogSource Logger;
-  public static Harmony Harmony = new(ModGUID);
+  public static new ManualLogSource Logger { get; private set; }
+  public static Harmony Harmony { get; } = new(ModGUID);
 
   public void Awake()
   {
     Logger = base.Logger;
 
     List<IChanges> changesList = [
-      // Changes to Jotunn-based plugins
+      // Jotunn-based changes
       new Clutter(),
       new CustomSkills(),
       new MoreGates(),
 
-      // Changes to standalone manager-based plugins
+      // Standalone manager-based changes
       new Backpacks(),
       new BowsBeforeHoes(),
       new ClayBuildPieces(),

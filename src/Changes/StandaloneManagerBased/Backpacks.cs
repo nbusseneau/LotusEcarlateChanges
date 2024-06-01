@@ -4,8 +4,8 @@ using System;
 using Backpacks::Backpacks;
 using Backpacks::ItemManager;
 using HarmonyLib;
-using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
+using LotusEcarlateChanges.Model.Wrappers;
 using UnityEngine;
 
 namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
@@ -51,7 +51,7 @@ public class Backpacks : StandaloneManagerBasedChangesBase
     {
       item.Name.Alias("$Backpack_Name");
       item.Description.Alias("$Backpack_Description");
-      item.Item().Armor.EquipEffect = s_backpackEquipEffect;
+      ItemWrapper.Get(item.Prefab).Armor.EquipEffect = s_backpackEquipEffect;
     }
   }
 

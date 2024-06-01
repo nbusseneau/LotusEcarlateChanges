@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Model.Changes;
 
@@ -8,28 +7,28 @@ public class VanillaMisc : ManualChangesBase
 {
   protected override void ApplyInternalDeferred()
   {
-    // Relocate some Misc pieces to Furniture for consistency
-    HashSet<string> toFurniture = [
+    // Relocate adornements from Misc to Furniture for consistency
+    string[] adornements = [
       "darkwood_raven",
       "darkwood_wolf",
       "wood_dragon1",
     ];
-    foreach (var piece in PieceManager.GetAll(toFurniture)) piece.Category = Piece.PieceCategory.Furniture;
+    foreach (var piece in this.PieceManager[adornements]) piece.Category = Piece.PieceCategory.Furniture;
 
     // Skills
-    ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
+    this.ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
     // Movespeed adjustments
     // Atgeirs
-    ItemManager["AtgeirBronze"].Weapon.MovementModifier = -0.10f;
-    ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
-    ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
-    ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["AtgeirBronze"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
     // Shields
-    ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
-    ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
-    ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
-    ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
-    ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
   }
 }

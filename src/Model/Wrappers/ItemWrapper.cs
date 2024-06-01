@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace LotusEcarlateChanges.Model.Wrappers;
 
-public class ItemWrapper : WrapperBase
+public class ItemWrapper : PrefabWrapperBase
 {
   public ItemDrop.ItemData ItemData { get; }
   public ItemDrop.ItemData.SharedData SharedData { get; }
   public PieceTable PieceTable { get; }
   public List<GameObject> Pieces { get; }
-  public Recipe _recipe;
+  private Recipe _recipe;
   public Recipe Recipe
   {
     get
@@ -21,7 +21,7 @@ public class ItemWrapper : WrapperBase
       return null;
     }
   }
-  public ResourcesWrapper _resources;
+  private ResourcesWrapper _resources;
   public ResourcesWrapper Resources
   {
     get
@@ -31,6 +31,7 @@ public class ItemWrapper : WrapperBase
       return null;
     }
   }
+  public Sprite Icon => this.ItemData.GetIcon();
 
   private readonly ArmorWrapper _armor;
   public ArmorWrapper Armor { get => this._armor; set => this._armor.CopyProperties(value); }
@@ -57,8 +58,8 @@ public class ItemWrapper : WrapperBase
   public static ItemWrapper Get(GameObject prefab)
   {
     if (prefab is null) return null;
-    var isCached = WrappersCache.TryGetValue(prefab.name, out var wrapper);
-    if (!isCached) wrapper = WrappersCache[prefab.name] = new ItemWrapper(prefab);
+    var isCached = s_wrappersCache.TryGetValue(prefab.name, out var wrapper);
+    if (!isCached) wrapper = s_wrappersCache[prefab.name] = new ItemWrapper(prefab);
     return (ItemWrapper)wrapper;
   }
 }

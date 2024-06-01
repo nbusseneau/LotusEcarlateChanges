@@ -3,7 +3,6 @@ extern alias ClayBuildPieces;
 using ClayBuildPieces::ClayBuildPieces.Functions;
 using ClayBuildPieces::PieceManager;
 using HarmonyLib;
-using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
@@ -15,10 +14,12 @@ public class ClayBuildPieces : StandaloneManagerBasedChangesBase
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
 
     // Remove armor stand and chest
-    this.Remove("BFP_ClayArmorStand");
-    this.Remove("BFP_ClayChest");
+    pieceManager.Remove([
+      "BFP_ClayArmorStand",
+      "BFP_ClayChest",
+    ]);
 
-    foreach (var piece in pieceManager)
+    foreach (var (piece, _) in pieceManager)
     {
       // Relocate custom ClayBuildPieces pieces to BuildingWorkbench
       if (piece.Category.custom == "ClayBuildPieces") piece.Category.Set(BuildPieceCategory.BuildingWorkbench);
@@ -27,7 +28,7 @@ public class ClayBuildPieces : StandaloneManagerBasedChangesBase
     }
 
     // Relocate clay collector to Crafting and change recipe
-    var collector = pieceManager["BCP_ClayCollector"];
+    var collector = pieceManager["BCP_ClayCollector"].BuildPiece;
     collector.Category.Set(BuildPieceCategory.Crafting);
     collector.RequiredItems.Requirements.Clear();
     collector.RequiredItems.Add("Stone", 20, true);
@@ -36,10 +37,14 @@ public class ClayBuildPieces : StandaloneManagerBasedChangesBase
     collector.RequiredItems.Add("SurtlingCore", 5, true);
     collector.RequiredItems.Add("BFP_Clay", 30, true);
 
-    // Adjust comfort
-    pieceManager["BFP_ClayCorgi"].Piece().Comfort.Value = 0;
-    pieceManager["BFP_ClayDeer"].Piece().Comfort.Value = 0;
-    pieceManager["BFP_ClayHare"].Piece().Comfort.Value = 0;
+    // Remove comfort on statues
+    string[] statues = [
+      "BFP_ClayCorgi",
+      "BFP_ClayDeer",
+      "BFP_ClayHare",
+    ];
+    foreach (var (_, wrapper) in pieceManager[statues]) wrapper.Comfort.Value = 0;
+
 
     // Custom patches
     Plugin.Harmony.Patch(

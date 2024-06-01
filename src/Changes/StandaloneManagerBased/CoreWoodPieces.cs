@@ -13,10 +13,12 @@ public class CoreWoodPieces : StandaloneManagerBasedChangesBase
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
 
     // Remove most CoreWoodFence pieces
-    this.Remove("BCW_CoreWood_Fence1");
-    this.Remove("BCW_CoreWood_Fence2");
-    this.Remove("BCW_CoreWood_FenceGate");
-    this.Remove("BCW_CoreWood_FencePillar");
+    pieceManager.Remove([
+      "BCW_CoreWood_Fence1",
+      "BCW_CoreWood_Fence2",
+      "BCW_CoreWood_FenceGate",
+      "BCW_CoreWood_FencePillar",
+    ]);
 
     HashSet<string> drawBridges = [
       "BCW_CoreWood_DrawBridgeNarrow",
@@ -24,7 +26,7 @@ public class CoreWoodPieces : StandaloneManagerBasedChangesBase
       "BCW_CoreWood_DrawBridgeWide",
       "BCW_CoreWood_DrawBridgeWideTall",
     ];
-    foreach (var piece in pieceManager)
+    foreach (var (piece, _) in pieceManager)
     {
       // Relocate draw bridges to BuildingWorkbench to be consistent with MoreGates
       if (drawBridges.Contains(piece.Prefab.name)) piece.Category.Set(BuildPieceCategory.BuildingWorkbench);

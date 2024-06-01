@@ -2,15 +2,14 @@ extern alias CapeAndTorchResistanceChanges;
 
 using CapeAndTorchResistanceChanges::CapeAndTorchResistanceChanges;
 using static CapeAndTorchResistanceChanges::CapeAndTorchResistanceChanges.CapeAndTorchResistanceChangesPlugin;
-using HarmonyLib;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.Manual;
 
 public class CapeAndTorchResistanceChanges : ManualChangesBase
 {
-  public static readonly HitData.DamageType Water = (HitData.DamageType)NewResistances.NewDamageTypes.Water;
-  public static readonly HitData.DamageType Cold = (HitData.DamageType)NewResistances.NewDamageTypes.Cold;
+  public static HitData.DamageType Water { get; } = (HitData.DamageType)NewResistances.NewDamageTypes.Water;
+  public static HitData.DamageType Cold { get; } = (HitData.DamageType)NewResistances.NewDamageTypes.Cold;
 
   protected override void ApplyInternal()
   {

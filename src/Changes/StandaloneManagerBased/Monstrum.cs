@@ -1,6 +1,5 @@
 extern alias Monstrum;
 
-using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 using Monstrum::CreatureManager;
 using Monstrum::ItemManager;
@@ -17,34 +16,33 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Monstrum::CreatureManager.PrefabManager.prefabs);
 
     // Rugs
-    var foxRug = pieceManager["rug_Fox_TW"];
+    var (foxRug, foxRugWrapper) = pieceManager["rug_Fox_TW"];
     foxRug.RequiredItems.Requirements.Clear();
     foxRug.RequiredItems.Add("FoxPelt_TW", 4, true);
     foxRug.Category.Set(BuildPieceCategory.Furniture);
-    var foxRugPiece = foxRug.Piece();
-    foxRugPiece.Comfort.Value = 1;
-    foxRugPiece.Comfort.Group = Piece.ComfortGroup.Carpet;
+    foxRugWrapper.Comfort.Value = 1;
+    foxRugWrapper.Comfort.Group = Piece.ComfortGroup.Carpet;
 
-    var rottenRug = pieceManager["rug_Rotten_TW"];
+    var (rottenRug, rottenRugWrapper) = pieceManager["rug_Rotten_TW"];
     rottenRug.RequiredItems.Requirements.Clear();
     rottenRug.RequiredItems.Add("RottenPelt_TW", 4, true);
     rottenRug.Category.Set(BuildPieceCategory.Furniture);
-    rottenRug.Piece().Comfort = foxRugPiece.Comfort;
+    rottenRugWrapper.Comfort = foxRugWrapper.Comfort;
 
-    var bearRug = pieceManager["rug_BlackBear_TW"];
+    var (bearRug, bearRugWrapper) = pieceManager["rug_BlackBear_TW"];
     bearRug.RequiredItems.Requirements.Clear();
     bearRug.RequiredItems.Add("BlackBearPelt_TW", 4, true);
     bearRug.Category.Set(BuildPieceCategory.Furniture);
-    bearRug.Piece().Comfort = foxRugPiece.Comfort;
+    bearRugWrapper.Comfort = foxRugWrapper.Comfort;
 
-    var grizzlyRug = pieceManager["rug_GrizzlyBear_TW"];
+    var (grizzlyRug, grizzlyRugWrapper) = pieceManager["rug_GrizzlyBear_TW"];
     grizzlyRug.RequiredItems.Requirements.Clear();
     grizzlyRug.RequiredItems.Add("GrizzlyBearPelt_TW", 4, true);
     grizzlyRug.Category.Set(BuildPieceCategory.Furniture);
-    grizzlyRug.Piece().Comfort = foxRugPiece.Comfort;
+    grizzlyRugWrapper.Comfort = foxRugWrapper.Comfort;
 
     // Saddles
-    var saddleBoar = itemManager["SaddleBoar_TW"];
+    var saddleBoar = itemManager["SaddleBoar_TW"].Item;
     saddleBoar.Crafting.Stations.Clear();
     saddleBoar.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 2);
     saddleBoar.RequiredItems.Requirements.Clear();
@@ -52,7 +50,7 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     saddleBoar.RequiredItems.Add("RazorbackTusk_TW", 12);
     saddleBoar.RequiredItems.Add("Bronze", 10);
 
-    var saddleBear = itemManager["SaddleBear_TW"];
+    var saddleBear = itemManager["SaddleBear_TW"].Item;
     saddleBear.Crafting.Stations.Clear();
     saddleBear.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 3);
     saddleBear.RequiredItems.Requirements.Clear();
@@ -60,7 +58,7 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     saddleBear.RequiredItems.Add("GrizzlyBearPelt_TW", 10);
     saddleBear.RequiredItems.Add("Silver", 10);
 
-    var saddleProwler = itemManager["SaddleProwler_TW"];
+    var saddleProwler = itemManager["SaddleProwler_TW"].Item;
     saddleProwler.Crafting.Stations.Clear();
     saddleProwler.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 4);
     saddleProwler.RequiredItems.Requirements.Clear();
@@ -70,13 +68,13 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     saddleProwler.RequiredItems.Add("BlackMetal", 10);
 
     // Food
-    var cookedBearSteak = itemManager["CookedBearSteak_TW"];
-    cookedBearSteak.Item().Food.Stamina = 13;
-    cookedBearSteak.Item().Food.Duration = 1200;
+    var cookedBearSteak = itemManager["CookedBearSteak_TW"].Wrapper;
+    cookedBearSteak.Food.Stamina = 13;
+    cookedBearSteak.Food.Duration = 1200;
 
-    var mixedGrill = itemManager["MixedGrill_TW"];
-    mixedGrill.Item().Food.Health = 70;
-    mixedGrill.Item().Food.Stamina = 23;
+    var mixedGrill = itemManager["MixedGrill_TW"].Wrapper;
+    mixedGrill.Food.Health = 70;
+    mixedGrill.Food.Stamina = 23;
 
     // Drops
     creatureManager["BossAsmodeus_TW"].Drops.drops.Remove("KnifeViper_TW");
