@@ -26,6 +26,12 @@ public abstract class StandaloneManagerBasedChangesBase : IChanges
     this._managers.Add(manager);
     return manager;
   }
+  protected LocationManager<T> RegisterLocationManager<T>(List<T> registeredLocations)
+  {
+    LocationManager<T> manager = new(registeredLocations);
+    this._managers.Add(manager);
+    return manager;
+  }
 
   public void Apply()
   {

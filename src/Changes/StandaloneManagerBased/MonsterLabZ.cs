@@ -10,6 +10,7 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
   protected override void ApplyInternal()
   {
     var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, PrefabManager.prefabs);
+    var locationManager = this.RegisterLocationManager(MonsterLabZ::LocationManager.Location.registeredLocations);
 
     // Drops
     creatureManager["BrownSpider"].Drops.drops.Remove("Ooze");
@@ -19,5 +20,20 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
     creatureManager["Rainbow_Butterfly"].Drops.drops["Amber"] = new();
     creatureManager["Green_Butterfly"].Drops.drops.Remove("Ooze");
     creatureManager["Green_Butterfly"].Drops.drops["Amber"] = new();
+
+    // Spawns
+    creatureManager.Remove([
+      "ML_AshHatchling",
+      "ML_AshHuldra",
+      "FireGolem",
+    ]);
+
+    // Locations
+    locationManager.Remove([
+      "AshHuldraQueen_Altar",
+      "AshlandsCave_01",
+      "AshlandsCave_02",
+      "Mystical_Well0",
+    ]);
   }
 }
