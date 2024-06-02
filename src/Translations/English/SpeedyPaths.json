@@ -1,0 +1,10 @@
+{
+  "SpeedyPaths_PathDirt": "Dirt path",
+  "SpeedyPaths_PathStone": "Stone path",
+  "SpeedyPaths_Cultivated": "Cultivated soil",
+  "SpeedyPaths_StructureWood": "Wood",
+  "SpeedyPaths_StructureHardWood": "Core wood",
+  "SpeedyPaths_StructureStone": "Stone",
+  "SpeedyPaths_StructureIron": "Iron",
+  "SpeedyPaths_StructureMarble": "Marble"
+}

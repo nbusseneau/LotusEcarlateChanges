@@ -22,6 +22,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("nex.SpeedyPaths", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
@@ -64,6 +65,7 @@ public class Plugin : BaseUnityPlugin
       new CapeAndTorchResistanceChanges(),
       new FallDamageForCreatures(),
       new Lightsources(),
+      new SpeedyPaths(),
       new VanillaMisc(),
       new VanillaArmors(),
     ];

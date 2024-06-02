@@ -1,0 +1,10 @@
+{
+  "SpeedyPaths_PathDirt": "Chemin de terre",
+  "SpeedyPaths_PathStone": "Chemin de pierre",
+  "SpeedyPaths_Cultivated": "Terre cultivée",
+  "SpeedyPaths_StructureWood": "Bois",
+  "SpeedyPaths_StructureHardWood": "Bois robuste",
+  "SpeedyPaths_StructureStone": "Pierre",
+  "SpeedyPaths_StructureIron": "Fer",
+  "SpeedyPaths_StructureMarble": "Marbre"
+}

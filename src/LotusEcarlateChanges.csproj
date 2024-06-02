@@ -58,6 +58,7 @@
     <Reference Include="$(PluginsPath)\DrakeMods-More_Gates_PlusPlus\moregates++.dll" Aliases="MoreGates" Publicize="true" />
     <Reference Include="$(PluginsPath)\Goldenrevolver-Cape_And_Torch_Resistance_Rework_And_New_Water_And_Cold_Resistance\CapeAndTorchResistanceChanges.dll" Aliases="CapeAndTorchResistanceChanges" Publicize="true" />
     <Reference Include="$(PluginsPath)\MonsterLabZ-MonsterLabZ\MonsterLabZ\MonsterLabZ.dll" Aliases="MonsterLabZ" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Nextek-SpeedyPaths\SpeedyPaths.dll" Aliases="SpeedyPaths" Publicize="true" />
     <Reference Include="$(PluginsPath)\plumga-Clutter\Clutter\Clutter.dll" Aliases="Clutter" Publicize="true" />
     <Reference Include="$(PluginsPath)\Smoothbrain-Backpacks\Backpacks.dll" Aliases="Backpacks" Publicize="true" />
     <Reference Include="$(PluginsPath)\southsil-SouthsilArmor\SouthsilArmor.dll" Aliases="SouthsilArmor" Publicize="true" />
