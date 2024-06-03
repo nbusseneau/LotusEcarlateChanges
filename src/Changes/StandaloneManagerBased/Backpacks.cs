@@ -1,6 +1,7 @@
 extern alias Backpacks;
 
 using System;
+using System.Linq;
 using Backpacks::Backpacks;
 using Backpacks::ItemManager;
 using HarmonyLib;
@@ -47,12 +48,10 @@ public class Backpacks : StandaloneManagerBasedChangesBase
 
   private static void EditLoadedBackpacks()
   {
-    foreach (var item in CustomBackpackConfig.Loader.loadedBackpacks.Values)
-    {
-      item.Name.Alias("$Backpack_Name");
-      item.Description.Alias("$Backpack_Description");
-      ItemWrapper.Get(item.Prefab).Armor.EquipEffect = s_backpackEquipEffect;
-    }
+    var backpack = CustomBackpackConfig.Loader.loadedBackpacks.Values.Single();
+    backpack.Name.Alias("$Backpack_Name");
+    backpack.Description.Alias("$Backpack_Description");
+    ItemWrapper.Get(backpack.Prefab).Armor.EquipEffect = s_backpackEquipEffect;
   }
 
   private static void RegisterSEBackpack(ObjectDB __instance)
