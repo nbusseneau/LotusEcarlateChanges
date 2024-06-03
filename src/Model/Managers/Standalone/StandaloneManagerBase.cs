@@ -8,14 +8,14 @@ public abstract class StandaloneManagerBase<T>(List<T> registeredObjects) : IMan
   protected readonly List<T> _registeredObjects = registeredObjects;
   protected readonly Dictionary<string, T> _objectsCache = [];
   protected abstract string GetName(T obj);
-  protected T GetObject(string name)
+  protected T GetObject(string name, bool logError = true)
   {
     var isCached = this._objectsCache.TryGetValue(name, out var cachedObject);
     if (!isCached)
     {
       cachedObject = this._registeredObjects.SingleOrDefault(obj => this.GetName(obj) == name);
       if (cachedObject is not null) this._objectsCache[name] = cachedObject;
-      else Plugin.Logger.LogError($"{this.GetType()} did not find any object registered with name {name}");
+      else if (logError) Plugin.Logger.LogError($"{this.GetType()} did not find any object registered with name {name}");
     }
     return cachedObject;
   }
@@ -36,12 +36,12 @@ public abstract class StandaloneManagerBase<T>(List<T> registeredObjects) : IMan
 
   protected virtual void ApplyToRemove()
   {
-    foreach (var name in this._toRemove) this._registeredObjects.Remove(this.GetObject(name));
+    foreach (var name in this._toRemove) this._registeredObjects.Remove(this.GetObject(name, logError: false));
   }
 
   protected virtual void ApplyToKeep()
   {
-    var objectsToKeep = this._toKeep.Select(this.GetObject).Where(obj => obj is not null);
+    var objectsToKeep = this._toKeep.Select(name => this.GetObject(name, logError: false)).Where(obj => obj is not null);
     this._registeredObjects.RemoveAll(obj => !objectsToKeep.Contains(obj));
   }
 }

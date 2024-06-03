@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix BowsBeforeHoes errors on quiver equip due to being too zealous and removing non-Item prefabs.
+
 ## [0.6.2] - 2024-06-02
 
 ### Added

@@ -19,8 +19,11 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     // Quivers
     itemManager.Keep([
       "BBH_BlackForest_Quiver",
+      "BBH_BlackForest_QuiverViewOnly",
       "BBH_PlainsLox_Quiver",
+      "BBH_PlainsLox_QuiverViewOnly",
       "BBH_Seeker_Quiver",
+      "BBH_Seeker_QuiverViewOnly",
     ]);
 
     var blackForestQuiver = itemManager["BBH_BlackForest_Quiver"].Item;
@@ -61,7 +64,9 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     // Arrows
     itemManager.Keep([
       "TorchArrow",
+      "bow_projectile_torch",
       "MistTorchArrow",
+      "bow_projectile_misttorch",
     ]);
 
     var torchArrow = itemManager["TorchArrow"].Item;
