@@ -13,8 +13,11 @@ namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
 public class Backpacks : StandaloneManagerBasedChangesBase
 {
-  private const float DefaultBackpackWeight = 4f;
-  private const float WeightToMovespeedDecreaseRatio = 5f;
+  private const float EmptyBackpackWeight = 4f;
+  private const float MovespeedPerWeightRatio = -1f / 10f; // -1% movespeed per 10kg
+  private const float BackpackItemRealWeightRatio = 0.5f;
+  private const float MoveSpeedPerRealWeightRatio = MovespeedPerWeightRatio / BackpackItemRealWeightRatio;
+
   private static SE_Backpack s_backpackEquipEffect;
 
   protected override void ApplyInternal()
@@ -65,10 +68,11 @@ public class Backpacks : StandaloneManagerBasedChangesBase
     public override void ModifySpeed(float baseSpeed, ref float speed, Character character, Vector3 dir)
     {
       var equippedBackpack = API.GetEquippedBackpack();
-      var realBackpackWeight = equippedBackpack.GetWeight() - DefaultBackpackWeight;
-      var movespeedDecrease = -realBackpackWeight / WeightToMovespeedDecreaseRatio / 100f;
-      this.m_speedModifier = Math.Max(movespeedDecrease, -1f);
+      var backpackItemsWeight = equippedBackpack.GetWeight() - EmptyBackpackWeight;
+      this.m_speedModifier = Math.Max(backpackItemsWeight * MoveSpeedPerRealWeightRatio / 100f, -1f);
       base.ModifySpeed(baseSpeed, ref speed, character, dir);
     }
+
+    public override string GetIconText() => this.m_speedModifier == 0f ? "" : $"{this.m_speedModifier * 100f}%";
   }
 }

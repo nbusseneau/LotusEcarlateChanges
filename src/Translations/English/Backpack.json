@@ -2,5 +2,5 @@
   "Backpack_Name": "Backpack",
   "Backpack_Description": "An extremely rigid backpack, made of sturdy leather layered over a reinforced metal cage.",
   "Backpack_Effect_Name": "Beast of burden",
-  "Backpack_Effect_Tooltip": "The load may feel lighter on your back, but your legs cannot be fooled: fatigue looms in at every step."
+  "Backpack_Effect_Tooltip": "The load may feel lighter on your back, but your legs cannot be fooled: fatigue looms in at every step.\n\n<color=orange>-50%</color> weight to items in backpack\n<color=orange>-1%</color> movespeed per <color=orange>10kg</color> in backpack"
 }

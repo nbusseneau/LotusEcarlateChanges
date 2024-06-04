@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adjust Monstrum's Razorback (buff) and Black Bear (nerf) spawns.
 - Nerf MonsterLabZ Tree and Jumping Spiders spawns.
+- Display movespeed modifier on backpack status effect icon, improve backpack status effect tooltip.
 
 ## [0.6.3] - 2024-06-03
 
