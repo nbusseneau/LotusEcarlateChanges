@@ -51,10 +51,12 @@ public class Backpacks : StandaloneManagerBasedChangesBase
 
   private static void EditLoadedBackpacks()
   {
-    var backpack = CustomBackpackConfig.Loader.loadedBackpacks.Values.Single();
-    backpack.Name.Alias("$Backpack_Name");
-    backpack.Description.Alias("$Backpack_Description");
-    ItemWrapper.Get(backpack.Prefab).Armor.EquipEffect = s_backpackEquipEffect;
+    foreach (var backpack in CustomBackpackConfig.Loader.loadedBackpacks.Values)
+    {
+      backpack.Name.Alias("$Backpack_Name");
+      backpack.Description.Alias("$Backpack_Description");
+      ItemWrapper.Get(backpack.Prefab).Armor.EquipEffect = s_backpackEquipEffect;
+    }
   }
 
   private static void RegisterSEBackpack(ObjectDB __instance)

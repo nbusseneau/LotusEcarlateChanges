@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix bogus null errors in logs due to Backpacks client config synchronization timing.
+
 ## [0.6.4] - 2024-06-04
 
 ### Changed
