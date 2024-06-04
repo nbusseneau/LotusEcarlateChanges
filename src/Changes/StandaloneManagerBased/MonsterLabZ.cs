@@ -14,8 +14,11 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
 
     // Drops
     creatureManager["BrownSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["BrownSpider"].Drops.drops["SpiderFang"].DropChance = 50f;
     creatureManager["TreeSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["TreeSpider"].Drops.drops["SpiderFang"].DropChance = 50f;
     creatureManager["GreenSpider"].Drops.drops.Remove("Ooze");
+    creatureManager["GreenSpider"].Drops.drops["SpiderFang"].DropChance = 50f;
     creatureManager["Rainbow_Butterfly"].Drops.drops.Remove("Ooze");
     creatureManager["Rainbow_Butterfly"].Drops.drops["Amber"] = new();
     creatureManager["Green_Butterfly"].Drops.drops.Remove("Ooze");
@@ -27,6 +30,11 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
       "ML_AshHuldra",
       "FireGolem",
     ]);
+
+    creatureManager["TreeSpider"].SpawnChance = 3f;
+    creatureManager["TreeSpider"].Maximum = 2;
+    creatureManager["GreenSpider"].SpawnChance = 5f;
+    creatureManager["GreenSpider"].Maximum = 1;
 
     // Locations
     locationManager.Remove([

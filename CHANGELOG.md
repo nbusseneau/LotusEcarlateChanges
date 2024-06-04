@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Adjust Monstrum's Razorback and Black Bear spawns.
+- Adjust Monstrum's Razorback (buff) and Black Bear (nerf) spawns.
+- Nerf MonsterLabZ Tree and Jumping Spiders spawns.
 
 ## [0.6.3] - 2024-06-03
 
