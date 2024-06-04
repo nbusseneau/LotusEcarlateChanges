@@ -6,7 +6,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LibPath>lib</LibPath>
-    <R2ModManProfile>Staging</R2ModManProfile>
+    <R2ModManProfile>ChangesDev</R2ModManProfile>
   </PropertyGroup>
 
   <!-- Valheim paths -->
