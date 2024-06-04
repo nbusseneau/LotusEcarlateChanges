@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.4] - 2024-06-04
+
 ### Changed
 
 - Adjust Monstrum's Razorback (buff) and Black Bear (nerf) spawns.
@@ -121,7 +123,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.3...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.4...HEAD
+[0.6.4]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.3...0.6.4
 [0.6.3]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.2...0.6.3
 [0.6.2]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.1...0.6.2
 [0.6.1]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.0...0.6.1
