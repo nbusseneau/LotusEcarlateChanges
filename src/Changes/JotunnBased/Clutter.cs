@@ -10,8 +10,8 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
   protected override void ApplyInternal()
   {
     // Remove clutter tool and some pieces
+    this.ItemManager.Remove("$PlumgaClutterTool");
     this.PieceManager.Remove([
-      "$PlumgaClutterTool",
       "$custompiece_fancychest",
       "$custompiece_fancychest_public",
       "$custompiece_stonechest",
