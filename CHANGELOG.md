@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adjust armor / capes costs.
+
 ### Fixed
 
 - Fix Clutter bucket not being properly removed from craftable items.
