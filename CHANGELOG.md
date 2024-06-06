@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.8] - 2024-06-06
+
 ### Changed
 
 - Rebalance recipes for some vanilla pieces.
@@ -150,7 +152,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.7...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.8...HEAD
+[0.6.8]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.7...0.6.8
 [0.6.7]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.6...0.6.7
 [0.6.6]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.5...0.6.6
 [0.6.5]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.4...0.6.5
