@@ -1,4 +1,3 @@
-using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.Manual;
@@ -33,21 +32,5 @@ public class VanillaMisc : ManualChangesBase
     dvergrStakewall.CraftingStation = workbench;
     dvergrStakewall.Resources.Clear();
     dvergrStakewall.Resources.Add("YggdrasilWood", 4);
-
-    // Skills
-    this.ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
-
-    // Movespeed adjustments
-    // Atgeirs
-    this.ItemManager["AtgeirBronze"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
-    // Shields
-    this.ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
   }
 }

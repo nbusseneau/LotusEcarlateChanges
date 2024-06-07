@@ -70,6 +70,7 @@ public class Plugin : BaseUnityPlugin
       new SpeedyPaths(),
       new VanillaMisc(),
       new VanillaArmors(),
+      new VanillaWeapons(),
     ];
 
     changesList.ForEach(changes => changes.Apply());

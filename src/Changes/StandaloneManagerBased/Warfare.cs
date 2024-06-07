@@ -66,7 +66,16 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "FistDvergr_TW",
     ]);
 
-    itemManager["FistBronze_TW"].Wrapper.Weapon.MovementModifier = 0f;
+    var (fistBronze, fistBronzeWrapper) = itemManager["FistBronze_TW"];
+    fistBronzeWrapper.Weapon.MovementModifier = 0f;
+    fistBronze.RequiredItems.Requirements.Clear();
+    fistBronze.RequiredItems.Add("DeerHide", 4);
+    fistBronze.RequiredItems.Add("Bronze", 4);
+    fistBronze.RequiredItems.Add("TrophyGreydwarf", 1);
+    fistBronze.RequiredUpgradeItems.Requirements.Clear();
+    fistBronze.RequiredUpgradeItems.Add("Bronze", 4);
+    // bronze knucles => 4 deer hide / bronze 4 / 1 greydwarf trophy
+
     itemManager["FistChitin_TW"].Wrapper.Weapon.MovementModifier = 0f;
     itemManager["FistIron_TW"].Wrapper.Weapon.MovementModifier = 0f;
     itemManager["FistSilver_TW"].Wrapper.Weapon.MovementModifier = 0f;
@@ -90,7 +99,16 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "WarpikeDvergr_TW",
     ]);
 
-    itemManager["WarpikeBone_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
+    var (warpikeBone, warpikeBoneWrapper) = itemManager["WarpikeBone_TW"];
+    warpikeBoneWrapper.Weapon.MovementModifier = -0.05f;
+    warpikeBone.RequiredItems.Requirements.Clear();
+    warpikeBone.RequiredItems.Add("BoneFragments", 16);
+    warpikeBone.RequiredItems.Add("Bronze", 4);
+    warpikeBone.RequiredItems.Add("TrophySkeleton", 1);
+    warpikeBone.RequiredUpgradeItems.Requirements.Clear();
+    warpikeBone.RequiredUpgradeItems.Add("BoneFragments", 8);
+    warpikeBone.RequiredUpgradeItems.Add("Bronze", 4);
+
     itemManager["WarpikeChitin_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
     itemManager["WarpikeObsidian_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
     itemManager["WarpikeBlackmetal_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
@@ -108,7 +126,15 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "BastardDvergr_TW",
     ]);
 
-    itemManager["BastardBone_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    var (bastardBone, bastardBoneWrapper) = itemManager["BastardBone_TW"];
+    bastardBoneWrapper.Weapon.MovementModifier = -0.10f;
+    bastardBone.RequiredItems.Requirements.Clear();
+    bastardBone.RequiredItems.Add("BoneFragments", 16);
+    bastardBone.RequiredItems.Add("Bronze", 4);
+    bastardBone.RequiredItems.Add("TrophySkeleton", 1);
+    bastardBone.RequiredUpgradeItems.Requirements.Clear();
+    bastardBone.RequiredUpgradeItems.Add("BoneFragments", 8);
+    bastardBone.RequiredUpgradeItems.Add("Bronze", 4);
     itemManager["BastardChitin_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
     itemManager["BastardSilver_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
     itemManager["BastardDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
