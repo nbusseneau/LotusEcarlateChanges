@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix bronze-tier items upgrades having incorrect costs.
+
 ## [0.6.10] - 2024-06-07
 
 ### Changed
