@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.10] - 2024-06-07
+
 ### Changed
 
 - Rebalance BowsBeforeHoes quivers initial size, max quality/size, and costs.
@@ -162,7 +164,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.9...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.10...HEAD
+[0.6.10]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.9...0.6.10
 [0.6.9]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.8...0.6.9
 [0.6.8]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.7...0.6.8
 [0.6.7]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.6...0.6.7
