@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rebalance BowsBeforeHoes quivers initial size, max quality/size, and costs.
+
 ## [0.6.9] - 2024-06-07
 
 ### Changed
