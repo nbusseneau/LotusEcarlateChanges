@@ -109,8 +109,8 @@ public class VanillaArmors : ManualChangesBase
 
     var bronzeChest = this.ItemManager["ArmorBronzeChest"];
     bronzeChest.Resources.Clear();
-    bronzeChest.Resources.Add("Bronze", 6, 3);
-    bronzeChest.Resources.Add("DeerHide", 6, 3);
+    bronzeChest.Resources.Add("Bronze", 6, 4);
+    bronzeChest.Resources.Add("DeerHide", 6, 4);
     bronzeChest.Armor.ArmorBase = 12;
     bronzeChest.Armor.ArmorPerLevel = 3;
     bronzeChest.Armor.MovementModifier = -0.06f;
@@ -335,7 +335,7 @@ public class VanillaArmors : ManualChangesBase
 
     var paddedChest = this.ItemManager["ArmorPaddedCuirass"];
     paddedChest.Resources.Clear();
-    paddedChest.Resources.Add("Iron", 15, 4);
+    paddedChest.Resources.Add("Iron", 15, 8);
     paddedChest.Resources.Add("LinenThread", 30, 15);
     paddedChest.Armor.ArmorBase = 39;
     paddedChest.Armor.ArmorPerLevel = 4;
@@ -344,7 +344,7 @@ public class VanillaArmors : ManualChangesBase
 
     var paddedLegs = this.ItemManager["ArmorPaddedGreaves"];
     paddedLegs.Resources.Clear();
-    paddedLegs.Resources.Add("Iron", 10, 3);
+    paddedLegs.Resources.Add("Iron", 10, 5);
     paddedLegs.Resources.Add("LinenThread", 20, 10);
     paddedLegs.Armor.ArmorBase = 26;
     paddedLegs.Armor.ArmorPerLevel = 3;

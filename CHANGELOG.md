@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rebalance armor costs.
+
 ## [0.6.13] - 2024-06-09
 
 ### Removed
