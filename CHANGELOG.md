@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.14] - 2024-06-09
+
 ### Changed
 
 - Rebalance armor costs.
@@ -190,7 +192,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.13...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.14...HEAD
+[0.6.14]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.13...0.6.14
 [0.6.13]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.12...0.6.13
 [0.6.12]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.11...0.6.12
 [0.6.11]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.10...0.6.11
