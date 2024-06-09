@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adjust Monstrum creature drops to remove uncertainty on meat / leather drops.
+
 ## [0.6.14] - 2024-06-09
 
 ### Changed

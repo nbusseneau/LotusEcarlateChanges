@@ -82,6 +82,14 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     creatureManager["BossSvalt_TW"].Creature.Drops.drops.Remove("DualAxeDemonic_TW");
     creatureManager["BossVrykolathas_TW"].Creature.Drops.drops.Remove("ScytheVampiric_TW");
 
+    creatureManager["Fow_TW"].Creature.Drops["FoxMeat_TW"].DropChance = 100f;
+    creatureManager["Razorback_TW"].Creature.Drops["RawMeat"].Amount = new Range(2, 2);
+    creatureManager["Razorback_TW"].Creature.Drops["RawMeat"].DropChance = 100f;
+    creatureManager["BlackBearPelt_TW"].Creature.Drops["BearSteak_TW"].DropChance = 100f;
+    creatureManager["GrizzlyBear_TW"].Creature.Drops["GrizzlyBearPelt_TW"].DropChance = 100f;
+    creatureManager["GrizzlyBear_TW"].Creature.Drops["BearSteak_TW"].DropChance = 100f;
+    creatureManager["Prowler_TW"].Creature.Drops["ProwlerFang_TW"].DropChance = 100f;
+
     // Spawns
     var razorbackSpawner = creatureManager["Razorback_TW"].Spawners.Single();
     razorbackSpawner.CheckSpawnInterval = 150;
