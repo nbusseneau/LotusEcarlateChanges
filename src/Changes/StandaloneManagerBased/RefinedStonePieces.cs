@@ -1,7 +1,7 @@
 extern alias RefinedStonePieces;
 
-using RefinedStonePieces::PieceManager;
 using LotusEcarlateChanges.Model.Changes;
+using RefinedStonePieces::PieceManager;
 
 namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 

@@ -1,7 +1,6 @@
 extern alias Backpacks;
 
 using System;
-using System.Linq;
 using Backpacks::Backpacks;
 using Backpacks::ItemManager;
 using HarmonyLib;

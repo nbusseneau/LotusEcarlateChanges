@@ -1,11 +1,11 @@
 extern alias SpeedyPaths;
 
-using SpeedyPaths::AuthoritativeConfig;
-using static SpeedyPaths::SpeedyPaths.SpeedyPathsClientMod;
-using LotusEcarlateChanges.Model.Changes;
 using System;
 using System.Linq;
 using HarmonyLib;
+using LotusEcarlateChanges.Model.Changes;
+using SpeedyPaths::AuthoritativeConfig;
+using static SpeedyPaths::SpeedyPaths.SpeedyPathsClientMod;
 
 namespace LotusEcarlateChanges.Changes.Manual;
 
