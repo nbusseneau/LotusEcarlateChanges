@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.12] - 2024-06-09
+
 ### Added
 
 - Add RenegadeVikings with a major overhaul to functionality (including equipment and drops).
@@ -178,7 +180,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.11...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.12...HEAD
+[0.6.12]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.11...0.6.12
 [0.6.11]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.10...0.6.11
 [0.6.10]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.9...0.6.10
 [0.6.9]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.8...0.6.9
