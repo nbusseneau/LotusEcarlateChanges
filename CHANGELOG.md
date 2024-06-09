@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add RenegadeVikings with a major overhaul to functionality (including equipment and drops).
+
 ### Changed
 
 - Rebalance various movement speed modifiers.

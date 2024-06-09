@@ -18,6 +18,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("blacks7ar.CoreWoodPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.FineWoodBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.RefinedStonePieces", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("blacks7ar.RenegadeVikings", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.drakemods.Moregates", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
@@ -32,7 +33,7 @@ namespace LotusEcarlateChanges;
 [NetworkCompatibility(CompatibilityLevel.ClientMustHaveMod, VersionStrictness.Minor)]
 public class Plugin : BaseUnityPlugin
 {
-  private const string ModGUID = "nbusseneau.LotusEcarlateChanges";
+  public const string ModGUID = "nbusseneau.LotusEcarlateChanges";
   private const string ModName = "LotusEcarlateChanges";
   private const string ModVersion = "0.6.11";
 
@@ -67,6 +68,7 @@ public class Plugin : BaseUnityPlugin
       new CapeAndTorchResistanceChanges(),
       new FallDamageForCreatures(),
       new Lightsources(),
+      new RenegadeVikings(),
       new SpeedyPaths(),
       new VanillaMisc(),
       new VanillaArmors(),
