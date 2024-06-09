@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rebalance various movement speed modifiers.
+
 ## [0.6.11] - 2024-06-07
 
 ### Fixed

@@ -38,6 +38,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     blackForestQuiver.RequiredUpgradeItems.Add("RoundLog", 5);
     blackForestQuiver.RequiredUpgradeItems.Add("DeerHide", 2);
     blackForestQuiver.RequiredUpgradeItems.Add("HardAntler", 1);
+    blackForestQuiverWrapper.Armor.MovementModifier = 0f;
     blackForestQuiverWrapper.SharedData.m_maxQuality = 2;
     BowsBeforeHoesPlugin.QuiverList.Add(blackForestQuiver.Prefab);
 
@@ -51,6 +52,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     loxQuiver.RequiredUpgradeItems.Add("FineWood", 5);
     loxQuiver.RequiredUpgradeItems.Add("LinenThread", 15);
     loxQuiver.RequiredUpgradeItems.Add("LoxPelt", 2);
+    loxQuiverWrapper.Armor.MovementModifier = 0f;
     loxQuiverWrapper.SharedData.m_maxQuality = 3;
     BowsBeforeHoesPlugin.QuiverList.Add(loxQuiver.Prefab);
 
@@ -64,6 +66,7 @@ public class BowsBeforeHoes : StandaloneManagerBasedChangesBase
     seekerQuiver.RequiredUpgradeItems.Add("YggdrasilWood", 10);
     seekerQuiver.RequiredUpgradeItems.Add("Carapace", 10);
     seekerQuiver.RequiredUpgradeItems.Add("Mandible", 2);
+    seekerQuiverWrapper.Armor.MovementModifier = 0f;
     seekerQuiverWrapper.SharedData.m_maxQuality = 4;
     BowsBeforeHoesPlugin.QuiverList.Add(seekerQuiver.Prefab);
 

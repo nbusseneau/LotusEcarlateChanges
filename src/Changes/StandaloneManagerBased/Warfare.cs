@@ -27,7 +27,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     ]);
     itemManager["BattleaxeIron_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
     itemManager["BattleaxeCrystal_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["SledgeStagbreaker_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    itemManager["BattleaxeDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
 
     // Clubs
     itemManager.Keep("MaceChitin_TW");
@@ -153,7 +153,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     var (blackmetalGreatbow, blackmetalGreatbowWrapper) = itemManager["GreatbowBlackmetal_TW"];
     blackmetalGreatbow.Crafting.Stations.Clear();
     blackmetalGreatbow.Crafting.Add(Warfare::ItemManager.CraftingTable.Forge, 3);
-    blackmetalGreatbowWrapper.Weapon.MovementModifier = -0.05f;
+    blackmetalGreatbowWrapper.Weapon.MovementModifier = -0.10f;
 
     // Bucklers
     itemManager.Keep("ShieldChitinBuckler_TW");

@@ -16,6 +16,12 @@ public class VanillaWeapons : ManualChangesBase
     this.ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
     this.ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
     this.ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
+    // Bows
+    this.ItemManager["Bow"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["BowFineWood"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["BowHuntsman"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["BowDraugrFang"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["BowSpineSnap"].Weapon.MovementModifier = -0.10f;
     // Shields
     this.ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
     this.ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
