@@ -54,7 +54,15 @@ public class BalrondShipyard : ManualChangesBase
       "SchematicHolkSailRaven",
     ]);
 
-    // Remove some hideous pieces
+    // Remove some sails
+    this.ItemManager.Remove([
+      "SchematicKarveSailTransparent",
+      "SchematicKarveSailWolf",
+      "SchematicDrakkarSailTransparent",
+      "SchematicDrakkarSailWolf",
+    ]);
+
+    // Remove some pieces
     HashSet<string> piecesToRemove = [
       "piece_chest_cargo",
       "piece_chest_tarred",

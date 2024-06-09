@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove some sail schematics from Balrond Shipyard.
+
 ## [0.6.12] - 2024-06-09
 
 ### Added
