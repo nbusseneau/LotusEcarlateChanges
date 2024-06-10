@@ -60,7 +60,6 @@ public class RenegadeVikings : ManualChangesBase
     };
     foreach (var ((type, originalName), (prefixName, postfixName)) in patches)
     {
-      Plugin.Logger.LogDebug($"{prefixName} => {type}.{originalName} => {postfixName}");
       var original = AccessTools.Method(type, originalName);
       var prefix = string.IsNullOrEmpty(prefixName) ? null : new HarmonyMethod(this.GetType(), prefixName);
       var postfix = string.IsNullOrEmpty(postfixName) ? null : new HarmonyMethod(this.GetType(), postfixName);
