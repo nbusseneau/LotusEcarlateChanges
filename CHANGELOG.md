@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.15] - 2024-06-10
+
 ### Changed
 
 - Adjust Monstrum creature drops to remove uncertainty on meat / leather drops.
@@ -196,7 +198,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.14...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.15...HEAD
+[0.6.15]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.14...0.6.15
 [0.6.14]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.13...0.6.14
 [0.6.13]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.12...0.6.13
 [0.6.12]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.11...0.6.12
