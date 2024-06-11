@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Make MonsterLabZ spiders have guaranteed fang drops, and adjust tree spiders spawns.
 
+### Removed
+
+- Remove MonsterLabZ frost drakes.
+
 ## [0.6.16] - 2024-06-10
 
 ### Fixed
