@@ -346,7 +346,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyChest.RequiredItems.Requirements.Clear();
     grizzlyChest.RequiredItems.Add("Silver", 45);
     grizzlyChest.RequiredItems.Add("GrizzlyBearPelt_TW", 3);
-    grizzlyChest.RequiredItems.Add("TrophyHatchling", 2);
+    grizzlyChest.RequiredItems.Add("WolfPelt", 4);
     grizzlyChest.RequiredItems.Add("ClaymoreIron_TW", 1);
     grizzlyChest.RequiredUpgradeItems.Requirements.Clear();
     grizzlyChest.RequiredUpgradeItems.Add("Silver", 11);
