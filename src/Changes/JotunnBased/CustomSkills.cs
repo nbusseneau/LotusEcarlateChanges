@@ -31,5 +31,5 @@ public class CustomSkills : JotunnBasedChangesBase
     return SkillManager.Instance.AddSkill(skill);
   }
 
-  public static void SetIcon(Skills.SkillType skill, Sprite icon) => SkillManager.Instance.GetSkill(skill).m_icon = icon;
+  public static void SetIcon(Skills.SkillType skill, Sprite icon) => SkillManager.Instance.CustomSkills[skill].Icon = icon;
 }
