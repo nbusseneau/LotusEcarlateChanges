@@ -10,8 +10,6 @@ public class Mistlands : TierBase
   {
     this._weapons = [
       "AtgeirHimminAfl",
-      "AxeJotunBane",
-      "KnifeSkollAndHati",
       "SpearCarapace",
       "SwordMistwalker",
       "THSwordKrom",
