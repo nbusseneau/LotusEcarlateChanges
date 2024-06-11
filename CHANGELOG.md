@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Make MonsterLabZ spiders have guaranteed fang drops, and adjust tree spiders spawns.
+
 ## [0.6.16] - 2024-06-10
 
 ### Fixed

@@ -31,8 +31,9 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
       "FireGolem",
     ]);
 
-    creatureManager["TreeSpider"].SpawnChance = 3f;
-    creatureManager["TreeSpider"].Maximum = 2;
+    creatureManager["TreeSpider"].SpawnChance = 5f;
+    creatureManager["TreeSpider"].Maximum = 3;
+    creatureManager["TreeSpider"].GroupSize = new(2, 3);
     creatureManager["GreenSpider"].SpawnChance = 5f;
     creatureManager["GreenSpider"].Maximum = 1;
 
