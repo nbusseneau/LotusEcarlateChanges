@@ -15,25 +15,17 @@ public class Swamp : TierBase
       "SpearElderbark",
       "SwordIron",
 
-      "BastardChitin_TW",
       "BattleaxeIron_TW",
       "BLV_HuntsmanBow",
       "ClaymoreIron_TW",
-      "FistChitin_TW",
       "FistIron_TW",
-      "KnifeWrench_TW",
-      "MaceChitin_TW",
       "SledgeIron_TW",
-      "WarpikeChitin_TW",
     ];
 
     this._shields = [
       "ShieldIronBuckler",
       "ShieldBanded",
       "ShieldIronTower",
-
-      "ShieldChitinBuckler_TW",
-      "ShieldChitin_TW",
     ];
 
     this._sets = [

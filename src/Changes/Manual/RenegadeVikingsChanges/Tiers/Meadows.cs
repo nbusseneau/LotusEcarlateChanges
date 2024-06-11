@@ -11,7 +11,6 @@ public class Meadows : TierBase
     this._weapons = [
       "AxeFlint",
       "Club",
-      "KnifeFlint",
       "SpearFlint",
 
       "BLV_Bow",

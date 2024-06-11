@@ -9,7 +9,6 @@ public class Mountain : TierBase
   private Mountain()
   {
     this._weapons = [
-      "KnifeSilver",
       "MaceSilver",
       "SpearWolfFang",
       "SwordSilver",

@@ -11,8 +11,6 @@ public class BlackForest : TierBase
     this._weapons = [
       "AtgeirBronze",
       "AxeBronze",
-      "KnifeChitin",
-      "KnifeCopper",
       "MaceBronze",
       "SpearBronze",
       "SwordBronze",

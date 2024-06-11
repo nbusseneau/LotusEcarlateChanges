@@ -11,8 +11,6 @@ public class Plains : TierBase
     this._weapons = [
       "AtgeirBlackmetal",
       "AxeBlackMetal",
-      "KnifeBlackMetal",
-      "KnifeSkollAndHati",
       "MaceNeedle",
       "SwordBlackmetal",
 
