@@ -12,7 +12,7 @@ public class Raider : SwampArchetypeBase
       new("Chain", 2, 4),
       new("ArrowIron", 30, 60),
       new("ArrowPoison", 30, 60),
-      new("WitheredBone", 5, 15),
+      new("WitheredBone", 3, 7),
       new("Coins", 100, 200),
       new("Amber", 10, 20),
       new("AmberPearl", 7, 15),

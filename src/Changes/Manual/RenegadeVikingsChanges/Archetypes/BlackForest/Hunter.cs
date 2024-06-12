@@ -14,7 +14,7 @@ public class Hunter : BlackForestArchetypeBase
       // 2-3 razorbacks
       new("RazorbackLeather_TW", 2, 3),
       new("RazorbackTusk_TW", 1, 2),
-      new("RawMeat", 2, 3),
+      new("RawMeat", 2, 6),
 
       // 1 bear
       new("BlackBearPelt_TW"),

@@ -36,7 +36,10 @@ public class Plains : TierBase
     ];
 
     this._archetypes = [
+      // double chances for hunter/gatherer and raider compared to woodcutter
       HunterGatherer.Instance,
+      HunterGatherer.Instance,
+      Raider.Instance,
       Raider.Instance,
       Woodcutter.Instance,
     ];

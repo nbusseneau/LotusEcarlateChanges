@@ -9,7 +9,9 @@ public class Gatherer : MeadowsArchetypeBase
     this._drops.AddRange([
       // pickables
       new("Stone", 20, 40),
+      new("BFP_Clay", 20, 40),
       new("Flint", 15, 30),
+      new("BFP_Straw", 15, 30),
       new("Raspberry", 5, 10),
       new("Mushroom", 5, 10),
       new("Dandelion", 3, 6),

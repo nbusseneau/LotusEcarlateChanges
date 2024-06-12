@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Adjust Razorbacks meat drops compared to Boars to be consistent with the Black Bears / Grizzlys duo.
+- Adjust Renegade Vikings archetypes drops.
 
 ## [0.6.17] - 2024-06-12
 
