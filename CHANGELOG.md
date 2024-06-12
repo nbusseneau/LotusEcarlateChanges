@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Make MonsterLabZ spiders have guaranteed fang drops, and adjust tree spiders spawns.
-- Adjust Renegade Vikings weapons / shields to remove weaker options.
+- Adjust Renegade Vikings weapons / shields to remove weaker options, buff bows, nerf crossbow.
 - Adjust Grizzly armor costs.
 
 ### Fixed
@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Remove MonsterLabZ frost drakes.
+- Remove Renegade Vikings' War Horn and Healing Pill.
 
 ## [0.6.16] - 2024-06-10
 

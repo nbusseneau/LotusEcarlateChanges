@@ -31,8 +31,10 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Awake))] = (nameof(RenegadeSetupPrefilters), nameof(SetRenegadesNames)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupVisuals))] = (null, nameof(FixNeutralsMaleNames)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupEquipment))] = (nameof(InterceptNeutralsSetupEquipment), null),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.FireStaffAdjustments))] = (null, nameof(RebalanceFireStaffDamage)),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.IceStaffAdjustments))] = (null, nameof(RebalanceIceStaffDamage)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.BowAdjustments))] = (null, nameof(RebalanceBows)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.CrossbowAdjustments))] = (null, nameof(RebalanceCrossbow)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.FireStaffAdjustments))] = (null, nameof(RebalanceFireStaff)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.IceStaffAdjustments))] = (null, nameof(RebalanceIceStaff)),
 
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupNeutralWeapons))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier1Equipment))] = (nameof(NoOpPrefix), null),
@@ -57,6 +59,7 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(OverlordVikingT5), nameof(OverlordVikingT5.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT6), nameof(OverlordVikingT6.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT6Summoner), nameof(OverlordVikingT6Summoner.SetDropList))] = (nameof(NoOpPrefix), null),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.Extras))] = (nameof(NoOpPrefix), null),
     };
     foreach (var ((type, originalName), (prefixName, postfixName)) in patches)
     {
@@ -191,6 +194,19 @@ public class RenegadeVikings : ManualChangesBase
     __runOriginal = __instance.m_humanoid.m_group != "NeutralVikings";
   }
 
-  private static void RebalanceFireStaffDamage(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_fire /= 2f;
-  private static void RebalanceIceStaffDamage(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_frost *= 2f;
+  private static void RebalanceBows(ItemDrop item)
+  {
+    item.m_itemData.m_shared.m_damages.m_pierce *= 1.5f;
+
+  }
+
+  private static void RebalanceCrossbow(ItemDrop item)
+  {
+    item.m_itemData.m_shared.m_damages.m_pierce /= 1.15f;
+    item.m_itemData.m_shared.m_aiAttackInterval = 6f;
+    item.m_itemData.m_shared.m_attack.m_projectileVel /= 1.25f;
+  }
+
+  private static void RebalanceFireStaff(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_fire /= 2f;
+  private static void RebalanceIceStaff(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_frost *= 2f;
 }
