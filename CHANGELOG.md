@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.18] - 2024-06-12
+
 ### Changed
 
 - Adjust Razorbacks meat drops compared to Boars to be consistent with the Black Bears / Grizzlys duo.
@@ -226,7 +228,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.17...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.18...HEAD
+[0.6.18]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.17...0.6.18
 [0.6.17]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.16...0.6.17
 [0.6.16]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.15...0.6.16
 [0.6.15]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.14...0.6.15
