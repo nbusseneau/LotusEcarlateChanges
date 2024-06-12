@@ -175,8 +175,6 @@ public class VanillaArmors : ManualChangesBase
     });
 
     var rootSetEffect = rootHelm.Set.Effect;
-    rootSetEffect.m_name = "$Vanilla_RootSet_Effect_Name";
-    rootSetEffect.m_tooltip = "$Vanilla_RootSet_Effect_Tooltip";
     rootSetEffect.m_mods.Clear();
     rootSetEffect.m_mods.Add(new()
     {

@@ -1,6 +1,6 @@
 {
-  "Vanilla_RootSet_Effect_Name": "Ancient murmur",
-  "Vanilla_RootSet_Effect_Tooltip": "The ancient root helps you focus and draw your bow, and protects you against the swamp's filth.",
+  "se_rootseteffect_name": "Ancient murmur",
+  "se_rootseteffect_tooltip": "The ancient root helps you focus and draw your bow, and protects you against the swamp's filth.",
 
   "Vanilla_WolfSet_Effect_Name": "Wolfskin",
   "Vanilla_WolfSet_Effect_Tooltip": "Do not fear the cold, for the snow is your home."
