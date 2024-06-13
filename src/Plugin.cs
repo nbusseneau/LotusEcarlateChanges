@@ -70,6 +70,7 @@ public class Plugin : BaseUnityPlugin
       new Lightsources(),
       new RenegadeVikings(),
       new SpeedyPaths(),
+      new Tutorials(),
       new VanillaMisc(),
       new VanillaArmors(),
       new VanillaWeapons(),

@@ -1,0 +1,31 @@
+{
+  "tutorial_death_text": "Chaque fois que vous tomberez à terre, votre inventeraire restera sur place. Toutes vos compétences redescenderont alors à leurs <color=yellow>valeurs fortifiées</color>.\n\nSi vous n'êtes pas réapparu chez vous, vous devriez <color=yellow>construire un lit</color> peu importe où se trouve ce « chez vous ».",
+  "tutorial_haldor": "On raconte que des <color=yellow>marchands</color> ont trouvé leur chemin vers le dixième monde. Si vous avez besoin d'articles spéciaux, vous devriez essayer de les rencontrer.\n\nCertains <color=yellow>errent</color> dans les zones les plus paisibles, mais on dit que l'un d'entre eux a établi un <color=yellow>camp permanent</color> dans une forêt comme celle-ci. Je suis navré de ne pas pouvoir davantage vous aider... Il va falloir garder l'œil ouvert.",
+  "tutorial_haldor_label": "Hugin : Marchands Haldor et Errants",
+  "tutorial_workbench_text": "La table de fabrication vous permet de fabriquer des <color=yellow>objets complexes</color> et vous donne accès à de nombreux autres <color=yellow>éléments de construction</color> à bâtir avec le marteau. n\nSelon la rumeur, <color=yellow>les recettes les plus puissantes</color> nécessitent elles-mêmes d'autres objets. Il peut être judicieux de <color=yellow>tout fabriquer au moins une fois</color> pour les découvrir !",
+  "tutorial_portal_text": "Les portails magiques sont parfaits pour voyager rapidement entre différentes parties du monde.\n\nMais attention, ils ont leur volonté propre et leur fierté dans les anciennes coutumes vous interdira l'entrée si vous essayez de transporter <color=yellow>des matériaux destinés à des usages qu'ils jugent contre nature</color>...",
+
+  "Tutorial_BlastFurnace_Label": "Hugin : Haut fourneau",
+  "Tutorial_BlastFurnace_Topic": "Une température digne de Brokk lui-même !",
+  "Tutorial_BlastFurnace_Text": "Voilà bien longtemps que je n'avais pas senti telle chaleur : ce fourneau devrait être capable de fondre même <color=yellow>le plus dur des aciers</color>, et ne fera certainement qu'<color=yellow>une bouchée</color> des minerais courants.",
+
+  "Tutorial_Campfire_Label": "Hugin : Feu de camp",
+  "Tutorial_Campfire_Topic": "Asseyez-vous un instant...",
+  "Tutorial_Campfire_Text": "Il est sage de <color=yellow>s'asseoir</color> et <color=yellow>se reposer quelques temps</color> lorsque vous êtes fatigué ou blessé. Vous vous sentirez mieux rapidement, d'autant plus au coin d'un <color=yellow>agréable feu de camp</color>.",
+
+  "Tutorial_Cart_Label": "Hugin : Bêtes de somme",
+  "Tutorial_Cart_Topic": "Utilisable, mais peu pratique !",
+  "Tutorial_Cart_Text": "Bien que vous puissiez tirer ce chariot vous-même, une fois chargé, son fardeau pourra s'avérer trop lourd pour seulement deux jambes. Peut-être devriez-vous chercher des <color=yellow>bêtes de somme</color> pour vous aider...",
+
+  "Tutorial_Chest_Label": "Hugin : Coffres",
+  "Tutorial_Chest_Topic": "Quel astucieux conteneur !",
+  "Tutorial_Chest_Text": "Même si vous n'en avez pas besoin de suite, certains objets pourront s'avérer utiles plus tard. Si la gestion du stock puisse parfois être fatiguante, n'oubliez pas d'utilisez les fonctionnalités de <color=yellow>T</color>ri, <color=yellow>R</color>éapprovisionnement, et <color=yellow>S</color>tockage rapide.",
+
+  "Tutorial_ScribeTable_Label": "Hugin : Table de scribe",
+  "Tutorial_ScribeTable_Topic": "Je ne pensais pas que vous seriez assez intelligent pour planifier de telles améliorations...",
+  "Tutorial_ScribeTable_Text": "Impressionnant. Mais je ne suis pas aveugle : ceci n'est pas de votre fait. Mimir a dû prendre pitié de vous. Vous feriez mieux de ne pas le décevoir.\n\nPréparez des <color=yellow>plans d'amélioration</color>, puis transportez-les à un <color=yellow>chantier naval</color> où vous pourrez les utiliser pour renforcer votre bateau.",
+
+  "Tutorial_Shipyard_Label": "Hugin : Chantier naval",
+  "Tutorial_Shipyard_Topic": "Avec ce chantier naval, améliorez votre navire et rendez-le digne de Njörðr lui-même !",
+  "Tutorial_Shipyard_Text": "La navigation peut être une entreprise dangereuse : on ne sait jamais ce qui se cache dans les profondeurs... Plus vous allez loin, plus votre navire doit être solide.\n\nPréparez des <color=yellow>plans d'amélioration</color> sur la <color=yellow>table de scribe</color>, chargez-les dans le stockage du chantier, et améliorez votre navire après l'avoir amarré <color=yellow>près du chantier</color>."
+}
