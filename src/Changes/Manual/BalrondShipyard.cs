@@ -80,6 +80,16 @@ public class BalrondShipyard : ManualChangesBase
       "SwordSaber",
     ];
     Launch.items.RemoveAll(item => itemsToRemove.Contains(item.name));
+
+    var shipyardTutorial = Launch.shipyard.GetComponentInChildren<GuidePoint>().m_text;
+    shipyardTutorial.m_label = "$Tutorial_Shipyard_Label";
+    shipyardTutorial.m_topic = "$Tutorial_Shipyard_Topic";
+    shipyardTutorial.m_text = "$Tutorial_Shipyard_Text";
+
+    var scribeTableTutorial = Launch.scribeTable.GetComponentInChildren<GuidePoint>().m_text;
+    scribeTableTutorial.m_label = "$Tutorial_ScribeTable_Label";
+    scribeTableTutorial.m_topic = "$Tutorial_ScribeTable_Topic";
+    scribeTableTutorial.m_text = "$Tutorial_ScribeTable_Text";
   }
 
   protected override void ApplyInternalDeferred()

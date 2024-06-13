@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add new raven tutorials or edit existing ones to help with all the new stuff in the modpack.
 
+### Changed
+
+- Edit Balrond Shipyard raven tutorials.
+
 ## [0.6.18] - 2024-06-12
 
 ### Changed

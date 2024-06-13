@@ -19,5 +19,13 @@
 
   "Tutorial_Chest_Label": "Hugin: Chests",
   "Tutorial_Chest_Topic": "What a crafty container!",
-  "Tutorial_Chest_Text": "Even if you do not need them right now, certain items may reveal themselves to be useful later. Though storage management can be overwhelming at times, do not forget to take advantage of the <color=yellow>S</color>ort, <color=yellow>R</color>estock, and <color=yellow>Q</color>uick stack facilities."
+  "Tutorial_Chest_Text": "Even if you do not need them right now, certain items may reveal themselves to be useful later. Though storage management can be overwhelming at times, do not forget to take advantage of the <color=yellow>S</color>ort, <color=yellow>R</color>estock, and <color=yellow>Q</color>uick stack facilities.",
+
+  "Tutorial_ScribeTable_Label": "Hugin: Scribe table",
+  "Tutorial_ScribeTable_Topic": "Didn't think you'd be smart enough to ever plan such improvements...",
+  "Tutorial_ScribeTable_Text": "Impressive. But I'm no fool: this is not your doing. Mímir must have taken pity on you. You best not disappoint him.\n\nPrepare <color=yellow>upgrade plans</color>, then bring them to a <color=yellow>shipyard</color> where you can use them to strenghthen your ship.",
+
+  "Tutorial_Shipyard_Label": "Hugin: Shipyard",
+  "Tutorial_Shipyard_Topic": "With this shipyard, improve your ship and make it worthy of Njörðr himself!",
+  "Tutorial_Shipyard_Text": "Seafaring may be a dangerous endeavour: you never know what lurks in the depths... The farther you go, the stronger your ship must be.\n\nPrepare <color=yellow>upgrade plans</color> on the <color=yellow>scribe table</color>, bring them to the shipyard's storage, and upgrade your ship after docking it <color=yellow>close to the shipyard</color>."
 }
