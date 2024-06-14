@@ -1,3 +1,4 @@
+using static LotusEcarlateChanges.Changes.Constants.Weapon;
 using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Model.Changes;
 
@@ -12,30 +13,46 @@ public class VanillaWeapons : ManualChangesBase
 
     // Movespeed adjustments
     // Atgeirs
-    this.ItemManager["AtgeirBronze"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirIron"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirBlackmetal"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["AtgeirHimminAfl"].Weapon.MovementModifier = -0.10f;
+    string[] atgeirs = [
+      "AtgeirBronze",
+      "AtgeirIron",
+      "AtgeirBlackmetal",
+      "AtgeirHimminAfl",
+    ];
+    foreach (var atgeir in this.ItemManager[atgeirs]) atgeir.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
     // Bows
-    this.ItemManager["Bow"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["BowFineWood"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["BowHuntsman"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["BowDraugrFang"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["BowSpineSnap"].Weapon.MovementModifier = -0.10f;
+    string[] bows = [
+      "Bow",
+      "BowFineWood",
+      "BowHuntsman",
+      "BowDraugrFang",
+      "BowSpineSnap",
+    ];
+    foreach (var bow in this.ItemManager[bows]) bow.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
     // Shields
-    this.ItemManager["ShieldWood"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldBanded"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
-    this.ItemManager["ShieldFlametal"].Weapon.MovementModifier = -0.10f;
+    string[] shields = [
+      "ShieldWood",
+      "ShieldBanded",
+      "ShieldSilver",
+      "ShieldBlackmetal",
+      "ShieldCarapace",
+      "ShieldFlametal",
+    ];
+    foreach (var shield in this.ItemManager[shields]) shield.Weapon.MovementModifier = MovementModifier.Shield;
+
     // Tower shields
-    this.ItemManager["ShieldWoodTower"].Weapon.MovementModifier = -0.15f;
-    this.ItemManager["ShieldBoneTower"].Weapon.MovementModifier = -0.15f;
-    this.ItemManager["ShieldIronTower"].Weapon.MovementModifier = -0.15f;
-    this.ItemManager["ShieldSerpentscale"].Weapon.MovementModifier = -0.10f; // retain reduced malus
-    this.ItemManager["ShieldBlackmetalTower"].Weapon.MovementModifier = -0.15f;
-    this.ItemManager["ShieldFlametalTower"].Weapon.MovementModifier = -0.15f; // keep in line with other tower shields
+    string[] towerShields = [
+      "ShieldWoodTower",
+      "ShieldBoneTower",
+      "ShieldIronTower",
+      "ShieldSerpentscale",
+      "ShieldBlackmetalTower",
+      "ShieldFlametalTower",
+    ];
+    foreach (var towerShield in this.ItemManager[towerShields]) towerShield.Weapon.MovementModifier = MovementModifier.TowerShield;
+    this.ItemManager["ShieldSerpentscale"].Weapon.MovementModifier += 0.05f; // retain reduced malus
 
     // Bronze-tier costs
     var bronzeAtgeir = this.ItemManager["AtgeirBronze"];

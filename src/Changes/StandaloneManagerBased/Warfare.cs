@@ -1,6 +1,7 @@
 extern alias Warfare;
 
 using HarmonyLib;
+using static LotusEcarlateChanges.Changes.Constants.Weapon;
 using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Model.Changes;
 using Warfare::ItemManager;
@@ -20,87 +21,76 @@ public class Warfare : StandaloneManagerBasedChangesBase
     foreach (var (_, wrapper) in pieceManager) pieceManager.Remove(wrapper.PrefabName);
 
     // Battleaxes
-    itemManager.Keep([
+    string[] battleaxes = [
       "BattleaxeIron_TW",
       "BattleaxeCrystal_TW",
       "BattleaxeDvergr_TW",
-    ]);
-    itemManager["BattleaxeIron_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["BattleaxeCrystal_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["BattleaxeDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    ];
+    itemManager.Keep(battleaxes);
+    foreach (var battleaxe in itemManager[battleaxes]) battleaxe.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Clubs
     itemManager.Keep("MaceChitin_TW");
-    itemManager["MaceChitin_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
+    itemManager["MaceChitin_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.OneHanded;
 
     // Sledgehammers
-    itemManager.Keep([
+    string[] sledgehammers = [
       "SledgeStagbreaker_TW",
       "SledgeIron_TW",
       "SledgeBlackmetal_TW",
       "SledgeDemolisher_TW",
-    ]);
-
-    var (sledgeStagBreaker, sledgeStagBreakerWrapper) = itemManager["SledgeStagbreaker_TW"];
-    sledgeStagBreaker.DropsFrom.Drops.Clear();
-    sledgeStagBreakerWrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["SledgeIron_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["SledgeBlackmetal_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["SledgeDemolisher_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    ];
+    itemManager.Keep(sledgehammers);
+    foreach (var sledgehammer in itemManager[sledgehammers]) sledgehammer.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
+    itemManager["SledgeStagbreaker_TW"].Item.DropsFrom.Drops.Clear();
 
     // Battlehammers
-    itemManager.Keep([
+    string[] battlehammers = [
       "BattlehammerTrollbone_TW",
       "BattlehammerDvergr_TW",
-    ]);
-
-    itemManager["BattlehammerTrollbone_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["BattlehammerDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    ];
+    itemManager.Keep(battlehammers);
+    foreach (var battlehammer in itemManager[battlehammers]) battlehammer.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Fists
-    itemManager.Keep([
+    string[] fists = [
       "FistBronze_TW",
       "FistChitin_TW",
       "FistIron_TW",
       "FistSilver_TW",
       "FistDvergr_TW",
-    ]);
+    ];
+    itemManager.Keep(fists);
+    foreach (var fist in itemManager[fists]) fist.Wrapper.Weapon.MovementModifier = MovementModifier.Fist;
 
-    var (fistBronze, fistBronzeWrapper) = itemManager["FistBronze_TW"];
-    fistBronzeWrapper.Weapon.MovementModifier = 0f;
+    var (fistBronze, _) = itemManager["FistBronze_TW"];
     fistBronze.RequiredItems.Requirements.Clear();
     fistBronze.RequiredItems.Add("DeerHide", 4);
     fistBronze.RequiredItems.Add("Bronze", 4);
     fistBronze.RequiredItems.Add("TrophyGreydwarf", 1);
     fistBronze.RequiredUpgradeItems.Requirements.Clear();
     fistBronze.RequiredUpgradeItems.Add("Bronze", 4);
-    // bronze knucles => 4 deer hide / bronze 4 / 1 greydwarf trophy
-
-    itemManager["FistChitin_TW"].Wrapper.Weapon.MovementModifier = 0f;
-    itemManager["FistIron_TW"].Wrapper.Weapon.MovementModifier = 0f;
-    itemManager["FistSilver_TW"].Wrapper.Weapon.MovementModifier = 0f;
-    itemManager["FistDvergr_TW"].Wrapper.Weapon.MovementModifier = 0f;
 
     // Lances
-    itemManager.Keep([
+    string[] lances = [
       "LanceBlackmetal_TW",
       "LanceDvergr_TW",
-    ]);
-
-    itemManager["LanceBlackmetal_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["LanceDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    ];
+    itemManager.Keep(lances);
+    foreach (var lance in itemManager[lances]) lance.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Warpikes
-    itemManager.Keep([
+    string[] warpikes = [
       "WarpikeBone_TW",
       "WarpikeChitin_TW",
       "WarpikeObsidian_TW",
       "WarpikeBlackmetal_TW",
       "WarpikeDvergr_TW",
-    ]);
+    ];
+    itemManager.Keep(warpikes);
+    foreach (var warpike in itemManager[warpikes]) warpike.Wrapper.Weapon.MovementModifier = MovementModifier.OneHanded;
 
     var (warpikeBone, warpikeBoneWrapper) = itemManager["WarpikeBone_TW"];
-    warpikeBoneWrapper.Weapon.MovementModifier = -0.05f;
     warpikeBone.RequiredItems.Requirements.Clear();
     warpikeBone.RequiredItems.Add("BoneFragments", 16);
     warpikeBone.RequiredItems.Add("Bronze", 4);
@@ -109,25 +99,24 @@ public class Warfare : StandaloneManagerBasedChangesBase
     warpikeBone.RequiredUpgradeItems.Add("BoneFragments", 8);
     warpikeBone.RequiredUpgradeItems.Add("Bronze", 4);
 
-    itemManager["WarpikeChitin_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
-    itemManager["WarpikeObsidian_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
-    itemManager["WarpikeBlackmetal_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
-    itemManager["WarpikeDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
-
     // Claymores
-    itemManager.Keep("ClaymoreIron_TW");
-    itemManager["ClaymoreIron_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    string[] claymores = [
+      "ClaymoreIron_TW",
+    ];
+    itemManager.Keep(claymores);
+    foreach (var claymore in itemManager[claymores]) claymore.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Bastard swords
-    itemManager.Keep([
+    string[] bastardSwords = [
       "BastardBone_TW",
       "BastardChitin_TW",
       "BastardSilver_TW",
       "BastardDvergr_TW",
-    ]);
+    ];
+    itemManager.Keep(bastardSwords);
+    foreach (var bastardSword in itemManager[bastardSwords]) bastardSword.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     var (bastardBone, bastardBoneWrapper) = itemManager["BastardBone_TW"];
-    bastardBoneWrapper.Weapon.MovementModifier = -0.10f;
     bastardBone.RequiredItems.Requirements.Clear();
     bastardBone.RequiredItems.Add("BoneFragments", 16);
     bastardBone.RequiredItems.Add("Bronze", 4);
@@ -135,9 +124,6 @@ public class Warfare : StandaloneManagerBasedChangesBase
     bastardBone.RequiredUpgradeItems.Requirements.Clear();
     bastardBone.RequiredUpgradeItems.Add("BoneFragments", 8);
     bastardBone.RequiredUpgradeItems.Add("Bronze", 4);
-    itemManager["BastardChitin_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["BastardSilver_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["BastardDvergr_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
 
     // Specials / Uniques
     itemManager.Keep([
@@ -147,21 +133,21 @@ public class Warfare : StandaloneManagerBasedChangesBase
       "GreatbowBlackmetal_TW", // Greatbow
     ]);
 
-    itemManager["KnifeWrench_TW"].Wrapper.Weapon.MovementModifier = 0f;
-    itemManager["TridentBlackmetal_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
-    itemManager["DualSwordScimitar_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    itemManager["KnifeWrench_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.Knife;
+    itemManager["TridentBlackmetal_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
+    itemManager["DualSwordScimitar_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
     var (blackmetalGreatbow, blackmetalGreatbowWrapper) = itemManager["GreatbowBlackmetal_TW"];
     blackmetalGreatbow.Crafting.Stations.Clear();
     blackmetalGreatbow.Crafting.Add(Warfare::ItemManager.CraftingTable.Forge, 3);
-    blackmetalGreatbowWrapper.Weapon.MovementModifier = -0.10f;
+    blackmetalGreatbowWrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Bucklers
     itemManager.Keep("ShieldChitinBuckler_TW");
-    itemManager["ShieldChitinBuckler_TW"].Wrapper.Weapon.MovementModifier = -0.05f;
+    itemManager["ShieldChitinBuckler_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.Buckler;
 
     // Shields
     itemManager.Keep("ShieldChitin_TW");
-    itemManager["ShieldChitin_TW"].Wrapper.Weapon.MovementModifier = -0.10f;
+    itemManager["ShieldChitin_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.Shield;
 
     // Capes
     itemManager.Keep("CapeRotten_TW");
@@ -207,45 +193,27 @@ public class Warfare : StandaloneManagerBasedChangesBase
     ]);
 
     // Skills
-    string[] twoHandedAxes = [
-      "BattleaxeIron_TW",
-      "BattleaxeCrystal_TW",
-      "BattleaxeDvergr_TW",
-    ];
+    string[] twoHandedAxes = battleaxes;
     var twoHandedAxesSkillIcon = itemManager["BattleaxeIron_TW"].Wrapper.Icon;
     CustomSkills.SetIcon(CustomSkills.TwoHandedAxes, twoHandedAxesSkillIcon);
     foreach (var (_, wrapper) in itemManager[twoHandedAxes]) wrapper.Weapon.SkillType = CustomSkills.TwoHandedAxes;
 
     string[] twoHandedHammers = [
-      "SledgeStagbreaker_TW",
-      "BattlehammerTrollbone_TW",
-      "SledgeIron_TW",
-      "SledgeBlackmetal_TW",
-      "SledgeDemolisher_TW",
-      "BattlehammerDvergr_TW",
+      .. sledgehammers,
+      .. battlehammers,
     ];
     var twoHandedHammersSkillIcon = itemManager["SledgeStagbreaker_TW"].Wrapper.Icon;
     CustomSkills.SetIcon(CustomSkills.TwoHandedHammers, twoHandedHammersSkillIcon);
     foreach (var (_, wrapper) in itemManager[twoHandedHammers]) wrapper.Weapon.SkillType = CustomSkills.TwoHandedHammers;
 
     string[] twoHandedSwords = [
-      "BastardBone_TW",
-      "BastardChitin_TW",
-      "ClaymoreIron_TW",
-      "BastardSilver_TW",
-      "BastardDvergr_TW",
+      .. claymores,
+      .. bastardSwords,
     ];
     var twoHandedSwordsSkillIcon = itemManager["BastardBone_TW"].Wrapper.Icon;
     CustomSkills.SetIcon(CustomSkills.TwoHandedSwords, twoHandedSwordsSkillIcon);
     foreach (var (_, wrapper) in itemManager[twoHandedSwords]) wrapper.Weapon.SkillType = CustomSkills.TwoHandedSwords;
 
-    string[] warpikes = [
-      "WarpikeBone_TW",
-      "WarpikeChitin_TW",
-      "WarpikeObsidian_TW",
-      "WarpikeBlackmetal_TW",
-      "WarpikeDvergr_TW",
-    ];
     var warpikesSkillIcon = itemManager["WarpikeBone_TW"].Wrapper.Icon;
     CustomSkills.SetIcon(CustomSkills.Warpikes, warpikesSkillIcon);
     foreach (var (_, wrapper) in itemManager[warpikes]) wrapper.Weapon.SkillType = CustomSkills.Warpikes;
