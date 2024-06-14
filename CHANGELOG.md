@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add new raven tutorials or edit existing ones to help with all the new stuff in the modpack.
+- Add MaxAxe tweaks internal excludes to authorize throwing all bucklers and shields but deny all tower shields.
 
 ### Changed
 

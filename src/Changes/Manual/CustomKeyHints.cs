@@ -1,3 +1,5 @@
+extern alias MaxAxe;
+
 using System.Collections.Generic;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
@@ -259,8 +261,8 @@ public class CustomKeyHints : ManualChangesBase
       var isWarpike = currentWeapon?.m_dropPrefab?.name.Contains("Warpike") ?? false;
       s_throwWeaponHint.SetActive(!isTwoHanded && !isBow && !isWarpike);
 
-      var hasShield = player.m_leftItem is { } item && item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
-      s_throwShieldHint.SetActive(hasShield);
+      var canThrowShield = player.m_leftItem is { } item && item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield && !MaxAxe::neobotics.ValheimMods.MaxAxe.prefabExcludes.Contains(item.m_dropPrefab.name);
+      s_throwShieldHint.SetActive(canThrowShield);
 
       s_combatSwimDive.SetActive(isSwimming);
       s_combatSwimAscend.SetActive(isSwimming);
