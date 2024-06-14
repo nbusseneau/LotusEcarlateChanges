@@ -1,0 +1,26 @@
+{
+  "KeyHint_Combat_BowDrawZoom": "Zoomer tir",
+  "KeyHint_Combat_BowDrawCancel": "Annuler tir",
+  "KeyHint_Combat_Throw": "Lancer",
+  "KeyHint_Combat_ThrowShield": "Lancer bouclier",
+  "KeyHint_Combat_HolsterSwap": "Ranger/Échanger",
+  "KeyHint_Combat_Unequip": "Déséquiper",
+
+  "KeyHint_Build_Menu": "Menu",
+  "KeyHint_Build_NoSnap": "Désactiver ancrage",
+  "KeyHint_Cultivator_ModifierKey": "Grille champ",
+  "KeyHint_Hoe_RadiusModifierKey": "Taille",
+  "KeyHint_Hoe_HardnessModifierKey": "Dureté",
+
+  "KeyHint_Inventory_QuickStack": "Stockage rapide",
+  "KeyHint_Inventory_Restock": "Réapprovisionnement",
+  "KeyHint_Inventory_Sort": "Tri",
+  "KeyHint_Inventory_Favorite": "Favori",
+  "KeyHint_Inventory_SplitStack": "Séparer/En deux",
+  "KeyHint_Inventory_Compare": "Comparer",
+
+  "KeyHint_Map_TogglePortals": "Portails",
+
+  "KeyHint_Swim_Ascend": "Remonter",
+  "KeyHint_Swim_Dive": "Plonger"
+}

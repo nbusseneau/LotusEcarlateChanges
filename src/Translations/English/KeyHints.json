@@ -1,0 +1,26 @@
+{
+  "KeyHint_Combat_BowDrawZoom": "Draw zoom",
+  "KeyHint_Combat_BowDrawCancel": "Cancel draw",
+  "KeyHint_Combat_Throw": "Throw",
+  "KeyHint_Combat_ThrowShield": "Throw shield",
+  "KeyHint_Combat_HolsterSwap": "Holster/Swap",
+  "KeyHint_Combat_Unequip": "Unequip",
+
+  "KeyHint_Build_Menu": "Menu",
+  "KeyHint_Build_NoSnap": "Disable snapping",
+  "KeyHint_Cultivator_ModifierKey": "Crop grid",
+  "KeyHint_Hoe_RadiusModifierKey": "Size",
+  "KeyHint_Hoe_HardnessModifierKey": "Hardness",
+
+  "KeyHint_Inventory_QuickStack": "Quick stack",
+  "KeyHint_Inventory_Restock": "Restock",
+  "KeyHint_Inventory_Sort": "Sort",
+  "KeyHint_Inventory_Favorite": "Favorite",
+  "KeyHint_Inventory_SplitStack": "Split/Halve",
+  "KeyHint_Inventory_Compare": "Compare",
+
+  "KeyHint_Map_TogglePortals": "Portals",
+
+  "KeyHint_Swim_Ascend": "Ascend",
+  "KeyHint_Swim_Dive": "Dive"
+}
