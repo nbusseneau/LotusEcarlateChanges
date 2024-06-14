@@ -28,6 +28,14 @@ public class VanillaWeapons : ManualChangesBase
     this.ItemManager["ShieldSilver"].Weapon.MovementModifier = -0.10f;
     this.ItemManager["ShieldBlackmetal"].Weapon.MovementModifier = -0.10f;
     this.ItemManager["ShieldCarapace"].Weapon.MovementModifier = -0.10f;
+    this.ItemManager["ShieldFlametal"].Weapon.MovementModifier = -0.10f;
+    // Tower shields
+    this.ItemManager["ShieldWoodTower"].Weapon.MovementModifier = -0.15f;
+    this.ItemManager["ShieldBoneTower"].Weapon.MovementModifier = -0.15f;
+    this.ItemManager["ShieldIronTower"].Weapon.MovementModifier = -0.15f;
+    this.ItemManager["ShieldSerpentscale"].Weapon.MovementModifier = -0.10f; // retain reduced malus
+    this.ItemManager["ShieldBlackmetalTower"].Weapon.MovementModifier = -0.15f;
+    this.ItemManager["ShieldFlametalTower"].Weapon.MovementModifier = -0.15f; // keep in line with other tower shields
 
     // Bronze-tier costs
     var bronzeAtgeir = this.ItemManager["AtgeirBronze"];

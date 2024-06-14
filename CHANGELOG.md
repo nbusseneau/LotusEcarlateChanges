@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rebalance tower shields movement speed reduction to be more in line with other shields, considering their drawbacks and also heavy armour being available now.
 - Edit Balrond Shipyard raven tutorials.
 
 ## [0.6.18] - 2024-06-12
