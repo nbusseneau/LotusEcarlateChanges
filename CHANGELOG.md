@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.19] - 2024-06-14
+
 ### Added
 
 - Add new raven tutorials or edit existing ones to help with all the new stuff in the modpack.
@@ -238,7 +240,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.18...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.19...HEAD
+[0.6.19]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.18...0.6.19
 [0.6.18]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.17...0.6.18
 [0.6.17]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.16...0.6.17
 [0.6.16]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.15...0.6.16
