@@ -255,14 +255,11 @@ public class CustomKeyHints : ManualChangesBase
       s_holsterSwap.SetActive(hasSomethingInHand);
       s_unequip.SetActive(hasSomethingInHand);
 
-      var currentWeapon = player.GetCurrentWeapon();
-      var isTwoHanded = currentWeapon?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.TwoHandedWeapon || currentWeapon.m_shared.m_itemType == ItemDrop.ItemData.ItemType.TwoHandedWeaponLeft;
-      var isBow = currentWeapon?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Bow;
-      var isWarpike = currentWeapon?.m_dropPrefab?.name.Contains("Warpike") ?? false;
-      s_throwWeaponHint.SetActive(!isTwoHanded && !isBow && !isWarpike);
-
-      var canThrowShield = player.m_leftItem is { } item && item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield && !MaxAxe::neobotics.ValheimMods.MaxAxe.prefabExcludes.Contains(item.m_dropPrefab.name);
-      s_throwShieldHint.SetActive(canThrowShield);
+      var isThrowableRight = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_rightItem);
+      var isThrowableLeft = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_leftItem);
+      var isThrowableShield = isThrowableLeft && player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
+      s_throwWeaponHint.SetActive(isThrowableRight || isThrowableLeft && !isThrowableShield);
+      s_throwShieldHint.SetActive(isThrowableShield);
 
       s_combatSwimDive.SetActive(isSwimming);
       s_combatSwimAscend.SetActive(isSwimming);
@@ -284,7 +281,7 @@ public class CustomKeyHints : ManualChangesBase
     else if (isInventory)
     {
       var hasWeapon = player.m_rightItem is { } right && right.IsWeapon() || player.m_leftItem is { } left && left.IsWeapon();
-      var hasShield = player.m_leftItem is { } item && item.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
+      var hasShield = player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
       s_compare.SetActive(hasWeapon || hasShield);
       s_compareWithContainer.SetActive(hasWeapon || hasShield);
     }
