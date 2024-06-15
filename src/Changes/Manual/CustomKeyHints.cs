@@ -115,7 +115,7 @@ public class CustomKeyHints : ManualChangesBase
 
   private string SanitizeConfigValues(object obj)
   {
-    if (obj is KeyCode keyCode) return keyCode.ToKeyHintString();
+    if (obj is KeyCode keyCode) return keyCode.ToLocalizableString();
     else if (obj is KeyboardShortcut keyboardShortcut) return this.SanitizeConfigValues(keyboardShortcut.MainKey); // assume single key shortcuts
     else return obj.ToString(); // fallback
   }
