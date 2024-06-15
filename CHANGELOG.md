@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adjust when food is considered "expiring", and thus when players can eat again to replace it.
 
+### Fixed
+
+- Fix bulk harvest on hover keyhints displaying when they should not.
+- Fix bulk harvest on hover keyhint using the wrong text for beehives.
+
 ## [0.6.20] - 2024-06-15
 
 ### Changed

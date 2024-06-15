@@ -83,7 +83,7 @@ public class CustomKeyHints : ManualChangesBase
     bulkHarvestModifierHoverKey = this._keyHintStrings["advize.PlantEasily.Controls.KeyboardHarvestModifierKey"];
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(Beehive), nameof(Beehive.GetHoverText)),
-      postfix: new HarmonyMethod(this.GetType(), nameof(PickableGetHoverText))
+      postfix: new HarmonyMethod(this.GetType(), nameof(BeehiveGetHoverText))
     );
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(Pickable), nameof(Pickable.GetHoverText)),
@@ -92,9 +92,21 @@ public class CustomKeyHints : ManualChangesBase
   }
 
   private static string bulkHarvestModifierHoverKey;
+  private static void BeehiveGetHoverText(Beehive __instance, ref string __result)
+  {
+    // only add our hover text if Beehive.GetHoverText says honey can actually be extracted
+    var extractText = Localization.instance.Localize(__instance.m_extractText);
+    if (!__result.Contains(extractText)) return;
+
+    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkExtract";
+    __result += Localization.instance.Localize(hoverTextSuffix);
+  }
   private static void PickableGetHoverText(ref string __result)
   {
-    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkHarvest";
+    // only add our hover text if Pickable.GetHoverText says the pickable can actually be picked
+    if (string.IsNullOrEmpty(__result)) return;
+
+    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkPickUp";
     __result += Localization.instance.Localize(hoverTextSuffix);
   }
 

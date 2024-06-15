@@ -1,5 +1,6 @@
 {
-  "KeyHint_Pickable_BulkHarvest": "Ramasser (zone)",
+  "KeyHint_Pickable_BulkExtract": "Extraire (zone)",
+  "KeyHint_Pickable_BulkPickUp": "Ramasser (zone)",
 
   "KeyHint_Combat_BowDrawZoom": "Zoomer tir",
   "KeyHint_Combat_BowDrawCancel": "Annuler tir",
