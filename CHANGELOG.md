@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.21] - 2024-06-15
+
 ### Changed
 
 - Adjust when food is considered "expiring", and thus when players can eat again to replace it.
@@ -261,7 +263,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.20...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.21...HEAD
+[0.6.21]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.20...0.6.21
 [0.6.20]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.19...0.6.20
 [0.6.19]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.18...0.6.19
 [0.6.18]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.17...0.6.18
