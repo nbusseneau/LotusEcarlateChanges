@@ -1,3 +1,4 @@
+using HarmonyLib;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.Manual;
@@ -32,5 +33,18 @@ public class VanillaMisc : ManualChangesBase
     dvergrStakewall.CraftingStation = workbench;
     dvergrStakewall.Resources.Clear();
     dvergrStakewall.Resources.Add("YggdrasilWood", 4);
+
+    // Custom patches
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(Player.Food), nameof(Player.Food.CanEatAgain)),
+      prefix: new HarmonyMethod(this.GetType(), nameof(CanEatAgainOverride))
+    );
+  }
+
+  private const float BlinkingDurationPercentage = 10f; // can eat at 10% remaining duration to roughly match vanilla's 50% duration in terms of efficiency cutoff
+  private static void CanEatAgainOverride(Player.Food __instance, ref bool __result, ref bool __runOriginal)
+  {
+    __runOriginal = false;
+    __result = __instance.m_time < __instance.m_item.m_shared.m_foodBurnTime * BlinkingDurationPercentage / 100.0f;
   }
 }
