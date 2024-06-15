@@ -4,7 +4,7 @@
   "KeyHint_Combat_Throw": "Throw",
   "KeyHint_Combat_ThrowShield": "Throw shield",
   "KeyHint_Combat_HolsterSwap": "Holster/Swap",
-  "KeyHint_Combat_Unequip": "Unequip",
+  "KeyHint_Combat_Unequip": "Holster/Unequip",
 
   "KeyHint_Build_Menu": "Menu",
   "KeyHint_Build_NoSnap": "Disable snapping",
