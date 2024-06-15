@@ -95,7 +95,12 @@ public class VanillaArmors : ManualChangesBase
     trollCape.Armor.DamageModifiers.Add(new()
     {
       m_type = CapeAndTorchResistanceChanges.Water,
-      m_modifier = HitData.DamageModifier.VeryResistant,
+      m_modifier = HitData.DamageModifier.Resistant,
+    });
+    trollCape.Armor.DamageModifiers.Add(new()
+    {
+      m_type = CapeAndTorchResistanceChanges.Cold,
+      m_modifier = HitData.DamageModifier.Resistant,
     });
 
     // Bronze
@@ -368,7 +373,7 @@ public class VanillaArmors : ManualChangesBase
     linenCape.Armor.DamageModifiers.Add(new()
     {
       m_type = CapeAndTorchResistanceChanges.Water,
-      m_modifier = HitData.DamageModifier.Resistant,
+      m_modifier = HitData.DamageModifier.VeryResistant,
     });
     linenCape.Armor.DamageModifiers.Add(new()
     {

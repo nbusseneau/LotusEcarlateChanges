@@ -3,6 +3,7 @@ extern alias Warfare;
 using HarmonyLib;
 using static LotusEcarlateChanges.Changes.Constants.Weapon;
 using LotusEcarlateChanges.Changes.JotunnBased;
+using LotusEcarlateChanges.Changes.Manual;
 using LotusEcarlateChanges.Model.Changes;
 using Warfare::ItemManager;
 using Warfare::PieceManager;
@@ -164,8 +165,8 @@ public class Warfare : StandaloneManagerBasedChangesBase
     rottenCapeWrapper.Armor.EquipEffect = null;
     rottenCapeWrapper.Armor.DamageModifiers.Add(new()
     {
-      m_type = HitData.DamageType.Poison,
-      m_modifier = HitData.DamageModifier.Resistant,
+      m_type = CapeAndTorchResistanceChanges.Water,
+      m_modifier = HitData.DamageModifier.VeryResistant,
     });
 
     // Meads
