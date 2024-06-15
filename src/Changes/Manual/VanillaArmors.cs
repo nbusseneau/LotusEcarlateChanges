@@ -147,7 +147,7 @@ public class VanillaArmors : ManualChangesBase
     rootChest.Resources.Clear();
     rootChest.Resources.Add("Root", 8, 4);
     rootChest.Resources.Add("ElderBark", 16, 8);
-    rootChest.Resources.Add("RottenPelt_TW", 4, 1);
+    rootChest.Resources.Add("RottenPelt_TW", 4, 2);
     rootChest.Armor.ArmorBase = 11;
     rootChest.Armor.ArmorPerLevel = 3;
     rootChest.Armor.MovementModifier = SemiLight.MovementModifier.Chest;

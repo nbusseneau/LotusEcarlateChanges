@@ -158,7 +158,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     rottenCape.RequiredItems.Add("Ooze", 6);
     rottenCape.RequiredItems.Add("TrophyCrawler_TW", 1);
     rottenCape.RequiredUpgradeItems.Requirements.Clear();
-    rottenCape.RequiredUpgradeItems.Add("RottenPelt_TW", 2);
+    rottenCape.RequiredUpgradeItems.Add("RottenPelt_TW", 3);
     rottenCape.RequiredUpgradeItems.Add("Guck", 2);
     rottenCape.RequiredUpgradeItems.Add("Ooze", 2);
     rottenCapeWrapper.Armor.EquipEffect = null;

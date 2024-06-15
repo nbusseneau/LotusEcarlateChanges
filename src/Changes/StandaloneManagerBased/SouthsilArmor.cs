@@ -261,11 +261,11 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     draugrChest.RequiredItems.Requirements.Clear();
     draugrChest.RequiredItems.Add("Iron", 45);
     draugrChest.RequiredItems.Add("RottenPelt_TW", 4);
-    draugrChest.RequiredItems.Add("WitheredBone", 6);
+    draugrChest.RequiredItems.Add("WitheredBone", 8);
     draugrChest.RequiredUpgradeItems.Requirements.Clear();
     draugrChest.RequiredUpgradeItems.Add("Iron", 11);
     draugrChest.RequiredUpgradeItems.Add("RottenPelt_TW", 2);
-    draugrChest.RequiredUpgradeItems.Add("WitheredBone", 3);
+    draugrChest.RequiredUpgradeItems.Add("WitheredBone", 4);
     draugrChestWrapper.Armor.ArmorBase = 27;
     draugrChestWrapper.Armor.ArmorPerLevel = 4;
     draugrChestWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Chest;
