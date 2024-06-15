@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix `Throw` keyhint not being displayed in some instances it should be.
+- Fix missing bulk harvest on hover keyhint.
 
 ## [0.6.19] - 2024-06-14
 

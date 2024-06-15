@@ -75,11 +75,27 @@ public class CustomKeyHints : ManualChangesBase
     this.SetUpInventoryHints();
     this.SetUpSwimHints();
     this.SetUpMapHints();
-
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(KeyHints), nameof(KeyHints.UpdateHints)),
       postfix: new HarmonyMethod(this.GetType(), nameof(UpdateHints))
     );
+
+    bulkHarvestModifierHoverKey = this._keyHintStrings["advize.PlantEasily.Controls.KeyboardHarvestModifierKey"];
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(Beehive), nameof(Beehive.GetHoverText)),
+      postfix: new HarmonyMethod(this.GetType(), nameof(PickableGetHoverText))
+    );
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(Pickable), nameof(Pickable.GetHoverText)),
+      postfix: new HarmonyMethod(this.GetType(), nameof(PickableGetHoverText))
+    );
+  }
+
+  private static string bulkHarvestModifierHoverKey;
+  private static void PickableGetHoverText(ref string __result)
+  {
+    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkHarvest";
+    __result += Localization.instance.Localize(hoverTextSuffix);
   }
 
   private void FetchPluginConfigEntries()

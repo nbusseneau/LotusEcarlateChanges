@@ -1,4 +1,6 @@
 {
+  "KeyHint_Pickable_BulkHarvest": "Pick up (area)",
+
   "KeyHint_Combat_BowDrawZoom": "Draw zoom",
   "KeyHint_Combat_BowDrawCancel": "Cancel draw",
   "KeyHint_Combat_Throw": "Throw",
