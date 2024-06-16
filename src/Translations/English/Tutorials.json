@@ -1,8 +1,15 @@
 {
+  "tutorial_cold_label": "Hugin: Weather",
+  "tutorial_cold_topic": "Be wary of the weather: it can be treacherous...",
+  "tutorial_cold_text": "<color=yellow>Wet</color> from rain, <color=yellow>cold</color> or even <color=yellow>freezing</cold> when the temperature drops: your physical constitution will suffer.\n\nTo protect yourself, seek <color=yellow>the warmth of flames</color> or adorn <color=yellow>thick capes or clothing</color>.",
+
   "tutorial_death_text": "Each time you are struck down, you will drop your belongings at the site of the accident and forget your skills back to their <color=yellow>fortified values</color>.\n\nIf you wish you were home by now I'd recommend <color=yellow>building a bed</color>, wherever home may be.",
-  "tutorial_haldor": "Rumor has it that some <color=yellow>traders</color> have found themselves into the tenth world. If you find yourself in need of special commodities you might want to seek them out.\n\nSome of them <color=yellow>wander</color> around in the more peaceful areas, but it is said one has established a <color=yellow>permanent camp</color> in a forest such as this. I'm terribly sorry I can't be of more help... you'll have to keep an eye out.",
+
   "tutorial_haldor_label": "Hugin: Traders Haldor & Wandering",
+  "tutorial_haldor": "Rumor has it that some <color=yellow>traders</color> have found themselves into the tenth world. If you find yourself in need of special commodities you might want to seek them out.\n\nSome of them <color=yellow>wander</color> around in the more peaceful areas, but it is said one has established a <color=yellow>permanent camp</color> in a forest such as this. I'm terribly sorry I can't be of more help... you'll have to keep an eye out.",
+
   "tutorial_workbench_text": "A workbench allows you to craft <color=yellow>complex items</color> as well as giving you access to lots of more <color=yellow>building pieces</color> to construct with the hammer.\n\nIt is rumored that <color=yellow>the most powerful recipes</color> even require other items themselves! It may be wise to <color=yellow>craft everything at least once</color> to uncover them...",
+
   "tutorial_portal_text": "Magic portals are great for fast travel between different parts of the world.\n\nBut beware, for they have a will of their own and their pride in the old ways will forbid you entry should you try to carry through <color=yellow>materials destined for purposes they deem unnatural</color>...",
 
   "Tutorial_BlastFurnace_Label": "Hugin: Blast furnace",

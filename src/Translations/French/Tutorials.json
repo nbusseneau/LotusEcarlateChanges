@@ -1,8 +1,15 @@
 {
+  "tutorial_cold_label": "Hugin : Météo",
+  "tutorial_cold_topic": "Attention à la météo : elle peut se révéler traître...",
+  "tutorial_cold_text": "<color=yellow>Mouillé</color> par la pluie, <color=yellow>froid</color> ou même <color=yellow>gelé</color> lorsque la température baisse : votre constitution physique en souffrira. Pour vous protéger, recherchez <color=yellow>la chaleur des flammes</color> ou parez-vous de <color=yellow>capes ou vêtements épais</color>.",
+
   "tutorial_death_text": "Chaque fois que vous tomberez à terre, votre inventeraire restera sur place. Toutes vos compétences redescenderont alors à leurs <color=yellow>valeurs fortifiées</color>.\n\nSi vous n'êtes pas réapparu chez vous, vous devriez <color=yellow>construire un lit</color> peu importe où se trouve ce « chez vous ».",
-  "tutorial_haldor": "On raconte que des <color=yellow>marchands</color> ont trouvé leur chemin vers le dixième monde. Si vous avez besoin d'articles spéciaux, vous devriez essayer de les rencontrer.\n\nCertains <color=yellow>errent</color> dans les zones les plus paisibles, mais on dit que l'un d'entre eux a établi un <color=yellow>camp permanent</color> dans une forêt comme celle-ci. Je suis navré de ne pas pouvoir davantage vous aider... Il va falloir garder l'œil ouvert.",
+
   "tutorial_haldor_label": "Hugin : Marchands Haldor et Errants",
+  "tutorial_haldor": "On raconte que des <color=yellow>marchands</color> ont trouvé leur chemin vers le dixième monde. Si vous avez besoin d'articles spéciaux, vous devriez essayer de les rencontrer.\n\nCertains <color=yellow>errent</color> dans les zones les plus paisibles, mais on dit que l'un d'entre eux a établi un <color=yellow>camp permanent</color> dans une forêt comme celle-ci. Je suis navré de ne pas pouvoir davantage vous aider... Il va falloir garder l'œil ouvert.",
+
   "tutorial_workbench_text": "La table de fabrication vous permet de fabriquer des <color=yellow>objets complexes</color> et vous donne accès à de nombreux autres <color=yellow>éléments de construction</color> à bâtir avec le marteau. n\nSelon la rumeur, <color=yellow>les recettes les plus puissantes</color> nécessitent elles-mêmes d'autres objets. Il peut être judicieux de <color=yellow>tout fabriquer au moins une fois</color> pour les découvrir !",
+
   "tutorial_portal_text": "Les portails magiques sont parfaits pour voyager rapidement entre différentes parties du monde.\n\nMais attention, ils ont leur volonté propre et leur fierté dans les anciennes coutumes vous interdira l'entrée si vous essayez de transporter <color=yellow>des matériaux destinés à des usages qu'ils jugent contre nature</color>...",
 
   "Tutorial_BlastFurnace_Label": "Hugin : Haut fourneau",

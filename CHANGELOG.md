@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change weather-related Hugin tutorial to better reflect capes/clothing changes.
+
 ## [0.6.22] - 2024-06-16
 
 ### Fixed
