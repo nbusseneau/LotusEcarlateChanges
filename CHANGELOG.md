@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.23] - 2024-06-16
+
 ### Changed
 
 - Rebalance armor sets resistances and skill bonuses.
@@ -274,7 +276,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.22...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.23...HEAD
+[0.6.23]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.22...0.6.23
 [0.6.22]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.21...0.6.22
 [0.6.21]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.20...0.6.21
 [0.6.20]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.19...0.6.20
