@@ -27,8 +27,8 @@
   "SouthsilArmor_DraugrChest_Description": "Cuir épais, pourri et inconfortable recouvrant des plaques de fer rouillées. Très lourd, excellente protection, au risque de passer pour un draugr.",
   "SouthsilArmor_DraugrLegs_Name": "Ceinture crânienne draugr",
   "SouthsilArmor_DraugrLegs_Description": "Crânes et chiffons déchirés renforcés de fer, empestant d'une odeur nauséabonde. Les crânes chuchotent dans les profondeurs du marais et vous trouvez du réconfort dans ce qu'ils disent.",
-  "SouthsilArmor_DraugrSet_Effect_Name": "Mort-vivant",
-  "SouthsilArmor_DraugrSet_Effect_Tooltip": "Avec un gémissement vacillant, vous avancez d'un pas traînant, une force irrésistible obligeant votre chair à obéir...",
+  "SouthsilArmor_DraugrSet_Effect_Name": "Imperméable",
+  "SouthsilArmor_DraugrSet_Effect_Tooltip": "Avec un gémissement vacillant, vous avancez d'un pas traînant dans l'eau boueuse du marais, une force irrésistible obligeant votre chair à ignorer les éléments...",
 
   "SouthsilArmor_GrizzlyHelm_Name": "Casque de grizzly",
   "SouthsilArmor_GrizzlyHelm_Description": "Un casque féroce, celui d'une bête massive et puissante.",
@@ -65,8 +65,8 @@
   "SouthsilArmor_BerserkirChest_Description": "Armure exceptionnellement lourde et massive composée de plaques de sombracier. Nul besoin de se précipiter lorsqu'aucun ennemi ne peut vous blesser.",
   "SouthsilArmor_BerserkirLegs_Name": "Jambières berserkir",
   "SouthsilArmor_BerserkirLegs_Description": "Robustes, lourdes et inflexibles, ces bottes en sombracier sont faites pour piétiner aussi bien le sol que l'ennemi.",
-  "SouthsilArmor_BerserkirSet_Effect_Name": "Guerrier titanesque",
-  "SouthsilArmor_BerserkirSet_Effect_Tooltip": "Maniant des armes gigantesques comme si elles ne pesaient rien, vous traversez le champ de bataille d'un seul coup, la mort se déployant devant vous.",
+  "SouthsilArmor_BerserkirSet_Effect_Name": "Inarrêtable",
+  "SouthsilArmor_BerserkirSet_Effect_Tooltip": "Maniant des armes gigantesques comme si elles ne pesaient rien, vous tourbillonez dans la mêlée tandis que l'ennemi tente de vous encercler. Il est trop tard quand ils comprennent que la seule chose autour de vous est la peur. Et la mort.",
 
   "SouthsilArmor_GjallhunterHelm_Name": "Cuticule de chasseur-gjall",
   "SouthsilArmor_GjallhunterHelm_Description": "Une enveloppe insectoïde qui réfracte la lumière à travers ses douze yeux et améliore votre vue, bien que vous ne sachiez pas vraiment comment.",
@@ -84,7 +84,7 @@
   "SouthsilArmor_RuneknightLegs_Name": "Cuissardes de chevalier runique",
   "SouthsilArmor_RuneknightLegs_Description": "L'eitr scintille toujours à travers le métal calciné et le linge étrangement préservé.",
   "SouthsilArmor_RuneknightSet_Effect_Name": "Corruption d'eitr",
-  "SouthsilArmor_RuneknightSet_Effect_Tooltip": "L'eitr vous a enveloppé, ses vrilles remodelant lentement tous les aspects de votre être. Vous ressentez désormais le pouvoir enivrant de votre propre sang, et un sourire sinistre se dessinerait sur votre visage, s'il y en avait encore un.",
+  "SouthsilArmor_RuneknightSet_Effect_Tooltip": "L'eitr vous a enveloppé, ses vrilles remodelant lentement tous les aspects de votre être. Vous ressentez désormais le pouvoir enivrant de votre propre sang, et un sourire sinistre se dessinerait sur votre visage, si vous en aviez encore un.",
 
   "SouthsilArmor_DruidHelm_Name": "Masque druidique",
   "SouthsilArmor_DruidHelm_Description": "Un masque lourd fait d'argent et de brindilles d'Yggdrasil. Infusé à la fois d'eitr raffiné et de sève brute, il semble permettre à celui qui le porte d'exploiter des forces invisibles.",
@@ -93,5 +93,5 @@
   "SouthsilArmor_DruidLegs_Name": "Jambières druidiques",
   "SouthsilArmor_DruidLegs_Description": "Des bottes en cuir simples mais finement confectionnées, chaudement maintenues par une doublure en fourrure de lox et une jupe en écailles de lièvre ainsi que la partie inférieure de votre tabard vert plumeux.",
   "SouthsilArmor_DruidSet_Effect_Name": "Accordement élemental",
-  "SouthsilArmor_DruidSet_Effect_Tooltip": "À mesure que vous les concentrez et les apprivoisez, les forces de la nature enveloppent votre corps et votre esprit, et vous ne faites qu'un."
+  "SouthsilArmor_DruidSet_Effect_Tooltip": "À mesure que vous les concentrez et les apprivoisez, les forces de la nature enveloppent votre corps et votre esprit. Elles aiguisent vos sens et consolident votre force. Vous ne faites qu'un."
 }

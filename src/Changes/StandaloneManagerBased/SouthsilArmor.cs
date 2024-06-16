@@ -3,6 +3,7 @@ extern alias SouthsilArmor;
 using System;
 using System.Collections.Generic;
 using static LotusEcarlateChanges.Changes.Constants.Armor;
+using LotusEcarlateChanges.Changes.Manual;
 using LotusEcarlateChanges.Changes.JotunnBased;
 using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
@@ -58,6 +59,10 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     var chieftainBoarEquipEffect = chieftainHelmBoarWrapper.Armor.EquipEffect;
     chieftainBoarEquipEffect.m_name = "$SouthsilArmor_ChieftainHelmBoar_Effect_Name";
     chieftainBoarEquipEffect.m_tooltip = "$SouthsilArmor_ChieftainHelmBoar_Effect_Tooltip";
+    chieftainBoarEquipEffect.m_healthRegenMultiplier = 1.25f;
+    chieftainBoarEquipEffect.m_staminaRegenMultiplier = 1f;
+    chieftainBoarEquipEffect.m_skillLevel = Skills.SkillType.Blocking;
+    chieftainBoarEquipEffect.m_skillLevelModifier = 10;
     chieftainHelmBoar.Prefab.FixItemLayer();
 
     var (chieftainHelmDeer, chieftainHelmDeerWrapper) = itemManager["chiefhelmdeer"];
@@ -85,7 +90,9 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     chieftainDeerEquipEffect.m_tooltip = "$SouthsilArmor_ChieftainHelmDeer_Effect_Tooltip";
     chieftainDeerEquipEffect.m_speedModifier = 0;
     chieftainDeerEquipEffect.m_runStaminaDrainModifier = 0;
-    chieftainDeerEquipEffect.m_staminaRegenMultiplier = 1.4f;
+    chieftainDeerEquipEffect.m_staminaRegenMultiplier = 1.5f;
+    chieftainDeerEquipEffect.m_skillLevel = Skills.SkillType.Run;
+    chieftainDeerEquipEffect.m_skillLevelModifier = 10;
     chieftainHelmDeer.Prefab.FixItemLayer();
 
     var (chieftainChest, chieftainChestWrapper) = itemManager["chiefchest"];
@@ -299,8 +306,8 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     draugrSetEffect.m_mods.Clear();
     draugrSetEffect.m_mods.Add(new()
     {
-      m_type = HitData.DamageType.Poison,
-      m_modifier = HitData.DamageModifier.Resistant,
+      m_type = CapeAndTorchResistanceChanges.Water,
+      m_modifier = HitData.DamageModifier.Immune,
     });
 
     draugrHelmWrapper.Set.Name = "Draugr";
@@ -390,8 +397,8 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlySetEffect.m_mods.Clear();
     grizzlySetEffect.m_mods.Add(new()
     {
-      m_type = HitData.DamageType.Frost,
-      m_modifier = HitData.DamageModifier.Resistant,
+      m_type = CapeAndTorchResistanceChanges.Cold,
+      m_modifier = HitData.DamageModifier.VeryResistant,
     });
     grizzlySetEffect.m_staminaRegenMultiplier = 1;
 
@@ -483,6 +490,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralSetEffect.m_jumpStaminaUseModifier = 0;
     feralSetEffect.m_speedModifier = 0;
     feralSetEffect.m_stealthModifier = 0;
+    feralSetEffect.m_mods.Clear();
 
     feralHelmWrapper.Set.Name = "Feral";
     feralHelmWrapper.Set.Size = 3;
@@ -584,6 +592,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     shieldMaidenSetEffect.m_skillLevelModifier = 15;
     shieldMaidenSetEffect.m_skillLevel2 = Skills.SkillType.Blocking;
     shieldMaidenSetEffect.m_skillLevelModifier2 = 15;
+    shieldMaidenSetEffect.m_mods.Clear();
 
     shieldmaidenHelmWrapper.Set.Name = "Shieldmaiden";
     shieldmaidenHelmWrapper.Set.Size = 3;
@@ -660,12 +669,13 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     var berserkirSetEffect = berserkirHelmWrapper.Set.Effect;
     berserkirSetEffect.m_name = "$SouthsilArmor_BerserkirSet_Effect_Name";
     berserkirSetEffect.m_tooltip = "$SouthsilArmor_BerserkirSet_Effect_Tooltip";
-    berserkirSetEffect.m_skillLevel = CustomSkills.TwoHandedAxes;
+    berserkirSetEffect.m_skillLevel = Skills.SkillType.Polearms;
     berserkirSetEffect.m_skillLevelModifier = 15;
-    berserkirSetEffect.m_skillLevel2 = CustomSkills.TwoHandedHammers;
+    berserkirSetEffect.m_skillLevel2 = CustomSkills.TwoHandedAxes;
     berserkirSetEffect.m_skillLevelModifier2 = 15;
     berserkirSetEffect.m_healthRegenMultiplier = 1;
     berserkirSetEffect.m_staminaRegenMultiplier = 1;
+    berserkirSetEffect.m_mods.Clear();
 
     berserkirHelmWrapper.Set.Name = "Berserkir";
     berserkirHelmWrapper.Set.Size = 3;
@@ -753,6 +763,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     gjallhunterSetEffect.m_skillLevel2 = Skills.SkillType.Crossbows;
     gjallhunterSetEffect.m_skillLevelModifier2 = 15;
     gjallhunterSetEffect.m_staminaRegenMultiplier = 1;
+    gjallhunterSetEffect.m_mods.Clear();
 
     gjallhunterHelmWrapper.Set.Name = "Gjallhunter";
     gjallhunterHelmWrapper.Set.Size = 3;
@@ -836,6 +847,10 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     runeknightSetEffect.m_tooltip = "$SouthsilArmor_RuneknightSet_Effect_Tooltip";
     runeknightSetEffect.m_skillLevel = Skills.SkillType.BloodMagic;
     runeknightSetEffect.m_skillLevelModifier = 15;
+    runeknightSetEffect.m_skillLevel2 = Skills.SkillType.None;
+    runeknightSetEffect.m_skillLevelModifier2 = 0;
+    runeknightSetEffect.m_eitrRegenMultiplier = 1.5f;
+    runeknightSetEffect.m_mods.Clear();
 
     runeknightHelmWrapper.Set.Name = "Runeknight";
     runeknightHelmWrapper.Set.Size = 3;
@@ -924,14 +939,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidSetEffect.m_tooltip = "$SouthsilArmor_DruidSet_Effect_Tooltip";
     druidSetEffect.m_skillLevel = Skills.SkillType.ElementalMagic;
     druidSetEffect.m_skillLevelModifier = 15;
-    druidSetEffect.m_mods.Clear();
-    druidSetEffect.m_mods.Add(new()
-    {
-      m_type = HitData.DamageType.Lightning,
-      m_modifier = HitData.DamageModifier.Resistant,
-    });
+    druidSetEffect.m_skillLevel2 = CustomSkills.TwoHandedHammers;
+    druidSetEffect.m_skillLevelModifier2 = 15;
+    druidSetEffect.m_eitrRegenMultiplier = 1.5f;
     druidSetEffect.m_staminaRegenMultiplier = 1;
     druidSetEffect.m_addMaxCarryWeight = 0;
+    druidSetEffect.m_mods.Clear();
 
     druidHelmWrapper.Set.Name = "Druid";
     druidHelmWrapper.Set.Size = 3;

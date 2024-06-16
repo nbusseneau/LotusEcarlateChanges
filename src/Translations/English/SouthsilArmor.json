@@ -27,8 +27,8 @@
   "SouthsilArmor_DraugrChest_Description": "Thick, rotten, and uncomfortable leather covering rusted iron plates. Very heavy, excellent protection, at the risk of getting mistaken for a draugr.",
   "SouthsilArmor_DraugrLegs_Name": "Draugr skullbelt",
   "SouthsilArmor_DraugrLegs_Description": "Skulls and iron-reinforced torn rags, reeking of a foul smell. They whisper to you in the depths of the swamp, and you find solace in what they say.",
-  "SouthsilArmor_DraugrSet_Effect_Name": "Undead",
-  "SouthsilArmor_DraugrSet_Effect_Tooltip": "With a wavering groan, you shamble forward, an irresistible force compelling your flesh to obey...",
+  "SouthsilArmor_DraugrSet_Effect_Name": "Waterproof",
+  "SouthsilArmor_DraugrSet_Effect_Tooltip": "With a wavering groan, you shamble forward in the swamp's muddy water, an irresistible force compelling your flesh to ignore the elements...",
 
   "SouthsilArmor_GrizzlyHelm_Name": "Grizzly helmet",
   "SouthsilArmor_GrizzlyHelm_Description": "A ferocious helmet, styled to a massive and mighty beast.",
@@ -65,8 +65,8 @@
   "SouthsilArmor_BerserkirChest_Description": "Exceptionally heavy and massive armor made of black metal plates. There is no need for haste when no foe can hurt you.",
   "SouthsilArmor_BerserkirLegs_Name": "Berserkir greaves",
   "SouthsilArmor_BerserkirLegs_Description": "Sturdy, heavy, and unyielding, these black metal boots are made for stomping ground and foes alike.",
-  "SouthsilArmor_BerserkirSet_Effect_Name": "Hulking warrior",
-  "SouthsilArmor_BerserkirSet_Effect_Tooltip": "Wielding gigantic weapons as if they weighed nothing, you wade across the battlefield in one sweep, death unfurling before you.",
+  "SouthsilArmor_BerserkirSet_Effect_Name": "Unstoppable",
+  "SouthsilArmor_BerserkirSet_Effect_Tooltip": "Wielding gigantic weapons as if they weighed nothing, you whirlwind into the fray as enemies try to surround you. It is too late when they understand that all you are surrounded by is fear. And death.",
 
   "SouthsilArmor_GjallhunterHelm_Name": "Gjall-hunter husk",
   "SouthsilArmor_GjallhunterHelm_Description": "An insectoid husk which refracts light through its twelve eyes and enhances your eyesight, though you're not quite sure how.",
@@ -84,7 +84,7 @@
   "SouthsilArmor_RuneknightLegs_Name": "Rune-knight legplates",
   "SouthsilArmor_RuneknightLegs_Description": "The eitr still flickers through the charred metal and strangely preserved linen.",
   "SouthsilArmor_RuneknightSet_Effect_Name": "Eitr corruption",
-  "SouthsilArmor_RuneknightSet_Effect_Tooltip": "Eitr has enveloped you, its tendrils slowly reshaping every aspect of your being. You now feel the intoxicating power of your own blood, and a sinister smile would appear on your face, if there was still one.",
+  "SouthsilArmor_RuneknightSet_Effect_Tooltip": "Eitr has enveloped you, its tendrils slowly reshaping every aspect of your being. You now feel the intoxicating power of your own blood, and a sinister smile would appear on your face, if you still had one.",
 
   "SouthsilArmor_DruidHelm_Name": "Druid mask",
   "SouthsilArmor_DruidHelm_Description": "A heavy mask made of silver and twigs from Yggdrasil. Infused both with refined eitr and raw sap, it seemingly allows the wearer to tap into invisible forces.",
@@ -93,5 +93,5 @@
   "SouthsilArmor_DruidLegs_Name": "Druid leggings",
   "SouthsilArmor_DruidLegs_Description": "Simple but finely crafted leather boots, made warmer by a lox fur lining and a hare scalemail skirt along with the lower part of your feathery-green tabard.",
   "SouthsilArmor_DruidSet_Effect_Name": "Elemental attunement",
-  "SouthsilArmor_DruidSet_Effect_Tooltip": "As you focus and tame them, the forces of nature envelop your body and spirit, and you feel one."
+  "SouthsilArmor_DruidSet_Effect_Tooltip": "As you focus and tame them, the forces of nature envelop your body and spirit. They sharpen your senses and bolster your strength. You feel one."
 }

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rebalance armor sets resistances and skill bonuses.
 - Change weather-related Hugin tutorial to better reflect capes/clothing changes.
 
 ## [0.6.22] - 2024-06-16

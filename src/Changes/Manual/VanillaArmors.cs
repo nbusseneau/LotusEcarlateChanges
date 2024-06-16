@@ -305,8 +305,8 @@ public class VanillaArmors : ManualChangesBase
     wolfSetEffect.m_icon = wolfChest.Icon;
     wolfSetEffect.m_mods.Add(new()
     {
-      m_type = HitData.DamageType.Frost,
-      m_modifier = HitData.DamageModifier.Resistant,
+      m_type = CapeAndTorchResistanceChanges.Cold,
+      m_modifier = HitData.DamageModifier.VeryResistant,
     });
 
     wolfHelm.Set.Effect = wolfSetEffect;
