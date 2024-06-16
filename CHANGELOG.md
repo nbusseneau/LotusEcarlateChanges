@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix bulk harvest on hover keyhints displaying when they should not (for real this time).
+
 ## [0.6.21] - 2024-06-15
 
 ### Changed
