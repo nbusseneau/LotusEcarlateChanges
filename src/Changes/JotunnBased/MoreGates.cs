@@ -36,7 +36,7 @@ public class MoreGates() : JotunnBasedChangesBase("com.drakemods.Moregates")
     foreach (var piece in this.PieceManager[heavyPieces]) piece.Category = Piece.PieceCategory.BuildingStonecutter;
   }
 
-  protected override void ApplyInternalDeferred()
+  protected override void ApplyOnPiecesRegisteredInternal()
   {
     var forge = ZNetScene.instance.GetPrefab(CraftingStations.Forge).GetComponent<CraftingStation>();
 

@@ -12,7 +12,7 @@ public class Lightsources : ManualChangesBase
   private static readonly Dictionary<string, float> s_torchlikeRangesCache = [];
   private const float TorchDurability = 50f;
 
-  protected override void ApplyInternalDeferred()
+  protected override void ApplyApplyOnObjectDBAwakeInternal()
   {
     // Fireplace pieces ranges
     // Do a first pass to build range cache

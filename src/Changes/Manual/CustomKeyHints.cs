@@ -67,20 +67,13 @@ public class CustomKeyHints : ManualChangesBase
 
   private readonly Dictionary<string, string> _keyHintStrings = [];
 
-  protected override void ApplyInternalDeferred()
+  protected override void ApplyInternal()
   {
-    this.FetchPluginConfigEntries();
-    this.SetUpCombatHints();
-    this.SetUpBuildHints();
-    this.SetUpInventoryHints();
-    this.SetUpSwimHints();
-    this.SetUpMapHints();
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(KeyHints), nameof(KeyHints.UpdateHints)),
       postfix: new HarmonyMethod(this.GetType(), nameof(UpdateHints))
     );
 
-    bulkHarvestModifierHoverKey = this._keyHintStrings["advize.PlantEasily.Controls.KeyboardHarvestModifierKey"];
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(Beehive), nameof(Beehive.GetHoverText)),
       postfix: new HarmonyMethod(this.GetType(), nameof(BeehiveGetHoverText))
@@ -89,6 +82,60 @@ public class CustomKeyHints : ManualChangesBase
       AccessTools.Method(typeof(Pickable), nameof(Pickable.GetHoverText)),
       postfix: new HarmonyMethod(this.GetType(), nameof(PickableGetHoverText))
     );
+  }
+
+  private static void UpdateHints(KeyHints __instance)
+  {
+    if (Player.m_localPlayer is not { } player) return;
+    // default safeguard copied from KeyHints.UpdateHints
+    if (!__instance.m_keyHintsEnabled || player.IsDead() || Chat.instance.IsChatDialogWindowVisible() || Game.IsPaused() || (InventoryGui.instance != null && (InventoryGui.instance.IsSkillsPanelOpen || InventoryGui.instance.IsTrophisPanelOpen || InventoryGui.instance.IsTextPanelOpen))) return;
+
+    var isCombat = KeyHints.instance.m_combatHints.activeInHierarchy;
+    var isBuild = KeyHints.instance.m_buildHints.activeInHierarchy;
+    var isInventory = KeyHints.instance.m_inventoryHints.activeInHierarchy || KeyHints.instance.m_inventoryWithContainerHints.activeInHierarchy;
+    var isSwimming = player.IsSwimming();
+
+    s_swimHints.SetActive(!isCombat && !isBuild && !isInventory && isSwimming);
+
+    if (isCombat)
+    {
+      s_bowDrawZoomHint.SetActive(KeyHints.instance.m_bowDrawKB.activeInHierarchy);
+      s_bowDrawCancelHint.SetActive(KeyHints.instance.m_bowDrawKB.activeInHierarchy);
+
+      var hasSomethingInHand = player.m_leftItem is not null || player.m_rightItem is not null;
+      s_holsterSwap.SetActive(hasSomethingInHand);
+      s_unequip.SetActive(hasSomethingInHand);
+
+      var isThrowableRight = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_rightItem);
+      var isThrowableLeft = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_leftItem);
+      var isThrowableShield = isThrowableLeft && player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
+      s_throwWeaponHint.SetActive(isThrowableRight || isThrowableLeft && !isThrowableShield);
+      s_throwShieldHint.SetActive(isThrowableShield);
+
+      s_combatSwimDive.SetActive(isSwimming);
+      s_combatSwimAscend.SetActive(isSwimming);
+    }
+
+    else if (isBuild)
+    {
+      var currentTool = player.m_rightItem;
+      var isCultivator = currentTool?.m_dropPrefab?.name.Contains("Cultivator") ?? false;
+      var isHoe = currentTool?.m_dropPrefab?.name.Contains("Hoe") ?? false;
+      s_cultivatorModifierHint.SetActive(isCultivator);
+      s_hoeRadiusModifierHint.SetActive(isHoe);
+      s_hoeHardnessModifierHint.SetActive(isHoe);
+
+      s_buildSwimDive.SetActive(isSwimming);
+      s_buildSwimAscend.SetActive(isSwimming);
+    }
+
+    else if (isInventory)
+    {
+      var hasWeapon = player.m_rightItem is { } right && right.IsWeapon() || player.m_leftItem is { } left && left.IsWeapon();
+      var hasShield = player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
+      s_compare.SetActive(hasWeapon || hasShield);
+      s_compareWithContainer.SetActive(hasWeapon || hasShield);
+    }
   }
 
   private static string bulkHarvestModifierHoverKey;
@@ -109,6 +156,17 @@ public class CustomKeyHints : ManualChangesBase
 
     var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkPickUp";
     __result += Localization.instance.Localize(hoverTextSuffix);
+  }
+
+  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  {
+    this.FetchPluginConfigEntries();
+    this.SetUpCombatHints();
+    this.SetUpBuildHints();
+    this.SetUpInventoryHints();
+    this.SetUpSwimHints();
+    this.SetUpMapHints();
+    bulkHarvestModifierHoverKey = this._keyHintStrings["advize.PlantEasily.Controls.KeyboardHarvestModifierKey"];
   }
 
   private void FetchPluginConfigEntries()
@@ -260,60 +318,6 @@ public class CustomKeyHints : ManualChangesBase
     var keyBkgClone = Object.Instantiate(KeyHints.m_instance.m_buildHints.Find("Keyboard/AltPlace/key_bkg"), clone.transform);
     keyBkgClone.name = "key_bkg";
     keyBkgClone.SetText(this._keyHintStrings["org.bepinex.plugins.targetportal.1 - General.Hotkey map icons"]);
-  }
-
-  private static void UpdateHints(KeyHints __instance)
-  {
-    if (Player.m_localPlayer is not { } player) return;
-    // default safeguard copied from KeyHints.UpdateHints
-    if (!__instance.m_keyHintsEnabled || player.IsDead() || Chat.instance.IsChatDialogWindowVisible() || Game.IsPaused() || (InventoryGui.instance != null && (InventoryGui.instance.IsSkillsPanelOpen || InventoryGui.instance.IsTrophisPanelOpen || InventoryGui.instance.IsTextPanelOpen))) return;
-
-    var isCombat = KeyHints.instance.m_combatHints.activeInHierarchy;
-    var isBuild = KeyHints.instance.m_buildHints.activeInHierarchy;
-    var isInventory = KeyHints.instance.m_inventoryHints.activeInHierarchy || KeyHints.instance.m_inventoryWithContainerHints.activeInHierarchy;
-    var isSwimming = player.IsSwimming();
-
-    s_swimHints.SetActive(!isCombat && !isBuild && !isInventory && isSwimming);
-
-    if (isCombat)
-    {
-      s_bowDrawZoomHint.SetActive(KeyHints.instance.m_bowDrawKB.activeInHierarchy);
-      s_bowDrawCancelHint.SetActive(KeyHints.instance.m_bowDrawKB.activeInHierarchy);
-
-      var hasSomethingInHand = player.m_leftItem is not null || player.m_rightItem is not null;
-      s_holsterSwap.SetActive(hasSomethingInHand);
-      s_unequip.SetActive(hasSomethingInHand);
-
-      var isThrowableRight = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_rightItem);
-      var isThrowableLeft = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_leftItem);
-      var isThrowableShield = isThrowableLeft && player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
-      s_throwWeaponHint.SetActive(isThrowableRight || isThrowableLeft && !isThrowableShield);
-      s_throwShieldHint.SetActive(isThrowableShield);
-
-      s_combatSwimDive.SetActive(isSwimming);
-      s_combatSwimAscend.SetActive(isSwimming);
-    }
-
-    else if (isBuild)
-    {
-      var currentTool = player.m_rightItem;
-      var isCultivator = currentTool?.m_dropPrefab?.name.Contains("Cultivator") ?? false;
-      var isHoe = currentTool?.m_dropPrefab?.name.Contains("Hoe") ?? false;
-      s_cultivatorModifierHint.SetActive(isCultivator);
-      s_hoeRadiusModifierHint.SetActive(isHoe);
-      s_hoeHardnessModifierHint.SetActive(isHoe);
-
-      s_buildSwimDive.SetActive(isSwimming);
-      s_buildSwimAscend.SetActive(isSwimming);
-    }
-
-    else if (isInventory)
-    {
-      var hasWeapon = player.m_rightItem is { } right && right.IsWeapon() || player.m_leftItem is { } left && left.IsWeapon();
-      var hasShield = player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
-      s_compare.SetActive(hasWeapon || hasShield);
-      s_compareWithContainer.SetActive(hasWeapon || hasShield);
-    }
   }
 
   private class CustomKeyHint

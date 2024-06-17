@@ -17,20 +17,24 @@ public abstract class ManualChangesBase : IChanges
   }
   protected virtual void ApplyInternal() { }
 
-  protected static void ApplyDeferred()
+  protected static void ApplyOnObjectDBAwake()
   {
     if (ObjectDB.instance.GetItemPrefab("Wood") is null) return; // safeguard until ObjectDB is actually ready
-    foreach (var instance in s_instances) instance.ApplyInternalDeferred();
+    foreach (var instance in s_instances) instance.ApplyApplyOnObjectDBAwakeInternal();
     ItemManager.Instance.Apply();
     PieceManager.Instance.Apply();
   }
-  protected virtual void ApplyInternalDeferred() { }
+
+  /// <summary>
+  /// Idempotent changes only, as this will be called mutliple times.
+  /// </summary>
+  protected virtual void ApplyApplyOnObjectDBAwakeInternal() { }
 
   static ManualChangesBase()
   {
     Plugin.Harmony.Patch(
       AccessTools.Method(typeof(ObjectDB), nameof(ObjectDB.Awake)),
-      postfix: new HarmonyMethod(typeof(ManualChangesBase), nameof(ApplyDeferred)) { priority = -100 }
+      postfix: new HarmonyMethod(typeof(ManualChangesBase), nameof(ApplyOnObjectDBAwake)) { priority = -100 }
     );
   }
 }

@@ -53,7 +53,7 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
     foreach (var piece in this.PieceManager[tables]) (piece.Comfort.Value, piece.Comfort.Group) = (1, Piece.ComfortGroup.Table);
   }
 
-  protected override void ApplyInternalDeferred()
+  protected override void ApplyOnPiecesRegisteredInternal()
   {
     var workbench = ZNetScene.instance.GetPrefab(CraftingStations.Workbench).GetComponent<CraftingStation>();
     var forge = ZNetScene.instance.GetPrefab(CraftingStations.Forge).GetComponent<CraftingStation>();

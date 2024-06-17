@@ -12,8 +12,12 @@ public abstract class JotunnBasedChangesBase(string modGuid = null) : IChanges
     this.ApplyInternal();
     ItemManager?.Apply();
     PieceManager?.Apply();
-    Jotunn.Managers.PieceManager.OnPiecesRegistered += ApplyInternalDeferred;
+    Jotunn.Managers.PieceManager.OnPiecesRegistered += ApplyOnPiecesRegisteredInternal;
   }
   protected abstract void ApplyInternal();
-  protected virtual void ApplyInternalDeferred() { }
+
+  /// <summary>
+  /// Idempotent changes only, as this will be called mutliple times.
+  /// </summary>
+  protected virtual void ApplyOnPiecesRegisteredInternal() { }
 }
