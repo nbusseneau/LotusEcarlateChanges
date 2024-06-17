@@ -360,7 +360,7 @@ public class VanillaArmors : ManualChangesBase
     loxCape.Resources.Clear();
     loxCape.Resources.Add("LoxPelt", 6, 3);
     loxCape.Resources.Add("Silver", 6, 6);
-    loxCape.Resources.Add("LoxBone_TW", 2, 1);
+    loxCape.Resources.Add("ProwlerFang_TW", 2, 1);
     loxCape.Armor.DamageModifiers.Clear();
     loxCape.Armor.DamageModifiers.Add(new()
     {

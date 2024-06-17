@@ -425,7 +425,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralHelm.RequiredItems.Requirements.Clear();
     feralHelm.RequiredItems.Add("BlackMetal", 4);
     feralHelm.RequiredItems.Add("WolfHairBundle", 10);
-    feralHelm.RequiredItems.Add("TrophyProwler_TW", 2);
+    feralHelm.RequiredItems.Add("TrophyProwler_TW", 1);
     feralHelm.RequiredItems.Add("Ruby", 5);
     feralHelm.RequiredUpgradeItems.Requirements.Clear();
     feralHelm.RequiredUpgradeItems.Add("BlackMetal", 2);
@@ -447,12 +447,12 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     feralChest.RequiredItems.Requirements.Clear();
     feralChest.RequiredItems.Add("BlackMetal", 12);
     feralChest.RequiredItems.Add("LoxPelt", 4);
-    feralChest.RequiredItems.Add("ProwlerFang_TW", 12);
+    feralChest.RequiredItems.Add("ProwlerFang_TW", 4);
     feralChest.RequiredItems.Add("TrophyUlv", 4);
     feralChest.RequiredUpgradeItems.Requirements.Clear();
     feralChest.RequiredUpgradeItems.Add("BlackMetal", 6);
     feralChest.RequiredUpgradeItems.Add("LoxPelt", 1);
-    feralChest.RequiredUpgradeItems.Add("ProwlerFang_TW", 3);
+    feralChest.RequiredUpgradeItems.Add("ProwlerFang_TW", 2);
     feralChestWrapper.Armor.ArmorBase = 21;
     feralChestWrapper.Armor.ArmorPerLevel = 3;
     feralChestWrapper.Armor.MovementModifier = VeryLight.MovementModifier.Chest;

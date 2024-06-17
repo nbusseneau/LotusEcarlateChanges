@@ -48,22 +48,22 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     saddleBoar.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 2);
     saddleBoar.RequiredItems.Requirements.Clear();
     saddleBoar.RequiredItems.Add("RazorbackLeather_TW", 10);
-    saddleBoar.RequiredItems.Add("RazorbackTusk_TW", 12);
+    saddleBoar.RequiredItems.Add("RazorbackTusk_TW", 5);
     saddleBoar.RequiredItems.Add("Bronze", 10);
 
     var saddleBear = itemManager["SaddleBear_TW"].Item;
     saddleBear.Crafting.Stations.Clear();
     saddleBear.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 3);
     saddleBear.RequiredItems.Requirements.Clear();
-    saddleBear.RequiredItems.Add("BlackBearPelt_TW", 10);
-    saddleBear.RequiredItems.Add("GrizzlyBearPelt_TW", 10);
+    saddleBear.RequiredItems.Add("BlackBearPelt_TW", 5);
+    saddleBear.RequiredItems.Add("GrizzlyBearPelt_TW", 3);
     saddleBear.RequiredItems.Add("Silver", 10);
 
     var saddleProwler = itemManager["SaddleProwler_TW"].Item;
     saddleProwler.Crafting.Stations.Clear();
     saddleProwler.Crafting.Add(Monstrum::ItemManager.CraftingTable.Workbench, 4);
     saddleProwler.RequiredItems.Requirements.Clear();
-    saddleProwler.RequiredItems.Add("ProwlerFang_TW", 10);
+    saddleProwler.RequiredItems.Add("ProwlerFang_TW", 2);
     saddleProwler.RequiredItems.Add("LinenThread", 20);
     saddleProwler.RequiredItems.Add("LoxPelt", 4);
     saddleProwler.RequiredItems.Add("BlackMetal", 10);

@@ -64,7 +64,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     itemManager.Keep(fists);
     foreach (var fist in itemManager[fists]) fist.Wrapper.Weapon.MovementModifier = MovementModifier.Fist;
 
-    var (fistBronze, _) = itemManager["FistBronze_TW"];
+    var fistBronze = itemManager["FistBronze_TW"].Item;
     fistBronze.RequiredItems.Requirements.Clear();
     fistBronze.RequiredItems.Add("DeerHide", 4);
     fistBronze.RequiredItems.Add("Bronze", 4);
@@ -80,6 +80,17 @@ public class Warfare : StandaloneManagerBasedChangesBase
     itemManager.Keep(lances);
     foreach (var lance in itemManager[lances]) lance.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
+    var lanceBlackmetal = itemManager["LanceBlackmetal_TW"].Item;
+    lanceBlackmetal.RequiredItems.Requirements.Clear();
+    lanceBlackmetal.RequiredItems.Add("FineWood", 40);
+    lanceBlackmetal.RequiredItems.Add("BlackMetal", 25);
+    lanceBlackmetal.RequiredItems.Add("LoxBone_TW", 2);
+    lanceBlackmetal.RequiredItems.Add("TrophyLox", 1);
+    lanceBlackmetal.RequiredUpgradeItems.Requirements.Clear();
+    lanceBlackmetal.RequiredUpgradeItems.Add("FineWood", 20);
+    lanceBlackmetal.RequiredUpgradeItems.Add("BlackMetal", 12);
+    lanceBlackmetal.RequiredUpgradeItems.Add("LoxBone_TW", 1);
+
     // Warpikes
     string[] warpikes = [
       "WarpikeBone_TW",
@@ -91,7 +102,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     itemManager.Keep(warpikes);
     foreach (var warpike in itemManager[warpikes]) warpike.Wrapper.Weapon.MovementModifier = MovementModifier.OneHanded;
 
-    var (warpikeBone, warpikeBoneWrapper) = itemManager["WarpikeBone_TW"];
+    var warpikeBone = itemManager["WarpikeBone_TW"].Item;
     warpikeBone.RequiredItems.Requirements.Clear();
     warpikeBone.RequiredItems.Add("BoneFragments", 16);
     warpikeBone.RequiredItems.Add("Bronze", 4);
@@ -99,6 +110,17 @@ public class Warfare : StandaloneManagerBasedChangesBase
     warpikeBone.RequiredUpgradeItems.Requirements.Clear();
     warpikeBone.RequiredUpgradeItems.Add("BoneFragments", 8);
     warpikeBone.RequiredUpgradeItems.Add("Bronze", 4);
+
+    var warpikeBlackmetal = itemManager["WarpikeBlackmetal_TW"].Item;
+    warpikeBlackmetal.RequiredItems.Requirements.Clear();
+    warpikeBlackmetal.RequiredItems.Add("FineWood", 25);
+    warpikeBlackmetal.RequiredItems.Add("BlackMetal", 25);
+    warpikeBlackmetal.RequiredItems.Add("LoxBone_TW", 2);
+    warpikeBlackmetal.RequiredItems.Add("TrophyGoblinBrute", 1);
+    warpikeBlackmetal.RequiredUpgradeItems.Requirements.Clear();
+    warpikeBlackmetal.RequiredUpgradeItems.Add("FineWood", 15);
+    warpikeBlackmetal.RequiredUpgradeItems.Add("BlackMetal", 12);
+    warpikeBlackmetal.RequiredUpgradeItems.Add("LoxBone_TW", 1);
 
     // Claymores
     string[] claymores = [
@@ -117,7 +139,7 @@ public class Warfare : StandaloneManagerBasedChangesBase
     itemManager.Keep(bastardSwords);
     foreach (var bastardSword in itemManager[bastardSwords]) bastardSword.Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
-    var (bastardBone, bastardBoneWrapper) = itemManager["BastardBone_TW"];
+    var bastardBone = itemManager["BastardBone_TW"].Item;
     bastardBone.RequiredItems.Requirements.Clear();
     bastardBone.RequiredItems.Add("BoneFragments", 16);
     bastardBone.RequiredItems.Add("Bronze", 4);
@@ -137,9 +159,19 @@ public class Warfare : StandaloneManagerBasedChangesBase
     itemManager["KnifeWrench_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.Knife;
     itemManager["TridentBlackmetal_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
     itemManager["DualSwordScimitar_TW"].Wrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
     var (blackmetalGreatbow, blackmetalGreatbowWrapper) = itemManager["GreatbowBlackmetal_TW"];
     blackmetalGreatbow.Crafting.Stations.Clear();
     blackmetalGreatbow.Crafting.Add(Warfare::ItemManager.CraftingTable.Forge, 3);
+    blackmetalGreatbow.RequiredItems.Requirements.Clear();
+    blackmetalGreatbow.RequiredItems.Add("FineWood", 40);
+    blackmetalGreatbow.RequiredItems.Add("BlackMetal", 10);
+    blackmetalGreatbow.RequiredItems.Add("LoxBone_TW", 4);
+    blackmetalGreatbow.RequiredItems.Add("TrophyGoblinShaman", 1);
+    blackmetalGreatbow.RequiredUpgradeItems.Requirements.Clear();
+    blackmetalGreatbow.RequiredUpgradeItems.Add("FineWood", 15);
+    blackmetalGreatbow.RequiredUpgradeItems.Add("BlackMetal", 5);
+    blackmetalGreatbow.RequiredUpgradeItems.Add("LoxBone_TW", 2);
     blackmetalGreatbowWrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Bucklers

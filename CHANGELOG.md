@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rebalance recipes using prowler fangs / lox bones.
+- Rebalance saddle costs.
+
 ### Fixed
 
 - Fix some patches being applied more than once.
