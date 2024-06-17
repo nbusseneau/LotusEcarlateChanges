@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rebalance stamina costs for dodging / jumping / blocking.
 - Rebalance recipes using prowler fangs / lox bones.
 - Rebalance saddle costs.
 

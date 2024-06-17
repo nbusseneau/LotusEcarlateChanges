@@ -12,6 +12,19 @@ public class VanillaMisc : ManualChangesBase
       AccessTools.Method(typeof(Player.Food), nameof(Player.Food.CanEatAgain)),
       prefix: new HarmonyMethod(this.GetType(), nameof(CanEatAgainOverride))
     );
+
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(Player), nameof(Player.Awake)),
+      prefix: new HarmonyMethod(this.GetType(), nameof(ModifyBlockStaminaDrain))
+    );
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(SEMan), nameof(SEMan.ModifyDodgeStaminaUsage)),
+      prefix: new HarmonyMethod(this.GetType(), nameof(ModifyDodgeStaminaUsageOverride))
+    );
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(SEMan), nameof(SEMan.ModifyJumpStaminaUsage)),
+      prefix: new HarmonyMethod(this.GetType(), nameof(ModifyJumpStaminaUsageOverride))
+    );
   }
 
   private const float BlinkingDurationPercentage = 10f; // can eat at 10% remaining duration to roughly match vanilla's 50% duration in terms of efficiency cutoff
@@ -19,6 +32,32 @@ public class VanillaMisc : ManualChangesBase
   {
     __runOriginal = false;
     __result = __instance.m_time < __instance.m_item.m_shared.m_foodBurnTime * BlinkingDurationPercentage / 100.0f;
+  }
+
+  private static void ModifyBlockStaminaDrain(Player __instance) => __instance.m_blockStaminaDrain = 10f;
+
+  private static void ModifyDodgeStaminaUsageOverride(SEMan __instance, float baseStaminaUse, ref float staminaUse, bool minZero)
+  {
+    // ignore calls to non-Player characters
+    if (__instance.m_character is not Player player) return;
+
+    // ignore calls coming from Player.GetEquipmentModifierPlusSE
+    if (baseStaminaUse == 1f && !minZero) return;
+
+    // reset entering value to basic stamina usage, ignoring any equipment modifiers
+    staminaUse = player.m_dodgeStaminaUsage;
+  }
+
+  private static void ModifyJumpStaminaUsageOverride(SEMan __instance, float baseStaminaUse, ref float staminaUse, bool minZero)
+  {
+    // ignore calls to non-Player characters
+    if (__instance.m_character is not Player player) return;
+
+    // ignore calls coming from Player.GetEquipmentModifierPlusSE
+    if (baseStaminaUse == 1f && !minZero) return;
+
+    // reset entering value to basic stamina usage, ignoring any equipment modifiers
+    staminaUse = player.m_jumpStaminaUsage;
   }
 
   protected override void ApplyApplyOnObjectDBAwakeInternal()
