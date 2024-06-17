@@ -16,6 +16,7 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
       "$custompiece_fancychest_public",
       "$custompiece_stonechest",
       "$custompiece_stonechest_public",
+      "$custompiece_booksecretstorage_public",
     ]);
 
     // Relocate all pieces to Furniture and erase comfort values
@@ -100,5 +101,12 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
       "$custompiece_celticidol12",
     ];
     foreach (var piece in this.PieceManager[stoneStatues]) piece.CraftingStation = stonecutter;
+
+    // Adjust secret book container size
+    var secretBookContainer = this.PieceManager["$custompiece_booksecretstorage"].Prefab.GetComponent<Container>();
+    secretBookContainer.m_width = 1;
+    secretBookContainer.m_height = 1;
+    secretBookContainer.m_inventory.m_width = 1;
+    secretBookContainer.m_inventory.m_height = 1;
   }
 }

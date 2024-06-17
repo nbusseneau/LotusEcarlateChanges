@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rebalance stamina costs for dodging / jumping / blocking.
 - Rebalance recipes using prowler fangs / lox bones.
 - Rebalance saddle costs.
+- Change Clutter's secret stash book container size to 1x1 and remove the public version.
 
 ### Fixed
 
