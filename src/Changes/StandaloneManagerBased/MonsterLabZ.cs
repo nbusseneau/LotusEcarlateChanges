@@ -38,6 +38,13 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
     creatureManager["GreenSpider"].SpawnChance = 5f;
     creatureManager["GreenSpider"].Maximum = 1;
 
+    creatureManager["ML_DraugrShip"].Biome = Heightmap.Biome.Ocean;
+    creatureManager["ML_DraugrShip"].RequiredWeather = Weather.None;
+    creatureManager["ML_DraugrShip"].SpecificSpawnArea = MonsterLabZ::CreatureManager.SpawnArea.Everywhere;
+    creatureManager["ML_GoblinShip"].Biome = Heightmap.Biome.Ocean;
+    creatureManager["ML_GoblinShip"].RequiredWeather = Weather.None;
+    creatureManager["ML_GoblinShip"].SpecificSpawnArea = MonsterLabZ::CreatureManager.SpawnArea.Everywhere;
+
     // Locations
     locationManager.Remove([
       "AshHuldraQueen_Altar",
