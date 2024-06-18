@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.25] - 2024-06-18
+
 ### Changed
 
 - Adjust MonsterLabZ fuling and draugr ships spawns.
@@ -293,7 +295,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.24...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.25...HEAD
+[0.6.25]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.24...0.6.25
 [0.6.24]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.23...0.6.24
 [0.6.23]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.22...0.6.23
 [0.6.22]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.21...0.6.22
