@@ -271,7 +271,7 @@ public class VanillaArmors : ManualChangesBase
     wolfHelm.Resources.Add("Silver", 10, 2);
     wolfHelm.Resources.Add("WolfPelt", 2, 1);
     wolfHelm.Resources.Add("WolfFang", 1, 1);
-    wolfHelm.Resources.Add("TrophyHatchling", 2, 0);
+    wolfHelm.Resources.Add("TrophyHatchling", 1, 0);
     wolfHelm.Armor.ArmorBase = 10;
     wolfHelm.Armor.ArmorPerLevel = 2;
     wolfHelm.Armor.MovementModifier = Normal.MovementModifier.Helm;
