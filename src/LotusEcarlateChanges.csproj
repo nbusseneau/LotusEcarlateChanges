@@ -5,7 +5,6 @@
     <LangVersion>12.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <LibPath>lib</LibPath>
     <R2ModManProfile>ChangesDev</R2ModManProfile>
   </PropertyGroup>
 
