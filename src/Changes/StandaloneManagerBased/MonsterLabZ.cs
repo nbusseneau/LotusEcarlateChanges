@@ -49,6 +49,7 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
       "ML_AshHuldra",
       "ML_FrostHatchling",
       "FireGolem",
+      "ObsidianGolem",
       "DwarfGoblinLoot",
     ]);
 

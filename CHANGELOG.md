@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Remove Grizzly armor heat resistance.
+- Remove MonsterLabZ obsidian golem (already present in Monstrum).
 
 ## [0.6.25] - 2024-06-18
 
