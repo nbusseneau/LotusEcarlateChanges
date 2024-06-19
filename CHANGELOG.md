@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change Wolf armor helmet drake trophy cost.
 - Rebalance Berserkir armor cost.
 - Rebalance MonsterLabZ dwarf goblins, wraith warrior, and deep sea serpent.
+- Rebalance Monstrum monsters spawn rates.
 
 ### Fixed
 

@@ -24,6 +24,7 @@ public class TherzieCreatureManager<T, Y>(List<T> registeredCreatures, List<Y> r
 
   private string GetCreatureName(Y spawner) => this.GetName((T)AccessTools.Field(spawner.GetType(), "csCreature")?.GetValue(spawner));
   private IEnumerable<Y> GetSpawners(T creature) => this._registeredSpawners.Where(spawner => this.GetCreatureName(spawner).Equals(this.GetName(creature)));
+  public void RemoveSpawner(Y spawner) => this._registeredSpawners.Remove(spawner);
 
   public (T Creature, IEnumerable<Y> Spawners) this[string name]
   {

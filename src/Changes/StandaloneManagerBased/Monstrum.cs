@@ -2,6 +2,7 @@ extern alias Monstrum;
 
 using System.Linq;
 using LotusEcarlateChanges.Model.Changes;
+using LotusEcarlateChanges.Model.Managers.Standalone;
 using Monstrum::CreatureManager;
 using Monstrum::ItemManager;
 using Monstrum::PieceManager;
@@ -10,11 +11,13 @@ namespace LotusEcarlateChanges.Changes.StandaloneManagerBased;
 
 public class Monstrum : StandaloneManagerBasedChangesBase
 {
+  private TherzieCreatureManager<Creature, Creature.Spawner> creatureManager;
+
   protected override void ApplyInternal()
   {
     var itemManager = this.RegisterItemManager(Item.registeredItems, Monstrum::ItemManager.PrefabManager.prefabs, Monstrum::ItemManager.PrefabManager.ZnetOnlyPrefabs);
     var pieceManager = this.RegisterPieceManager(BuildPiece.registeredPieces, PiecePrefabManager.piecePrefabs);
-    var creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Creature.registeredSpawners, Monstrum::CreatureManager.PrefabManager.prefabs);
+    creatureManager = this.RegisterCreatureManager(Creature.registeredCreatures, Creature.registeredSpawners, Monstrum::CreatureManager.PrefabManager.prefabs);
 
     // Rugs
     var (foxRug, foxRugWrapper) = pieceManager["rug_Fox_TW"];
@@ -91,11 +94,45 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     creatureManager["Prowler_TW"].Creature.Drops["ProwlerFang_TW"].DropChance = 100f;
 
     // Spawns
+    var foxSpawner = this.MergeDualSpawners("Fox_TW");
+    foxSpawner.CheckSpawnInterval = 600;
+    foxSpawner.SpawnChance = 15f;
+
     var razorbackSpawner = creatureManager["Razorback_TW"].Spawners.Single();
     razorbackSpawner.CheckSpawnInterval = 150;
     razorbackSpawner.SpawnChance = 40f;
     razorbackSpawner.Maximum = 3;
 
-    foreach (var spawner in creatureManager["BlackBear_TW"].Spawners) spawner.SpawnChance = 7f;
+    var blackBearSpawner = this.MergeDualSpawners("BlackBear_TW");
+    blackBearSpawner.CheckSpawnInterval = 900;
+    blackBearSpawner.SpawnChance = 10f;
+
+    var crawlerSpawner = this.MergeDualSpawners("Crawler_TW");
+    crawlerSpawner.CheckSpawnInterval = 900;
+    crawlerSpawner.SpawnChance = 10f;
+
+    var obsidianGolem = creatureManager["ObsidianGolem_TW"].Creature;
+    obsidianGolem.RequiredAltitude = new(120f, 1000f);
+    var obsidianGolemSpawner = creatureManager["ObsidianGolem_TW"].Spawners.Single();
+    obsidianGolemSpawner.CanHaveStars = false;
+
+    var grizzlyBearSpawner = this.MergeDualSpawners("GrizzlyBear_TW");
+    grizzlyBearSpawner.CheckSpawnInterval = 900;
+    grizzlyBearSpawner.SpawnChance = 10f;
+
+    var prowlerSpawner = this.MergeDualSpawners("Prowler_TW");
+    prowlerSpawner.CheckSpawnInterval = 900;
+    prowlerSpawner.SpawnChance = 10f;
+  }
+
+  private Creature.Spawner MergeDualSpawners(string creatureName)
+  {
+    var toRemove = creatureManager[creatureName].Spawners.First();
+    creatureManager.RemoveSpawner(toRemove);
+
+    var spawner = creatureManager[creatureName].Spawners.Single();
+    spawner.SpecificSpawnTime = SpawnTime.Always;
+    spawner.CanHaveStars = true;
+    return spawner;
   }
 }
