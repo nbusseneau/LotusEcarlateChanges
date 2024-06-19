@@ -333,7 +333,8 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyHelm.RequiredItems.Requirements.Clear();
     grizzlyHelm.RequiredItems.Add("Silver", 15);
     grizzlyHelm.RequiredItems.Add("GrizzlyBearPelt_TW", 1);
-    grizzlyHelm.RequiredItems.Add("TrophyHatchling", 2);
+    grizzlyHelm.RequiredItems.Add("TrophyHatchling", 1);
+    grizzlyHelm.RequiredItems.Add("TrophyGrizzlyBear_TW", 1);
     grizzlyHelm.RequiredUpgradeItems.Requirements.Clear();
     grizzlyHelm.RequiredUpgradeItems.Add("Silver", 4);
     grizzlyHelm.RequiredUpgradeItems.Add("WolfPelt", 2);
