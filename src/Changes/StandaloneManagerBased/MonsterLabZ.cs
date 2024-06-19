@@ -70,6 +70,13 @@ public class MonsterLabZ : StandaloneManagerBasedChangesBase
     creatureManager["DwarfGoblin"].Maximum = 4;
     creatureManager["DwarfGoblinShaman"].CanHaveStars = false;
 
+    creatureManager["WraithWarrior"].SpawnChance = 10f;
+    creatureManager["WraithWarrior"].Maximum = 1;
+    creatureManager["WraithWarrior"].RequiredWeather = Weather.None;
+    creatureManager["WraithWarrior"].CanHaveStars = false;
+
+    creatureManager["DeepSea_Serpent"].CanHaveStars = false;
+
     // Locations
     locationManager.Remove([
       "AshHuldraQueen_Altar",

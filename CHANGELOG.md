@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rebalance shields and tower shields movement speed and parry bonus.
 - Change Wolf armor helmet drake trophy cost.
 - Rebalance Berserkir armor cost.
-- Rebalance MonsterLabZ dwarf goblins.
+- Rebalance MonsterLabZ dwarf goblins, wraith warrior, and deep sea serpent.
 
 ### Fixed
 
