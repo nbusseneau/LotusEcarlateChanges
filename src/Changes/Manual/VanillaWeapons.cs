@@ -51,8 +51,11 @@ public class VanillaWeapons : ManualChangesBase
       "ShieldBlackmetalTower",
       "ShieldFlametalTower",
     ];
-    foreach (var towerShield in this.ItemManager[towerShields]) towerShield.Weapon.MovementModifier = MovementModifier.TowerShield;
-    this.ItemManager["ShieldSerpentscale"].Weapon.MovementModifier += 0.05f; // retain reduced malus
+    foreach (var towerShield in this.ItemManager[towerShields])
+    {
+      towerShield.Weapon.MovementModifier = MovementModifier.TowerShield;
+      towerShield.Weapon.ParryBonus = ParryBonus.TowerShield;
+    }
 
     // Bronze-tier costs
     var bronzeAtgeir = this.ItemManager["AtgeirBronze"];

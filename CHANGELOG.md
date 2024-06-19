@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rebalance shields and tower shields movement speed and parry bonus.
 - Change Wolf armor helmet drake trophy cost.
 
 ## [0.6.25] - 2024-06-18

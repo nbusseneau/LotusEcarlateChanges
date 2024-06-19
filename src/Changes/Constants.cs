@@ -12,8 +12,13 @@ public static class Constants
       public const float OneHanded = -0.05f;
       public const float TwoHanded = -0.10f;
       public const float Buckler = -0.05f;
-      public const float Shield = -0.10f;
-      public const float TowerShield = -0.15f;
+      public const float Shield = -0.05f;
+      public const float TowerShield = -0.10f;
+    }
+
+    public static class ParryBonus
+    {
+      public const float TowerShield = 1.1f;
     }
   }
 
