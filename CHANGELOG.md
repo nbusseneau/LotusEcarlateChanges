@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rebalance shields and tower shields movement speed and parry bonus.
 - Change Wolf armor helmet drake trophy cost.
 
+### Fixed
+
+- Remove Grizzly armor heat resistance.
+
 ## [0.6.25] - 2024-06-18
 
 ### Changed

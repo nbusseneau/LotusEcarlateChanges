@@ -364,6 +364,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyChestWrapper.Armor.ArmorPerLevel = 4;
     grizzlyChestWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Chest;
     grizzlyChestWrapper.Armor.Weight = VeryHeavy.Weight.Chest;
+    grizzlyChestWrapper.SharedData.m_heatResistanceModifier = 0f;
 
     var (grizzlyLegs, grizzlyLegsWrapper) = itemManager["heavybearlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
@@ -386,6 +387,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     grizzlyLegsWrapper.Armor.ArmorPerLevel = 3;
     grizzlyLegsWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Legs;
     grizzlyLegsWrapper.Armor.Weight = VeryHeavy.Weight.Legs;
+    grizzlyLegsWrapper.SharedData.m_heatResistanceModifier = 0f;
 
     var grizzlySetEffect = grizzlyHelmWrapper.Set.Effect;
     grizzlySetEffect.m_name = "$SouthsilArmor_GrizzlySet_Effect_Name";
