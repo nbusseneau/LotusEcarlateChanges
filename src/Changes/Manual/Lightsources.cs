@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using LotusEcarlateChanges.Model.Changes;
 using UnityEngine;
 
@@ -11,6 +12,26 @@ public class Lightsources : ManualChangesBase
   private static readonly Dictionary<string, (float?, float?)> s_fireplaceRangesCache = [];
   private static readonly Dictionary<string, float> s_torchlikeRangesCache = [];
   private const float TorchDurability = 50f;
+
+  protected override void ApplyInternal()
+  {
+    // Custom patches
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(Fireplace), nameof(Fireplace.IsBurning)),
+      postfix: new HarmonyMethod(this.GetType(), nameof(DisableFireplacesInDaylight))
+    );
+  }
+
+  private static readonly HashSet<string> toKeepLitAtAllTimes = [
+    "fire_pit(Clone)",
+    "hearth(Clone)",
+    "BRP_RefinedStone_Hearth(Clone)",
+  ];
+  private static void DisableFireplacesInDaylight(Fireplace __instance, ref bool __result)
+  {
+    if (!__result || toKeepLitAtAllTimes.Contains(__instance.name)) return;
+    if (EnvMan.IsDaylight()) __result = false;
+  }
 
   protected override void ApplyApplyOnObjectDBAwakeInternal()
   {
