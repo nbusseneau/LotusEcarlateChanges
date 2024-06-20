@@ -67,6 +67,7 @@ public class Plugin : BaseUnityPlugin
       new BalrondHumanoidRandomizer(),
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
+      new ColorFoodSlots(),
       new CustomKeyHints(),
       new FallDamageForCreatures(),
       new Lightsources(),

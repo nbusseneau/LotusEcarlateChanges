@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Disable fireplaces during day to reduce fuel consumption (except campfire and hearth).
+- Add food slot coloring based on consumed food.
 
 ## [0.6.26] - 2024-06-19
 
