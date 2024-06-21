@@ -146,7 +146,7 @@ public class CustomKeyHints : ManualChangesBase
     var hasHoney = __instance.GetHoneyLevel() > 0;
     if (isPrivate || !hasHoney) return;
 
-    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkExtract";
+    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $piece_beehive_extract $KeyHint_Pickable_Bulk";
     __result += Localization.instance.Localize(hoverTextSuffix);
   }
   private static void PickableGetHoverText(Pickable __instance, ref string __result)
@@ -154,7 +154,7 @@ public class CustomKeyHints : ManualChangesBase
     // only add our hover text if the pickable can actually be picked
     if (__instance.GetPicked() || __instance.GetEnabled == 0) return;
 
-    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $KeyHint_Pickable_BulkPickUp";
+    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $inventory_pickup $KeyHint_Pickable_Bulk";
     __result += Localization.instance.Localize(hoverTextSuffix);
   }
 

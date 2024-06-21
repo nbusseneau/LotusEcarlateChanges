@@ -1,6 +1,5 @@
 {
-  "KeyHint_Pickable_BulkExtract": "Extract (area)",
-  "KeyHint_Pickable_BulkPickUp": "Pick up (area)",
+  "KeyHint_Pickable_Bulk": "(area)",
 
   "KeyHint_Combat_BowDrawZoom": "Draw zoom",
   "KeyHint_Combat_BowDrawCancel": "Cancel draw",
