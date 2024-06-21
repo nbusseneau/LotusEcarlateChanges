@@ -142,7 +142,7 @@ public class CustomKeyHints : ManualChangesBase
   private static void BeehiveGetHoverText(Beehive __instance, ref string __result)
   {
     // only add our hover text if honey can actually be extracted
-    var isPrivate = !PrivateArea.CheckAccess(__instance.transform.position, 0f, flash: false);
+    var isPrivate = !PrivateArea.CheckAccess(__instance.transform.position, flash: false);
     var hasHoney = __instance.GetHoneyLevel() > 0;
     if (isPrivate || !hasHoney) return;
 
