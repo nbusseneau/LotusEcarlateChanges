@@ -74,6 +74,6 @@ public class Backpacks : StandaloneManagerBasedChangesBase
       base.ModifySpeed(baseSpeed, ref speed, character, dir);
     }
 
-    public override string GetIconText() => this.m_speedModifier == 0f ? "" : $"{this.m_speedModifier * 100f}%";
+    public override string GetIconText() => this.m_speedModifier == 0f ? string.Empty : $"{this.m_speedModifier * 100f}%";
   }
 }

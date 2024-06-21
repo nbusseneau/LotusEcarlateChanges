@@ -176,7 +176,7 @@ public class CustomKeyHints : ManualChangesBase
       var foundPlugin = Chainloader.PluginInfos.TryGetValue(guid, out var pluginInfo);
       foreach (var configDefinition in configDefinitions)
       {
-        var section = configDefinition.Section.Replace("\u200B", ""); // this is just for sanitizing TerrainTools sections lol
+        var section = configDefinition.Section.Replace("\u200B", string.Empty); // this is just for sanitizing TerrainTools sections lol
         var configKey = $"{guid}.{section}.{configDefinition.Key}";
         var configValue = foundPlugin ? this.SanitizeConfigValues(pluginInfo.Instance.Config[configDefinition].BoxedValue) : "MissingPlugin";
         this._keyHintStrings[configKey] = configValue;
