@@ -64,6 +64,7 @@ public class Plugin : BaseUnityPlugin
       new Warfare(),
 
       // Manual changes
+      new Fertilizer(),
       new BalrondHumanoidRandomizer(),
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
