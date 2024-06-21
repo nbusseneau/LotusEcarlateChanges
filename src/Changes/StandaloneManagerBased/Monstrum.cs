@@ -94,14 +94,24 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     creatureManager["Prowler_TW"].Creature.Drops["ProwlerFang_TW"].DropChance = 100f;
 
     // Spawns
-    var foxSpawner = this.MergeDualSpawners("Fox_TW");
-    foxSpawner.CheckSpawnInterval = 600;
-    foxSpawner.SpawnChance = 15f;
+    var foxSpawners = creatureManager["Fox_TW"].Spawners.ToList();
+    var (foxDaySpawner, foxNightSpawner) = (foxSpawners[0], foxSpawners[1]);
+    foxDaySpawner.SpecificSpawnTime = SpawnTime.Day;
+    foxDaySpawner.CheckSpawnInterval = 600;
+    foxDaySpawner.SpawnChance = 10f;
+    foxDaySpawner.Maximum = 1;
+    foxDaySpawner.CanHaveStars = true;
+    foxNightSpawner.SpecificSpawnTime = SpawnTime.Night;
+    foxNightSpawner.CheckSpawnInterval = 400;
+    foxNightSpawner.SpawnChance = 20f;
+    foxNightSpawner.Maximum = 1;
+    foxNightSpawner.CanHaveStars = true;
 
     var razorbackSpawner = creatureManager["Razorback_TW"].Spawners.Single();
     razorbackSpawner.CheckSpawnInterval = 150;
     razorbackSpawner.SpawnChance = 40f;
     razorbackSpawner.Maximum = 3;
+    razorbackSpawner.GroupSize = new(1, 2);
 
     var blackBearSpawner = this.MergeDualSpawners("BlackBear_TW");
     blackBearSpawner.CheckSpawnInterval = 900;
@@ -120,9 +130,20 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     grizzlyBearSpawner.CheckSpawnInterval = 900;
     grizzlyBearSpawner.SpawnChance = 10f;
 
-    var prowlerSpawner = this.MergeDualSpawners("Prowler_TW");
-    prowlerSpawner.CheckSpawnInterval = 900;
-    prowlerSpawner.SpawnChance = 10f;
+    var prowlerSpawners = creatureManager["Prowler_TW"].Spawners.ToList();
+    var (prowlerDaySpawner, prowlerNightSpawner) = (prowlerSpawners[0], prowlerSpawners[1]);
+    prowlerDaySpawner.SpecificSpawnTime = SpawnTime.Day;
+    prowlerDaySpawner.CheckSpawnInterval = 900;
+    prowlerDaySpawner.SpawnChance = 10f;
+    prowlerDaySpawner.Maximum = 1;
+    prowlerDaySpawner.CanHaveStars = false;
+    prowlerNightSpawner.SpecificSpawnTime = SpawnTime.Night;
+    prowlerNightSpawner.CheckSpawnInterval = 600;
+    prowlerNightSpawner.SpawnChance = 20f;
+    prowlerNightSpawner.Maximum = 2;
+    prowlerNightSpawner.GroupSize = new(1, 2);
+    prowlerNightSpawner.CanHaveStars = true;
+
   }
 
   private Creature.Spawner MergeDualSpawners(string creatureName)
