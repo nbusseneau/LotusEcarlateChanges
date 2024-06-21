@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.27] - 2024-06-21
+
 ### Added
 
 - Disable fireplaces during day to reduce fuel consumption (except campfire / hearth because comfort / cooking, and fireplaces that don't require fuel).
@@ -320,7 +322,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.26...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.27...HEAD
+[0.6.27]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.26...0.6.27
 [0.6.26]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.25...0.6.26
 [0.6.25]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.24...0.6.25
 [0.6.24]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.23...0.6.24
