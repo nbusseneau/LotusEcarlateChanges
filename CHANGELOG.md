@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Disable fireplaces during day to reduce fuel consumption (except campfire and hearth).
+- Disable fireplaces during day to reduce fuel consumption (except campfire / hearth because comfort / cooking, and fireplaces that don't require fuel).
 - Add food slot coloring based on consumed food.
 - Add plant / pickable fertiziling with 3x Ancient Seeds or 1x Ymir Flesh.
 

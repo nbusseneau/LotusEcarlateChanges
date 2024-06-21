@@ -29,7 +29,7 @@ public class Lightsources : ManualChangesBase
   ];
   private static void DisableFireplacesInDaylight(Fireplace __instance, ref bool __result)
   {
-    if (!__result || toKeepLitAtAllTimes.Contains(__instance.name)) return;
+    if (!__result || __instance.m_infiniteFuel || toKeepLitAtAllTimes.Contains(__instance.name)) return;
     if (EnvMan.IsDaylight()) __result = false;
   }
 
