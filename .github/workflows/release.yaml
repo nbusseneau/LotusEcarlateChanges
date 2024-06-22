@@ -15,7 +15,7 @@ env:
   python-version: "3.12"
   changelog: CHANGELOG.md
   thunderstore-config: thunderstore.toml
-  project: src/LotusEcarlateChanges.csproj
+  project: src/*.csproj
   plugin: src/Plugin.cs
 
 jobs:
