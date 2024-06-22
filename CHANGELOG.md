@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove fireplaces disable during day, offloaded to independent mod instead.
 - Remove food slot coloring, offloaded to independent mod instead.
+- Remove plant / pickable fertiziling, offloaded to independent mod instead.
 
 ## [0.6.27] - 2024-06-21
 
