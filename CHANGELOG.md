@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove food slot coloring, offloaded to independent mod instead.
+
 ## [0.6.27] - 2024-06-21
 
 ### Added
