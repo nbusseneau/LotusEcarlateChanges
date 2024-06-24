@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Double the range of Dvergr lanterns and Lava lanterns akin to torches / fireplaces.
+
 ### Fixed
 
 - Remove bogus error logs on subsequent logins due to tutorial guidepoints already having been added on first login.
