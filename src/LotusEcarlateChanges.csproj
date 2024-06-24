@@ -5,7 +5,7 @@
     <LangVersion>12.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <R2ModManProfile>ChangesDev</R2ModManProfile>
+    <R2ModManProfile>Dev_LotusEcarlateChanges</R2ModManProfile>
   </PropertyGroup>
 
   <!-- Valheim paths -->
