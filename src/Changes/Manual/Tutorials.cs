@@ -55,13 +55,13 @@ public class Tutorials : ManualChangesBase
       return;
     }
 
-    if (targetPrefab.GetComponentInChildren<GuidePoint>() is not null)
+    var tutorialKey = $"{Plugin.ModGUID}.Tutorial.{tutorial.Key}";
+    if (targetPrefab.GetComponentInChildren<GuidePoint>() is { } existingGuidePoint)
     {
-      Plugin.Logger.LogError($"Object {prefabName} already has a {typeof(GuidePoint)} component.");
+      if (existingGuidePoint.m_text.m_key != tutorialKey) Plugin.Logger.LogError($"Object {prefabName} already has a {typeof(GuidePoint)} component.");
       return;
     }
 
-    var tutorialKey = $"{Plugin.ModGUID}.Tutorial.{tutorial.Key}";
     GameObject tutorialPrefab = new(tutorialKey);
     tutorialPrefab.transform.SetParent(targetPrefab.transform);
     tutorialPrefab.transform.position = targetPrefab.transform.position + s_ravenOffset;
