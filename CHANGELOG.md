@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.28] - 2024-06-24
+
 ### Removed
 
 - Remove fireplaces disable during day, offloaded to independent mod instead.
@@ -328,7 +330,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.27...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.28...HEAD
+[0.6.28]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.27...0.6.28
 [0.6.27]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.26...0.6.27
 [0.6.26]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.25...0.6.26
 [0.6.25]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.24...0.6.25
