@@ -106,7 +106,5 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
     var secretBookContainer = this.PieceManager["$custompiece_booksecretstorage"].Prefab.GetComponent<Container>();
     secretBookContainer.m_width = 1;
     secretBookContainer.m_height = 1;
-    secretBookContainer.m_inventory.m_width = 1;
-    secretBookContainer.m_inventory.m_height = 1;
   }
 }

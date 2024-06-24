@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Remove bogus error logs on subsequent logins due to tutorial guidepoints already having been added on first login.
+- Remove bogus warning log due to Clutter's stash book container resize.
 
 ## [0.6.28] - 2024-06-24
 
