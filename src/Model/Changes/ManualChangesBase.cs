@@ -20,7 +20,7 @@ public abstract class ManualChangesBase : IChanges
   protected static void ApplyOnObjectDBAwake()
   {
     if (ObjectDB.instance.GetItemPrefab("Wood") is null) return; // safeguard until ObjectDB is actually ready
-    foreach (var instance in s_instances) instance.ApplyApplyOnObjectDBAwakeInternal();
+    foreach (var instance in s_instances) instance.ApplyOnObjectDBAwakeInternal();
     ItemManager.Instance.Apply();
     PieceManager.Instance.Apply();
   }
@@ -28,7 +28,7 @@ public abstract class ManualChangesBase : IChanges
   /// <summary>
   /// Idempotent changes only, as this will be called mutliple times.
   /// </summary>
-  protected virtual void ApplyApplyOnObjectDBAwakeInternal() { }
+  protected virtual void ApplyOnObjectDBAwakeInternal() { }
 
   static ManualChangesBase()
   {

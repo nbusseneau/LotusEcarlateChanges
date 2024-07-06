@@ -60,7 +60,7 @@ public class VanillaMisc : ManualChangesBase
     staminaUse = player.m_jumpStaminaUsage;
   }
 
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     var workbench = ZNetScene.instance.GetPrefab(Jotunn.Configs.CraftingStations.Workbench).GetComponent<CraftingStation>();
     var forge = ZNetScene.instance.GetPrefab(Jotunn.Configs.CraftingStations.Forge).GetComponent<CraftingStation>();

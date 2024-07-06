@@ -92,7 +92,7 @@ public class BalrondShipyard : ManualChangesBase
     scribeTableTutorial.m_text = "$Tutorial_ScribeTable_Text";
   }
 
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     // Relocate to furniture
     string[] relocateToFurniture = [

@@ -11,7 +11,7 @@ public class Lightsources : ManualChangesBase
   private static readonly Dictionary<string, float[]> s_lightRangesCache = [];
   private const float TorchDurability = 50f;
 
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     // Light ranges
     var fireplacePieces = this.ItemManager["Hammer"].Pieces.Where(p => p.GetComponentInChildren<Fireplace>() is not null);

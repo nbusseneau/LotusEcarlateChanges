@@ -6,7 +6,7 @@ namespace LotusEcarlateChanges.Changes.Manual;
 
 public class VanillaArmors : ManualChangesBase
 {
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     // Leather
     var leatherHelm = this.ItemManager["HelmetLeather"];

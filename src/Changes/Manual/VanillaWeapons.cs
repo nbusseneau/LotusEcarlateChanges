@@ -6,7 +6,7 @@ namespace LotusEcarlateChanges.Changes.Manual;
 
 public class VanillaWeapons : ManualChangesBase
 {
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     // Skills
     this.ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;

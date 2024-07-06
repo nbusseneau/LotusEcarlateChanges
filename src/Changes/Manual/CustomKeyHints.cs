@@ -158,7 +158,7 @@ public class CustomKeyHints : ManualChangesBase
     __result += Localization.instance.Localize(hoverTextSuffix);
   }
 
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     this.FetchPluginConfigEntries();
     this.SetUpCombatHints();

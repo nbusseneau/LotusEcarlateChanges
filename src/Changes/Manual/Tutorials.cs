@@ -41,7 +41,7 @@ public class Tutorials : ManualChangesBase
     },
   };
 
-  protected override void ApplyApplyOnObjectDBAwakeInternal()
+  protected override void ApplyOnObjectDBAwakeInternal()
   {
     s_raven = ZNetScene.instance.GetPrefab("piece_cartographytable").GetComponentInChildren<GuidePoint>().m_ravenPrefab;
     foreach (var (prefabName, tutorial) in s_tutorials) RegisterTutorial(prefabName, tutorial);
