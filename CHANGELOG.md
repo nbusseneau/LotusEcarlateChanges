@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.30] - 2024-07-06
+
 ### Added
 
 - Add Balrond Containers.
@@ -349,7 +351,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.29...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.30...HEAD
+[0.6.30]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.29...0.6.30
 [0.6.29]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.28...0.6.29
 [0.6.28]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.27...0.6.28
 [0.6.27]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.26...0.6.27
