@@ -80,6 +80,8 @@ public class VanillaMisc : ManualChangesBase
     foreach (var piece in this.PieceManager[toRelocate]) piece.Category = Piece.PieceCategory.Furniture;
 
     // Rebalance some additional pieces
+    this.PieceManager["fire_pit_iron"].CraftingStation = forge;
+
     this.PieceManager["piece_hexagonal_door"].CraftingStation = forge;
     this.PieceManager["piece_hexagonal_door"].Category = Piece.PieceCategory.BuildingStonecutter;
 
