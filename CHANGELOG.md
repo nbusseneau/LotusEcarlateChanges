@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.31] - 2024-07-06
+
 ### Changed
 
 - Set Forge as required crafting station for iron firepit.
@@ -355,7 +357,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.30...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.31...HEAD
+[0.6.31]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.30...0.6.31
 [0.6.30]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.29...0.6.30
 [0.6.29]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.28...0.6.29
 [0.6.28]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.27...0.6.28
