@@ -65,13 +65,19 @@ public class VanillaMisc : ManualChangesBase
     var workbench = ZNetScene.instance.GetPrefab(Jotunn.Configs.CraftingStations.Workbench).GetComponent<CraftingStation>();
     var forge = ZNetScene.instance.GetPrefab(Jotunn.Configs.CraftingStations.Forge).GetComponent<CraftingStation>();
 
-    // Relocate adornements from Misc to Furniture for consistency
-    string[] adornements = [
+    // Relocate some pieces from Misc to Furniture for consistency
+    string[] toRelocate = [
+      // adornements
       "darkwood_raven",
       "darkwood_wolf",
       "wood_dragon1",
+      // fireplaces intended to be used in bases and not in the wild
+      "fire_pit_iron",
+      "hearth",
+      // furniture item that's also not a stack, don't even know why it's there
+      "piece_chest_treasure",
     ];
-    foreach (var piece in this.PieceManager[adornements]) piece.Category = Piece.PieceCategory.Furniture;
+    foreach (var piece in this.PieceManager[toRelocate]) piece.Category = Piece.PieceCategory.Furniture;
 
     // Rebalance some additional pieces
     this.PieceManager["piece_hexagonal_door"].CraftingStation = forge;

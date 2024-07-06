@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Relocate some items from Misc to Furniture for consistency.
+
 ## [0.6.29] - 2024-06-24
 
 ### Added
