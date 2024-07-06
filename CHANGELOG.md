@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Balrond Containers.
+
 ### Changed
 
 - Relocate some items from Misc to Furniture for consistency.

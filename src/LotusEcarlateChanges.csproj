@@ -49,6 +49,7 @@
   <ItemGroup>
     <Reference Include="$(PluginsPath)\ASharpPen-Fall_Damage_For_Creatures\Valheim.FallDamageForCreatures.dll" Aliases="FallDamageForCreatures" Publicize="true" />
     <Reference Include="$(PluginsPath)\Azumatt-BowsBeforeHoes\BowsBeforeHoes.dll" Aliases="BowsBeforeHoes" Publicize="true" />
+    <Reference Include="$(PluginsPath)\Balrond-balrond_containers\BalrondContainers.dll" Aliases="BalrondContainers" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_humanoidRandomizer\BalrondHumanoidRandomizer.dll" Aliases="BalrondHumanoidRandomizer" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_shipyard\BalrondShipyard.dll" Aliases="BalrondShipyard" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-ClayBuildPieces\ClayBuildPieces.dll" Aliases="ClayBuildPieces" Publicize="true" />

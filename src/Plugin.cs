@@ -12,6 +12,7 @@ namespace LotusEcarlateChanges;
 
 [BepInPlugin(ModGUID, ModName, ModVersion)]
 [BepInDependency("Azumatt.BowsBeforeHoes", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("balrond.astafaraios.BalrondContainers", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondHumanoidRandomizer", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondShipyard", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.ClayBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
@@ -64,6 +65,7 @@ public class Plugin : BaseUnityPlugin
       new Warfare(),
 
       // Manual changes
+      new BalrondContainers(),
       new BalrondHumanoidRandomizer(),
       new BalrondShipyard(),
       new CapeAndTorchResistanceChanges(),
