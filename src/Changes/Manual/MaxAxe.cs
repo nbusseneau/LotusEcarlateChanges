@@ -11,7 +11,6 @@ public class MaxAxe : ManualChangesBase
   {
     internalExcludes.Remove("ShieldCarapace");
     internalExcludes.Remove("ShieldCarapaceBuckler");
-    internalExcludes.Add("ShieldWoodTower");
     ConfigExcludedPrefabs();
   }
 }
