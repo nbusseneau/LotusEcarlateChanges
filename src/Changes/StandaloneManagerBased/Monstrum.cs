@@ -143,7 +143,6 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     prowlerNightSpawner.Maximum = 2;
     prowlerNightSpawner.GroupSize = new(1, 2);
     prowlerNightSpawner.CanHaveStars = true;
-
   }
 
   private Creature.Spawner MergeDualSpawners(string creatureName)
