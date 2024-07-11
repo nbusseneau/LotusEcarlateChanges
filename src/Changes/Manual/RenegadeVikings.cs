@@ -10,7 +10,9 @@ using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Model.Managers.Manual;
 using LotusEcarlateChanges.Extensions;
 using RenegadeVikings::RenegadeVikings.Functions;
-using RenegadeVikings::RenegadeVikings.VikingsData;
+using RenegadeVikings::RenegadeVikings.Utilities;
+using RenegadeVikings::RenegadeVikings.VikingsData.Overlord;
+using RenegadeVikings::RenegadeVikings.VikingsData.Renegade;
 using UnityEngine;
 
 namespace LotusEcarlateChanges.Changes.Manual;
@@ -29,7 +31,7 @@ public class RenegadeVikings : ManualChangesBase
     var patches = new Dictionary<(Type Type, string OriginalName), (string PrefixName, string PostfixName)>()
     {
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Awake))] = (nameof(RenegadeSetupPrefilters), nameof(SetRenegadesNames)),
-      [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupVisuals))] = (null, nameof(FixNeutralsMaleNames)),
+      [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupVisuals))] = (null, nameof(FixNeutralsMaleHairAndSkinColors)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupEquipment))] = (nameof(InterceptNeutralsSetupEquipment), null),
       [(typeof(SetupEquipments), nameof(SetupEquipments.BowAdjustments))] = (null, nameof(RebalanceBows)),
       [(typeof(SetupEquipments), nameof(SetupEquipments.CrossbowAdjustments))] = (null, nameof(RebalanceCrossbow)),
@@ -45,6 +47,8 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier6EquipmentMelee))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier6EquipmentMagic))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier6EquipmentSummoner))] = (nameof(NoOpPrefix), null),
+      [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier7EquipmentMelee))] = (nameof(NoOpPrefix), null),
+      [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier7EquipmentMagic))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT1), nameof(RenegadeVikingT1.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT2), nameof(RenegadeVikingT2.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT3), nameof(RenegadeVikingT3.SetDropList))] = (nameof(NoOpPrefix), null),
@@ -52,6 +56,8 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeVikingT5), nameof(RenegadeVikingT5.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT6Melee), nameof(RenegadeVikingT6Melee.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT6Magic), nameof(RenegadeVikingT6Magic.SetDropList))] = (nameof(NoOpPrefix), null),
+      [(typeof(RenegadeVikingT7Melee), nameof(RenegadeVikingT7Melee.SetDropList))] = (nameof(NoOpPrefix), null),
+      [(typeof(RenegadeVikingT7Magic), nameof(RenegadeVikingT7Magic.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT1), nameof(OverlordVikingT1.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT2), nameof(OverlordVikingT2.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT3), nameof(OverlordVikingT3.SetDropList))] = (nameof(NoOpPrefix), null),
@@ -175,17 +181,15 @@ public class RenegadeVikings : ManualChangesBase
     __instance.m_humanoid.m_name = name;
   }
 
-  private static void FixNeutralsMaleNames(RenegadeSetup __instance)
+  private static void FixNeutralsMaleHairAndSkinColors(RenegadeSetup __instance)
   {
     var isMale = __instance.m_visEquipment.GetModelIndex() == 0;
     if (isMale)
     {
-      var name = __instance.m_nview.GetZDO().GetString(__instance.m_vikingName);
-      if (string.IsNullOrEmpty(name))
-      {
-        name = __instance.m_nameM[Random.Next(__instance.m_nameM.Length)];
-        __instance.m_nview.GetZDO().Set(__instance.m_vikingName, name);
-      }
+      Color color = Color.HSVToRGB(0.13f + 0.03f.RandomValue(), 1f.RandomValue(), 1f.RandomValue());
+      float num = 0.2f + 0.8f.RandomValue();
+      __instance.m_visEquipment?.SetHairColor(new Vector3(color.r, color.g, color.b));
+      __instance.m_visEquipment?.SetSkinColor(new Vector3(num, num, num));
     }
   }
 
