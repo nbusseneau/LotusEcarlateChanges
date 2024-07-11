@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.32] - 2024-07-11
+
 ### Changed
 
 - Update RenegadeVikings to 1.2.8, but still ignore T7 vikings (Ashlands).
@@ -361,7 +363,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.31...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.32...HEAD
+[0.6.32]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.31...0.6.32
 [0.6.31]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.30...0.6.31
 [0.6.30]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.29...0.6.30
 [0.6.29]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.28...0.6.29
