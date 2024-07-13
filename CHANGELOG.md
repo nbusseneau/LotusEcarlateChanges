@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix weather tutorial markup.
+
 ## [0.6.32] - 2024-07-11
 
 ### Changed
