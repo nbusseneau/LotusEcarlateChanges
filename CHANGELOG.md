@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.33] - 2024-07-13
+
 ### Fixed
 
 - Fix weather tutorial markup.
@@ -367,7 +369,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.32...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.33...HEAD
+[0.6.33]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.32...0.6.33
 [0.6.32]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.31...0.6.32
 [0.6.31]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.30...0.6.31
 [0.6.30]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.29...0.6.30
