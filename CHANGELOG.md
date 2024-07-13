@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix French chest tutorial.
+
 ## [0.6.33] - 2024-07-13
 
 ### Fixed
