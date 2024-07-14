@@ -21,7 +21,6 @@ public class RenegadeVikings : ManualChangesBase
 {
   public static System.Random Random { get; } = new();
   private static ItemManager s_itemManager;
-  private const string HasBeenOverridenZDOKey = $"{Plugin.ModGUID}.RenegadeVikingsOverride";
 
   protected override void ApplyInternal()
   {
@@ -30,7 +29,7 @@ public class RenegadeVikings : ManualChangesBase
     // Custom patches
     var patches = new Dictionary<(Type Type, string OriginalName), (string PrefixName, string PostfixName)>()
     {
-      [(typeof(RenegadeSetup), nameof(RenegadeSetup.Awake))] = (nameof(RenegadeSetupPrefilters), nameof(SetRenegadesNames)),
+      [(typeof(RenegadeSetup), nameof(RenegadeSetup.Awake))] = (nameof(RemoveTameable), nameof(RenegadeSetupAwakePostfixes)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupVisuals))] = (null, nameof(FixNeutralsMaleHairAndSkinColors)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupEquipment))] = (nameof(InterceptNeutralsSetupEquipment), null),
       [(typeof(SetupEquipments), nameof(SetupEquipments.BowAdjustments))] = (null, nameof(RebalanceBows)),
@@ -78,16 +77,16 @@ public class RenegadeVikings : ManualChangesBase
 
   private static void NoOpPrefix(ref bool __runOriginal) => __runOriginal = false;
 
-  private static void RenegadeSetupPrefilters(RenegadeSetup __instance)
-  {
-    RemoveTameable(__instance);
-    OverrideEquipmentAndDrops(__instance);
-  }
-
   private static void RemoveTameable(RenegadeSetup __instance)
   {
     if (__instance.gameObject.GetComponent<Tameable>() is { } tameable) GameObject.Destroy(tameable);
     if (__instance.gameObject.GetComponent<TamedFix>() is { } tamedFix) GameObject.Destroy(tamedFix);
+  }
+
+  private static void RenegadeSetupAwakePostfixes(RenegadeSetup __instance)
+  {
+    OverrideEquipmentAndDrops(__instance);
+    SetRenegadesNames(__instance);
   }
 
   private static readonly Dictionary<string, ITier> renegadesTiers = new()
@@ -123,8 +122,7 @@ public class RenegadeVikings : ManualChangesBase
 
   private static void OverrideEquipmentAndDrops(RenegadeSetup __instance)
   {
-    var nView = __instance.GetComponent<ZNetView>();
-    if (nView.GetZDO().GetBool(HasBeenOverridenZDOKey)) return;
+    if (!__instance.m_nview.IsOwner()) return;
     var humanoid = __instance.GetComponent<Humanoid>();
 
     // Renegade vikings
@@ -164,15 +162,13 @@ public class RenegadeVikings : ManualChangesBase
       humanoid.m_randomShield = BlackForest.Instance.Shields;
       humanoid.m_randomSets = [.. Meadows.Instance.Sets, .. BlackForest.Instance.Sets];
     }
-
-    nView.GetZDO().Set(HasBeenOverridenZDOKey, true);
   }
 
   private static void SetRenegadesNames(RenegadeSetup __instance)
   {
     if (__instance.m_humanoid.m_group == "NeutralVikings" || __instance.m_humanoid.m_group == "TraderVikings" || __instance.m_humanoid.m_group.StartsWith("Overlord")) return;
     var name = __instance.m_nview.GetZDO().GetString(__instance.m_vikingName);
-    if (string.IsNullOrEmpty(name))
+    if (__instance.m_nview.IsOwner() && string.IsNullOrEmpty(name))
     {
       var isMale = __instance.m_visEquipment.GetModelIndex() == 0;
       name = isMale ? __instance.m_nameM[Random.Next(__instance.m_nameM.Length)] : __instance.m_nameF[Random.Next(__instance.m_nameF.Length)];

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix Renegade Vikings item drops not working on relog / ZDO owner change.
+
 ## [0.6.34] - 2024-07-13
 
 ### Fixed
