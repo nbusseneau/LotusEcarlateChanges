@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix RefinedStonePieces chest and hearth piece category.
+
 ## [0.6.35] - 2024-07-14
 
 ### Fixed

@@ -26,11 +26,9 @@ public class RefinedStonePieces : StandaloneManagerBasedChangesBase
       wrapper.Comfort.Value = 0;
     }
 
-    // Relocate stack and hearth to Misc
-    string[] relocateToMisc = [
-      "BRP_RefinedStone_Stack",
-      "BRP_RefinedStone_Hearth",
-    ];
-    foreach (var (piece, _) in pieceManager[relocateToMisc]) piece.Category.Set(BuildPieceCategory.Misc);
+    // Relocate some other pieces
+    pieceManager["BRP_RefinedStone_Stack"].BuildPiece.Category.Set(BuildPieceCategory.Misc);
+    pieceManager["BRP_RefinedStone_Hearth"].BuildPiece.Category.Set(BuildPieceCategory.Furniture);
+    pieceManager["BRP_StoneChest"].BuildPiece.Category.Set(BuildPieceCategory.Furniture);
   }
 }
