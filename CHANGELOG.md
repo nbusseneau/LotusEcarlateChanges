@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.37] - 2024-07-19
+
 ### Fixed
 
 - Fix Balrond Containers comfort values.
@@ -391,7 +393,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.36...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.37...HEAD
+[0.6.37]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.36...0.6.37
 [0.6.36]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.35...0.6.36
 [0.6.35]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.34...0.6.35
 [0.6.34]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.33...0.6.34
