@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix Balrond Containers comfort values (for real this time).
+
 ## [0.6.37] - 2024-07-19
 
 ### Fixed

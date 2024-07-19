@@ -55,14 +55,14 @@ public class BalrondContainers : ManualChangesBase
     foreach (var piece in this.PieceManager[removeComfort]) piece.Comfort.Value = 0;
 
     string[] basicTablesComfort = [
-      "$piece_chest_foodtable_fine",
-      "$piece_chest_foodtable",
+      "piece_chest_foodtable_fine",
+      "piece_chest_foodtable",
     ];
     foreach (var piece in this.PieceManager[basicTablesComfort]) (piece.Comfort.Value, piece.Comfort.Group) = (1, Piece.ComfortGroup.Table);
 
     string[] fancyTablesComfort = [
-      "$piece_chest_foodtable_round",
-      "$piece_chest_foodtable_oak",
+      "piece_chest_foodtable_round",
+      "piece_chest_foodtable_oak",
     ];
     foreach (var piece in this.PieceManager[fancyTablesComfort]) (piece.Comfort.Value, piece.Comfort.Group) = (2, Piece.ComfortGroup.Table);
   }
