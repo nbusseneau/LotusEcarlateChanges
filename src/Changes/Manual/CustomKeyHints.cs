@@ -240,7 +240,7 @@ public class CustomKeyHints : ManualChangesBase
     // hide default rotate mouse wheel icon, replace with map ping one which is smaller, for some extra space
     var rotateHint = KeyHints.instance.m_buildHints.Find("Keyboard/rotate");
     rotateHint.Find("mousew_icon").SetActive(false);
-    Object.Instantiate(Minimap.instance.m_hints[0].transform.Find("keyboard_hints/PingPanel/keyboard_hint"), rotateHint.transform);
+    Object.Instantiate(Minimap.instance.m_hints[0].Find("keyboard_hints/PingPanel/keyboard_hint"), rotateHint.transform);
   }
 
   private void AddPlusToKeyHint(CustomKeyHint keyHint) => Object.Instantiate(KeyHints.instance.m_buildHints.Find("Keyboard/Copy/Text (1)"), keyHint.Transform);
@@ -250,7 +250,7 @@ public class CustomKeyHints : ManualChangesBase
     keyBkgClone.name = "key_bkg";
     keyBkgClone.SetText(arrow);
   }
-  private void AddMouseWheelIconToKeyHint(CustomKeyHint keyHint) => Object.Instantiate(Minimap.instance.m_hints[0].transform.Find("keyboard_hints/PingPanel/keyboard_hint"), keyHint.Transform);
+  private void AddMouseWheelIconToKeyHint(CustomKeyHint keyHint) => Object.Instantiate(Minimap.instance.m_hints[0].Find("keyboard_hints/PingPanel/keyboard_hint"), keyHint.Transform);
 
   private static CustomKeyHint s_compare;
   private static CustomKeyHint s_compareWithContainer;
@@ -309,12 +309,12 @@ public class CustomKeyHints : ManualChangesBase
 
   private void SetUpMapHints()
   {
-    var templateHint = Minimap.instance.m_hints[0].transform.Find("keyboard_hints/AddPin").gameObject;
+    var templateHint = Minimap.instance.m_hints[0].Find("keyboard_hints/AddPin");
     var clone = Object.Instantiate(templateHint, templateHint.transform.parent);
     clone.name = "PortalsKeyHint";
     clone.SetText("$KeyHint_Map_TogglePortals");
 
-    Object.Destroy(clone.transform.Find("keyboard_hint").gameObject);
+    Object.Destroy(clone.Find("keyboard_hint"));
     var keyBkgClone = Object.Instantiate(KeyHints.m_instance.m_buildHints.Find("Keyboard/AltPlace/key_bkg"), clone.transform);
     keyBkgClone.name = "key_bkg";
     keyBkgClone.SetText(this._keyHintStrings["org.bepinex.plugins.targetportal.1 - General.Hotkey map icons"]);

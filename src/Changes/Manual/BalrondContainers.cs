@@ -2,6 +2,7 @@ extern alias BalrondContainers;
 
 using System.Collections.Generic;
 using HarmonyLib;
+using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 using UnityEngine;
 
@@ -35,16 +36,16 @@ public class BalrondContainers : ManualChangesBase
       "piece_chest_weaponrack",
       "piece_chest_woodshed_bal",
     ];
-    foreach (var container in this.PieceManager[topContainerContainers]) this.SetContainerRestrictions(container.Prefab, container.Prefab.transform.Find("slot"));
+    foreach (var container in this.PieceManager[topContainerContainers]) this.SetContainerRestrictions(container.Prefab, container.Prefab.Find("slot"));
 
     string[] topFoodContainers = [
       "piece_chest_barrel_bal",
       "piece_chest_seedbasket_bal",
     ];
-    foreach (var container in this.PieceManager[topFoodContainers]) this.SetContainerRestrictions(container.Prefab, container.Prefab.transform.Find("topfood"));
+    foreach (var container in this.PieceManager[topFoodContainers]) this.SetContainerRestrictions(container.Prefab, container.Prefab.Find("topfood"));
 
     var potionShelf = this.PieceManager["piece_chest_shelf_bal"];
-    this.SetContainerRestrictions(potionShelf.Prefab, potionShelf.Prefab.transform.Find("potionslot-1"));
+    this.SetContainerRestrictions(potionShelf.Prefab, potionShelf.Prefab.Find("potionslot-1"));
 
     // Fix comfort
     string[] removeComfort = [
@@ -67,7 +68,7 @@ public class BalrondContainers : ManualChangesBase
     foreach (var piece in this.PieceManager[fancyTablesComfort]) (piece.Comfort.Value, piece.Comfort.Group) = (2, Piece.ComfortGroup.Table);
   }
 
-  private void SetContainerRestrictions(GameObject prefab, Transform slot)
+  private void SetContainerRestrictions(GameObject prefab, GameObject slot)
   {
     var containerName = prefab.GetComponent<Container>().m_name;
     HashSet<string> itemNames = [];
