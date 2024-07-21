@@ -74,7 +74,7 @@ public class BalrondContainers : ManualChangesBase
     HashSet<string> itemNames = [];
     foreach (Transform child in slot.transform) itemNames.Add(child.name);
     s_allowedItemsByContainer[containerName] = [.. itemNames];
-    Plugin.Logger.LogDebug($"{prefab.name}: {string.Join(", ", itemNames)}");
+    Plugin.Logger.LogDebug($"{prefab.name}\n- {string.Join("\n- ", itemNames)}");
   }
 
   /// RestrictContainers patches adapted from https://github.com/MSchmoecker/Dynamic-Storage-Piles/blob/e1fe35f93d7c2dcb0da7e24d0f1cc016f9707b23/DynamicStoragePiles/RestrictContainers.cs
