@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Set Longship storage size back to its vanilla value of 18.
+
 ## [0.6.38] - 2024-07-19
 
 ### Fixed

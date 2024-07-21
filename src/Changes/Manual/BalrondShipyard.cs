@@ -2,6 +2,7 @@ extern alias BalrondShipyard;
 
 using System.Collections.Generic;
 using BalrondShipyard::BalrondShipyard;
+using LotusEcarlateChanges.Extensions;
 using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.Manual;
@@ -60,6 +61,8 @@ public class BalrondShipyard : ManualChangesBase
       "SchematicKarveSailWolf",
       "SchematicDrakkarSailTransparent",
       "SchematicDrakkarSailWolf",
+      "SchematicAshlandsDrakkarSailWolf",
+      "SchematicAshlandsDrakkarSailTransparent",
     ]);
 
     // Remove some pieces
@@ -113,5 +116,22 @@ public class BalrondShipyard : ManualChangesBase
       "piece_ropewall_big",
     ];
     foreach (var piece in this.PieceManager[removeComfort]) piece.Comfort.Value = 0;
+
+    // Adjust container sizes
+    var raftContainer = Launch.raftExtension.Find("piece_chest").GetComponent<Container>();
+    raftContainer.m_width = 2;
+    raftContainer.m_height = 2;
+
+    var karveContainer = this.PieceManager["Karve"].Prefab.Find("piece_chest").GetComponent<Container>();
+    karveContainer.m_width = 4;
+    karveContainer.m_height = 2;
+
+    var longshipContainer = this.PieceManager["VikingShip"].Prefab.Find("piece_chest").GetComponent<Container>();
+    longshipContainer.m_width = 6;
+    longshipContainer.m_height = 3;
+
+    var drakkarContainer = this.PieceManager["VikingShip_Ashlands"].Prefab.Find("piece_chest").GetComponent<Container>();
+    drakkarContainer.m_width = 8;
+    drakkarContainer.m_height = 4;
   }
 }
