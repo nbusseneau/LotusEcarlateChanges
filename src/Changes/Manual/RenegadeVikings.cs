@@ -3,8 +3,6 @@ extern alias RenegadeVikings;
 using System;
 using System.Collections.Generic;
 using HarmonyLib;
-using LotusEcarlateChanges.Changes.Manual.RenegadeVikingsChanges.Archetypes;
-using LotusEcarlateChanges.Changes.Manual.RenegadeVikingsChanges.Archetypes.Overlords;
 using LotusEcarlateChanges.Changes.Manual.RenegadeVikingsChanges.Tiers;
 using LotusEcarlateChanges.Model.Changes;
 using LotusEcarlateChanges.Model.Managers.Manual;
@@ -32,11 +30,6 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Awake))] = (nameof(RemoveTameable), nameof(RenegadeSetupAwakePostfixes)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupVisuals))] = (null, nameof(FixNeutralsMaleHairAndSkinColors)),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupEquipment))] = (nameof(InterceptNeutralsSetupEquipment), null),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.BowAdjustments))] = (null, nameof(RebalanceBows)),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.CrossbowAdjustments))] = (null, nameof(RebalanceCrossbow)),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.FireStaffAdjustments))] = (null, nameof(RebalanceFireStaff)),
-      [(typeof(SetupEquipments), nameof(SetupEquipments.IceStaffAdjustments))] = (null, nameof(RebalanceIceStaff)),
-
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.SetupNeutralWeapons))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier1Equipment))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier2Equipment))] = (nameof(NoOpPrefix), null),
@@ -48,6 +41,7 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier6EquipmentSummoner))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier7EquipmentMelee))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeSetup), nameof(RenegadeSetup.Tier7EquipmentMagic))] = (nameof(NoOpPrefix), null),
+
       [(typeof(RenegadeVikingT1), nameof(RenegadeVikingT1.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT2), nameof(RenegadeVikingT2.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT3), nameof(RenegadeVikingT3.SetDropList))] = (nameof(NoOpPrefix), null),
@@ -57,6 +51,7 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(RenegadeVikingT6Magic), nameof(RenegadeVikingT6Magic.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT7Melee), nameof(RenegadeVikingT7Melee.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(RenegadeVikingT7Magic), nameof(RenegadeVikingT7Magic.SetDropList))] = (nameof(NoOpPrefix), null),
+
       [(typeof(OverlordVikingT1), nameof(OverlordVikingT1.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT2), nameof(OverlordVikingT2.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT3), nameof(OverlordVikingT3.SetDropList))] = (nameof(NoOpPrefix), null),
@@ -64,6 +59,11 @@ public class RenegadeVikings : ManualChangesBase
       [(typeof(OverlordVikingT5), nameof(OverlordVikingT5.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT6), nameof(OverlordVikingT6.SetDropList))] = (nameof(NoOpPrefix), null),
       [(typeof(OverlordVikingT6Summoner), nameof(OverlordVikingT6Summoner.SetDropList))] = (nameof(NoOpPrefix), null),
+
+      [(typeof(SetupEquipments), nameof(SetupEquipments.BowAdjustments))] = (null, nameof(RebalanceBows)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.CrossbowAdjustments))] = (null, nameof(RebalanceCrossbow)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.FireStaffAdjustments))] = (null, nameof(RebalanceFireStaff)),
+      [(typeof(SetupEquipments), nameof(SetupEquipments.IceStaffAdjustments))] = (null, nameof(RebalanceIceStaff)),
       [(typeof(SetupEquipments), nameof(SetupEquipments.Extras))] = (nameof(NoOpPrefix), null),
     };
     foreach (var ((type, originalName), (prefixName, postfixName)) in patches)
@@ -100,26 +100,6 @@ public class RenegadeVikings : ManualChangesBase
     ["T6VikingsMagic"] = MistlandsMage.Instance,
   };
 
-  private static readonly Dictionary<string, ITier> overlordsTiers = new()
-  {
-    ["OverlordVikingT1"] = BlackForest.Instance,
-    ["OverlordVikingT2"] = Swamp.Instance,
-    ["OverlordVikingT3"] = Mountain.Instance,
-    ["OverlordVikingT4"] = Plains.Instance,
-    ["OverlordVikingT5"] = MistlandsMage.Instance,
-    ["OverlordVikingT6"] = Mistlands.Instance,
-  };
-
-  private static readonly Dictionary<string, IArchetype> overlordsArchetypes = new()
-  {
-    ["OverlordVikingT1"] = MeadowsOverlord.Instance,
-    ["OverlordVikingT2"] = BlackForestOverlord.Instance,
-    ["OverlordVikingT3"] = SwampOverlord.Instance,
-    ["OverlordVikingT4"] = MountainOverlord.Instance,
-    ["OverlordVikingT5"] = PlainsOverlord.Instance,
-    ["OverlordVikingT6"] = MistlandsOverlord.Instance,
-  };
-
   private static void OverrideEquipmentAndDrops(RenegadeSetup __instance)
   {
     if (!__instance.m_nview.IsOwner()) return;
@@ -136,23 +116,6 @@ public class RenegadeVikings : ManualChangesBase
       var maxHealth = humanoid.GetMaxHealth();
       humanoid.SetMaxHealth(maxHealth * 2);
       humanoid.SetHealth(maxHealth * 2);
-    }
-
-    // Overlords, except OverlordVikingT6Summoner
-    else if (overlordsTiers.TryGetValue(humanoid.m_group, out var overlordTier))
-    {
-      humanoid.m_randomWeapon = overlordTier.Weapons;
-      humanoid.m_randomShield = overlordTier.Shields;
-      humanoid.m_randomSets = overlordTier.Sets;
-      __instance.GetComponent<CharacterDrop>().m_drops = overlordsArchetypes[humanoid.m_group].Drops;
-    }
-
-    // OverlordVikingT6Summoner
-    else if (humanoid.m_group == "OverlordVikingT6Summoner")
-    {
-      humanoid.m_defaultItems = MistlandsSummoner.Instance.Weapons;
-      humanoid.m_randomSets = MistlandsSummoner.Instance.Sets;
-      __instance.GetComponent<CharacterDrop>().m_drops = MistlandsOverlord.Instance.Drops;
     }
 
     // Neutral vikings
@@ -194,19 +157,13 @@ public class RenegadeVikings : ManualChangesBase
     __runOriginal = __instance.m_humanoid.m_group != "NeutralVikings";
   }
 
-  private static void RebalanceBows(ItemDrop item)
-  {
-    item.m_itemData.m_shared.m_damages.m_pierce *= 1.5f;
-
-  }
-
+  private static void RebalanceBows(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_pierce *= 1.5f;
   private static void RebalanceCrossbow(ItemDrop item)
   {
     item.m_itemData.m_shared.m_damages.m_pierce /= 1.15f;
     item.m_itemData.m_shared.m_aiAttackInterval = 6f;
     item.m_itemData.m_shared.m_attack.m_projectileVel /= 1.25f;
   }
-
   private static void RebalanceFireStaff(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_fire /= 2f;
   private static void RebalanceIceStaff(ItemDrop item) => item.m_itemData.m_shared.m_damages.m_frost *= 2f;
 }
