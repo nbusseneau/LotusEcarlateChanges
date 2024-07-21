@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.39] - 2024-07-21
+
 ### Changed
 
 - Set Longship storage size back to its vanilla value of 18.
@@ -403,7 +405,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.38...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.39...HEAD
+[0.6.39]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.38...0.6.39
 [0.6.38]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.37...0.6.38
 [0.6.37]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.36...0.6.37
 [0.6.36]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.35...0.6.36
