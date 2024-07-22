@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Set Karve storage size to same value as basic chests (10).
+- Set Longship storage size to same value as reinforced chests (24).
+
 ## [0.6.39] - 2024-07-21
 
 ### Changed

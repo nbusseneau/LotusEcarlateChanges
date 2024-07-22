@@ -123,12 +123,12 @@ public class BalrondShipyard : ManualChangesBase
     raftContainer.m_height = 2;
 
     var karveContainer = this.PieceManager["Karve"].Prefab.Find("piece_chest").GetComponent<Container>();
-    karveContainer.m_width = 4;
+    karveContainer.m_width = 5;
     karveContainer.m_height = 2;
 
     var longshipContainer = this.PieceManager["VikingShip"].Prefab.Find("piece_chest").GetComponent<Container>();
     longshipContainer.m_width = 6;
-    longshipContainer.m_height = 3;
+    longshipContainer.m_height = 4;
 
     var drakkarContainer = this.PieceManager["VikingShip_Ashlands"].Prefab.Find("piece_chest").GetComponent<Container>();
     drakkarContainer.m_width = 8;
