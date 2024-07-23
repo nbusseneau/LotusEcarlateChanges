@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.40] - 2024-07-23
+
 ### Changed
 
 - Set Karve storage size to same value as basic chests (10).
@@ -414,7 +416,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.39...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.40...HEAD
+[0.6.40]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.39...0.6.40
 [0.6.39]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.38...0.6.39
 [0.6.38]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.37...0.6.38
 [0.6.37]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.36...0.6.37
