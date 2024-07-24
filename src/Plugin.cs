@@ -31,6 +31,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("com.orianaventure.mod.WorldAdvancementProgression", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency(Jotunn.Main.ModGuid, BepInDependency.DependencyFlags.HardDependency)]
 [NetworkCompatibility(CompatibilityLevel.ClientMustHaveMod, VersionStrictness.Minor)]
 public class Plugin : BaseUnityPlugin
@@ -79,6 +80,7 @@ public class Plugin : BaseUnityPlugin
       new VanillaMisc(),
       new VanillaArmors(),
       new VanillaWeapons(),
+      new WorldAdvancementProgression(),
     ];
 
     changesList.ForEach(changes => changes.Apply());

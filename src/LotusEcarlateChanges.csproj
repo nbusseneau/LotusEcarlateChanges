@@ -67,6 +67,7 @@
     <Reference Include="$(PluginsPath)\southsil-SouthsilArmor\SouthsilArmor.dll" Aliases="SouthsilArmor" Publicize="true" />
     <Reference Include="$(PluginsPath)\Therzie-Monstrum\Monstrum.dll" Aliases="Monstrum" Publicize="true" />
     <Reference Include="$(PluginsPath)\Therzie-Warfare\Warfare.dll" Aliases="Warfare" Publicize="true" />
+    <Reference Include="$(PluginsPath)\VentureValheim-World_Advancement_Progression\VentureValheim.Progression.dll" Aliases="WorldAdvancementProgression" Publicize="true" />
   </ItemGroup>
 
   <!-- Packages -->

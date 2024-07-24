@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- World Advancement Progression: allow poison arrows to be used after defeating The Elder.
+- World Advancement Progression: allow chicken-based food to be used after defeating Bonemass.
+
 ## [0.6.40] - 2024-07-23
 
 ### Changed
