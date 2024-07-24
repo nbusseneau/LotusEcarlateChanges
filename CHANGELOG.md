@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.41] - 2024-07-24
+
 ### Fixed
 
 - World Advancement Progression: allow poison arrows to be used after defeating The Elder.
@@ -421,7 +423,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.40...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.41...HEAD
+[0.6.41]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.40...0.6.41
 [0.6.40]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.39...0.6.40
 [0.6.39]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.38...0.6.39
 [0.6.38]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.37...0.6.38
