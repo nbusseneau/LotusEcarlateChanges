@@ -36,7 +36,7 @@ jobs:
 
       - name: Rotate unreleased section in changelog
         id: rotate-changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@master
+        uses: thomaseizinger/keep-a-changelog-new-release@f62c3c390716df5af712ba5d94f4f4a8efc1306d
         with:
           tag: ${{ inputs.tag }}
 
