@@ -21,6 +21,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("blacks7ar.RefinedStonePieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.RenegadeVikings", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.drakemods.Moregates", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("com.orianaventure.mod.WorldAdvancementProgression", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
@@ -31,7 +32,6 @@ namespace LotusEcarlateChanges;
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("com.orianaventure.mod.WorldAdvancementProgression", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency(Jotunn.Main.ModGuid, BepInDependency.DependencyFlags.HardDependency)]
 [NetworkCompatibility(CompatibilityLevel.ClientMustHaveMod, VersionStrictness.Minor)]
 public class Plugin : BaseUnityPlugin
