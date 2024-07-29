@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.42] - 2024-07-29
+
 ### Changed
 
 - Rebalance Blackmetal Greatbow draw speed and stamina drain.
@@ -427,7 +429,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.41...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.42...HEAD
+[0.6.42]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.41...0.6.42
 [0.6.41]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.40...0.6.41
 [0.6.40]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.39...0.6.40
 [0.6.39]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.38...0.6.39
