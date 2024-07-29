@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rebalance Blackmetal Greatbow draw speed and stamina drain.
+
 ## [0.6.41] - 2024-07-24
 
 ### Fixed

@@ -173,6 +173,8 @@ public class Warfare : StandaloneManagerBasedChangesBase
     blackmetalGreatbow.RequiredUpgradeItems.Add("BlackMetal", 5);
     blackmetalGreatbow.RequiredUpgradeItems.Add("LoxBone_TW", 2);
     blackmetalGreatbowWrapper.Weapon.MovementModifier = MovementModifier.TwoHanded;
+    blackmetalGreatbowWrapper.Weapon.PrimaryAttack.m_drawDurationMin = 3.5f;
+    blackmetalGreatbowWrapper.Weapon.PrimaryAttack.m_drawStaminaDrain = 10f;
 
     // Bucklers
     itemManager.Keep("ShieldChitinBuckler_TW");
