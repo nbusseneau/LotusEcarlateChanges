@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- World Advancement Progression: fix recipes requiring only one ingredient.
+
 ## [0.6.42] - 2024-07-29
 
 ### Changed
