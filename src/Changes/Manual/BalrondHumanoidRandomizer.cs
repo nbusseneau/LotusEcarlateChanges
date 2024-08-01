@@ -20,7 +20,15 @@ public class BalrondHumanoidRandomizer : ManualChangesBase
       AccessTools.Method(typeof(MonsterManager), nameof(MonsterManager.setupSpawners)),
       prefix: new HarmonyMethod(this.GetType(), nameof(SetupSpawners))
     );
+
+    // Remove additional spirit damage
+    Plugin.Harmony.Patch(
+      AccessTools.Method(typeof(ItemEdits), nameof(ItemEdits.editItems)),
+      prefix: new HarmonyMethod(this.GetType(), nameof(NoOpPrefix))
+    );
   }
+
+  private static void NoOpPrefix(ref bool __runOriginal) => __runOriginal = false;
 
   private static void SetupSpawners(MonsterManager __instance, List<GameObject> list, ref bool __runOriginal)
   {
