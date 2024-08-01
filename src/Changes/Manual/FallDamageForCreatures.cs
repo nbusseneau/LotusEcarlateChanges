@@ -10,8 +10,10 @@ public class FallDamageForCreatures : ManualChangesBase
 {
   protected override void ApplyInternal()
   {
-    // Add spiders to blackedlisted monsters for fall damage
+    // Add Mistlands small insects and MonsterLabZ spiders to blackedlisted monsters for fall damage
     HashSet<string> toBlacklist = [
+      "SeekerBrood",
+      "Tick",
       "BrownSpider",
       "BrownSpider_Spawn",
       "ForestSpider",
