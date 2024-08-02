@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - BalrondHumanoidRandomizer: remove additional spirit damage on creatures.
+- Update Jotunn to 2.20.2.
 
 ### Fixed
 
