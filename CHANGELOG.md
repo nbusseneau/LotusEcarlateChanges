@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.44] - 2024-08-02
+
 ### Changed
 
 - BalrondHumanoidRandomizer: remove additional spirit damage on creatures.
@@ -444,7 +446,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.43...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.44...HEAD
+[0.6.44]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.43...0.6.44
 [0.6.43]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.42...0.6.43
 [0.6.42]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.41...0.6.42
 [0.6.41]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.40...0.6.41
