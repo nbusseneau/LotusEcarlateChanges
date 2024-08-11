@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adjust Ashlands weapons.
 - Adjust FallDamageForCreatures for Ashlands.
 
+### Removed
+
+- Remove problematic RtDBiomes' Ashlands trees (FPS drops due to cinder fire not being able to destroy them).
+
 ## [0.6.44] - 2024-08-02
 
 ### Changed

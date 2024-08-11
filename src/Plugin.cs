@@ -29,6 +29,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("neobotics.valheim_mod.maxaxe", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("nex.SpeedyPaths", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("Soloredis.RtDBiomes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
@@ -52,6 +53,7 @@ public class Plugin : BaseUnityPlugin
       new Clutter(),
       new CustomSkills(),
       new MoreGates(),
+      new RtDBiomes(),
 
       // Standalone manager-based changes
       new Backpacks(),
