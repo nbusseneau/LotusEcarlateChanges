@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Adjust Ashlands weapons.
+- Adjust FallDamageForCreatures for Ashlands.
 
 ## [0.6.44] - 2024-08-02
 

@@ -14,6 +14,7 @@ public class FallDamageForCreatures : ManualChangesBase
     HashSet<string> toBlacklist = [
       "SeekerBrood",
       "Tick",
+      "BlobLava",
       "BrownSpider",
       "BrownSpider_Spawn",
       "ForestSpider",
