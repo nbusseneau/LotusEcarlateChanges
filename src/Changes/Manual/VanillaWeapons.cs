@@ -8,10 +8,7 @@ public class VanillaWeapons : ManualChangesBase
 {
   protected override void ApplyOnObjectDBAwakeInternal()
   {
-    // Skills
-    this.ItemManager["THSwordKrom"].Weapon.SkillType = CustomSkills.TwoHandedSwords;
-
-    // Movespeed adjustments
+    // Movespeed and skills adjustments
     // Atgeirs
     string[] atgeirs = [
       "AtgeirBronze",
@@ -28,8 +25,58 @@ public class VanillaWeapons : ManualChangesBase
       "BowHuntsman",
       "BowDraugrFang",
       "BowSpineSnap",
+      "BowAshlands",
+      "BowAshlandsBlood",
+      "BowAshlandsRoot",
+      "BowAshlandsStorm",
     ];
     foreach (var bow in this.ItemManager[bows]) bow.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
+    // Crossbows
+    string[] crossbows = [
+      "CrossbowArbalest",
+      "CrossbowRipper",
+      "CrossbowRipperBlood",
+      "CrossbowRipperLightning",
+      "CrossbowRipperNature",
+    ];
+    foreach (var crossbow in this.ItemManager[crossbows]) crossbow.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
+    // Dual axes
+    string[] dualAxes = [
+      "AxeBerzerkr",
+      "AxeBerzerkrBlood",
+      "AxeBerzerkrLightning",
+      "AxeBerzerkrNature",
+    ];
+    foreach (var dualAxe in this.ItemManager[dualAxes]) dualAxe.Weapon.MovementModifier = MovementModifier.TwoHanded;
+
+    // Two-handed swords
+    string[] twoHandedSwords = [
+      "THSwordKrom",
+      "THSwordSlayer",
+      "THSwordSlayerBlood",
+      "THSwordSlayerLightning",
+      "THSwordSlayerNature",
+    ];
+    foreach (var twoHandedSword in this.ItemManager[twoHandedSwords])
+    {
+      twoHandedSword.Weapon.MovementModifier = MovementModifier.TwoHanded;
+      twoHandedSword.Weapon.SkillType = CustomSkills.TwoHandedSwords;
+    }
+
+    // Staffs
+    string[] staffs = [
+      "StaffIceShards",
+      "StaffFireball",
+      "StaffShield",
+      "StaffSkeleton",
+      "StaffClusterbomb",
+      "StaffGreenRoots",
+      "StaffLightning",
+      "StaffRedTroll",
+    ];
+    foreach (var staff in this.ItemManager[staffs]) staff.Weapon.MovementModifier = MovementModifier.TwoHanded;
 
     // Shields
     string[] shields = [

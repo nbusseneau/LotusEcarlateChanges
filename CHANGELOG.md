@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adjust Ashlands weapons.
+
 ## [0.6.44] - 2024-08-02
 
 ### Changed
