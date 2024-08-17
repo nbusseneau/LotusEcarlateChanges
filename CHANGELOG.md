@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Replace Black Forge requirement with Forge for Dvergr lantern and metal wall pieces.
+
 ## [0.6.45] - 2024-08-11
 
 ### Changed

@@ -87,6 +87,10 @@ public class VanillaMisc : ManualChangesBase
 
     this.PieceManager["darkwood_gate"].CraftingStation = workbench;
 
+    this.PieceManager["piece_dvergr_metal_wall_2x2"].CraftingStation = forge;
+    this.PieceManager["piece_dvergr_lantern"].CraftingStation = forge;
+    this.PieceManager["piece_dvergr_lantern_pole"].CraftingStation = forge;
+
     var dvergrSharpStakes = this.PieceManager["piece_dvergr_sharpstakes"];
     dvergrSharpStakes.CraftingStation = workbench;
     dvergrSharpStakes.Resources.Clear();
