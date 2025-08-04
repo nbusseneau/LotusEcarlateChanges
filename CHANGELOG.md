@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2025-08-04
+
 ### Added
 
 - New build pieces:
@@ -486,7 +488,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.46...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.0...HEAD
+[0.7.0]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.46...0.7.0
 [0.6.46]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.45...0.6.46
 [0.6.45]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.44...0.6.45
 [0.6.44]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.6.43...0.6.44
