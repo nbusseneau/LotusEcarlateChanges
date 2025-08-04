@@ -29,9 +29,6 @@ public class Lightsources : ManualChangesBase
       "Torch",
       "HelmetDverger",
       "Lantern",
-      // BowsBeforeHoes arrows
-      "TorchArrow",
-      "MistTorchArrow",
     ];
     ApplyLightRangeMultiplier(this.ItemManager[items].Select(item => item.Prefab));
 

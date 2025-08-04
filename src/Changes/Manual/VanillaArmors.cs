@@ -458,5 +458,110 @@ public class VanillaArmors : ManualChangesBase
     carapaceLegs.Armor.ArmorPerLevel = 3;
     carapaceLegs.Armor.MovementModifier = Normal.MovementModifier.Legs;
     carapaceLegs.Armor.Weight = Normal.Weight.Legs;
+
+    // Embla
+    var emblaHelm = this.ItemManager["HelmetMage_Ashlands"];
+    emblaHelm.Resources.Clear();
+    emblaHelm.Resources.Add("LinenThread", 10, 5);
+    emblaHelm.Resources.Add("Eitr", 15, 5);
+    emblaHelm.Resources.Add("AskHide", 3, 1);
+    emblaHelm.Resources.Add("Flametal", 2, 1);
+    emblaHelm.Armor.ArmorBase = 10;
+    emblaHelm.Armor.ArmorPerLevel = 2;
+    emblaHelm.Armor.MovementModifier = SemiLight.MovementModifier.Helm; // mage robes are annoying for running lmao
+    emblaHelm.Armor.Weight = VeryLight.Weight.Helm;
+    emblaHelm.Armor.EitrRegenModifier = 0.3f;
+
+    var emblaChest = this.ItemManager["ArmorMageChest_Ashlands"];
+    emblaChest.Resources.Clear();
+    emblaChest.Resources.Add("LinenThread", 30, 15);
+    emblaChest.Resources.Add("Eitr", 20, 5);
+    emblaHelm.Resources.Add("AskHide", 12, 4);
+    emblaHelm.Resources.Add("Flametal", 6, 3);
+    emblaChest.Armor.ArmorBase = 30;
+    emblaChest.Armor.ArmorPerLevel = 3;
+    emblaChest.Armor.MovementModifier = SemiLight.MovementModifier.Chest; // mage robes are annoying for running lmao
+    emblaChest.Armor.Weight = VeryLight.Weight.Chest;
+    emblaChest.Armor.EitrRegenModifier = 0.6f;
+
+    var emblaLegs = this.ItemManager["ArmorMageLegs_Ashlands"];
+    emblaLegs.Resources.Clear();
+    emblaLegs.Resources.Add("LinenThread", 20, 10);
+    emblaLegs.Resources.Add("Eitr", 20, 5);
+    emblaHelm.Resources.Add("AskHide", 6, 2);
+    emblaHelm.Resources.Add("Flametal", 4, 2);
+    emblaLegs.Armor.ArmorBase = 20;
+    emblaLegs.Armor.ArmorPerLevel = 3;
+    emblaLegs.Armor.MovementModifier = SemiLight.MovementModifier.Legs; // mage robes are annoying for running lmao
+    emblaLegs.Armor.Weight = VeryLight.Weight.Legs;
+    emblaLegs.Armor.EitrRegenModifier = 0.4f;
+
+    // Ask
+    var askHelm = this.ItemManager["HelmetAshlandsMediumHood"];
+    askHelm.Resources.Clear();
+    askHelm.Resources.Add("LinenThread", 10, 5);
+    askHelm.Resources.Add("LoxPelt", 2, 1);
+    askHelm.Resources.Add("AskHide", 5, 2);
+    askHelm.Armor.ArmorBase = 15;
+    askHelm.Armor.ArmorPerLevel = 3;
+    askHelm.Armor.MovementModifier = SemiLight.MovementModifier.Helm;
+    askHelm.Armor.Weight = SemiLight.Weight.Helm;
+
+    var askChest = this.ItemManager["ArmorAshlandsMediumChest"];
+    askChest.Resources.Clear();
+    askChest.Resources.Add("LinenThread", 30, 15);
+    askChest.Resources.Add("LoxPelt", 6, 3);
+    askChest.Resources.Add("AskHide", 15, 7);
+    askChest.Armor.ArmorBase = 30;
+    askChest.Armor.ArmorPerLevel = 4;
+    askChest.Armor.MovementModifier = SemiLight.MovementModifier.Chest;
+    askChest.Armor.Weight = SemiLight.Weight.Chest;
+
+    var askLegs = this.ItemManager["ArmorAshlandsMediumlegs"];
+    askLegs.Resources.Clear();
+    askLegs.Resources.Add("LinenThread", 20, 10);
+    askLegs.Resources.Add("LoxPelt", 4, 2);
+    askLegs.Resources.Add("AskHide", 10, 5);
+    askLegs.Armor.ArmorBase = 45;
+    askLegs.Armor.ArmorPerLevel = 3;
+    askLegs.Armor.MovementModifier = SemiLight.MovementModifier.Legs;
+    askLegs.Armor.Weight = SemiLight.Weight.Legs;
+
+    // Flametal
+    var flametalHelm = this.ItemManager["HelmetFlametal"];
+    flametalHelm.Resources.Clear();
+    flametalHelm.Resources.Add("Flametal", 10, 5);
+    flametalHelm.Resources.Add("AskHide", 2, 1);
+    flametalHelm.Resources.Add("CharredBone", 2, 1);
+    flametalHelm.Resources.Add("Eitr", 4, 2);
+    flametalHelm.Armor.ArmorBase = 19;
+    flametalHelm.Armor.ArmorPerLevel = 3;
+    flametalHelm.Armor.MovementModifier = Normal.MovementModifier.Helm;
+    flametalHelm.Armor.Weight = Normal.Weight.Helm;
+    flametalHelm.SharedData.m_heatResistanceModifier = 0.05f;
+
+    var flametalChest = this.ItemManager["ArmorFlametalChest"];
+    flametalChest.Resources.Clear();
+    flametalChest.Resources.Add("Flametal", 30, 15);
+    flametalChest.Resources.Add("AskHide", 4, 3);
+    flametalChest.Resources.Add("CharredBone", 6, 3);
+    flametalChest.Resources.Add("MorgenHeart", 1, 0);
+    flametalChest.Armor.ArmorBase = 57;
+    flametalChest.Armor.ArmorPerLevel = 4;
+    flametalChest.Armor.MovementModifier = Normal.MovementModifier.Chest;
+    flametalChest.Armor.Weight = Normal.Weight.Chest;
+    flametalChest.SharedData.m_heatResistanceModifier = 0.25f;
+
+    var flametalLegs = this.ItemManager["ArmorFlametalLegs"];
+    flametalLegs.Resources.Clear();
+    flametalLegs.Resources.Add("Flametal", 20, 10);
+    flametalLegs.Resources.Add("AskHide", 3, 2);
+    flametalLegs.Resources.Add("CharredBone", 4, 2);
+    flametalLegs.Resources.Add("Iron", 12, 3);
+    flametalLegs.Armor.ArmorBase = 38;
+    flametalLegs.Armor.ArmorPerLevel = 4;
+    flametalLegs.Armor.MovementModifier = Normal.MovementModifier.Legs;
+    flametalLegs.Armor.Weight = Normal.Weight.Legs;
+    flametalLegs.SharedData.m_heatResistanceModifier = 0.10f;
   }
 }

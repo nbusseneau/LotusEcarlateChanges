@@ -15,26 +15,21 @@ public class CustomKeyHints : ManualChangesBase
   private readonly Dictionary<string, HashSet<ConfigDefinition>> _configDefinitions = new()
   {
     // Combat
-    ["Azumatt.BowsBeforeHoes"] = [
-      new("3 - Keyboard Shortcuts", "Bow Zoom Hotkey"),
-      new("3 - Keyboard Shortcuts", "Bow Draw Cancel Hotkey"),
+    ["Searica.Valheim.ProjectileTweaks"] = [
+      new("6 - Zoom", "Zoom Key"),
+      new("6 - Zoom", "Cancel Draw Key"),
     ],
     ["blacks7ar.WeaponHolsterOverhaul"] = [
       new("General", "Unequipped Key"),
     ],
     ["neobotics.valheim_mod.maxaxe"] = [
       new("General", "ThrowOne"),
-      new("General", "ThrowShield"),
     ],
-    ["Searica.Valheim.DodgeShortcut"] = [
-      new("Mechanics", "DodgeShortcut"),
+    ["ZenDragon.ZenCombat"] = [
+      new("Dodge", "Keyboard Dodge Button"),
     ],
 
     // Build
-    ["advize.PlantEasily"] = [
-      new("Controls", "KeyboardModifierKey"),
-      new("Controls", "KeyboardHarvestModifierKey"),
-    ],
     ["Searica.Valheim.TerrainTools"] = [
       // TerrainTools uses zero-width spaces repeated X times as section prefixes to sort them in a specific order,
       // so we must have them as well to match the config entries
@@ -43,9 +38,6 @@ public class CustomKeyHints : ManualChangesBase
     ],
 
     // Inventory
-    ["Azumatt.ItemCompare"] = [
-      new("1 - General", "Hover Keybind"),
-    ],
     ["goldenrevolver.quick_stack_store"] = [
       new("1 - Favoriting", "FavoritingModifierKeybind1"),
       new("2.1 - Quick Stacking", "QuickStackKeybind"),
@@ -73,15 +65,6 @@ public class CustomKeyHints : ManualChangesBase
       AccessTools.Method(typeof(KeyHints), nameof(KeyHints.UpdateHints)),
       postfix: new HarmonyMethod(this.GetType(), nameof(UpdateHints))
     );
-
-    Plugin.Harmony.Patch(
-      AccessTools.Method(typeof(Beehive), nameof(Beehive.GetHoverText)),
-      postfix: new HarmonyMethod(this.GetType(), nameof(BeehiveGetHoverText))
-    );
-    Plugin.Harmony.Patch(
-      AccessTools.Method(typeof(Pickable), nameof(Pickable.GetHoverText)),
-      postfix: new HarmonyMethod(this.GetType(), nameof(PickableGetHoverText))
-    );
   }
 
   private static void UpdateHints(KeyHints __instance)
@@ -104,13 +87,11 @@ public class CustomKeyHints : ManualChangesBase
 
       var hasSomethingInHand = player.m_leftItem is not null || player.m_rightItem is not null;
       s_holsterSwap.SetActive(hasSomethingInHand);
-      s_unequip.SetActive(hasSomethingInHand);
+      // s_unequip.SetActive(hasSomethingInHand);
 
       var isThrowableRight = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_rightItem);
       var isThrowableLeft = MaxAxe::neobotics.ValheimMods.MaxAxe.IsThrowable(player.m_leftItem);
-      var isThrowableShield = isThrowableLeft && player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
-      s_throwWeaponHint.SetActive(isThrowableRight || isThrowableLeft && !isThrowableShield);
-      s_throwShieldHint.SetActive(isThrowableShield);
+      s_throwWeaponHint.SetActive(isThrowableRight || isThrowableLeft);
 
       s_combatSwimDive.SetActive(isSwimming);
       s_combatSwimAscend.SetActive(isSwimming);
@@ -119,43 +100,13 @@ public class CustomKeyHints : ManualChangesBase
     else if (isBuild)
     {
       var currentTool = player.m_rightItem;
-      var isCultivator = currentTool?.m_dropPrefab?.name.Contains("Cultivator") ?? false;
       var isHoe = currentTool?.m_dropPrefab?.name.Contains("Hoe") ?? false;
-      s_cultivatorModifierHint.SetActive(isCultivator);
       s_hoeRadiusModifierHint.SetActive(isHoe);
       s_hoeHardnessModifierHint.SetActive(isHoe);
 
       s_buildSwimDive.SetActive(isSwimming);
       s_buildSwimAscend.SetActive(isSwimming);
     }
-
-    else if (isInventory)
-    {
-      var hasWeapon = player.m_rightItem is { } right && right.IsWeapon() || player.m_leftItem is { } left && left.IsWeapon();
-      var hasShield = player.m_leftItem?.m_shared.m_itemType == ItemDrop.ItemData.ItemType.Shield;
-      s_compare.SetActive(hasWeapon || hasShield);
-      s_compareWithContainer.SetActive(hasWeapon || hasShield);
-    }
-  }
-
-  private static string bulkHarvestModifierHoverKey;
-  private static void BeehiveGetHoverText(Beehive __instance, ref string __result)
-  {
-    // only add our hover text if honey can actually be extracted
-    var isPrivate = !PrivateArea.CheckAccess(__instance.transform.position, flash: false);
-    var hasHoney = __instance.GetHoneyLevel() > 0;
-    if (isPrivate || !hasHoney) return;
-
-    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $piece_beehive_extract $KeyHint_Pickable_Bulk";
-    __result += Localization.instance.Localize(hoverTextSuffix);
-  }
-  private static void PickableGetHoverText(Pickable __instance, ref string __result)
-  {
-    // only add our hover text if the pickable can actually be picked
-    if (__instance.GetPicked() || __instance.GetEnabled == 0) return;
-
-    var hoverTextSuffix = $"\n[<b><color=yellow>{bulkHarvestModifierHoverKey}</color> + <color=yellow>$KEY_Use</color></b>] $inventory_pickup $KeyHint_Pickable_Bulk";
-    __result += Localization.instance.Localize(hoverTextSuffix);
   }
 
   protected override void ApplyOnObjectDBAwakeInternal()
@@ -166,7 +117,6 @@ public class CustomKeyHints : ManualChangesBase
     this.SetUpInventoryHints();
     this.SetUpSwimHints();
     this.SetUpMapHints();
-    bulkHarvestModifierHoverKey = this._keyHintStrings["advize.PlantEasily.Controls.KeyboardHarvestModifierKey"];
   }
 
   private void FetchPluginConfigEntries()
@@ -194,24 +144,21 @@ public class CustomKeyHints : ManualChangesBase
   private static CustomKeyHint s_bowDrawZoomHint;
   private static CustomKeyHint s_bowDrawCancelHint;
   private static CustomKeyHint s_throwWeaponHint;
-  private static CustomKeyHint s_throwShieldHint;
   private static CustomKeyHint s_holsterSwap;
   private static CustomKeyHint s_unequip;
   private void SetUpCombatHints()
   {
     CustomKeyHint templateHint = new(KeyHints.instance.m_combatHints.Find("Keyboard/Block"));
-    s_bowDrawZoomHint = CustomKeyHint.Clone(templateHint, "BowDrawZoom", "$KeyHint_Combat_BowDrawZoom", this._keyHintStrings["Azumatt.BowsBeforeHoes.3 - Keyboard Shortcuts.Bow Zoom Hotkey"], siblingIndex: 3, hide: true);
-    s_bowDrawCancelHint = CustomKeyHint.Clone(templateHint, "BowDrawCancel", "$KeyHint_Combat_BowDrawCancel", this._keyHintStrings["Azumatt.BowsBeforeHoes.3 - Keyboard Shortcuts.Bow Draw Cancel Hotkey"], siblingIndex: 4, hide: true);
+    s_bowDrawZoomHint = CustomKeyHint.Clone(templateHint, "BowDrawZoom", "$KeyHint_Combat_BowDrawZoom", this._keyHintStrings["Searica.Valheim.ProjectileTweaks.6 - Zoom.Zoom Key"], siblingIndex: 3, hide: true);
+    s_bowDrawCancelHint = CustomKeyHint.Clone(templateHint, "BowDrawCancel", "$KeyHint_Combat_BowDrawCancel", this._keyHintStrings["Searica.Valheim.ProjectileTweaks.6 - Zoom.Cancel Draw Key"], siblingIndex: 4, hide: true);
     s_throwWeaponHint = CustomKeyHint.Clone(templateHint, "Throw", "$KeyHint_Combat_Throw", this._keyHintStrings["neobotics.valheim_mod.maxaxe.General.ThrowOne"], siblingIndex: 5, hide: true);
-    s_throwShieldHint = CustomKeyHint.Clone(templateHint, "ThrowShield", "$KeyHint_Combat_ThrowShield", this._keyHintStrings["neobotics.valheim_mod.maxaxe.General.ThrowShield"], siblingIndex: 6, hide: true);
-    s_holsterSwap = CustomKeyHint.Clone(templateHint, "HolsterSwap", "$KeyHint_Combat_HolsterSwap", ZInput.instance.m_buttons["Hide"].m_key.ToString());
+    s_holsterSwap = CustomKeyHint.Clone(templateHint, "HolsterSwap", "$KeyHint_Combat_HolsterSwap", Localization.instance.GetBoundKeyString("Hide"));
     s_unequip = CustomKeyHint.Clone(templateHint, "Unequip", "$KeyHint_Combat_Unequip", this._keyHintStrings["blacks7ar.WeaponHolsterOverhaul.General.Unequipped Key"]);
 
-    CustomKeyHint dodgeHint = new(KeyHints.instance.m_combatHints.Find("Keyboard/Dodge"), key: this._keyHintStrings["Searica.Valheim.DodgeShortcut.Mechanics.DodgeShortcut"]);
+    CustomKeyHint dodgeHint = new(KeyHints.instance.m_combatHints.Find("Keyboard/Dodge"), key: this._keyHintStrings["ZenDragon.ZenCombat.Dodge.Keyboard Dodge Button"]);
     dodgeHint.HideChildren("plus", "key_bkg (2)");
   }
 
-  private static CustomKeyHint s_cultivatorModifierHint;
   private static CustomKeyHint s_hoeRadiusModifierHint;
   private static CustomKeyHint s_hoeHardnessModifierHint;
   private void SetUpBuildHints()
@@ -223,13 +170,6 @@ public class CustomKeyHints : ManualChangesBase
     snapHint.Find("Text").SetText("$KeyHint_Build_NoSnap");
 
     CustomKeyHint templateHint = new(KeyHints.instance.m_buildHints.Find("Keyboard/Place"));
-    s_cultivatorModifierHint = CustomKeyHint.Clone(templateHint, "CultivatorModifierKey", "$KeyHint_Cultivator_ModifierKey", this._keyHintStrings["advize.PlantEasily.Controls.KeyboardModifierKey"], siblingIndex: 2, hide: true);
-    this.AddPlusToKeyHint(s_cultivatorModifierHint);
-    this.AddKeyBkgToKeyHint(s_cultivatorModifierHint, "←");
-    this.AddKeyBkgToKeyHint(s_cultivatorModifierHint, "↑");
-    this.AddKeyBkgToKeyHint(s_cultivatorModifierHint, "→");
-    this.AddKeyBkgToKeyHint(s_cultivatorModifierHint, "↓");
-
     s_hoeRadiusModifierHint = CustomKeyHint.Clone(templateHint, "HoeRadiusModifierKey", "$KeyHint_Hoe_RadiusModifierKey", this._keyHintStrings["Searica.Valheim.TerrainTools.Radius.RadiusModKey"], siblingIndex: 2, hide: true);
     this.AddPlusToKeyHint(s_hoeRadiusModifierHint);
     this.AddMouseWheelIconToKeyHint(s_hoeRadiusModifierHint);
@@ -252,15 +192,10 @@ public class CustomKeyHints : ManualChangesBase
   }
   private void AddMouseWheelIconToKeyHint(CustomKeyHint keyHint) => Object.Instantiate(Minimap.instance.m_hints[0].Find("keyboard_hints/PingPanel/keyboard_hint"), keyHint.Transform);
 
-  private static CustomKeyHint s_compare;
-  private static CustomKeyHint s_compareWithContainer;
   private void SetUpInventoryHints()
   {
-    var inventoryTemplateHint = SetUpCommonInventoryHints(KeyHints.instance.m_inventoryHints);
-    var inventoryWithContainerTemplateHint = SetUpCommonInventoryHints(KeyHints.instance.m_inventoryWithContainerHints);
-
-    s_compare = CustomKeyHint.Clone(inventoryTemplateHint, "Compare", "$KeyHint_Inventory_Compare", this._keyHintStrings["Azumatt.ItemCompare.1 - General.Hover Keybind"], siblingIndex: 0);
-    s_compareWithContainer = CustomKeyHint.Clone(inventoryWithContainerTemplateHint, "Compare", "$KeyHint_Inventory_Compare", this._keyHintStrings["Azumatt.ItemCompare.1 - General.Hover Keybind"], siblingIndex: 0);
+    SetUpCommonInventoryHints(KeyHints.instance.m_inventoryHints);
+    SetUpCommonInventoryHints(KeyHints.instance.m_inventoryWithContainerHints);
   }
 
   private CustomKeyHint SetUpCommonInventoryHints(GameObject inventoryHints)

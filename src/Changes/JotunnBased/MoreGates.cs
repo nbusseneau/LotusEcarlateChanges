@@ -6,7 +6,7 @@ using LotusEcarlateChanges.Model.Changes;
 
 namespace LotusEcarlateChanges.Changes.JotunnBased;
 
-public class MoreGates() : JotunnBasedChangesBase("com.drakemods.Moregates")
+public class MoreGates() : JotunnBasedChangesBase("shudnal.MoreGatesExtended")
 {
   protected override void ApplyInternal()
   {

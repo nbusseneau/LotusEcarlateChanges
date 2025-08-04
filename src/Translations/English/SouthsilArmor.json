@@ -93,5 +93,23 @@
   "SouthsilArmor_DruidLegs_Name": "Druid leggings",
   "SouthsilArmor_DruidLegs_Description": "Simple but finely crafted leather boots, made warmer by a lox fur lining and a hare scalemail skirt along with the lower part of your feathery-green tabard.",
   "SouthsilArmor_DruidSet_Effect_Name": "Elemental attunement",
-  "SouthsilArmor_DruidSet_Effect_Tooltip": "As you focus and tame them, the forces of nature envelop your body and spirit. They sharpen your senses and bolster your strength. You feel one."
+  "SouthsilArmor_DruidSet_Effect_Tooltip": "As you focus and tame them, the forces of nature envelop your body and spirit. They sharpen your senses and bolster your strength. You feel one.",
+
+  "SouthsilArmor_SerpentHelm_Name": "Jörmungandr helm",
+  "SouthsilArmor_SerpentHelm_Description": "Upon first encountering the Bonemaw, you received a vision from Jörmungandr himself. He is displeased with Thor and Odin allowing such abominations to prosper in the 10th world. He commanded you to become his avatar.",
+  "SouthsilArmor_SerpentChest_Name": "Jörmungandr scales plate armor",
+  "SouthsilArmor_SerpentChest_Description": "A heavy yet surprisingly flexible chest piece, expertly crafted based on Jörmungandr's design: the scales of his own children, coated in an alloy of flametal and black metal.",
+  "SouthsilArmor_SerpentLegs_Name": "Jörmungandr scales greaves",
+  "SouthsilArmor_SerpentLegs_Description": "The might of the Great Serpent courses through your limbs. You feel him watching over you, and you understand your purpose. Ragnarök approaches.",
+  "SouthsilArmor_SerpentSet_Effect_Name": "Ouroboros",
+  "SouthsilArmor_SerpentSet_Effect_Tooltip": "Is there a meaning to the eternal cycle of life and death in the 10th world? A snake biting its own tail...",
+
+  "SouthsilArmor_MorgenHelm_Name": "Morgen-slayer helmet",
+  "SouthsilArmor_MorgenHelm_Description": "In your dreams, you were running through great plains, great horns hanging on your forehead, and you felt as if nothing could ever force you to move anywhere you did not want to.",
+  "SouthsilArmor_MorgenChest_Name": "Morgen-slayer plate armor",
+  "SouthsilArmor_MorgenChest_Description": "Extraordinarily sturdy breastplate: a thick layer of flametal and Asksvin hides, stitched together with Morgen sinews and charred bones powder. Such protection is sought after only by the most experienced Morgen slayers.",
+  "SouthsilArmor_MorgenLegs_Name": "Morgen-slayer legplates",
+  "SouthsilArmor_MorgenLegs_Description": "To kill a Morgen is one thing: it could be done by chance, ruse, or plain luck. To kill them all requires focus, commitment, and sheer fucking will.",
+  "SouthsilArmor_MorgenSet_Effect_Name": "Immovable",
+  "SouthsilArmor_MorgenSet_Effect_Tooltip": "Running around while fighting Morgens has made you tired. Very tired. And extremely annoyed. \"No more!\", you say, \"My ground is my own. I am not moving.\""
 }

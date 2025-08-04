@@ -10,22 +10,14 @@ public class FallDamageForCreatures : ManualChangesBase
 {
   protected override void ApplyInternal()
   {
-    // Add Mistlands small insects and MonsterLabZ spiders to blackedlisted monsters for fall damage
+    // Monsters blacklisted for fall damage
     HashSet<string> toBlacklist = [
+      // Mistlands
       "SeekerBrood",
       "Tick",
+
+      // Ashlands
       "BlobLava",
-      "BrownSpider",
-      "BrownSpider_Spawn",
-      "ForestSpider",
-      "FrigidSpider",
-      "FrostSpider",
-      "GreenSpider",
-      "TanSpider",
-      "TreeSpider",
-      "TreeSpider_Spawn",
-      "Spider_Boss",
-      "Spider_Hatchling",
     ];
 
     foreach (var monsterName in toBlacklist) FallDamagePatch.BlackListed.Add(monsterName.GetStableHashCode());

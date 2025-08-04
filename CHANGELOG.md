@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- New build pieces:
+  - DarkWoodFurnitures
+  - FineWoodFurnitures
+  - SimpleElevators
+- New Ashlands-tier armors and weapons.
+
+### Changed
+
+- Update all dependencies.
+
+### Removed
+
+- Warpikes and some other redundant Warfare weapons.
+- Obsolete / deprecated dependencies:
+  - Backpacks
+  - BowsBeforeHoes
+  - MaxAxe
+  - MonsterLabZ
+  - Renegade Vikings
+  - RtdBiomes
+
 ## [0.6.46] - 2024-08-17
 
 ### Changed

@@ -1,16 +1,12 @@
 {
-  "KeyHint_Pickable_Bulk": "(area)",
-
   "KeyHint_Combat_BowDrawZoom": "Draw zoom",
   "KeyHint_Combat_BowDrawCancel": "Cancel draw",
   "KeyHint_Combat_Throw": "Throw",
-  "KeyHint_Combat_ThrowShield": "Throw shield",
   "KeyHint_Combat_HolsterSwap": "Holster/Swap",
   "KeyHint_Combat_Unequip": "Holster/Unequip",
 
   "KeyHint_Build_Menu": "Menu",
   "KeyHint_Build_NoSnap": "Disable snapping",
-  "KeyHint_Cultivator_ModifierKey": "Crop grid",
   "KeyHint_Hoe_RadiusModifierKey": "Size",
   "KeyHint_Hoe_HardnessModifierKey": "Hardness",
 

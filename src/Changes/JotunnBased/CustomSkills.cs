@@ -10,14 +10,12 @@ public class CustomSkills : JotunnBasedChangesBase
   public static Skills.SkillType TwoHandedAxes { get; private set; }
   public static Skills.SkillType TwoHandedHammers { get; private set; }
   public static Skills.SkillType TwoHandedSwords { get; private set; }
-  public static Skills.SkillType Warpikes { get; private set; }
 
   protected override void ApplyInternal()
   {
     TwoHandedAxes = Register("TwoHandedAxes", "$CustomSkills_TwoHandedAxesSkill_Name", "$CustomSkills_TwoHandedAxesSkill_Description");
     TwoHandedHammers = Register("TwoHandedHammers", "$CustomSkills_TwoHandedHammersSkill_Name", "$CustomSkills_TwoHandedHammersSkill_Description");
     TwoHandedSwords = Register("TwoHandedSwords", "$CustomSkills_TwoHandedSwordsSkill_Name", "$CustomSkills_TwoHandedSwordsSkill_Description");
-    Warpikes = Register("Warpikes", "$CustomSkills_WarpikesSkill_Name", "$CustomSkills_WarpikesSkill_Description");
   }
 
   private static Skills.SkillType Register(string identifier, string name, string description)

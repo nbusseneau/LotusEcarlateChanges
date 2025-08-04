@@ -1,6 +1,0 @@
-{
-  "Backpack_Name": "Sac à dos",
-  "Backpack_Description": "Un sac à dos extrêmement rigide, en cuir robuste superposé sur une cage métallique renforcée.",
-  "Backpack_Effect_Name": "Bête de somme",
-  "Backpack_Effect_Tooltip": "La charge semble plus légère sur votre dos, mais vos jambes ne sont pas dupes : la fatigue se fait sentir à chaque pas.\n\n<color=orange>-50%</color> au poids des objets dans le sac\n<color=orange>-1%</color> de vitesse par <color=orange>10kg</color> dans le sac"
-}

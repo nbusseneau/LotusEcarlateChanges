@@ -11,25 +11,22 @@ using LotusEcarlateChanges.Model.Changes;
 namespace LotusEcarlateChanges;
 
 [BepInPlugin(ModGUID, ModName, ModVersion)]
-[BepInDependency("Azumatt.BowsBeforeHoes", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondContainers", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondHumanoidRandomizer", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("balrond.astafaraios.BalrondShipyard", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.ClayBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.CoreWoodPieces", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("blacks7ar.DarkWoodFurnitures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.FineWoodBuildPieces", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("blacks7ar.FineWoodFurnitures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("blacks7ar.RefinedStonePieces", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("blacks7ar.RenegadeVikings", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("com.drakemods.Moregates", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("blacks7ar.SimpleElevators", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.orianaventure.mod.WorldAdvancementProgression", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("MonsterLabZ", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("neobotics.valheim_mod.maxaxe", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("nex.SpeedyPaths", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("org.bepinex.plugins.backpacks", BepInDependency.DependencyFlags.HardDependency)]
-[BepInDependency("Soloredis.RtDBiomes", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("shudnal.MoreGatesExtended", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Monstrum", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("Therzie.Warfare", BepInDependency.DependencyFlags.HardDependency)]
@@ -53,17 +50,16 @@ public class Plugin : BaseUnityPlugin
       new Clutter(),
       new CustomSkills(),
       new MoreGates(),
-      new RtDBiomes(),
 
       // Standalone manager-based changes
-      new Backpacks(),
-      new BowsBeforeHoes(),
       new ClayBuildPieces(),
       new CoreWoodPieces(),
+      new DarkWoodFurnitures(),
       new FineWoodBuildPieces(),
-      new MonsterLabZ(),
+      new FineWoodFurnitures(),
       new Monstrum(),
       new RefinedStonePieces(),
+      new SimpleElevators(),
       new SouthsilArmor(),
       new Warfare(),
 
@@ -75,8 +71,6 @@ public class Plugin : BaseUnityPlugin
       new CustomKeyHints(),
       new FallDamageForCreatures(),
       new Lightsources(),
-      new MaxAxe(),
-      new RenegadeVikings(),
       new SpeedyPaths(),
       new Tutorials(),
       new VanillaMisc(),

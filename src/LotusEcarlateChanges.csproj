@@ -48,23 +48,21 @@
   <!-- References -->
   <ItemGroup>
     <Reference Include="$(PluginsPath)\ASharpPen-Fall_Damage_For_Creatures\Valheim.FallDamageForCreatures.dll" Aliases="FallDamageForCreatures" Publicize="true" />
-    <Reference Include="$(PluginsPath)\Azumatt-BowsBeforeHoes\BowsBeforeHoes.dll" Aliases="BowsBeforeHoes" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_containers\BalrondContainers.dll" Aliases="BalrondContainers" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_humanoidRandomizer\BalrondHumanoidRandomizer.dll" Aliases="BalrondHumanoidRandomizer" Publicize="true" />
     <Reference Include="$(PluginsPath)\Balrond-balrond_shipyard\BalrondShipyard.dll" Aliases="BalrondShipyard" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-ClayBuildPieces\ClayBuildPieces.dll" Aliases="ClayBuildPieces" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-CoreWoodPieces\CoreWoodPieces.dll" Aliases="CoreWoodPieces" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-DarkWoodFurnitures\DarkWoodFurnitures.dll" Aliases="DarkWoodFurnitures" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-FineWoodBuildPieces\FineWoodBuildPieces.dll" Aliases="FineWoodBuildPieces" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-FineWoodFurnitures\FineWoodFurnitures.dll" Aliases="FineWoodFurnitures" Publicize="true" />
     <Reference Include="$(PluginsPath)\blacks7ar-RefinedStonePieces\RefinedStonePieces.dll" Aliases="RefinedStonePieces" Publicize="true" />
-    <Reference Include="$(PluginsPath)\blacks7ar-RenegadeVikings\RenegadeVikings.dll" Aliases="RenegadeVikings" Publicize="true" />
-    <Reference Include="$(PluginsPath)\DrakeMods-More_Gates_PlusPlus\moregates++.dll" Aliases="MoreGates" Publicize="true" />
+    <Reference Include="$(PluginsPath)\blacks7ar-SimpleElevators\SimpleElevators.dll" Aliases="SimpleElevators" Publicize="true" />
     <Reference Include="$(PluginsPath)\Goldenrevolver-Cape_And_Torch_Resistance_Rework_And_New_Water_And_Cold_Resistance\CapeAndTorchResistanceChanges.dll" Aliases="CapeAndTorchResistanceChanges" Publicize="true" />
-    <Reference Include="$(PluginsPath)\MonsterLabZ-MonsterLabZ\MonsterLabZ\MonsterLabZ.dll" Aliases="MonsterLabZ" Publicize="true" />
     <Reference Include="$(PluginsPath)\Neobotics-MaxAxe\MaxAxe.dll" Aliases="MaxAxe" Publicize="true" />
     <Reference Include="$(PluginsPath)\Nextek-SpeedyPaths\SpeedyPaths.dll" Aliases="SpeedyPaths" Publicize="true" />
     <Reference Include="$(PluginsPath)\plumga-Clutter\Clutter\Clutter.dll" Aliases="Clutter" Publicize="true" />
-    <Reference Include="$(PluginsPath)\Smoothbrain-Backpacks\Backpacks.dll" Aliases="Backpacks" Publicize="true" />
-    <Reference Include="$(PluginsPath)\Soloredis-RtDBiomes\RtDBiomes.dll" Aliases="RtDBiomes" Publicize="true" />
+    <Reference Include="$(PluginsPath)\shudnal-MoreGatesExtended\MoreGatesExtended.dll" Aliases="MoreGates" Publicize="true" />
     <Reference Include="$(PluginsPath)\southsil-SouthsilArmor\SouthsilArmor.dll" Aliases="SouthsilArmor" Publicize="true" />
     <Reference Include="$(PluginsPath)\Therzie-Monstrum\Monstrum.dll" Aliases="Monstrum" Publicize="true" />
     <Reference Include="$(PluginsPath)\Therzie-Warfare\Warfare.dll" Aliases="Warfare" Publicize="true" />
