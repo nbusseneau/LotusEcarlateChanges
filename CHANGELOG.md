@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Allow crafting flint arrows with level 1 workbench since we disabled wood arrows.
+
 ## [0.7.1] - 2025-08-05
 
 ### Added

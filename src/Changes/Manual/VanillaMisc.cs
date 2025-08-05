@@ -100,5 +100,8 @@ public class VanillaMisc : ManualChangesBase
     dvergrStakewall.CraftingStation = workbench;
     dvergrStakewall.Resources.Clear();
     dvergrStakewall.Resources.Add("YggdrasilWood", 4);
+
+    // Rebalance flint arrows crafting since we disable wood arrows via ZenCombat
+    this.ItemManager["ArrowFlint"].Recipe.m_minStationLevel = 1;
   }
 }
