@@ -792,7 +792,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     runeknightHelm.RequiredUpgradeItems.Add("BlackMetal", 5);
     runeknightHelm.RequiredUpgradeItems.Add("Eitr", 5);
     runeknightHelmWrapper.Armor.ArmorBase = 17;
-    runeknightHelmWrapper.Armor.ArmorPerLevel = 4;
+    runeknightHelmWrapper.Armor.ArmorPerLevel = 3;
     runeknightHelmWrapper.Armor.MovementModifier = Heavy.MovementModifier.Helm;
     runeknightHelmWrapper.Armor.Weight = Heavy.Weight.Helm;
     runeknightHelm.Prefab.FixItemLayer();
@@ -1122,7 +1122,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     morgenslayerLegs.RequiredUpgradeItems.Add("CharredBone", 10);
     morgenslayerLegs.RequiredUpgradeItems.Add("MorgenSinew", 1);
     morgenslayerLegsWrapper.Armor.ArmorBase = 44;
-    morgenslayerLegsWrapper.Armor.ArmorPerLevel = 4;
+    morgenslayerLegsWrapper.Armor.ArmorPerLevel = 5;
     morgenslayerLegsWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Legs;
     morgenslayerLegsWrapper.Armor.Weight = VeryHeavy.Weight.Legs;
     morgenslayerLegsWrapper.SharedData.m_heatResistanceModifier = 0.20f;
