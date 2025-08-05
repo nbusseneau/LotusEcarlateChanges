@@ -25,6 +25,7 @@ namespace LotusEcarlateChanges;
 [BepInDependency("com.plumga.Clutter", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("fall_damage_for_creatures", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("goldenrevolver.CapeAndTorchResistanceChanges", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("neobotics.valheim_mod.maxaxe", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("nex.SpeedyPaths", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("shudnal.MoreGatesExtended", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("southsil.SouthsilArmor", BepInDependency.DependencyFlags.HardDependency)]
