@@ -950,102 +950,102 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     druidChestWrapper.Set = druidHelmWrapper.Set;
     druidLegsWrapper.Set = druidHelmWrapper.Set;
 
-    // Serpent
+    // Jörmungandr
     itemManager.Keep([
       "ss_frodehelm",
       "ss_frodechest",
       "ss_frodelegs",
     ]);
 
-    var (serpentHelm, serpentHelmWrapper) = itemManager["ss_frodehelm"];
+    var (jormungandrHelm, jormungandrHelmWrapper) = itemManager["ss_frodehelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      serpentHelm.Name.Alias("$SouthsilArmor_SerpentHelm_Name");
-      serpentHelm.Description.Alias("$SouthsilArmor_SerpentHelm_Description");
+      jormungandrHelm.Name.Alias("$SouthsilArmor_JormungandrHelm_Name");
+      jormungandrHelm.Description.Alias("$SouthsilArmor_JormungandrHelm_Description");
     });
-    serpentHelm.Crafting.Stations.Clear();
-    serpentHelm.Crafting.Add(CraftingTable.BlackForge, 1);
-    serpentHelm.RequiredItems.Requirements.Clear();
-    serpentHelm.RequiredItems.Add("Flametal", 15);
-    serpentHelm.RequiredItems.Add("BlackMetal", 15);
-    serpentHelm.RequiredItems.Add("AskHide", 2);
-    serpentHelm.RequiredItems.Add("SerpentScale", 5);
-    serpentHelm.RequiredItems.Add("SerpentTrophy", 1);
-    serpentHelm.RequiredUpgradeItems.Requirements.Clear();
-    serpentHelm.RequiredUpgradeItems.Add("Flametal", 7);
-    serpentHelm.RequiredUpgradeItems.Add("BlackMetal", 7);
-    serpentHelm.RequiredUpgradeItems.Add("AskHide", 1);
-    serpentHelm.RequiredUpgradeItems.Add("SerpentScale", 2);
-    serpentHelmWrapper.Armor.ArmorBase = 21;
-    serpentHelmWrapper.Armor.ArmorPerLevel = 4;
-    serpentHelmWrapper.Armor.MovementModifier = Heavy.MovementModifier.Helm;
-    serpentHelmWrapper.Armor.Weight = Heavy.Weight.Helm;
-    serpentHelmWrapper.SharedData.m_heatResistanceModifier = 0.07f;
-    serpentHelm.Prefab.FixItemLayer();
+    jormungandrHelm.Crafting.Stations.Clear();
+    jormungandrHelm.Crafting.Add(CraftingTable.BlackForge, 1);
+    jormungandrHelm.RequiredItems.Requirements.Clear();
+    jormungandrHelm.RequiredItems.Add("Flametal", 15);
+    jormungandrHelm.RequiredItems.Add("BlackMetal", 5);
+    jormungandrHelm.RequiredItems.Add("AskHide", 2);
+    jormungandrHelm.RequiredItems.Add("SerpentScale", 5);
+    jormungandrHelm.RequiredItems.Add("SerpentTrophy", 1);
+    jormungandrHelm.RequiredUpgradeItems.Requirements.Clear();
+    jormungandrHelm.RequiredUpgradeItems.Add("Flametal", 7);
+    jormungandrHelm.RequiredUpgradeItems.Add("BlackMetal", 3);
+    jormungandrHelm.RequiredUpgradeItems.Add("AskHide", 1);
+    jormungandrHelm.RequiredUpgradeItems.Add("SerpentScale", 2);
+    jormungandrHelmWrapper.Armor.ArmorBase = 21;
+    jormungandrHelmWrapper.Armor.ArmorPerLevel = 4;
+    jormungandrHelmWrapper.Armor.MovementModifier = Heavy.MovementModifier.Helm;
+    jormungandrHelmWrapper.Armor.Weight = Heavy.Weight.Helm;
+    jormungandrHelmWrapper.SharedData.m_heatResistanceModifier = 0.07f;
+    jormungandrHelm.Prefab.FixItemLayer();
 
-    var (serpentChest, serpentChestWrapper) = itemManager["ss_frodechest"];
+    var (jormungandrChest, jormungandrChestWrapper) = itemManager["ss_frodechest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      serpentChest.Name.Alias("$SouthsilArmor_SerpentChest_Name");
-      serpentChest.Description.Alias("$SouthsilArmor_SerpentChest_Description");
+      jormungandrChest.Name.Alias("$SouthsilArmor_JormungandrChest_Name");
+      jormungandrChest.Description.Alias("$SouthsilArmor_JormungandrChest_Description");
     });
-    serpentChest.Crafting.Stations.Clear();
-    serpentChest.Crafting.Add(CraftingTable.BlackForge, 1);
-    serpentChest.RequiredItems.Requirements.Clear();
-    serpentChest.RequiredItems.Add("Flametal", 45);
-    serpentChest.RequiredItems.Add("BlackMetal", 45);
-    serpentChest.RequiredItems.Add("AskHide", 6);
-    serpentChest.RequiredItems.Add("SerpentScale", 10);
-    serpentChest.RequiredUpgradeItems.Requirements.Clear();
-    serpentChest.RequiredUpgradeItems.Add("Flametal", 22);
-    serpentChest.RequiredUpgradeItems.Add("BlackMetal", 22);
-    serpentChest.RequiredUpgradeItems.Add("AskHide", 3);
-    serpentChest.RequiredUpgradeItems.Add("SerpentScale", 5);
-    serpentChestWrapper.Armor.ArmorBase = 63;
-    serpentChestWrapper.Armor.ArmorPerLevel = 4;
-    serpentChestWrapper.Armor.MovementModifier = Heavy.MovementModifier.Chest;
-    serpentChestWrapper.Armor.Weight = Heavy.Weight.Chest;
-    serpentChestWrapper.Armor.DamageModifiers.Clear();
-    serpentChestWrapper.SharedData.m_heatResistanceModifier = 0.33f;
+    jormungandrChest.Crafting.Stations.Clear();
+    jormungandrChest.Crafting.Add(CraftingTable.BlackForge, 1);
+    jormungandrChest.RequiredItems.Requirements.Clear();
+    jormungandrChest.RequiredItems.Add("Flametal", 45);
+    jormungandrChest.RequiredItems.Add("BlackMetal", 15);
+    jormungandrChest.RequiredItems.Add("AskHide", 6);
+    jormungandrChest.RequiredItems.Add("SerpentScale", 10);
+    jormungandrChest.RequiredUpgradeItems.Requirements.Clear();
+    jormungandrChest.RequiredUpgradeItems.Add("Flametal", 22);
+    jormungandrChest.RequiredUpgradeItems.Add("BlackMetal", 7);
+    jormungandrChest.RequiredUpgradeItems.Add("AskHide", 3);
+    jormungandrChest.RequiredUpgradeItems.Add("SerpentScale", 5);
+    jormungandrChestWrapper.Armor.ArmorBase = 63;
+    jormungandrChestWrapper.Armor.ArmorPerLevel = 4;
+    jormungandrChestWrapper.Armor.MovementModifier = Heavy.MovementModifier.Chest;
+    jormungandrChestWrapper.Armor.Weight = Heavy.Weight.Chest;
+    jormungandrChestWrapper.Armor.DamageModifiers.Clear();
+    jormungandrChestWrapper.SharedData.m_heatResistanceModifier = 0.33f;
 
-    var (serpentLegs, serpentLegsWrapper) = itemManager["ss_frodelegs"];
+    var (jormungandrLegs, jormungandrLegsWrapper) = itemManager["ss_frodelegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      serpentLegs.Name.Alias("$SouthsilArmor_SerpentLegs_Name");
-      serpentLegs.Description.Alias("$SouthsilArmor_SerpentLegs_Description");
+      jormungandrLegs.Name.Alias("$SouthsilArmor_JormungandrLegs_Name");
+      jormungandrLegs.Description.Alias("$SouthsilArmor_JormungandrLegs_Description");
     });
-    serpentLegs.Crafting.Stations.Clear();
-    serpentLegs.Crafting.Add(CraftingTable.BlackForge, 1);
-    serpentLegs.RequiredItems.Requirements.Clear();
-    serpentLegs.RequiredItems.Add("Flametal", 30);
-    serpentLegs.RequiredItems.Add("BlackMetal", 30);
-    serpentLegs.RequiredItems.Add("AskHide", 4);
-    serpentLegs.RequiredItems.Add("SerpentScale", 5);
-    serpentLegs.RequiredUpgradeItems.Requirements.Clear();
-    serpentLegs.RequiredUpgradeItems.Add("Flametal", 15);
-    serpentLegs.RequiredUpgradeItems.Add("BlackMetal", 15);
-    serpentLegs.RequiredUpgradeItems.Add("AskHide", 2);
-    serpentLegs.RequiredUpgradeItems.Add("SerpentScale", 2);
-    serpentLegsWrapper.Armor.ArmorBase = 42;
-    serpentLegsWrapper.Armor.ArmorPerLevel = 4;
-    serpentLegsWrapper.Armor.MovementModifier = Heavy.MovementModifier.Legs;
-    serpentLegsWrapper.Armor.Weight = Heavy.Weight.Legs;
-    serpentLegsWrapper.SharedData.m_heatResistanceModifier = 0.15f;
+    jormungandrLegs.Crafting.Stations.Clear();
+    jormungandrLegs.Crafting.Add(CraftingTable.BlackForge, 1);
+    jormungandrLegs.RequiredItems.Requirements.Clear();
+    jormungandrLegs.RequiredItems.Add("Flametal", 30);
+    jormungandrLegs.RequiredItems.Add("BlackMetal", 10);
+    jormungandrLegs.RequiredItems.Add("AskHide", 4);
+    jormungandrLegs.RequiredItems.Add("SerpentScale", 5);
+    jormungandrLegs.RequiredUpgradeItems.Requirements.Clear();
+    jormungandrLegs.RequiredUpgradeItems.Add("Flametal", 15);
+    jormungandrLegs.RequiredUpgradeItems.Add("BlackMetal", 5);
+    jormungandrLegs.RequiredUpgradeItems.Add("AskHide", 2);
+    jormungandrLegs.RequiredUpgradeItems.Add("SerpentScale", 2);
+    jormungandrLegsWrapper.Armor.ArmorBase = 42;
+    jormungandrLegsWrapper.Armor.ArmorPerLevel = 4;
+    jormungandrLegsWrapper.Armor.MovementModifier = Heavy.MovementModifier.Legs;
+    jormungandrLegsWrapper.Armor.Weight = Heavy.Weight.Legs;
+    jormungandrLegsWrapper.SharedData.m_heatResistanceModifier = 0.15f;
 
-    var serpentSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
-    serpentSetEffect.m_name = "$SouthsilArmor_SerpentSet_Effect_Name";
-    serpentSetEffect.m_tooltip = "$SouthsilArmor_SerpentSet_Effect_Tooltip";
-    serpentSetEffect.m_icon = serpentHelmWrapper.Icon;
-    serpentSetEffect.m_skillLevel = Skills.SkillType.Spears;
-    serpentSetEffect.m_skillLevelModifier = 15;
-    serpentSetEffect.m_skillLevel2 = Skills.SkillType.Polearms;
-    serpentSetEffect.m_skillLevelModifier2 = 15;
+    var jormungandrSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
+    jormungandrSetEffect.m_name = "$SouthsilArmor_JormungandrSet_Effect_Name";
+    jormungandrSetEffect.m_tooltip = "$SouthsilArmor_JormungandrSet_Effect_Tooltip";
+    jormungandrSetEffect.m_icon = jormungandrHelmWrapper.Icon;
+    jormungandrSetEffect.m_skillLevel = Skills.SkillType.Spears;
+    jormungandrSetEffect.m_skillLevelModifier = 15;
+    jormungandrSetEffect.m_skillLevel2 = Skills.SkillType.Polearms;
+    jormungandrSetEffect.m_skillLevelModifier2 = 15;
 
-    serpentHelmWrapper.Set.Effect = serpentSetEffect;
-    serpentHelmWrapper.Set.Name = "Serpent";
-    serpentHelmWrapper.Set.Size = 3;
-    serpentChestWrapper.Set = serpentHelmWrapper.Set;
-    serpentLegsWrapper.Set = serpentHelmWrapper.Set;
+    jormungandrHelmWrapper.Set.Effect = jormungandrSetEffect;
+    jormungandrHelmWrapper.Set.Name = "Jormungandr";
+    jormungandrHelmWrapper.Set.Size = 3;
+    jormungandrChestWrapper.Set = jormungandrHelmWrapper.Set;
+    jormungandrLegsWrapper.Set = jormungandrHelmWrapper.Set;
 
     // Morgen-slayer
     itemManager.Keep([
@@ -1054,97 +1054,97 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
       "ss_storrlegs",
     ]);
 
-    var (morgenHelm, morgenHelmWrapper) = itemManager["ss_storrhelm"];
+    var (morgenslayerHelm, morgenslayerHelmWrapper) = itemManager["ss_storrhelm"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      morgenHelm.Name.Alias("$SouthsilArmor_MorgenHelm_Name");
-      morgenHelm.Description.Alias("$SouthsilArmor_MorgenHelm_Description");
+      morgenslayerHelm.Name.Alias("$SouthsilArmor_MorgenslayerHelm_Name");
+      morgenslayerHelm.Description.Alias("$SouthsilArmor_MorgenslayerHelm_Description");
     });
-    morgenHelm.Crafting.Stations.Clear();
-    morgenHelm.Crafting.Add(CraftingTable.BlackForge, 1);
-    morgenHelm.RequiredItems.Requirements.Clear();
-    morgenHelm.RequiredItems.Add("Flametal", 15);
-    morgenHelm.RequiredItems.Add("AskHide", 5);
-    morgenHelm.RequiredItems.Add("CharredBone", 10);
-    morgenHelm.RequiredItems.Add("MorgenSinew", 1);
-    morgenHelm.RequiredItems.Add("MorgenTrophy", 1);
-    morgenHelm.RequiredUpgradeItems.Requirements.Clear();
-    morgenHelm.RequiredUpgradeItems.Add("Flametal", 7);
-    morgenHelm.RequiredUpgradeItems.Add("AskHide", 2);
-    morgenHelm.RequiredUpgradeItems.Add("CharredBone", 5);
-    morgenHelmWrapper.Armor.ArmorBase = 22;
-    morgenHelmWrapper.Armor.ArmorPerLevel = 4;
-    morgenHelmWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Helm;
-    morgenHelmWrapper.Armor.Weight = VeryHeavy.Weight.Helm;
-    morgenHelmWrapper.SharedData.m_heatResistanceModifier = 0.10f;
-    morgenHelm.Prefab.FixItemLayer();
+    morgenslayerHelm.Crafting.Stations.Clear();
+    morgenslayerHelm.Crafting.Add(CraftingTable.BlackForge, 1);
+    morgenslayerHelm.RequiredItems.Requirements.Clear();
+    morgenslayerHelm.RequiredItems.Add("Flametal", 15);
+    morgenslayerHelm.RequiredItems.Add("AskHide", 5);
+    morgenslayerHelm.RequiredItems.Add("CharredBone", 10);
+    morgenslayerHelm.RequiredItems.Add("MorgenSinew", 1);
+    morgenslayerHelm.RequiredItems.Add("MorgenTrophy", 1);
+    morgenslayerHelm.RequiredUpgradeItems.Requirements.Clear();
+    morgenslayerHelm.RequiredUpgradeItems.Add("Flametal", 7);
+    morgenslayerHelm.RequiredUpgradeItems.Add("AskHide", 2);
+    morgenslayerHelm.RequiredUpgradeItems.Add("CharredBone", 5);
+    morgenslayerHelmWrapper.Armor.ArmorBase = 22;
+    morgenslayerHelmWrapper.Armor.ArmorPerLevel = 4;
+    morgenslayerHelmWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Helm;
+    morgenslayerHelmWrapper.Armor.Weight = VeryHeavy.Weight.Helm;
+    morgenslayerHelmWrapper.SharedData.m_heatResistanceModifier = 0.10f;
+    morgenslayerHelm.Prefab.FixItemLayer();
 
-    var (morgenChest, morgenChestWrapper) = itemManager["ss_storrchest"];
+    var (morgenslayerChest, morgenslayerChestWrapper) = itemManager["ss_storrchest"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      morgenChest.Name.Alias("$SouthsilArmor_MorgenChest_Name");
-      morgenChest.Description.Alias("$SouthsilArmor_MorgenChest_Description");
+      morgenslayerChest.Name.Alias("$SouthsilArmor_MorgenslayerChest_Name");
+      morgenslayerChest.Description.Alias("$SouthsilArmor_MorgenslayerChest_Description");
     });
-    morgenChest.Crafting.Stations.Clear();
-    morgenChest.Crafting.Add(CraftingTable.BlackForge, 1);
-    morgenChest.RequiredItems.Requirements.Clear();
-    morgenChest.RequiredItems.Add("Flametal", 45);
-    morgenChest.RequiredItems.Add("AskHide", 15);
-    morgenChest.RequiredItems.Add("CharredBone", 30);
-    morgenChest.RequiredItems.Add("MorgenSinew", 3);
-    morgenChest.RequiredUpgradeItems.Requirements.Clear();
-    morgenChest.RequiredUpgradeItems.Add("Flametal", 22);
-    morgenChest.RequiredUpgradeItems.Add("AskHide", 7);
-    morgenChest.RequiredUpgradeItems.Add("CharredBone", 15);
-    morgenChest.RequiredUpgradeItems.Add("MorgenSinew", 2);
-    morgenChestWrapper.Armor.ArmorBase = 66;
-    morgenChestWrapper.Armor.ArmorPerLevel = 5;
-    morgenChestWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Chest;
-    morgenChestWrapper.Armor.Weight = VeryHeavy.Weight.Chest;
-    morgenChestWrapper.SharedData.m_heatResistanceModifier = 0.40f;
+    morgenslayerChest.Crafting.Stations.Clear();
+    morgenslayerChest.Crafting.Add(CraftingTable.BlackForge, 1);
+    morgenslayerChest.RequiredItems.Requirements.Clear();
+    morgenslayerChest.RequiredItems.Add("Flametal", 45);
+    morgenslayerChest.RequiredItems.Add("AskHide", 15);
+    morgenslayerChest.RequiredItems.Add("CharredBone", 30);
+    morgenslayerChest.RequiredItems.Add("MorgenSinew", 3);
+    morgenslayerChest.RequiredUpgradeItems.Requirements.Clear();
+    morgenslayerChest.RequiredUpgradeItems.Add("Flametal", 22);
+    morgenslayerChest.RequiredUpgradeItems.Add("AskHide", 7);
+    morgenslayerChest.RequiredUpgradeItems.Add("CharredBone", 15);
+    morgenslayerChest.RequiredUpgradeItems.Add("MorgenSinew", 2);
+    morgenslayerChestWrapper.Armor.ArmorBase = 66;
+    morgenslayerChestWrapper.Armor.ArmorPerLevel = 5;
+    morgenslayerChestWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Chest;
+    morgenslayerChestWrapper.Armor.Weight = VeryHeavy.Weight.Chest;
+    morgenslayerChestWrapper.SharedData.m_heatResistanceModifier = 0.40f;
 
-    var (morgenLegs, morgenLegsWrapper) = itemManager["ss_storrlegs"];
+    var (morgenslayerLegs, morgenslayerLegsWrapper) = itemManager["ss_storrlegs"];
     s_onLocalizationAddedCallbacks.Add(() =>
     {
-      morgenLegs.Name.Alias("$SouthsilArmor_MorgenLegs_Name");
-      morgenLegs.Description.Alias("$SouthsilArmor_MorgenLegs_Description");
+      morgenslayerLegs.Name.Alias("$SouthsilArmor_MorgenslayerLegs_Name");
+      morgenslayerLegs.Description.Alias("$SouthsilArmor_MorgenslayerLegs_Description");
     });
-    morgenLegs.Crafting.Stations.Clear();
-    morgenLegs.Crafting.Add(CraftingTable.BlackForge, 1);
-    morgenLegs.RequiredItems.Requirements.Clear();
-    morgenLegs.RequiredItems.Add("Flametal", 30);
-    morgenLegs.RequiredItems.Add("AskHide", 10);
-    morgenLegs.RequiredItems.Add("CharredBone", 20);
-    morgenLegs.RequiredItems.Add("MorgenSinew", 2);
-    morgenLegs.RequiredUpgradeItems.Requirements.Clear();
-    morgenLegs.RequiredUpgradeItems.Add("Flametal", 15);
-    morgenLegs.RequiredUpgradeItems.Add("AskHide", 5);
-    morgenLegs.RequiredUpgradeItems.Add("CharredBone", 10);
-    morgenLegs.RequiredUpgradeItems.Add("MorgenSinew", 1);
-    morgenLegsWrapper.Armor.ArmorBase = 44;
-    morgenLegsWrapper.Armor.ArmorPerLevel = 4;
-    morgenLegsWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Legs;
-    morgenLegsWrapper.Armor.Weight = VeryHeavy.Weight.Legs;
-    morgenLegsWrapper.SharedData.m_heatResistanceModifier = 0.20f;
+    morgenslayerLegs.Crafting.Stations.Clear();
+    morgenslayerLegs.Crafting.Add(CraftingTable.BlackForge, 1);
+    morgenslayerLegs.RequiredItems.Requirements.Clear();
+    morgenslayerLegs.RequiredItems.Add("Flametal", 30);
+    morgenslayerLegs.RequiredItems.Add("AskHide", 10);
+    morgenslayerLegs.RequiredItems.Add("CharredBone", 20);
+    morgenslayerLegs.RequiredItems.Add("MorgenSinew", 2);
+    morgenslayerLegs.RequiredUpgradeItems.Requirements.Clear();
+    morgenslayerLegs.RequiredUpgradeItems.Add("Flametal", 15);
+    morgenslayerLegs.RequiredUpgradeItems.Add("AskHide", 5);
+    morgenslayerLegs.RequiredUpgradeItems.Add("CharredBone", 10);
+    morgenslayerLegs.RequiredUpgradeItems.Add("MorgenSinew", 1);
+    morgenslayerLegsWrapper.Armor.ArmorBase = 44;
+    morgenslayerLegsWrapper.Armor.ArmorPerLevel = 4;
+    morgenslayerLegsWrapper.Armor.MovementModifier = VeryHeavy.MovementModifier.Legs;
+    morgenslayerLegsWrapper.Armor.Weight = VeryHeavy.Weight.Legs;
+    morgenslayerLegsWrapper.SharedData.m_heatResistanceModifier = 0.20f;
 
-    var morgenSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
-    morgenSetEffect.m_name = "$SouthsilArmor_MorgenSet_Effect_Name";
-    morgenSetEffect.m_tooltip = "$SouthsilArmor_MorgenSet_Effect_Tooltip";
-    morgenSetEffect.m_icon = morgenHelmWrapper.Icon;
-    morgenSetEffect.m_skillLevel = Skills.SkillType.Swords;
-    morgenSetEffect.m_skillLevelModifier = 15;
-    morgenSetEffect.m_skillLevel2 = Skills.SkillType.Blocking;
-    morgenSetEffect.m_skillLevelModifier2 = 15;
-    morgenSetEffect.m_mods.Add(new()
+    var morgenslayerSetEffect = ScriptableObject.CreateInstance<SE_Stats>();
+    morgenslayerSetEffect.m_name = "$SouthsilArmor_MorgenslayerSet_Effect_Name";
+    morgenslayerSetEffect.m_tooltip = "$SouthsilArmor_MorgenslayerSet_Effect_Tooltip";
+    morgenslayerSetEffect.m_icon = morgenslayerHelmWrapper.Icon;
+    morgenslayerSetEffect.m_skillLevel = Skills.SkillType.Swords;
+    morgenslayerSetEffect.m_skillLevelModifier = 15;
+    morgenslayerSetEffect.m_skillLevel2 = Skills.SkillType.Blocking;
+    morgenslayerSetEffect.m_skillLevelModifier2 = 15;
+    morgenslayerSetEffect.m_mods.Add(new()
     {
       m_type = HitData.DamageType.Pierce,
       m_modifier = HitData.DamageModifier.Resistant,
     });
 
-    morgenHelmWrapper.Set.Effect = morgenSetEffect;
-    morgenHelmWrapper.Set.Name = "Morgenslayer";
-    morgenHelmWrapper.Set.Size = 3;
-    morgenChestWrapper.Set = morgenHelmWrapper.Set;
-    morgenLegsWrapper.Set = morgenHelmWrapper.Set;
+    morgenslayerHelmWrapper.Set.Effect = morgenslayerSetEffect;
+    morgenslayerHelmWrapper.Set.Name = "Morgenslayer";
+    morgenslayerHelmWrapper.Set.Size = 3;
+    morgenslayerChestWrapper.Set = morgenslayerHelmWrapper.Set;
+    morgenslayerLegsWrapper.Set = morgenslayerHelmWrapper.Set;
   }
 }
