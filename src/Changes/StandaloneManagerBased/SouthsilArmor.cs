@@ -970,7 +970,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     jormungandrHelm.RequiredItems.Add("BlackMetal", 5);
     jormungandrHelm.RequiredItems.Add("AskHide", 2);
     jormungandrHelm.RequiredItems.Add("SerpentScale", 5);
-    jormungandrHelm.RequiredItems.Add("SerpentTrophy", 1);
+    jormungandrHelm.RequiredItems.Add("TrophySerpent", 1);
     jormungandrHelm.RequiredUpgradeItems.Requirements.Clear();
     jormungandrHelm.RequiredUpgradeItems.Add("Flametal", 7);
     jormungandrHelm.RequiredUpgradeItems.Add("BlackMetal", 3);
@@ -1067,7 +1067,7 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     morgenslayerHelm.RequiredItems.Add("AskHide", 5);
     morgenslayerHelm.RequiredItems.Add("CharredBone", 10);
     morgenslayerHelm.RequiredItems.Add("MorgenSinew", 1);
-    morgenslayerHelm.RequiredItems.Add("MorgenTrophy", 1);
+    morgenslayerHelm.RequiredItems.Add("TrophyMorgen", 1);
     morgenslayerHelm.RequiredUpgradeItems.Requirements.Clear();
     morgenslayerHelm.RequiredUpgradeItems.Add("Flametal", 7);
     morgenslayerHelm.RequiredUpgradeItems.Add("AskHide", 2);
