@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.4] - 2025-08-06
+
 ### Fixed
 
 - Fix trophies in new Ashlands-tier armor recipes.
@@ -515,7 +517,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.3...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.4...HEAD
+[0.7.4]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.3...0.7.4
 [0.7.3]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.2...0.7.3
 [0.7.2]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.0...0.7.1
