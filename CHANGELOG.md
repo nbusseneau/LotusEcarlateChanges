@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix flametal-based armor recipes because I'm dumb.
+
 ## [0.7.4] - 2025-08-06
 
 ### Fixed

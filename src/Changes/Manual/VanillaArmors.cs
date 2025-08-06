@@ -465,7 +465,7 @@ public class VanillaArmors : ManualChangesBase
     emblaHelm.Resources.Add("LinenThread", 10, 5);
     emblaHelm.Resources.Add("Eitr", 15, 5);
     emblaHelm.Resources.Add("AskHide", 3, 1);
-    emblaHelm.Resources.Add("Flametal", 2, 1);
+    emblaHelm.Resources.Add("FlametalNew", 2, 1);
     emblaHelm.Armor.ArmorBase = 10;
     emblaHelm.Armor.ArmorPerLevel = 2;
     emblaHelm.Armor.MovementModifier = SemiLight.MovementModifier.Helm; // mage robes are annoying for running lmao
@@ -477,7 +477,7 @@ public class VanillaArmors : ManualChangesBase
     emblaChest.Resources.Add("LinenThread", 30, 15);
     emblaChest.Resources.Add("Eitr", 20, 5);
     emblaHelm.Resources.Add("AskHide", 12, 4);
-    emblaHelm.Resources.Add("Flametal", 6, 3);
+    emblaHelm.Resources.Add("FlametalNew", 6, 3);
     emblaChest.Armor.ArmorBase = 30;
     emblaChest.Armor.ArmorPerLevel = 3;
     emblaChest.Armor.MovementModifier = SemiLight.MovementModifier.Chest; // mage robes are annoying for running lmao
@@ -489,7 +489,7 @@ public class VanillaArmors : ManualChangesBase
     emblaLegs.Resources.Add("LinenThread", 20, 10);
     emblaLegs.Resources.Add("Eitr", 20, 5);
     emblaHelm.Resources.Add("AskHide", 6, 2);
-    emblaHelm.Resources.Add("Flametal", 4, 2);
+    emblaHelm.Resources.Add("FlametalNew", 4, 2);
     emblaLegs.Armor.ArmorBase = 20;
     emblaLegs.Armor.ArmorPerLevel = 3;
     emblaLegs.Armor.MovementModifier = SemiLight.MovementModifier.Legs; // mage robes are annoying for running lmao
@@ -530,7 +530,7 @@ public class VanillaArmors : ManualChangesBase
     // Flametal
     var flametalHelm = this.ItemManager["HelmetFlametal"];
     flametalHelm.Resources.Clear();
-    flametalHelm.Resources.Add("Flametal", 10, 5);
+    flametalHelm.Resources.Add("FlametalNew", 10, 5);
     flametalHelm.Resources.Add("AskHide", 2, 1);
     flametalHelm.Resources.Add("CharredBone", 2, 1);
     flametalHelm.Resources.Add("Eitr", 4, 2);
@@ -542,7 +542,7 @@ public class VanillaArmors : ManualChangesBase
 
     var flametalChest = this.ItemManager["ArmorFlametalChest"];
     flametalChest.Resources.Clear();
-    flametalChest.Resources.Add("Flametal", 30, 15);
+    flametalChest.Resources.Add("FlametalNew", 30, 15);
     flametalChest.Resources.Add("AskHide", 4, 3);
     flametalChest.Resources.Add("CharredBone", 6, 3);
     flametalChest.Resources.Add("MorgenHeart", 1, 0);
@@ -554,7 +554,7 @@ public class VanillaArmors : ManualChangesBase
 
     var flametalLegs = this.ItemManager["ArmorFlametalLegs"];
     flametalLegs.Resources.Clear();
-    flametalLegs.Resources.Add("Flametal", 20, 10);
+    flametalLegs.Resources.Add("FlametalNew", 20, 10);
     flametalLegs.Resources.Add("AskHide", 3, 2);
     flametalLegs.Resources.Add("CharredBone", 4, 2);
     flametalLegs.Resources.Add("Iron", 12, 3);
