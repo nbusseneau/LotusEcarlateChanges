@@ -102,9 +102,13 @@ public class Clutter() : JotunnBasedChangesBase("com.plumga.Clutter")
     ];
     foreach (var piece in this.PieceManager[stoneStatues]) piece.CraftingStation = stonecutter;
 
-    // Adjust secret book container size
+    // Adjust container sizes
     var secretBookContainer = this.PieceManager["$custompiece_booksecretstorage"].Prefab.GetComponent<Container>();
     secretBookContainer.m_width = 1;
     secretBookContainer.m_height = 1;
+
+    var picnicBasketContainer = this.PieceManager["$custompiece_picnicbasket"].Prefab.GetComponent<Container>();
+    picnicBasketContainer.m_width = 2;
+    picnicBasketContainer.m_height = 1;
   }
 }
