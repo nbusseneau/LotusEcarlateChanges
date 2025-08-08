@@ -84,6 +84,7 @@ public class Monstrum : StandaloneManagerBasedChangesBase
     creatureManager["BossAsmodeus_TW"].Creature.Drops.drops.Remove("KnifeViper_TW");
     creatureManager["BossSvalt_TW"].Creature.Drops.drops.Remove("DualAxeDemonic_TW");
     creatureManager["BossVrykolathas_TW"].Creature.Drops.drops.Remove("ScytheVampiric_TW");
+    creatureManager["BossVrykolathas_TW"].Creature.Drops.drops.Remove("DualScytheBloodthirst_TW");
 
     creatureManager["Fox_TW"].Creature.Drops["FoxMeat_TW"].DropChance = 100f;
     creatureManager["Razorback_TW"].Creature.Drops["RawMeat"].Amount = new Range(1, 2);
