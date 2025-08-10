@@ -218,6 +218,8 @@ public class SouthsilArmor : StandaloneManagerBasedChangesBase
     battleswineSetEffect.m_icon = battleswineHelmWrapper.Icon;
     battleswineSetEffect.m_skillLevel = Skills.SkillType.Spears;
     battleswineSetEffect.m_skillLevelModifier = 15;
+    battleswineSetEffect.m_skillLevel2 = Skills.SkillType.Polearms;
+    battleswineSetEffect.m_skillLevelModifier2 = 15;
 
     battleswineHelmWrapper.Set.Effect = battleswineSetEffect;
     battleswineHelmWrapper.Set.Name = "Battleswine";

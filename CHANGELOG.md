@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add Polearms bonus to Battleswine set effect.
+
 ### Fixed
 
 - Fix warning due to invalid drop from Monstrum boss.
