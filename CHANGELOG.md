@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.6] - 2025-08-10
+
 ### Changed
 
 - Add Polearms bonus to Battleswine set effect.
@@ -531,7 +533,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.5...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.6...HEAD
+[0.7.6]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.5...0.7.6
 [0.7.5]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.4...0.7.5
 [0.7.4]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.3...0.7.4
 [0.7.3]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.2...0.7.3
