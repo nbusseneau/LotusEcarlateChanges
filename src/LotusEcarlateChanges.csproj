@@ -5,7 +5,7 @@
     <LangVersion>12.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <GaleProfile>Staging</GaleProfile>
+    <R2ModManProfile>Staging</R2ModManProfile>
   </PropertyGroup>
 
   <!-- Valheim paths -->
@@ -33,7 +33,7 @@
 
   <!-- BepInEx paths -->
   <PropertyGroup>
-    <BepInExPath Condition="!Exists('$(BepInExPath)') AND ($(OS) == 'Windows_NT')">$(AppData)\com.kesomannen.gale\Valheim\profiles\$(GaleProfile)\BepInEx</BepInExPath>
+    <BepInExPath Condition="!Exists('$(BepInExPath)') AND ($(OS) == 'Windows_NT')">$(AppData)\r2modmanPlus-local\Valheim\profiles\$(R2ModManProfile)\BepInEx</BepInExPath>
     <BepInExPath Condition="!Exists('$(BepInExPath)') AND Exists('$(GamePath)')">$(GamePath)\BepInEx</BepInExPath>
     <PluginsPath>$(BepInExPath)\plugins</PluginsPath>
   </PropertyGroup>
