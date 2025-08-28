@@ -27,6 +27,10 @@ public class ClayBuildPieces : StandaloneManagerBasedChangesBase
       if (piece.Category.Category == BuildPieceCategory.Misc) piece.Category.Set(BuildPieceCategory.Furniture);
     }
 
+    // Relocate clay light post to BuildingWorkbench
+    var lightpost = pieceManager["BFP_ClayLightPost"].BuildPiece;
+    lightpost.Category.Set(BuildPieceCategory.BuildingWorkbench);
+
     // Relocate clay collector to Crafting and change recipe
     var collector = pieceManager["BCP_ClayCollector"].BuildPiece;
     collector.Category.Set(BuildPieceCategory.Crafting);

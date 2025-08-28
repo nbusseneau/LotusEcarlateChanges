@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Properly relocate Clay Light Post from Furniture to Building category.
+
 ## [0.7.6] - 2025-08-10
 
 ### Changed
