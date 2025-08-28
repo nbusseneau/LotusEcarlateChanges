@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.7] - 2025-08-28
+
 ### Changed
 
 - Update Jotunn to 2.26.1.
@@ -541,7 +543,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.
 
-[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.6...HEAD
+[unreleased]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.7...HEAD
+[0.7.7]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.6...0.7.7
 [0.7.6]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.5...0.7.6
 [0.7.5]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.4...0.7.5
 [0.7.4]: https://github.com/nbusseneau/LotusEcarlateChanges/compare/0.7.3...0.7.4
