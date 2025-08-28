@@ -75,7 +75,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="JotunnLib" Version="2.26.0" Publicize="true" />
+    <PackageReference Include="JotunnLib" Version="2.26.1" Publicize="true" />
   </ItemGroup>
 
   <!-- Translations -->
